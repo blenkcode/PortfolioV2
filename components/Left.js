@@ -14,18 +14,18 @@ import { useRouter } from "next/router";
 function Left() {
   return (
     <div className=" 2xl:pb-48  pt-36 w-full h-auto flex flex-col items-center justify-center 2xl:pl-48 xl:pl-40 lg:pl-36 md:pl-36 sm:pl-32 pl-20 ">
-      <div className="text-white ">
-        <div className=" z-20 text-2xl 2xl:text-2xl xl:text-xl lg:text-lg md-text-m sm-text-sm text-white font-source font-light  mb-3">
+      <div className="text-white  ">
+        <div className="fadeIn ease-in z-20 text-2xl 2xl:text-2xl xl:text-xl lg:text-lg md-text-m sm-text-sm text-white font-source font-light  mb-3">
           Hi, my name is
         </div>
-        <div className="z-20 flex items-end text-6xl 2xl:text-6xl xl-text-6xl lg:text-5xl md:text-5xl sm:text-4xl  font-semi-bold text-purple-200  00">
+        <div className="fadeIn ease-in delay-75 z-20 flex items-end text-6xl 2xl:text-6xl xl-text-6xl lg:text-5xl md:text-5xl sm:text-4xl  font-semi-bold text-purple-200  00">
           Valentin Mor
-          <div className=" z-20 ml-6 text-2xl 2xl:text-2xl xl:text-xl lg:text-lg md-text-m sm-text-sm font-source font-light text-white">
+          <div className=" fadeIn ease-in delay-100 z-20 ml-6 text-2xl 2xl:text-2xl xl:text-xl lg:text-lg md-text-m sm-text-sm font-source font-light text-white">
             {" "}
             I'm a{" "}
           </div>
         </div>
-        <div className=" z-20 bg-transparent mt-3 font-bold text-7xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl ">
+        <div className="fadeIn ease-in delay-500 z-20 bg-transparent mt-3 font-bold text-7xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl ">
           FULL-ST
           <span className={styles.A}>A</span>
           <span className={styles.C}>C</span>
@@ -41,7 +41,7 @@ function Left() {
           <span className={styles.eee}>e</span>
           <span className={styles.r}>r.</span>
         </div>
-        <div className="z-10 mt-20 text-xl 2xl:w-7/12 lg:w-9/12 sm:w-7/12 ">
+        <div className="fadeIn ease-in delay-200 z-10 mt-20 text-xl 2xl:w-7/12 lg:w-9/12 sm:w-7/12 ">
           {" "}
           Je suis un développeur React et Node.js basé à <b>Montpellier.</b>
           <br></br>
@@ -49,7 +49,7 @@ function Left() {
           Passionné par la <b>création</b> d'interfaces utilisateurs et
           d'architecture back-end, je réalise vos futures applications web!
         </div>
-        <div className="mt-28  ">
+        <div className="mt-28 fadeIn ease-in delay-400 ">
           {" "}
           <a
             href="/VALENTIN-MOR-CV-2024.pdf"

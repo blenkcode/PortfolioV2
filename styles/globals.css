@@ -45,3 +45,22 @@
 .rotate-y {
   animation: rotateY 60s infinite ease-in-out;
 }
+
+@keyframes fadeIn {
+  0% {
+    transform: translateX(-150px)   ;
+    opacity: 0%;
+    
+  }
+  
+  
+  100% {
+    transform: translateX(0px)   ;
+    opacity: 100%;
+   
+  }
+}
+
+.fadeIn{
+  animation: fadeIn 1s forwards ease-in-out;
+}

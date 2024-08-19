@@ -1,5 +1,5 @@
 import Language from "./Language";
-import Right from "./right";
+
 import styles from "../styles/Home.module.css";
 import Header from "./Header";
 import Stack from "./Stack";

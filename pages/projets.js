@@ -14,8 +14,8 @@ function projets() {
     router.push("/");
   };
   return (
-    <div className="bg-zinc-900 w-full h-auto text-zinc-200 grid grid-cols-1 md:grid-cols-2 relative ">
-      <div className="  flex flex-col p-12 2xl:py-36 2xl:px-44 xl:p-20 lg:p-16 md:p-14 sm:p-12 ">
+    <div className="bg-zinc-900 w-full h-auto text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative ">
+      <div className="  flex flex-col p-36  ">
         <img
           onClick={() => handlerouter()}
           class="w-16 shadow-inner top-5 left-5  absolute cursor-pointer"
@@ -103,7 +103,7 @@ function projets() {
           </a>
         </div>
       </div>
-      <div className="   h-lvh  py-12 pr-36 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12flex flex-col justify-start items-center">
+      <div className="  flex h-lvh px-36 py-36 pr-36 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12flex flex-col justify-start items-center">
         <Slider></Slider>
       </div>
     </div>

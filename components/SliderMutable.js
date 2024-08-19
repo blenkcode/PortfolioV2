@@ -26,7 +26,7 @@ function SliderMutable() {
           </div>
         ))}
       </Carousel>
-      <div className="grid grid-cols-4 gap-5 w-200 mt-20">
+      <div className="grid grid-cols-4 gap-5 w-150 2xl:w-200 mt-20">
         {data.map((slide, index) => (
           <div className="flex justify-center items-center">
             {" "}

@@ -27,14 +27,14 @@ function Right() {
         )}
       </div>
 
-      <div className="mt-10 w-2/3 text-white flex flex-col justify-center items-center">
+      <div className="mt-10 2xl:w-2/3 w-full lg:w-full text-white flex flex-col justify-center items-center">
         <div className="ml-10">
-          <div className="text-2xl mb-14 text-white">
+          <div className="text-2xl 2xl:text-2xl lg:text-xl md:text-lg mb-14 text-white">
             Je crée des interfaces interactives pour vos applications{" "}
             <span className={styles.web}>Web</span> &{" "}
             <span className={styles.web}>Mobile</span>.
           </div>
-          <div className="text-lg mb-3">
+          <div className=" 2xl:text-lg lg:text-base text-sm mb-3">
             <FontAwesomeIcon className="mr-3 text-violet-400" icon={faLaptop} />
             Développement Front-End & Back-End
           </div>

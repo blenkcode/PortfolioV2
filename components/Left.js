@@ -41,7 +41,7 @@ function Left() {
           <span className={styles.eee}>e</span>
           <span className={styles.r}>r.</span>
         </div>
-        <div className="z-10 mt-20 text-xl w-7/12 ">
+        <div className="z-10 mt-20 text-xl 2xl:w-7/12 lg:w-9/12 sm:w-7/12 ">
           {" "}
           Je suis un développeur React et Node.js basé à <b>Montpellier.</b>
           <br></br>

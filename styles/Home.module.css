@@ -220,3 +220,8 @@ transition: all 0.15s ease-out;
     height: 5rem; /* Réduire la hauteur à 5rem */
   }
 }
+.invisible{
+opacity: 0%;
+transform: translateY(200px);
+  transition: 1s ease-out;
+}

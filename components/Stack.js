@@ -1,5 +1,5 @@
 import Language from "./Language";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
 function Stack({}) {
@@ -33,15 +33,44 @@ function Stack({}) {
       });
     };
   }, []);
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  console.log(scrollY);
+
+  useEffect(() => {
+    if (scrollY > 200) {
+      setIsVisible(true);
+    }
+  }, [scrollY]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Nettoyer l'écouteur d'événements lors du démontage du composant
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className="flex items-center 2xl:pb-64 pb-0 sm:pb-0 flex-col relative z-10 h-auto">
       <div className="text-4xl flex text-zinc-200 mb-32 border-solid border-zinc-500  border-l-2  px-5 py-5  ">
         Stack Technique <div className="ml-3">🛠️</div>
       </div>
 
-      <div className=" z-20 grid grid-cols-1 xl:grid-cols-2 gap-20 w-2/3  ">
+      <div
+        className={`${
+          isVisible
+            ? "z-20 grid grid-cols-1 xl:grid-cols-2 gap-20 w-2/3 opacity-100 translate-y-0 transition duration-[2000ms]"
+            : styles.invisible
+        }`}
+      >
         {" "}
-        <div className="2xl:px-16 sm:px-7rounded-lg  z-10 ">
+        <div className="2xl:px-16 sm:px-7 rounded-lg z-10">
           <p className="text-xl text-zinc-200 z-20">
             J'utilise <b className={styles.react}>JavaScript</b> pour vous
             offrir des sites modernes et performants avec les technologies les

@@ -35,13 +35,18 @@ function Right() {
             <span className={styles.web}>Mobile</span>.
           </div>
           <div className=" 2xl:text-lg lg:text-base text-sm mb-3">
-            <FontAwesomeIcon className="mr-3 text-violet-400" icon={faLaptop} />
+            <FontAwesomeIcon
+              style={{ fontSize: "1rem" }}
+              className="mr-3 text-violet-400"
+              icon={faLaptop}
+            />
             Développement Front-End & Back-End
           </div>
           <div className="text-lg mb-3">
             <FontAwesomeIcon
               className="mr-3 ml-1 text-violet-400"
               icon={faDatabase}
+              style={{ fontSize: "1rem" }}
             />
             Gestion de base de données
           </div>
@@ -49,6 +54,7 @@ function Right() {
             <FontAwesomeIcon
               className="mr-3 ml-1  text-violet-400"
               icon={faScrewdriverWrench}
+              style={{ fontSize: "1rem" }}
             />
             Maintenance des services
           </div>

@@ -14,7 +14,7 @@ function carby() {
     router.push("/");
   };
   return (
-    <div className="overflow-hidden bg-zinc-900 w-full h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
+    <div className="overflow-hidden bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
       <div className="  flex flex-col sm:p-36 p-10 sm:pt-32 pt-32 z-40 ">
         <img
           onClick={() => handlerouter()}
@@ -97,7 +97,7 @@ function carby() {
           </a>
         </div>
       </div>
-      <div className="  flex h-auto px-0 py-36 pr-0 sm:pr-36 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12  flex-col justify-start items-center">
+      <div className="  flex h-auto px-0 py-36 pr-0 sm:pr-0 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12  flex-col justify-start items-center">
         <div className="grid  gap-14 2xl:grid-cols-3 md:grid-cols-3 sm:grid-cols-2">
           {" "}
           <img className="sm:w-40 w-60" src="./c1.png"></img>

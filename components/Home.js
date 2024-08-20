@@ -51,7 +51,7 @@ function Home() {
             <Right></Right>
           </div>
         </div>
-        <div className="lg:mt-0 lg:pt-0 h-fit  ">
+        <div className="lg:mt-0 lg:pt-0 h-fit mt-96 pt-60  ">
           <div className="bg-zinc-900 h-fit max-h-f mt-60 sm:mt-0 flex items-center justify-center">
             <Stack></Stack>
           </div>

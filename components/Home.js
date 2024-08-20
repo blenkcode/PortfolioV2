@@ -43,15 +43,15 @@ function Home() {
         </div>
       </div>
       <div className="flex flex-col h-fit ">
-        <div className="w-full z-40 h-lvh grid grid-cols-1 md:grid-cols-5 gap-0">
-          <div className="md:col-span-3">
+        <div className="w-full z-40 h-lvh md:flex md:flex-row flex-col">
+          <div className="sm:w-7/12 w-full">
             <Left></Left>
           </div>
-          <div className="md:col-span-2 pb-10 pt-9 w-full h-fit flex flex-col items-center justify-center">
+          <div className=" pb-10 pt-9 sm:w-5/12 w-full h-fit flex flex-col items-center justify-center">
             <Right></Right>
           </div>
         </div>
-        <div className="lg:mt-0 lg:pt-0 mt-96 pt-72">
+        <div className="lg:mt-0 lg:pt-0 h-fit  ">
           <div className="bg-zinc-900 h-fit max-h-f mt-60 sm:mt-0 flex items-center justify-center">
             <Stack></Stack>
           </div>

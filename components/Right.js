@@ -42,7 +42,7 @@ function Right() {
             />
             Développement Front-End & Back-End
           </div>
-          <div className="mb-3 sm:text-lg text-sm">
+          <div className="text-lg mb-3 sm:text-lg ">
             <FontAwesomeIcon
               className="mr-3 ml-1 text-violet-400"
               icon={faDatabase}
@@ -50,7 +50,7 @@ function Right() {
             />
             Gestion de base de données
           </div>
-          <div className=" mb-3 sm:text-lg text-sm">
+          <div className="text-lg mb-3">
             <FontAwesomeIcon
               className="mr-3 ml-1  text-violet-400"
               icon={faScrewdriverWrench}

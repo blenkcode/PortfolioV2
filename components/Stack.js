@@ -100,7 +100,7 @@ function Stack({}) {
           </div>
         </div>
       </div>
-      <div className=" z-10 w-1/2 h-full bg-purple-950 opacity-5 rounded-full blur-3xl absolute right-20  top-10 transform "></div>
+      <div className=" z-10 w-1/2 sm:h-full h-1/2 bg-purple-950 opacity-5 rounded-full blur-3xl absolute right-20  top-10 transform "></div>
 
       <div className="z-10 w-1/3 h-1/2 bg-zinc-600 opacity-10 rounded-full blur-3xl absolute right-44 top-72 transform "></div>
 

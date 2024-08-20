@@ -15,7 +15,7 @@ function carby() {
   };
   return (
     <div className="bg-zinc-900 w-full h-auto text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative ">
-      <div className="  flex flex-col p-36  ">
+      <div className="  flex flex-col sm:p-36 p-10 sm:pt-32 pt-32 ">
         <img
           onClick={() => handlerouter()}
           class="w-16 shadow-inner top-5 left-5 cursor-pointer absolute"
@@ -49,7 +49,7 @@ function carby() {
           <u>Technologies utilisées :</u> Javascript, React-Native, Expo,
           Next.js Redux, MongoDB, CSS, Figma, Express, Node.js, external API.
         </div>
-        <div className="flex items-center  justify-start w-full mb-16">
+        {/* <div className="flex items-center  justify-start w-full mb-16">
           <img
             className="w-10 mr-5 2xl:w-12 md:w-10 h-fit grayscale "
             src="react.png"
@@ -76,8 +76,8 @@ function carby() {
           ></img>
 
           <img className="w-12 grayscale" src="node.png"></img>
-        </div>
-        <div>
+        </div> */}
+        <div className="flex-col flex sm:inline-block mt-10 sm:mt-20">
           {" "}
           <a
             href="https://github.com/blenkcode/carby-frontend"
@@ -90,22 +90,22 @@ function carby() {
           <a
             href="https://www.youtube.com/watch?v=oNzGviNhjJ8"
             download
-            className="border-zinc-300 ml-10  border-solid border-2 w-fit rounded-md px-5 py-3 hover:border-violet-400 hover:text-violet-400"
+            className="border-zinc-300 sm:ml-10  ml-0 border-solid border-2 w-fit rounded-md px-5 py-3 hover:border-violet-400 hover:text-violet-400"
           >
             Demo
             <FontAwesomeIcon className="ml-3" icon={faAtom} />
           </a>
         </div>
       </div>
-      <div className="  flex h-lvh px-36 py-36 pr-36 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12flex flex-col justify-start items-center">
+      <div className="  flex h-auto px-0 py-36 pr-0 sm:pr-36 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12  flex-col justify-start items-center">
         <div className="grid  gap-14 2xl:grid-cols-3 md:grid-cols-3 sm:grid-cols-2">
           {" "}
-          <img className="w-40" src="./c1.png"></img>
-          <img className="w-40" src="./c2.png"></img>
-          <img className="w-40" src="./c3.png"></img>{" "}
-          <img className="w-40" src="./c4.png"></img>
-          <img className="w-40" src="./c5.png"></img>
-          <img className="w-40" src="./c6.png"></img>
+          <img className="sm:w-40 w-60" src="./c1.png"></img>
+          <img className="sm:w-40 w-60" src="./c2.png"></img>
+          <img className="sm:w-40 w-60" src="./c3.png"></img>{" "}
+          <img className="sm:w-40 w-60" src="./c4.png"></img>
+          <img className="sm:w-40 w-60" src="./c5.png"></img>
+          <img className="sm:w-40 w-60" src="./c6.png"></img>
         </div>
       </div>
     </div>

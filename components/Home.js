@@ -42,8 +42,8 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 grid-rows-3">
-        <div className="w-full z-40  grid grid-cols-1 md:grid-cols-5 gap-0">
+      <div className="flex flex-col ">
+        <div className="w-full z-40 h-lvh min-h-fit grid grid-cols-1 md:grid-cols-5 gap-0">
           <div className="md:col-span-3">
             <Left></Left>
           </div>
@@ -51,7 +51,7 @@ function Home() {
             <Right></Right>
           </div>
         </div>
-        <div className="bg-zinc-900 h-fit mt-20 sm:mt-0 flex items-center justify-center">
+        <div className="bg-zinc-900 z-40 h-fit max-h-f mt-60 sm:mt-0 flex items-center justify-center">
           <Stack></Stack>
         </div>
 

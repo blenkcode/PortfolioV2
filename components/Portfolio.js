@@ -21,7 +21,7 @@ function Portfolio() {
   };
 
   return (
-    <div className="flex  flex-col items-center justify-center w-10/12 2xl:w-8/12 mx-auto relative h-fit pb-24 sm:pt-12 pt-0 2xl:mt-0 lg:mt-24">
+    <div className="flex flex-col items-center justify-center w-10/12 2xl:w-8/12 mx-auto relative h-fit pb-24 sm:pt-12 pt-0 2xl:mt-0 mt-60 lg:mt-24">
       <div className="text-4xl text-zinc-100 mb-32 border-zinc-500  border-l-2  px-5 py-5 ">
         Projets 💡
       </div>

@@ -52,7 +52,7 @@ function Left() {
           Passionné par la <b>création</b> d'interfaces utilisateurs et
           d'architecture back-end, je réalise vos futures applications web!
         </div>
-        <div className="mt-20 sm:mt-28 fadeIn ease-in delay-400 flex flex-col sm:block pl-10 sm:pl-0">
+        <div className="mt-16 sm:mt-28 fadeIn ease-in delay-400 flex flex-col lg:block pl-10 sm:pl-0">
           {" "}
           <a
             href="/VALENTIN-MOR-CV-2024.pdf"
@@ -65,7 +65,7 @@ function Left() {
           <a
             href="mailto:valentinmor.pro@gmail.com?subject=Demande%20d'information"
             download
-            className="border-zinc-300 w-fit  border-solid transition duration-200 ease-in-out border-1 border-opacity-20 rounded-md px-5 py-3 hover:border-opacity-40 hover:border-violet-400 hover:text-violet-400"
+            className="border-zinc-300 w-fit border-solid transition duration-200 ease-in-out border-1 border-opacity-20 rounded-md px-5 py-3 hover:border-opacity-40 hover:border-violet-400 hover:text-violet-400"
           >
             Contactez moi !
             <FontAwesomeIcon className="ml-3" icon={faEnvelope} />

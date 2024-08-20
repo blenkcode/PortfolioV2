@@ -57,54 +57,56 @@ function Stack({}) {
     };
   }, []);
   return (
-    <div className="sm:flex pl-10 sm:pl-0 items-center 2xl:pb-64 pb-0 sm:pb-0 flex-col relative z-10 h-auto">
-      <div className="sm:text-4xl text-3xl flex text-zinc-200 sm:mb-32 mb-20 border-solid border-zinc-500  border-l-2  px-5 py-5  ">
+    <div className="relative z-10 h-auto flex flex-col justify-center items-center">
+      <div className="sm:text-4xl text-3xl flex text-zinc-200 sm:mb-32 mb-20 border-solid border-zinc-500 border-l-2 px-5 py-5">
         Stack Technique <div className="ml-3">🛠️</div>
       </div>
 
-      <div
-        className={`${
-          isVisible
-            ? "z-20 grid grid-cols-1 xl:grid-cols-2 gap-20 sm:w-2/3 opacity-100 translate-y-0 transition duration-[2000ms]"
-            : styles.invisible
-        }`}
-      >
-        {" "}
-        <div className="2xl:px-16 sm:px-7 px-0 rounded-lg z-10">
-          <p className="text-xl text-zinc-200 z-20">
-            J'utilise <b className={styles.react}>JavaScript</b> pour vous
-            offrir des sites modernes et performants avec les technologies les
-            plus avancées. <br></br> <br></br>Pour le développement front-end,
-            j'emploie les frameworks
-            <b className={styles.react}> React</b> et{" "}
-            <b className={styles.react}>Next.js</b>, avec{" "}
-            <b className={styles.react}>Redux</b> pour la gestion des états et
-            la librairie <b className={styles.react}>Tailwind CSS </b> pour un
-            design soigné et des animations captivantes.
-            <br /> <br></br>
-            Pour le back-end, je m'appuie sur{" "}
-            <b className={styles.react}>Node.js</b>,{" "}
-            <b className={styles.react}>Express</b> et{" "}
-            <b className={styles.react}>Socket.io</b> afin de gérer les
-            serveurs, les requêtes et opérations CRUD sur bases de données de
-            manière efficace.
-          </p>
-        </div>
-        <div className={styles.container}>
-          <div className={styles.card}>
-            {" "}
-            <div className={styles.contentCard}>
-              {" "}
-              <Language></Language>
+      <div className="flex flex-col sm:flex-row items-center justify-center pl-10 sm:pl-0 sm:pb-0 pb-0">
+        <div
+          className={`${
+            isVisible
+              ? "z-20 grid grid-cols-1 xl:grid-cols-2 gap-20 sm:w-2/3 opacity-100 translate-y-0 transition duration-[2000ms]"
+              : styles.invisible
+          } flex flex-col sm:flex-row items-center justify-center`}
+        >
+          <div className="2xl:px-16 sm:px-7 px-0 rounded-lg z-10">
+            <p className="text-xl text-zinc-200 z-20">
+              J'utilise <b className={styles.react}>JavaScript</b> pour vous
+              offrir des sites modernes et performants avec les technologies les
+              plus avancées. <br /> <br />
+              Pour le développement front-end, j'emploie les frameworks
+              <b className={styles.react}> React</b> et{" "}
+              <b className={styles.react}>Next.js</b>, avec{" "}
+              <b className={styles.react}>Redux</b> pour la gestion des états et
+              la librairie <b className={styles.react}>Tailwind CSS</b> pour un
+              design soigné et des animations captivantes.
+              <br /> <br />
+              Pour le back-end, je m'appuie sur{" "}
+              <b className={styles.react}>Node.js</b>,{" "}
+              <b className={styles.react}>Express</b> et{" "}
+              <b className={styles.react}>Socket.io</b> afin de gérer les
+              serveurs, les requêtes et opérations CRUD sur bases de données de
+              manière efficace.
+            </p>
+          </div>
+          <div
+            className={`${styles.container} flex justify-center items-center`}
+          >
+            <div className={styles.card}>
+              <div className={styles.contentCard}>
+                <Language></Language>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className=" z-10 w-1/2 sm:h-full h-1/2 bg-purple-950 opacity-15 rounded-full blur-3xl absolute right-20  top-10 transform "></div>
 
-      <div className="z-10 w-1/3 h-1/2 bg-zinc-600 opacity-10 rounded-full blur-3xl absolute right-44 top-72 transform "></div>
+      <div className="z-10 w-1/2 sm:h-full h-1/2 bg-purple-950 opacity-15 rounded-full blur-3xl absolute right-20 top-10 transform"></div>
 
-      <div className=" z-10w-1/3 h-1/2 bg-zinc-900 opacity-50 rounded-full blur-3xl absolute right-20  top-72 transform "></div>
+      <div className="z-10 w-1/3 h-1/2 bg-zinc-600 opacity-10 rounded-full blur-3xl absolute right-44 top-72 transform"></div>
+
+      <div className="z-10 w-1/3 h-1/2 bg-zinc-900 opacity-50 rounded-full blur-3xl absolute right-20 top-72 transform"></div>
     </div>
   );
 }

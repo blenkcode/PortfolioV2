@@ -23,7 +23,7 @@ function Right() {
           alt="Valentin Mor portrait"
         />
         {isClient && (
-          <div className="absolute inset-0 z-0 bg-violet-900 opacity-5 rounded-full blur-3xl animation-move-loop max-w1/2"></div>
+          <div className="absolute inset-0 z-0 bg-violet-900 opacity-10 rounded-full blur-3xl animation-move-loop max-w1/2"></div>
         )}
       </div>
 

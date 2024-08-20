@@ -21,11 +21,11 @@ function Portfolio() {
   };
 
   return (
-    <div className="flex  flex-col items-center justify-center w-10/12 2xl:w-8/12 mx-auto relative min-h-lvh pb-24 pt-12 2xl:mt-0 lg:mt-24">
+    <div className="flex  flex-col items-center justify-center w-10/12 2xl:w-8/12 mx-auto relative h-fit pb-24 sm:pt-12 pt-0 2xl:mt-0 lg:mt-24">
       <div className="text-4xl text-zinc-100 mb-32 border-zinc-500  border-l-2  px-5 py-5 ">
         Projets 💡
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 border-solid border-2 border-zinc-200 p-[2rem] h-fit rounded-md z-50">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 border-solid sm:border-2 sm:border-zinc-200 border-0 sm:p-[2rem] p-0 h-fit rounded-md z-50 ">
         <div>
           <div onClick={() => handleproject()} className="relative group">
             <div className="mb-10 border-solid border-zinc-400 border-4 rounded-md  p-1 bg-zinc-900 transform transition-transform duration-300 group-hover:scale-105">

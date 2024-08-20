@@ -216,8 +216,14 @@ transition: all 0.15s ease-out;
   .expresslogo,
   .mongologo,
   .gitlogo {
-    width: 5rem; /* Réduire la largeur à 5rem */
-    height: 5rem; /* Réduire la hauteur à 5rem */
+    width: 6rem; /* Réduire la largeur à 5rem */
+    height: 6rem; /* Réduire la hauteur à 5rem */
+  }
+  .img{
+ width: 80%;
+    padding: 0px;
+    border-radius: 20px;
+    /* box-shadow: inset 0px 2px 200px 10px #5d398646 */
   }
 }
 .invisible{

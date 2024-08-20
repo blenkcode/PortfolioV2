@@ -15,10 +15,10 @@ function Right() {
   }, []);
 
   return (
-    <div className="mr-10 flex flex-col items-center justify-center">
+    <div className="sm:mr-10 mr-0 flex flex-col items-center justify-center">
       <div className="relative mt-20 flex flex-col items-center justify-center">
         <img
-          className="w-6/12 2xl:w-6/12 lg:w-8/12 md:w-10/12 sm:w-8/12 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
+          className="w-10/12 2xl:w-6/12 lg:w-8/12 md:w-10/12 sm:w-6/12 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
           src="frr.png"
           alt="Valentin Mor portrait"
         />
@@ -34,7 +34,7 @@ function Right() {
             <span className={styles.web}>Web</span> &{" "}
             <span className={styles.web}>Mobile</span>.
           </div>
-          <div className=" 2xl:text-lg lg:text-base text-sm mb-3">
+          <div className=" 2xl:text-lg lg:text-base sm:text-lg text-sm mb-3">
             <FontAwesomeIcon
               style={{ fontSize: "1rem" }}
               className="mr-3 text-violet-400"
@@ -42,7 +42,7 @@ function Right() {
             />
             Développement Front-End & Back-End
           </div>
-          <div className="text-lg mb-3">
+          <div className="mb-3 sm:text-lg text-sm">
             <FontAwesomeIcon
               className="mr-3 ml-1 text-violet-400"
               icon={faDatabase}
@@ -50,7 +50,7 @@ function Right() {
             />
             Gestion de base de données
           </div>
-          <div className="text-lg mb-3">
+          <div className=" mb-3 sm:text-lg text-sm">
             <FontAwesomeIcon
               className="mr-3 ml-1  text-violet-400"
               icon={faScrewdriverWrench}

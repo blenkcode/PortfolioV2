@@ -53,7 +53,7 @@ const data = [
 function Language() {
   return (
     <div className={styles.img}>
-      <div className="grid grid-cols-4 md:grid-cols-4 gap-10 2xl:gap-5 sm:gap-10 ">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-14 2xl:gap-5 sm:gap-10 sm:pl-0 pl-0 ">
         {data.map((item) => {
           // Transformation du champ alt en une classe CSS valide
           const className = item.name;

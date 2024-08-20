@@ -42,8 +42,8 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col h-fit ">
-        <div className="w-full z-40 h-lvh md:flex md:flex-row flex-col">
+      <div className="flex flex-col justify-center items-center">
+        <div className="w-full z-40 h-auto min-h-lvh md:flex md:flex-row flex-col">
           <div className="sm:w-7/12 w-full">
             <Left></Left>
           </div>
@@ -51,8 +51,8 @@ function Home() {
             <Right></Right>
           </div>
         </div>
-        <div className="lg:mt-0 lg:pt-0 h-fit mt-96 pt-60  ">
-          <div className="bg-zinc-900 h-fit max-h-f mt-60 sm:mt-0 flex items-center justify-center">
+        <div className="lg:mt-0 lg:pt-0 h-fit  ">
+          <div className=" h-fit max-h-f mt-36 sm:mt-0 flex items-center justify-center">
             <Stack></Stack>
           </div>
 

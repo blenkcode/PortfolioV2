@@ -25,7 +25,7 @@ function Portfolio() {
       <div className="text-4xl text-zinc-100 mb-32 border-zinc-500  border-l-2  px-5 py-5 ">
         Projets 💡
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 border-solid sm:border-2 sm:border-zinc-200 border-0 sm:p-[2rem] p-0 h-fit rounded-md z-50 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10  border-0 sm:p-[2rem] p-0 h-fit rounded-md z-50 ">
         <div>
           <div onClick={() => handleproject()} className="relative group">
             <div className="mb-10 border-solid border-zinc-400 border-4 rounded-md  p-1 bg-zinc-900 transform transition-transform duration-300 group-hover:scale-105">

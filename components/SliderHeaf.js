@@ -7,7 +7,7 @@ function Slider() {
     { url: "/h3.png", id: 3 },
     { url: "/h2.png", id: 2 },
 
-    { url: "/h3.png", id: 4 },
+    { url: "/h1.png", id: 4 },
   ];
 
   const [selectedIndex, setSelectedIndex] = useState(0);

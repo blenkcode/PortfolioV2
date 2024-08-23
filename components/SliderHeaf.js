@@ -4,10 +4,9 @@ import { Carousel } from "react-responsive-carousel";
 
 function Slider() {
   const data = [
-    { url: "/h3.png", id: 3 },
-    { url: "/h2.png", id: 2 },
-
-    { url: "/h1.png", id: 4 },
+    { url: "/h1.png", id: 1 },
+    { url: "/h3.png", id: 2 },
+    { url: "/h2.png", id: 3 },
   ];
 
   const [selectedIndex, setSelectedIndex] = useState(0);

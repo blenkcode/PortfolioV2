@@ -46,7 +46,7 @@ function heaf() {
 
         <div className="text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
           <u>Technologies utilisées :</u> Javascript, React, Chart.js Next.js
-          Redux, MongoDB, CSS, Express, Node.js.
+          Redux, MongoDB, Tailwind CSS, Spline, Express, Node.js.
         </div>
 
         <div className="flex-col flex sm:inline-block mt-10 sm:mt-20">
@@ -60,7 +60,7 @@ function heaf() {
             <FontAwesomeIcon className="ml-3" icon={faGithub} />
           </a>
           <a
-            href="https://heaf-front-end-qzfj.vercel.app/"
+            href="https://heaf-front-end.vercel.app/"
             download
             className="border-zinc-300 sm:ml-10  ml-0 border-solid border-2 w-fit rounded-md px-5 py-3 hover:border-violet-400 hover:text-violet-400"
           >

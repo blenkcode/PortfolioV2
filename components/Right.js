@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import dynamic from "next/dynamic";
+import styles from "../styles/Home.module.css";
+
+// Charger FontAwesome dynamiquement pour éviter le FOUC
+const FontAwesomeIcon = dynamic(
+  () =>
+    import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
+  { ssr: false }
+);
 import {
   faLaptop,
   faDatabase,
   faScrewdriverWrench,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from "../styles/Home.module.css";
 
 function Right() {
   const [isClient, setIsClient] = useState(false);
@@ -36,25 +43,22 @@ function Right() {
           </div>
           <div className=" 2xl:text-lg lg:text-base sm:text-lg text-sm mb-3">
             <FontAwesomeIcon
-              style={{ fontSize: "1rem" }}
-              className="mr-3 text-violet-400"
+              className="mr-3 text-violet-400 text-sm"
               icon={faLaptop}
             />
             Développement Front-End & Back-End
           </div>
           <div className="text-lg mb-3 sm:text-lg ">
             <FontAwesomeIcon
-              className="mr-3 ml-1 text-violet-400"
+              className="mr-3 ml-1 text-violet-400 text-sm"
               icon={faDatabase}
-              style={{ fontSize: "1rem" }}
             />
             Gestion de base de données
           </div>
           <div className="text-lg mb-3">
             <FontAwesomeIcon
-              className="mr-3 ml-1  text-violet-400"
+              className="mr-3 ml-1  text-violet-400 text-sm"
               icon={faScrewdriverWrench}
-              style={{ fontSize: "1rem" }}
             />
             Maintenance des services
           </div>

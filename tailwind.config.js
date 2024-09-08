@@ -74,6 +74,7 @@ module.exports = {
       source: ["Source Code Pro", "monospace"],
       raleway: ["Raleway", "sans-serif"],
       barlow: ["Barlow", "sans-serif"],
+      hind: ["Hind"],
     },
   },
   plugins: [],

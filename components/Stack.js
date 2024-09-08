@@ -57,7 +57,7 @@ function Stack({}) {
     };
   }, []);
   return (
-    <div className="relative z-10 h-auto flex flex-col justify-center items-center">
+    <div className="relative z-10 h-auto flex flex-col justify-center items-center font-hind">
       <div className="sm:text-4xl text-3xl flex text-zinc-200 sm:mb-32 mb-20 border-solid border-zinc-500 border-l-2 px-5 py-5">
         Stack Technique <div className="ml-3">🛠️</div>
       </div>
@@ -72,7 +72,7 @@ function Stack({}) {
         >
           <div className="2xl:px-16 sm:px-7 px-0 rounded-lg z-10">
             <p className="text-xl text-zinc-200 z-20">
-              J'utilise <b className={styles.react}>JavaScript</b> pour vous
+              J'utilise <b className={styles.react}>TypeScript</b> pour vous
               offrir des sites modernes et performants avec les technologies les
               plus avancées. <br /> <br />
               Pour le développement front-end, j'emploie les frameworks
@@ -86,8 +86,7 @@ function Stack({}) {
               <b className={styles.react}>Node.js</b>,{" "}
               <b className={styles.react}>Express</b> et{" "}
               <b className={styles.react}>Socket.io</b> afin de gérer les
-              serveurs, les requêtes et opérations CRUD sur bases de données de
-              manière efficace.
+              serveurs, les requêtes et opérations CRUD sur bases de données.
             </p>
           </div>
           <div

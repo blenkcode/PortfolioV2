@@ -22,11 +22,11 @@ function Right() {
   }, []);
 
   return (
-    <div className="sm:mr-10 mr-0 flex flex-col items-center justify-center">
+    <div className="sm:mr-10 mr-0 flex flex-col items-center justify-center font-hind ">
       <div className="relative mt-20 flex flex-col items-center justify-center">
         <img
           className="w-10/12 2xl:w-6/12 lg:w-8/12 md:w-10/12 sm:w-6/12 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
-          src="frr.png"
+          src="https://res.cloudinary.com/dmijime4v/image/upload/v1725829736/o2o6p2sihg2gzeulpzhe.png"
           alt="Valentin Mor portrait"
         />
         {isClient && (

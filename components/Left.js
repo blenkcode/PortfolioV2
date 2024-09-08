@@ -44,15 +44,19 @@ function Left() {
           </div>
         </div>
 
-        <div className="fadeIn ease-in delay-200 z-10 mt-20 text-xl 2xl:w-7/12 pl-10 sm:pl-0 lg:w-9/12 sm:w-7/12 w-4/5">
+        <div className="fadeIn  font-hind ease-in delay-200 z-10 mt-20 text-xl 2xl:w-7/12 pl-10 sm:pl-0 lg:w-9/12 sm:w-7/12 w-4/5">
           {" "}
-          Je suis un développeur React et Node.js basé à <b>Montpellier.</b>
+          Je suis un développeur <span className="text-violet-400">
+            React
+          </span>{" "}
+          et <span className="text-violet-400">Node.js</span> basé à{" "}
+          <b>Montpellier.</b>
           <br></br>
           <br></br>
           Passionné par la <b>création</b> d'interfaces utilisateurs et
           d'architecture back-end, je réalise vos futures applications web!
         </div>
-        <div className="mt-16 sm:mt-28 fadeIn ease-in delay-400 flex flex-col lg:block pl-10 sm:pl-0">
+        <div className="mt-16 font-hind  sm:mt-28 fadeIn ease-in delay-400 flex flex-col lg:block pl-10 sm:pl-0">
           {" "}
           <a
             href="/VALENTIN-MOR-CV-2024.pdf"

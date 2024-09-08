@@ -14,7 +14,7 @@ function heaf() {
     router.push("/");
   };
   return (
-    <div className="overflow-hidden bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
+    <div className="overflow-hidden font-hind bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
       <div className="  flex flex-col sm:p-36 p-10 sm:pt-32 pt-32 z-40 ">
         <img
           onClick={() => handlerouter()}

@@ -3,42 +3,45 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Lexend';
-  src: url('/fonts/Lexend-VariableFont_wght.ttf') format('truetype');
+  font-family: "Lexend";
+  src: url("/fonts/Lexend-VariableFont_wght.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Source Code Pro';
-  src: url('/fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+  font-family: "Source Code Pro";
+  src: url("/fonts/SourceCodePro-VariableFont_wght.ttf") format("truetype");
   font-weight: 200 900;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Raleway';
-  src: url('/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+  font-family: "Raleway";
+  src: url("/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hind";
+  src: url("/fonts/Hind-Regular.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 @keyframes rotateY {
   0% {
-    transform: translateX(-400px) rotateZ(0deg)  ;
+    transform: translateX(-400px) rotateZ(0deg);
     border-radius: 100%;
-    
   }
   50% {
-    transform: translateX(-200px) rotateZ(180deg) ;
+    transform: translateX(-200px) rotateZ(180deg);
     border-radius: 70%;
-   
   }
   100% {
-    transform: translateX(-400px) rotateZ(360deg) ;
-    border-radius: 100%; 
-   
+    transform: translateX(-400px) rotateZ(360deg);
+    border-radius: 100%;
   }
 }
 
@@ -48,19 +51,16 @@
 
 @keyframes fadeIn {
   0% {
-    transform: translateX(-150px)   ;
+    transform: translateX(-150px);
     opacity: 0%;
-    
   }
-  
-  
+
   100% {
-    transform: translateX(0px)   ;
+    transform: translateX(0px);
     opacity: 100%;
-   
   }
 }
 
-.fadeIn{
+.fadeIn {
   animation: fadeIn 1s forwards ease-in-out;
 }

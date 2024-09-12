@@ -62,7 +62,7 @@ function Stack({}) {
         Stack Technique <div className="ml-3">🛠️</div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-center pl-10 sm:pl-0 sm:pb-0 pb-0">
+      <div className="flex flex-col sm:flex-row items-center justify-center px-5 lg:px-0 sm:pl-0 sm:pb-0 pb-0">
         <div
           className={`${
             isVisible

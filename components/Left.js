@@ -21,7 +21,7 @@ function Left() {
           </div>
           <div className="fadeIn ease-in delay-75 z-20 flex items-end text-4xl 2xl:text-6xl xl-text-6xl lg:text-5xl md:text-5xl sm:text-4xl   font-semi-bold text-purple-200  00">
             Valentin Mor
-            <div className=" fadeIn ease-in delay-100 z-20 ml-6 text-xl 2xl:text-2xl xl:text-xl lg:text-lg md-text-m sm-text-sm font-source font-light text-white">
+            <div className=" fadeIn ease-in delay-100 z-20 lg:ml-6 ml-4 text-xl 2xl:text-2xl xl:text-xl lg:text-lg md-text-m sm-text-sm font-source font-light text-white">
               {" "}
               I'm a{" "}
             </div>

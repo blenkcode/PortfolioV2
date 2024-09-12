@@ -58,7 +58,7 @@ function mutable() {
           <a
             href="https://mutable-instruments-shop.vercel.app/"
             download
-            className="border-zinc-300 ml-10  border-solid border-2 w-fit rounded-md px-5 py-3 hover:border-violet-400 hover:text-violet-400"
+            className="border-zinc-300 lg:ml-10 ml-0  border-solid border-2 w-fit rounded-md px-5 py-3 hover:border-violet-400 hover:text-violet-400"
           >
             Demo
             <FontAwesomeIcon className="ml-3" icon={faAtom} />

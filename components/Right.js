@@ -35,27 +35,27 @@ function Right() {
       </div>
 
       <div className="mt-10 2xl:w-2/3 w-full lg:w-full text-white flex flex-col justify-center items-center">
-        <div className="ml-10">
+        <div className="lg:ml-10 px-5 lg:px-0">
           <div className="text-2xl 2xl:text-2xl lg:text-xl md:text-lg mb-14 text-white">
             Je crée des interfaces interactives pour vos applications{" "}
             <span className={styles.web}>Web</span> &{" "}
             <span className={styles.web}>Mobile</span>.
           </div>
-          <div className=" 2xl:text-lg lg:text-base sm:text-lg text-sm mb-3">
+          <div className="text-sm mb-3 sm:text-lg ">
             <FontAwesomeIcon
               className="mr-3 text-violet-400 text-sm"
               icon={faLaptop}
             />
             Développement Front-End & Back-End
           </div>
-          <div className="text-lg mb-3 sm:text-lg ">
+          <div className="text-sm mb-3 sm:text-lg ">
             <FontAwesomeIcon
               className="mr-3 ml-1 text-violet-400 text-sm"
               icon={faDatabase}
             />
             Gestion de base de données
           </div>
-          <div className="text-lg mb-3">
+          <div className="text-sm mb-3 sm:text-lg ">
             <FontAwesomeIcon
               className="mr-3 ml-1  text-violet-400 text-sm"
               icon={faScrewdriverWrench}

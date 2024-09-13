@@ -52,7 +52,7 @@ function Home() {
           </div>
         </div>
         <div className="lg:mt-0 lg:pt-0 h-fit  ">
-          <div className=" h-fit max-h-f mt-36 sm:mt-0 flex items-center justify-center">
+          <div className=" h-fit max-h-f mt-28 sm:mt-0 flex items-center justify-center">
             <Stack></Stack>
           </div>
 

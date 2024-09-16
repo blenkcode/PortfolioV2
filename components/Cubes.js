@@ -1,21 +1,28 @@
-import Spline from "@splinetool/react-spline";
-import React from "react";
+import React, { useState } from "react";
+import dynamic from "next/dynamic";
+import styles from "./Cubes.module.css";
+
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
+  ssr: false,
+});
 
 function Cubes({ onLoad }) {
+  const [loading, setLoading] = useState(true);
+
   const handleLoad = (spline) => {
-    // Vérifie si onLoad est une fonction avant de l'appeler
+    setLoading(false); // Masquer le loader une fois que la scène est chargée
     if (typeof onLoad === "function") {
-      onLoad();
+      onLoad(spline);
     }
   };
 
   return (
-    <div className="">
+    <div className={styles["spline-container"]}>
+      {loading && <div className={styles.loader}>Chargement...</div>}{" "}
+      {/* Loader */}
       <Spline
         onLoad={handleLoad}
         scene="https://prod.spline.design/NLRP-W7ilp5d5eP8/scene.splinecode"
-        width={608}
-        height={509}
       />
     </div>
   );

@@ -36,12 +36,12 @@ function Right() {
 
       <div className="mt-10 2xl:w-2/3 w-full lg:w-full text-white flex flex-col justify-center items-center">
         <div className="lg:ml-10  px-10 lg:px-0 w-full flex flex-col justify-center items-center">
-          <div className="text-2xl 2xl:text-2xl lg:text-xl md:text-lg mb-14 text-white lg:px-0 px-2">
+          <div className="text-2xl 2xl:text-2xl lg:text-xl md:text-lg mb-14 text-white lg:px-10 px-2 ">
             Je crée des interfaces interactives pour vos applications{" "}
             <span className={styles.web}>Web</span> &{" "}
             <span className={styles.web}>Mobile</span>.
           </div>
-          <div className="flex flex-col lg:items-start items-center w-full">
+          <div className="flex flex-col lg:items-start pl-2  w-full lg:px-10 px-0 lg:pl-10">
             <div className="text-md mb-3 sm:text-lg ml-1">
               <FontAwesomeIcon
                 className="mr-2 text-violet-400 text-sm"

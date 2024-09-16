@@ -87,7 +87,7 @@ function Stack({}) {
 
   return (
     <div className="relative z-10 h-auto flex flex-col justify-center items-center font-hind">
-      <div className="sm:text-4xl text-xl flex text-zinc-200 sm:mb-32 mb-10 border-solid border-zinc-500 border-l-2 px-5 py-2 lg:py-5">
+      <div className="sm:text-4xl text-2xl flex text-zinc-100 sm:mb-32 mb-10 border-solid border-zinc-500 border-l-2 px-5 py-2 lg:py-5">
         Stack Technique <div className="ml-3">🛠️</div>
       </div>
 
@@ -95,12 +95,12 @@ function Stack({}) {
         <div
           className={`${
             isVisible
-              ? "z-20  grid grid-cols-1 xl:grid-cols-2 gap-20 sm:w-2/3 opacity-100 translate-y-0 transition duration-[2000ms]"
+              ? "z-20  grid grid-cols-1 xl:grid-cols-2 lg:gap-20 gap-10 sm:w-2/3 opacity-100 translate-y-0 transition duration-[2000ms]"
               : styles.invisible
           } flex flex-col sm:flex-row items-center justify-center`}
         >
           <div className="2xl:px-16 sm:px-7 px-6 rounded-lg z-10">
-            <p className="lg:text-xl text-md text-zinc-200 z-20">
+            <p className="lg:text-xl text-lg text-zinc-200 z-20">
               J'utilise <b className={styles.react}>TypeScript</b> pour vous
               offrir des sites modernes et performants avec les technologies les
               plus avancées. <br /> <br />

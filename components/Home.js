@@ -5,6 +5,7 @@ import Header from "./Header";
 import Stack from "./Stack";
 import Portfolio from "./Portfolio";
 import Left from "./Left";
+
 import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -54,7 +55,7 @@ function Home() {
           </div>
         </div>
         <div className="lg:mt-0 lg:pt-0 h-fit  ">
-          <div className=" h-fit max-h-f mt-36 sm:mt-0 flex items-center justify-center">
+          <div className=" h-fit max-h-f lg:mt-36 mt-24 sm:mt-0 flex items-center justify-center">
             <Stack></Stack>
           </div>
 

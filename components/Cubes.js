@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import styles from "./Cubes.module.css";
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
@@ -17,8 +16,7 @@ function Cubes({ onLoad }) {
   };
 
   return (
-    <div className={styles["spline-container"]}>
-      {loading && <div className={styles.loader}>Chargement...</div>}{" "}
+    <div>
       {/* Loader */}
       <Spline
         onLoad={handleLoad}

@@ -22,10 +22,10 @@ function Right() {
   }, []);
 
   return (
-    <div className="sm:mr-10 mr-0 flex flex-col items-center justify-center font-hind ">
+    <div className="mr-0 flex flex-col items-center justify-center font-hind ">
       <div className="relative mt-20 flex flex-col items-center justify-center">
         <img
-          className="w-10/12 2xl:w-6/12 lg:w-8/12 md:w-10/12 sm:w-6/12 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
+          className="w-10/12  2xl:w-6/12 lg:w-8/12 md:w-7/12 sm:w-6/12 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
           src="https://res.cloudinary.com/dmijime4v/image/upload/v1725829736/o2o6p2sihg2gzeulpzhe.png"
           alt="Valentin Mor portrait"
         />
@@ -35,28 +35,28 @@ function Right() {
       </div>
 
       <div className="mt-10 2xl:w-2/3 w-full lg:w-full text-white flex flex-col justify-center items-center">
-        <div className="lg:ml-10 px-10 lg:px-0 w-full flex flex-col justify-center items-center">
-          <div className="text-2xl 2xl:text-2xl lg:text-xl md:text-lg mb-14 text-white">
+        <div className="lg:ml-10  px-10 lg:px-0 w-full flex flex-col justify-center items-center">
+          <div className="text-2xl 2xl:text-2xl lg:text-xl md:text-lg mb-14 text-white lg:px-0 px-2">
             Je crée des interfaces interactives pour vos applications{" "}
             <span className={styles.web}>Web</span> &{" "}
             <span className={styles.web}>Mobile</span>.
           </div>
           <div className="flex flex-col lg:items-start items-center w-full">
-            <div className="text-lg mb-3 sm:text-lg ml-1">
+            <div className="text-md mb-3 sm:text-lg ml-1">
               <FontAwesomeIcon
                 className="mr-2 text-violet-400 text-sm"
                 icon={faLaptop}
               />
               Front-End & Back-End
             </div>
-            <div className="text-lg mb-3 sm:text-lg ">
+            <div className="text-md mb-3 sm:text-lg ">
               <FontAwesomeIcon
                 className="mr-3 ml-1 text-violet-400 text-sm"
                 icon={faDatabase}
               />
               Gestion de base de données
             </div>
-            <div className="text-lg mb-3 sm:text-lg ">
+            <div className="text-md mb-3 sm:text-lg ">
               <FontAwesomeIcon
                 className="mr-3 ml-1  text-violet-400 text-sm"
                 icon={faScrewdriverWrench}

@@ -61,7 +61,7 @@ function Left() {
           <a
             href="/VALENTIN-MOR-CV-2024.pdf"
             download
-            className="border-zinc-300 mr-10 w-fit z-20 transition duration-200 ease-in-out border-solid border-1 border-opacity-20 rounded-md px-5 py-3 hover:border-opacity-40 hover:border-violet-400 hover:text-violet-400 mb-10 sm:mb-0"
+            className="border-zinc-300 mr-10 w-fit z-20 transition duration-200 ease-in-out border-solid border-1 border-opacity-20 rounded-md px-5 py-3 hover:border-opacity-40 hover:border-violet-400 hover:text-violet-400 mb-10 lg:mb-0"
           >
             Télécharger un CV
             <FontAwesomeIcon className="ml-3" icon={faDownload} />
@@ -69,7 +69,7 @@ function Left() {
           <a
             href="mailto:valentinmor.pro@gmail.com?subject=Demande%20d'information"
             download
-            className="border-zinc-300 w-fit border-solid transition duration-200 ease-in-out border-1 border-opacity-20 rounded-md px-5 py-3 hover:border-opacity-40 hover:border-violet-400 hover:text-violet-400 mt:0 sm:mt-10 lg:mt-0"
+            className="border-zinc-300 w-fit border-solid transition duration-200 ease-in-out border-1 border-opacity-20 rounded-md px-5 py-3 hover:border-opacity-40 hover:border-violet-400 hover:text-violet-400 "
           >
             Contactez moi !
             <FontAwesomeIcon className="ml-3" icon={faEnvelope} />

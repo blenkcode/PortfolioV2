@@ -2,10 +2,9 @@ import Language from "./Language";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import Cubes from "./Cubes";
+import Cubes2 from "./Cubes2";
 
 function Stack({}) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
   useEffect(() => {
     const cards = document.querySelectorAll(`.${styles.card}`);
 
@@ -64,17 +63,31 @@ function Stack({}) {
     setIsSplineLoaded(true);
   };
 
+  const [isLargeScreen, setIsLargeScreen] = useState(true);
+
   useEffect(() => {
-    if (isSplineLoaded) {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500); // Optionnel : un petit délai pour une transition fluide
-    }
-  }, [isSplineLoaded]);
+    // Fonction pour définir si la taille de l'écran est supérieure à lg
+    const handleResize = () => {
+      if (window.matchMedia("(min-width: 1024px)").matches) {
+        setIsLargeScreen(true); // Ecran lg et plus
+      } else {
+        setIsLargeScreen(false); // Ecran en dessous de lg
+      }
+    };
+
+    // Appel initial pour vérifier la taille de l'écran au premier rendu
+    handleResize();
+
+    // Ajouter un listener pour détecter les changements de taille de l'écran
+    window.addEventListener("resize", handleResize);
+
+    // Nettoyer l'écouteur d'événements lors du démontage du composant
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="relative z-10 h-auto flex flex-col justify-center items-center font-hind">
-      <div className="sm:text-4xl text-3xl flex text-zinc-200 sm:mb-32 mb-20 border-solid border-zinc-500 border-l-2 px-5 py-5">
+      <div className="sm:text-4xl text-xl flex text-zinc-200 sm:mb-32 mb-10 border-solid border-zinc-500 border-l-2 px-5 py-2 lg:py-5">
         Stack Technique <div className="ml-3">🛠️</div>
       </div>
 
@@ -87,7 +100,7 @@ function Stack({}) {
           } flex flex-col sm:flex-row items-center justify-center`}
         >
           <div className="2xl:px-16 sm:px-7 px-6 rounded-lg z-10">
-            <p className="text-xl text-zinc-200 z-20">
+            <p className="lg:text-xl text-md text-zinc-200 z-20">
               J'utilise <b className={styles.react}>TypeScript</b> pour vous
               offrir des sites modernes et performants avec les technologies les
               plus avancées. <br /> <br />
@@ -114,9 +127,13 @@ function Stack({}) {
               </div>
             </div>
           </div> */}
-          <div className=" lg:ml-44 2xl:ml-0 flex justify-center items-center  ">
-            <Cubes onLoad={handleSplineLoad}></Cubes>
-          </div>
+          {isLargeScreen ? (
+            <Cubes />
+          ) : (
+            <div className="flex justify-center items-center">
+              <Cubes2></Cubes2>
+            </div>
+          )}
         </div>
       </div>
 

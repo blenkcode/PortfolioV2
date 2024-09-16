@@ -1,19 +1,23 @@
+import Language from "./Language";
 import Right from "./Right";
-
+import styles from "../styles/Home.module.css";
+import Header from "./Header";
 import Stack from "./Stack";
 import Portfolio from "./Portfolio";
 import Left from "./Left";
-
+import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 function Home() {
   const router = useRouter();
   const handlerouter = () => {
     router.push("/");
   };
+
   return (
     <main className="bg-zinc-900 flex flex-col items-center justify-center relative overflow-hidden  ">
       <div className="absolute top-5 left-0 w-full h-auto bg-transparent items-center z-50">
@@ -45,12 +49,12 @@ function Home() {
           <div className="md:w-full lg:w-7/12 w-full">
             <Left></Left>
           </div>
-          <div className=" pb-10 pt-9 lg:w-5/12 w-full h-fit flex flex-col items-center justify-center ">
+          <div className=" pb-10 pt-9 lg:w-5/12 w-full h-fit flex flex-col items-center justify-center">
             <Right></Right>
           </div>
         </div>
         <div className="lg:mt-0 lg:pt-0 h-fit  ">
-          <div className=" h-fit max-h-f mt-28 sm:mt-0 flex items-center justify-center">
+          <div className=" h-fit max-h-f mt-36 sm:mt-0 flex items-center justify-center">
             <Stack></Stack>
           </div>
 

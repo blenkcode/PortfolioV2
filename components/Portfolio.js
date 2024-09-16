@@ -21,8 +21,8 @@ function Portfolio() {
   };
 
   return (
-    <div className="flex font-hind flex-col items-center justify-center w-10/12 2xl:w-8/12 mx-auto relative h-fit pb-24 sm:pt-12 pt-0 2xl:mt-32 mt-48 lg:mt-24 md:mt-16">
-      <div className="text-4xl text-zinc-100 mb-32 border-zinc-500  border-l-2  px-5 py-5 ">
+    <div className="flex font-hind flex-col items-center justify-center w-10/12 2xl:w-8/12 mx-auto relative h-fit pb-24 sm:pt-12 pt-0 2xl:mt-32 mt-32 lg:mt-24 md:mt-16">
+      <div className="lg:text-4xl text-2xl text-zinc-100 lg:mb-32 mb-12 border-zinc-500  border-l-2  px-5 lg:py-5 py-2">
         Projets 💡
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10  border-0 sm:p-[2rem] p-0 h-fit rounded-md z-50 ">

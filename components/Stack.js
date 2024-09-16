@@ -100,7 +100,7 @@ function Stack({}) {
             </div>
           </div> */}
           <div className=" lg:ml-44 2xl:ml-0 flex justify-center items-center  ">
-            {/* <Cubes></Cubes> */}
+            <Cubes></Cubes>
           </div>
         </div>
       </div>

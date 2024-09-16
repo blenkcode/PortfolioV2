@@ -1,7 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.js
+module.exports = {
   reactStrictMode: true,
-  swcMinify: false, // Désactiver la minification pour diagnostiquer les problèmes
+  images: {
+    domains: ["prod.spline.design"], // Ajouter les domaines utilisés
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.alias["next/image"] = "next/image.js";
+    }
+    return config;
+  },
 };
-
-module.exports = nextConfig;

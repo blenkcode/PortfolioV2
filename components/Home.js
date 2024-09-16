@@ -43,11 +43,11 @@ function Home() {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <div className="w-full z-40 h-auto min-h-lvh md:flex md:flex-row flex-col">
+        <div className="w-full z-40 h-auto min-h-lvh md:flex lg:flex-row flex-col">
           <div className="md:w-full lg:w-7/12 w-full">
             <Left></Left>
           </div>
-          <div className=" pb-10 pt-9 sm:w-5/12 w-full h-fit flex flex-col items-center justify-center">
+          <div className=" pb-10 pt-9 lg:w-5/12 w-full h-fit flex flex-col items-center justify-center">
             <Right></Right>
           </div>
         </div>

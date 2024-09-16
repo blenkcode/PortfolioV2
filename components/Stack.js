@@ -1,6 +1,7 @@
 import Language from "./Language";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
+import Cubes from "./Cubes";
 
 function Stack({}) {
   useEffect(() => {
@@ -66,11 +67,11 @@ function Stack({}) {
         <div
           className={`${
             isVisible
-              ? "z-20 grid grid-cols-1 xl:grid-cols-2 gap-20 sm:w-2/3 opacity-100 translate-y-0 transition duration-[2000ms]"
+              ? "z-20  grid grid-cols-1 xl:grid-cols-2 gap-20 sm:w-2/3 opacity-100 translate-y-0 transition duration-[2000ms]"
               : styles.invisible
           } flex flex-col sm:flex-row items-center justify-center`}
         >
-          <div className="2xl:px-16 sm:px-7 px-0 rounded-lg z-10">
+          <div className="2xl:px-16 sm:px-7 px-6 rounded-lg z-10">
             <p className="text-xl text-zinc-200 z-20">
               J'utilise <b className={styles.react}>TypeScript</b> pour vous
               offrir des sites modernes et performants avec les technologies les
@@ -89,7 +90,7 @@ function Stack({}) {
               serveurs, les requêtes et opérations CRUD sur bases de données.
             </p>
           </div>
-          <div
+          {/* <div
             className={`${styles.container} flex justify-center items-center`}
           >
             <div className={styles.card}>
@@ -97,6 +98,9 @@ function Stack({}) {
                 <Language></Language>
               </div>
             </div>
+          </div> */}
+          <div className=" lg:ml-44 2xl:ml-0 flex justify-center items-center  ">
+            <Cubes></Cubes>
           </div>
         </div>
       </div>

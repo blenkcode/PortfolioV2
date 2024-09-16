@@ -41,7 +41,7 @@ function Right() {
             <span className={styles.web}>Web</span> &{" "}
             <span className={styles.web}>Mobile</span>.
           </div>
-          <div>
+          <div className="flex flex-col lg:items-start items-center w-full">
             <div className="text-lg mb-3 sm:text-lg ml-1">
               <FontAwesomeIcon
                 className="mr-2 text-violet-400 text-sm"

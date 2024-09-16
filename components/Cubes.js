@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-
+import Spline from "@splinetool/react-spline";
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
 });

@@ -6,7 +6,7 @@ module.exports = {
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.resolve.alias["next/image"] = "next/image.js";
+      config.optimization.innerGraph = false;
     }
     return config;
   },

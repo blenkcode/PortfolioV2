@@ -4,6 +4,8 @@ import styles from "../styles/Home.module.css";
 import Cubes from "./Cubes";
 
 function Stack({}) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
   useEffect(() => {
     const cards = document.querySelectorAll(`.${styles.card}`);
 
@@ -57,6 +59,19 @@ function Stack({}) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleSplineLoad = () => {
+    setIsSplineLoaded(true);
+  };
+
+  useEffect(() => {
+    if (isSplineLoaded) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500); // Optionnel : un petit délai pour une transition fluide
+    }
+  }, [isSplineLoaded]);
+
   return (
     <div className="relative z-10 h-auto flex flex-col justify-center items-center font-hind">
       <div className="sm:text-4xl text-3xl flex text-zinc-200 sm:mb-32 mb-20 border-solid border-zinc-500 border-l-2 px-5 py-5">
@@ -100,7 +115,7 @@ function Stack({}) {
             </div>
           </div> */}
           <div className=" lg:ml-44 2xl:ml-0 flex justify-center items-center  ">
-            <Cubes></Cubes>
+            <Cubes onLoad={handleSplineLoad}></Cubes>
           </div>
         </div>
       </div>

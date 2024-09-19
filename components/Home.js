@@ -24,11 +24,11 @@ function Home() {
     setIsClient(true);
   }, []);
   return (
-    <main className="bg-zinc-900 flex flex-col items-center justify-center relative overflow-hidden  ">
+    <main className="bg-zinc-900 flex flex-col items-center justify-center relative overflow-hidden h-auto w-full ">
       <img
         src="/vector.png"
-        className="z-10 absolute top-0 right-0 h-full opacity-0 lg:opacity-70"
-      ></img>
+        className="z-10 absolute top-0 right-0 h-full w-full object-cover transition-opacity  lg:opacity-70 opacity-0"
+      />
       <div className="absolute top-5 left-0 w-full h-auto bg-transparent items-center z-50">
         <div className="flex mx-5 justify-between items-center  ">
           <img

@@ -39,7 +39,7 @@ function Right() {
       </div>
 
       <div className="mt-10 2xl:w-2/3 w-full lg:w-full text-white flex flex-col justify-center items-center">
-        <div className="lg:ml-10  px-10 lg:px-0 w-full flex flex-col justify-center items-center lg:w-11/12 xl:mr-20">
+        <div className="lg:ml-10  px-10 lg:px-0 w-full flex flex-col justify-center items-center 2xl:w-10/12 lg:w-8/12 xl:mr-20">
           <div className="text-2xl 2xl:text-2xl lg:text-xl md:text-lg mb-14 text-white lg:px-10 px-2  ">
             Je crée des interfaces interactives pour vos applications{" "}
             <span className={styles.web}>Web</span> &{" "}

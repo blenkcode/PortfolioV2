@@ -10,6 +10,22 @@ module.exports = {
       animation: {
         "rotate-y": "rotateY 10s infinite linear",
       },
+      transitionDuration: {
+        0: "0ms",
+        2000: "2000ms", // 2 secondes
+        4000: "4000ms",
+        1200: "1500ms", // 4 secondes
+      },
+      transitionDelay: {
+        0: "0ms",
+        500: "500ms", // 0.5 secondes
+        2000: "2200ms",
+        3000: "3000ms",
+        1200: "1300ms",
+        22: "900ms",
+        5000: "3200ms",
+        6000: "4200ms", // 1 seconde
+      },
       keyframes: {
         rotateY: {
           "0%": { transform: "rotateY(0deg)" },

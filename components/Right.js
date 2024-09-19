@@ -22,10 +22,14 @@ function Right() {
   }, []);
 
   return (
-    <div className="mr-0 flex flex-col items-center justify-center font-hind ">
-      <div className="relative mt-20 flex flex-col items-center justify-center">
+    <div
+      className={`mr-0 flex flex-col items-center ease-in-out justify-center transition-all duration-1000 delay-5000 font-hind  ${
+        isClient ? "translate-x-0 opacity-100" : "translate-x-72 opacity-0"
+      }`}
+    >
+      <div className="relative mt-20 flex flex-col items-center justify-center ">
         <img
-          className="w-10/12  2xl:w-6/12 lg:w-8/12 md:w-7/12 sm:w-6/12 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
+          className="w-10/12  2xl:w-6/12 lg:w-6/12 md:w-7/12 sm:w-6/12 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
           src="https://res.cloudinary.com/dmijime4v/image/upload/v1725829736/o2o6p2sihg2gzeulpzhe.png"
           alt="Valentin Mor portrait"
         />
@@ -35,8 +39,8 @@ function Right() {
       </div>
 
       <div className="mt-10 2xl:w-2/3 w-full lg:w-full text-white flex flex-col justify-center items-center">
-        <div className="lg:ml-10  px-10 lg:px-0 w-full flex flex-col justify-center items-center">
-          <div className="text-2xl 2xl:text-2xl lg:text-xl md:text-lg mb-14 text-white lg:px-10 px-2 ">
+        <div className="lg:ml-10  px-10 lg:px-0 w-full flex flex-col justify-center items-center lg:w-11/12 xl:mr-20">
+          <div className="text-2xl 2xl:text-2xl lg:text-xl md:text-lg mb-14 text-white lg:px-10 px-2  ">
             Je crée des interfaces interactives pour vos applications{" "}
             <span className={styles.web}>Web</span> &{" "}
             <span className={styles.web}>Mobile</span>.

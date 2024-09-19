@@ -11,16 +11,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Home() {
   const router = useRouter();
   const handlerouter = () => {
     router.push("/");
   };
+  const [isClient, setIsClient] = useState(false);
 
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   return (
     <main className="bg-zinc-900 flex flex-col items-center justify-center relative overflow-hidden  ">
+      <img
+        src="/vector.png"
+        className="z-10 absolute top-0 right-0 h-full opacity-0 lg:opacity-70"
+      ></img>
       <div className="absolute top-5 left-0 w-full h-auto bg-transparent items-center z-50">
         <div className="flex mx-5 justify-between items-center  ">
           <img
@@ -55,7 +63,7 @@ function Home() {
           </div>
         </div>
         <div className="lg:mt-0 lg:pt-0 h-fit  ">
-          <div className=" h-fit max-h-f lg:mt-36 mt-24 sm:mt-0 flex items-center justify-center">
+          <div className=" h-fit max-h-f lg:mt-36 mt-24 sm:mt-0 flex items-center justify-center ">
             <Stack></Stack>
           </div>
 

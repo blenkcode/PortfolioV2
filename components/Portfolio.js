@@ -8,7 +8,7 @@ import {
 function Portfolio() {
   const router = useRouter();
   const handleproject = () => {
-    router.push("/projets");
+    router.push("/lcdo");
   };
   const handleheaf = () => {
     router.push("/heaf");
@@ -17,7 +17,7 @@ function Portfolio() {
     router.push("/mutable");
   };
   const handlecarby = () => {
-    router.push("/carby");
+    router.push("/kine");
   };
 
   return (
@@ -30,9 +30,9 @@ function Portfolio() {
           <div onClick={() => handleproject()} className="relative group">
             <div className="mb-10 border-solid border-zinc-400 border-4 rounded-md  p-1 bg-zinc-900 transform transition-transform duration-300 group-hover:scale-105">
               {" "}
-              <img src="./ms11.png" alt="ms11" />{" "}
+              <img src="./mocklcdo1.png" alt="ms11" />{" "}
               <div className="absolute bottom-0 left-0 right-0 h-2/5 flex justify-center items-center text-white text-sm z-0 pl-2.5 pr-2.5  bg-black bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
-                Web-Application de gestion de projets en groupe.
+                Web-Application / Vitrine pour Festival de Musique
               </div>
             </div>
           </div>
@@ -61,9 +61,9 @@ function Portfolio() {
           <div onClick={() => handlecarby()} className="relative group">
             <div className=" border-solid border-zinc-400 border-4 rounded-md  p-1 bg-zinc-900 transform transition-transform duration-300 group-hover:scale-105">
               {" "}
-              <img src="./carbscreens.png" alt="ms11" />{" "}
+              <img src="./kine1.png" alt="ms11" />{" "}
               <div className="absolute bottom-0 left-0 right-0 h-2/5 flex justify-center items-center text-white text-sm  z-0 pl-2.5 pr-2.5  bg-black bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
-                Application Mobile eco-responsable.
+                Site Vitrine pour cabinet médical
               </div>
             </div>
           </div>

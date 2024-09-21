@@ -87,6 +87,16 @@ function Stack({}) {
 
   return (
     <div className="relative z-10 h-auto flex flex-col justify-center items-center font-hind  ">
+      <div className="z-20 max-w-72 overflow-hidden">
+        <div className=" w-200 h-256 border-solid border-1 border-zinc-400 opacity-20 rounded-full absolute left-1 -translate-x-1/2 top-10 transform"></div>
+
+        <div className="w-256 h-200 border-solid border-1 border-zinc-600 opacity-40 rounded-full absolute left-1 -translate-x-96 top-10 transform"></div>
+        <div className=" w-144 h-144 border-solid border-1 border-zinc-400 opacity-40 -translate-x-60 rounded-full absolute left-1 top-60 transform"></div>
+
+        <div className=" w-192 h-160 bg-zinc-950 opacity-40 rounded-full blur-3xl absolute left-1 -translate-x-1/3 top-72 transform"></div>
+
+        <div className=" w-256 h-200 bg-zinc-600 opacity-5 rounded-full blur-3xl absolute left-10 -translate-x-1/2 top-20 transform"></div>
+      </div>
       <div className="sm:text-4xl text-2xl flex text-zinc-100  sm:mb-32 mb-10 border-solid border-zinc-500 border-l-2 px-5 py-2 lg:py-5">
         Stack Technique <div className="ml-3">🛠️</div>
       </div>
@@ -95,7 +105,7 @@ function Stack({}) {
         <div
           className={`${
             isVisible
-              ? "z-20    z-50 flex lg:flex-row flex-col opacity-100 translate-y-0 transition duration-[2000ms]"
+              ? "    z-50 flex lg:flex-row flex-col opacity-100 translate-y-0 transition duration-[2000ms]"
               : styles.invisible
           } flex flex-col lg:flex-row items-center justify-center`}
         >

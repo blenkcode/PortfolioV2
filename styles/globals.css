@@ -64,3 +64,7 @@
 .fadeIn {
   animation: fadeIn 1s forwards ease-in-out;
 }
+.hidden {
+  opacity: 0;
+  visibility: hidden; /* Masque l'élément initialement */
+}

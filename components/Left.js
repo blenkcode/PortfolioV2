@@ -98,7 +98,7 @@ function Left() {
   }, []);
 
   return (
-    <div className=" w-full text-white h-full flex flex-col items-start justify-center   ">
+    <div className="  w-full text-white h-full flex flex-col items-start justify-center   ">
       <div className=" sm:pl-0 w-fit">
         <div className="overflow-hidden">
           {" "}
@@ -132,15 +132,15 @@ function Left() {
           className="  z-20 bg-transparent mt-4 font-bold font-Noehmi text-5xl 2xl:text-7xl xl-text-6xl lg:text-6xl md:text-5xl sm:text-5xl"
         >
           <span className={styles.A}>F</span>
-          <span className={styles.A}>U</span>
-          <span className={styles.A}>L</span>
-          <span className={styles.A}>L</span>
+          <span className={styles.A}>u</span>
+          <span className={styles.A}>l</span>
+          <span className={styles.A}>l</span>
           <span className={styles.A}>-</span>
           <span className={styles.A}>S</span>
-          <span className={styles.A}>T</span>
-          <span className={styles.A}>A</span>
-          <span className={styles.C}>C</span>
-          <span className={styles.K}>K</span>
+          <span className={styles.A}>t</span>
+          <span className={styles.A}>a</span>
+          <span className={styles.C}>c</span>
+          <span className={styles.K}>k</span>
           <span className={styles.A}> </span>
           <span className={styles.D}>D</span>
           <span className={styles.e}>e</span>

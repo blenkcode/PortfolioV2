@@ -14,7 +14,7 @@ function lcdo() {
     router.push("/");
   };
   return (
-    <div className="overflow-hidden font-hind bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
+    <div className="overflow-hidden font-Noehmi bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
       <div className="  flex flex-col sm:p-36 p-10 sm:pt-32 pt-32 z-40 ">
         <img
           onClick={() => handlerouter()}
@@ -25,7 +25,7 @@ function lcdo() {
         <div className="flex flex-col justify-center ">
           <h1 className="font-bold text-7xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">
             <span className="text-violet-400">S</span>
-            port - Santé Méditerranée
+            port - Santé
           </h1>
           <div className="font-bold text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
             Site Vitrine pour cabinet de Kinésithérapie / Ostéopathie

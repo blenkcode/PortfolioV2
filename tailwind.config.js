@@ -91,6 +91,8 @@ module.exports = {
       raleway: ["Raleway", "sans-serif"],
       barlow: ["Barlow", "sans-serif"],
       hind: ["Hind"],
+      Noehmi: ["Nohemi"],
+      Dirtyline: ["Dirtyline"],
     },
   },
   plugins: [],

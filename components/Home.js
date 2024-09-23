@@ -1,39 +1,45 @@
-import Language from "./Language";
 import Right from "./Right";
-import styles from "../styles/Home.module.css";
-import Header from "./Header";
 import Stack from "./Stack";
 import Portfolio from "./Portfolio";
 import Left from "./Left";
-
-import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 
 function Home() {
   const router = useRouter();
+  const hiRef = useRef(null);
   const handlerouter = () => {
     router.push("/");
   };
-  const [isClient, setIsClient] = useState(false);
-
   useEffect(() => {
-    setIsClient(true);
+    gsap.fromTo(
+      hiRef.current,
+      { opacity: 0, visibility: "hidden" },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 1,
+        ease: "power3.out",
+        visibility: "visible",
+      }
+    );
   }, []);
   return (
     <main className="bg-zinc-900 flex flex-col items-center justify-center relative overflow-hidden h-auto w-full ">
       <img
+        ref={hiRef}
         src="/buble4.png"
-        className="z-10 absolute bottom-0 right-0 h-auto w-full  transition-opacity  lg:opacity-70 opacity-0"
+        className="z-10 invisible absolute bottom-0 right-0 h-auto w-full  transition-opacity  lg:opacity-70 opacity-0"
       />
-      <div className="absolute top-5 left-0 w-full h-auto bg-transparent items-center z-50">
-        <div className="flex mx-5 justify-between items-center  ">
+      <div className="absolute md:top-5 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
+        <div className="flex ml-4 md:ml-5 md:mr-5 justify-between items-center  ">
           <img
             onClick={() => handlerouter()}
-            class="w-16 shadow-inner cursor-pointer"
+            class="2xl:w-16 xl:w-14 w-12 shadow-inner cursor-pointer"
             src="logo2.png"
             alt="VM Logo"
           />
@@ -53,17 +59,17 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center">
-        <div className="w-full z-40 h-auto min-h-lvh md:flex lg:flex-row flex-col">
-          <div className="md:w-full lg:w-7/12 w-full">
+      <div className="flex flex-col justify-center items-center w-full">
+        <div className="w-full z-40 h-auto min-h-lvh md:flex lg:flex-row flex-col justify-center 2xl:pl-44 2xl:pr-20 xl:pl-40 xl:pr-20 lg:pl-24 lg:pr-20 md:pr-0 md:pt-24 lg:pt-0 md:px-24 md:mt-0 mt-24 pl-6">
+          <div className="w-full    ">
             <Left></Left>
           </div>
-          <div className=" pb-10 pt-9 lg:w-5/12 w-full h-fit flex flex-col items-center justify-center">
+          <div className="  xl:w-6/12 lg:w-5/12 h-fit mt-14 lg:mt-0   ">
             <Right></Right>
           </div>
         </div>
         <div className="lg:mt-0 lg:pt-0 h-fit  ">
-          <div className=" h-fit max-h-f lg:mt-36 mt-24 sm:mt-0 flex items-center justify-center ">
+          <div className=" h-fit max-h-f lg:mt-36 mt-24 flex items-center justify-center ">
             <Stack></Stack>
           </div>
 

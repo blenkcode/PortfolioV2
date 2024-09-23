@@ -1,16 +1,3 @@
-import Language from "./Language";
-import Right from "./Right";
-import styles from "../styles/Home.module.css";
-import Header from "./Header";
-import Stack from "./Stack";
-import Portfolio from "./Portfolio";
-import Left from "./Left";
-import Button from "./Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { useRouter } from "next/router";
-
 function Maintenance() {
   return (
     <main className="bg-zinc-900 flex  w-full h-lvh flex-col items-center justify-center relative overflow-hidden  ">

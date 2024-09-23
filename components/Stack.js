@@ -1,41 +1,11 @@
-import Language from "./Language";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "../styles/Home.module.css";
 import Cubes from "./Cubes";
 import Cubes2 from "./Cubes2";
 
+import dynamic from "next/dynamic";
+
 function Stack({}) {
-  useEffect(() => {
-    const cards = document.querySelectorAll(`.${styles.card}`);
-
-    cards.forEach((el) => {
-      el.addEventListener("mousemove", (e) => {
-        let elRect = el.getBoundingClientRect();
-        let x = e.clientX - elRect.x;
-        let y = e.clientY - elRect.y;
-
-        let midCardwidth = elRect.width / 2;
-        let midcardHeight = elRect.height / 2;
-        let angleY = (x - midCardwidth) / 8;
-        let angleX = (y - midcardHeight) / 8;
-
-        el.children[0].style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.1)`;
-      });
-
-      el.addEventListener("mouseleave", () => {
-        el.children[0].style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
-      });
-    });
-
-    // Clean up event listeners on unmount
-    return () => {
-      cards.forEach((el) => {
-        el.removeEventListener("mousemove", null);
-        el.removeEventListener("mouseleave", null);
-      });
-    };
-  }, []);
-
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   console.log(scrollY);
@@ -53,20 +23,14 @@ function Stack({}) {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Nettoyer l'écouteur d'événements lors du démontage du composant
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const handleSplineLoad = () => {
-    setIsSplineLoaded(true);
-  };
-
   const [isLargeScreen, setIsLargeScreen] = useState(true);
 
   useEffect(() => {
-    // Fonction pour définir si la taille de l'écran est supérieure à lg
     const handleResize = () => {
       if (window.matchMedia("(min-width: 1024px)").matches) {
         setIsLargeScreen(true); // Ecran lg et plus
@@ -75,18 +39,15 @@ function Stack({}) {
       }
     };
 
-    // Appel initial pour vérifier la taille de l'écran au premier rendu
     handleResize();
 
-    // Ajouter un listener pour détecter les changements de taille de l'écran
     window.addEventListener("resize", handleResize);
 
-    // Nettoyer l'écouteur d'événements lors du démontage du composant
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className="relative z-10 h-auto flex flex-col justify-center items-center font-hind  ">
+    <div className="relative z-10 h-auto flex flex-col justify-center items-center  ">
       <div className="z-20 max-w-72 overflow-hidden">
         <div className=" w-200 h-256 border-solid border-1 border-zinc-400 opacity-20 rounded-full absolute left-1 -translate-x-1/2 top-10 transform"></div>
 
@@ -97,11 +58,17 @@ function Stack({}) {
 
         <div className=" w-256 h-200 bg-zinc-600 opacity-5 rounded-full blur-3xl absolute left-10 -translate-x-1/2 top-20 transform"></div>
       </div>
-      <div className="sm:text-4xl text-2xl flex text-zinc-100  sm:mb-32 mb-10 border-solid border-zinc-500 border-l-2 px-5 py-2 lg:py-5">
+      <div className="lg:text-4xl text-2xl flex text-zinc-100   mb-10 border-solid px-5 py-2 lg:py-5 font-Noehmi">
         Stack Technique <div className="ml-3">🛠️</div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-center px-5 lg:px-0 sm:pl-0 sm:pb-0 pb-0 w-full overflow-visible">
+      <div className="flex flex-col sm:flex-row items-center justify-center px-5 lg:px-0 sm:pl-0 sm:pb-0 pb-0 w-full overflow-visible relative">
+        {/* <span className="lg:visible invisible lg:flex absolute -rotate-6 -top-10 left-80 text-lg text-violet-300">
+          Hover me !<img className="w-5 ml-5" src="./cursor1.png"></img>
+        </span>
+        <span className="visible lg:hidden flex absolute -rotate-6 -top-1 left-80 text-sm text-violet-300">
+          Touch me !<img className="w-5 ml-5" src="./cursor1.png"></img>
+        </span> */}
         <div
           className={`${
             isVisible
@@ -116,8 +83,8 @@ function Stack({}) {
               <Cubes2></Cubes2>
             </div>
           )}
-          <div className="2xl:px-16 sm:px-7 px-6 rounded-lg z-10 lg:w-2/5 lg:ml-20 lg:mt-0 mt-10">
-            <p className="lg:text-xl text-lg text-zinc-200 z-20">
+          <div className="2xl:px-16 sm:px-7 px-6 rounded-lg z-10 lg:w-2/5 lg:mt-0 mt-10">
+            <p className="2xl:text-xl xl:text-lg text-md text-zinc-200 z-20 font-Noehmi">
               J'utilise <b className={styles.react}>TypeScript</b> pour vous
               offrir des sites modernes et performants avec les technologies les
               plus avancées. <br /> <br />
@@ -125,8 +92,9 @@ function Stack({}) {
               <b className={styles.react}> React</b> et{" "}
               <b className={styles.react}>Next.js</b>, avec{" "}
               <b className={styles.react}>Redux</b> pour la gestion des états et
-              la librairie <b className={styles.react}>Tailwind CSS</b> pour un
-              design soigné et des animations captivantes.
+              la librairie <b className={styles.react}>Tailwind CSS</b> et{" "}
+              <b className={styles.react}>Gsap</b> pour un design soigné et des
+              animations captivantes.
               <br /> <br />
               Pour le back-end, je m'appuie sur{" "}
               <b className={styles.react}>Node.js</b>,{" "}

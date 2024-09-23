@@ -26,7 +26,18 @@
   font-weight: 100 900;
   font-style: normal;
 }
-
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi-Light-BF6438cc5899919.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dirtyline";
+  src: url("/fonts/dirtyline-36daysoftype-2022.otf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
 * {
   box-sizing: border-box;
 }

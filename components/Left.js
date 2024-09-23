@@ -176,7 +176,7 @@ function Left() {
       >
         <div className="transition-all duration-1000 delay-3000 mb-10 lg:mb-0">
           <a
-            href="/CV2024-MOR-VALENTIN.pdf"
+            href="/MOR-VALENTIN-CV-2024.pdf"
             download
             className="border-zinc-300 mr-10 transition-all w-fit ease-in-out border-solid border-1 border-opacity-20 rounded-md px-5 py-3 hover:border-opacity-40 hover:border-violet-400 hover:text-violet-400
         xl:text-sm lg:text-xs text-sm"

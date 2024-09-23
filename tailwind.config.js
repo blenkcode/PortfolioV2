@@ -52,6 +52,7 @@ module.exports = {
         "-80": "-20rem",
       },
       width: {
+        110: "28rem",
         128: "32rem", // 512px
         144: "36rem", // 576px
         160: "40rem", // 640px
@@ -61,12 +62,14 @@ module.exports = {
         // Ajoutez autant de tailles que vous le souhaitez
       },
       height: {
+        110: "28rem",
         128: "32rem", // 512px
         144: "36rem", // 576px
         160: "40rem", // 640px
         192: "48rem",
         200: "52rem", // 768px
         256: "64rem", // 1024px
+        500: "100rem",
         // Ajoutez autant de tailles que vous le souhaitez
       },
       borderWidth: {

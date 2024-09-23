@@ -5,36 +5,16 @@ import Left from "./Left";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/router";
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
 
 function Home() {
   const router = useRouter();
-  const hiRef = useRef(null);
+
   const handlerouter = () => {
     router.push("/");
   };
-  useEffect(() => {
-    gsap.fromTo(
-      hiRef.current,
-      { opacity: 0, visibility: "hidden" },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        delay: 1,
-        ease: "power3.out",
-        visibility: "visible",
-      }
-    );
-  }, []);
+
   return (
     <main className="bg-zinc-900 flex flex-col items-center justify-center relative overflow-hidden h-auto w-full ">
-      <img
-        ref={hiRef}
-        src="/buble4.png"
-        className="z-10 invisible absolute bottom-0 right-0 h-auto w-full  transition-opacity  lg:opacity-70 opacity-0"
-      />
       <div className="absolute md:top-5 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
         <div className="flex ml-4 md:ml-5 md:mr-5 justify-between items-center  ">
           <img

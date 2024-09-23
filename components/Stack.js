@@ -5,9 +5,12 @@ import Cubes2 from "./Cubes2";
 
 import dynamic from "next/dynamic";
 
+import { gsap } from "gsap";
+
 function Stack({}) {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const hiRef = useRef(null);
   console.log(scrollY);
 
   useEffect(() => {
@@ -83,8 +86,8 @@ function Stack({}) {
               <Cubes2></Cubes2>
             </div>
           )}
-          <div className="2xl:px-16 sm:px-7 px-6 rounded-lg z-10 lg:w-2/5 lg:mt-0 mt-10">
-            <p className="2xl:text-xl xl:text-lg text-md text-zinc-200 z-20 font-Noehmi">
+          <div className="2xl:px-16 sm:px-7 px-6 rounded-lg z-10 lg:w-2/5 lg:mt-0 mt-10 relative">
+            <p className="2xl:text-xl xl:text-lg text-md text-zinc-200 z-20 font-Noehmi ">
               J'utilise <b className={styles.react}>TypeScript</b> pour vous
               offrir des sites modernes et performants avec les technologies les
               plus avancées. <br /> <br />
@@ -92,7 +95,7 @@ function Stack({}) {
               <b className={styles.react}> React</b> et{" "}
               <b className={styles.react}>Next.js</b>, avec{" "}
               <b className={styles.react}>Redux</b> pour la gestion des états et
-              la librairie <b className={styles.react}>Tailwind CSS</b> et{" "}
+              les librairies <b className={styles.react}>Tailwind</b> &{" "}
               <b className={styles.react}>Gsap</b> pour un design soigné et des
               animations captivantes.
               <br /> <br />
@@ -102,6 +105,7 @@ function Stack({}) {
               <b className={styles.react}>Socket.io</b> afin de gérer les
               serveurs, les requêtes et opérations CRUD sur bases de données.
             </p>
+            <div className="z-50  absolute -top-10 -right-10 2xl:h-128 2xl:w-128 xl:h-110 xl:w-110 w-96 h-96 bg-violet-500   transition-opacity  lg:opacity-70 opacity-0 rounded-full bg-opacity-20 "></div>
           </div>
         </div>
       </div>

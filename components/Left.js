@@ -91,7 +91,7 @@ function Left() {
         opacity: 1,
 
         duration: 2.4,
-        delay: 4.2,
+        delay: 4.5,
         ease: "power3.out",
       }
     );

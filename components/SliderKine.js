@@ -4,8 +4,10 @@ import { Carousel } from "react-responsive-carousel";
 
 function SliderKine() {
   const data = [
-    { url: "/kine1.png", id: 1 },
-    { url: "/kine2.png", id: 2 },
+    { url: "/k1.png", id: 1 },
+    { url: "/k2.png", id: 2 },
+    { url: "/k3.png", id: 1 },
+    { url: "/k4.png", id: 2 },
   ];
 
   const [selectedIndex, setSelectedIndex] = useState(0);

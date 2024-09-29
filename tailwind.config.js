@@ -70,6 +70,9 @@ module.exports = {
         200: "52rem", // 768px
         256: "64rem", // 1024px
         500: "100rem",
+        quatre: "80%", // 75% de la hauteur
+        vin: "20%", // 25% de la hauteur
+
         // Ajoutez autant de tailles que vous le souhaitez
       },
       borderWidth: {

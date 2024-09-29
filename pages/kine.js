@@ -31,13 +31,16 @@ function lcdo() {
             Site Vitrine pour cabinet de Kinésithérapie / Ostéopathie
           </div>
           <div className="text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
-            Projet en cours de construction!
+            Situé à Marseillan dans l'Hérault ce cabinet d'ostéopathie et
+            kinésithérapie propose différents service , en analyse de course,
+            Bike fiting, et massages.
             <br></br>
           </div>
         </div>
 
         <div className="text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
-          <u>Technologies utilisées :</u> React, Next.js, Redux, Tailwind CSS.
+          <u>Technologies utilisées :</u> React, Next.js, Redux, Tailwind CSS,
+          Gsap.
         </div>
 
         <div className="flex-col flex sm:inline-block mt-10 sm:mt-20">

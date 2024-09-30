@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        "rotate-y": "rotateY 10s infinite linear",
+        "rotate-y": "rotateY 60s infinite linear",
       },
       transitionDuration: {
         0: "0ms",
@@ -28,8 +28,12 @@ module.exports = {
       },
       keyframes: {
         rotateY: {
-          "0%": { transform: "rotateY(0deg)" },
-          "100%": { transform: "rotateY(360deg)" },
+          "0%": {
+            transform: "rotateY(0deg)  ", // Combine rotateY, translateX et scale
+          },
+          "100%": {
+            transform: "rotateY(360deg) ", // Combine rotateY, translateX et scale
+          },
         },
       },
       inset: {
@@ -58,8 +62,12 @@ module.exports = {
         160: "40rem", // 640px
         192: "48rem",
         200: "52rem", // 768px
-        256: "64rem", // 1024px
+        256: "64rem",
+        circlee: "30rem", // 1024px
         // Ajoutez autant de tailles que vous le souhaitez
+      },
+      translate: {
+        900: "900px",
       },
       height: {
         110: "28rem",
@@ -70,6 +78,7 @@ module.exports = {
         200: "52rem", // 768px
         256: "64rem", // 1024px
         500: "100rem",
+        circlee: "30rem",
         quatre: "80%", // 75% de la hauteur
         vin: "20%", // 25% de la hauteur
 
@@ -80,10 +89,10 @@ module.exports = {
       },
       keyframes: {
         "border-animate": {
-          "0%, 100%": { "background-position": "0% 0%" },
-          "25%": { "background-position": "100% 0%" },
-          "50%": { "background-position": "100% 100%" },
-          "75%": { "background-position": "0% 100%" },
+          "0%, 100%": { "background-position": "0% 0%", opacity: "0%" },
+          "25%": { "background-position": "100% 0%", opacity: "100%" },
+          "50%": { "background-position": "100% 100%", opacity: "40%" },
+          "75%": { "background-position": "0% 100%", opacity: "0%" },
         },
       },
 
@@ -99,6 +108,8 @@ module.exports = {
       hind: ["Hind"],
       Noehmi: ["Nohemi"],
       Dirtyline: ["Dirtyline"],
+      Chillax: ["Chillax-Variable"],
+      Satoshi: ["Satoshi-Variable"],
     },
   },
   plugins: [],

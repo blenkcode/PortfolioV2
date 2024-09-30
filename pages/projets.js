@@ -1,13 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDownload,
-  faEnvelope,
-  faAtom,
-} from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faAtom } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Slider from "../components/Slider";
 import { useRouter } from "next/router";
-
+import Background from "../components/Background";
 function projets() {
   const router = useRouter();
   const handlerouter = () => {
@@ -23,7 +19,7 @@ function projets() {
           alt="VM Logo"
         />
         <div className="flex flex-col justify-center ">
-          <h1 className="font-bold text-7xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">
+          <h1 className="font-bold text-xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">
             <span className="text-violet-400">M</span>
             <span>i</span>
             <span>n</span>

@@ -107,7 +107,8 @@
   box-shadow: 6px -2px 20px 0px #81808300;
 }
 .react {
-  color: rgb(150, 123, 211);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
 }
 
 .reactlogo:hover {
@@ -250,4 +251,7 @@
   opacity: 0%;
   transform: translateY(200px);
   transition: 1s ease-out;
+}
+.perspective {
+  perspective: 1000px;
 }

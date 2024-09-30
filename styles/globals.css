@@ -41,24 +41,24 @@
 * {
   box-sizing: border-box;
 }
-@keyframes rotateY {
+/* @keyframes rotateY {
   0% {
-    transform: translateX(-400px) rotateZ(0deg);
+    transform: translateX(-400px) rotateZ(0deg) scale(1);
     border-radius: 100%;
   }
   50% {
-    transform: translateX(-200px) rotateZ(180deg);
+    transform: translateX(-200px) rotateZ(180deg) scale(1.2);
     border-radius: 70%;
   }
   100% {
-    transform: translateX(-400px) rotateZ(360deg);
+    transform: translateX(-400px) rotateZ(360deg) scale(1);
     border-radius: 100%;
   }
 }
 
 .rotate-y {
-  animation: rotateY 60s infinite ease-in-out;
-}
+  animation: rotateY 120s infinite ease-in-out;
+} */
 
 @keyframes fadeIn {
   0% {
@@ -78,4 +78,13 @@
 .hidden {
   opacity: 0;
   visibility: hidden; /* Masque l'élément initialement */
+}
+@font-face {
+  font-family: "Satoshi-Variable";
+  src: url("/fonts/Satoshi-Variable.woff2") format("woff2"),
+    url("/fonts/Satoshi-Variable.woff") format("woff"),
+    url("/fonts/Satoshi-Variable.ttf") format("truetype");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
 }

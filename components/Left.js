@@ -63,9 +63,9 @@ function Left() {
       {
         opacity: 1,
         y: 0,
-        duration: 0.5,
+        duration: 0.3,
         ease: "power3.out",
-        stagger: 0.045,
+        stagger: 0.05,
         rotation: 360,
         scale: 100,
         delay: 2.4,
@@ -78,8 +78,8 @@ function Left() {
       {
         opacity: 1,
         blur: 0,
-        duration: 2.4,
-        delay: 3.8,
+        duration: 3.5,
+        delay: 3.5,
         ease: "power3.out",
         visibility: "visible",
       }
@@ -90,8 +90,8 @@ function Left() {
       {
         opacity: 1,
 
-        duration: 2.4,
-        delay: 4.5,
+        duration: 3.5,
+        delay: 3.5,
         ease: "power3.out",
       }
     );
@@ -156,7 +156,7 @@ function Left() {
 
       <div
         ref={textRef}
-        className=" font-Noehmi invisible  z-10 2xl:mt-20 xl:mt-16 lg:mt-10 mt-10 text-md 2xl:text-xl  lg:text-md    w-4/5"
+        className=" font-Satoshi font-thin invisible  z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-10 text-lg bg-zinc-800 bg-opacity-30 p-3 rounded-xl  w-fit"
       >
         {" "}
         Je suis un développeur{" "}
@@ -165,36 +165,49 @@ function Left() {
         <b>Montpellier.</b>
         <br></br>
         <br></br>
-        Passionné par la <b>création</b> d'interfaces utilisateurs et
-        d'architecture back-end, je réalise vos futures applications{" "}
+        Je réalise vos futures applications{" "}
         <span className="font-source text-violet-400">Web</span> &{" "}
         <span className="font-source text-violet-400">Mobile</span>.
       </div>
       <div
         ref={btnRef}
-        className="mt-12 opacity-0 font-Noehmi  lg:mt-12 flex flex-col lg:flex-row  sm:pl-0 "
+        className="mt-12 opacity-0 font-Satoshi font-thin lg:mt-12 flex flex-col lg:flex-row  sm:pl-0 "
       >
-        <div className="transition-all duration-1000 delay-3000 mb-10 lg:mb-0">
-          <a
-            href="/MOR-VALENTIN-CV-2024.pdf"
-            download
-            className="border-zinc-300 mr-10 transition-all w-fit ease-in-out border-solid border-1 border-opacity-20 rounded-md px-5 py-3 hover:border-opacity-40 hover:border-violet-400 hover:text-violet-400
-        xl:text-sm lg:text-xs text-sm"
-          >
-            Télécharger un CV
-            <FontAwesomeIcon className="ml-3" icon={faDownload} />
-          </a>
-        </div>
-        <div className="transition-all duration-1000 delay-3000 mb-10 lg:mb-0">
-          <a
-            href="mailto:valentinmor.pro@gmail.com?subject=Demande%20d'information"
-            className="border-zinc-300 mr-10 transition-all w-fit ease-in-out border-solid border-1 border-opacity-20 rounded-md px-5 py-3 hover:border-opacity-40 hover:border-violet-400 hover:text-violet-400
-            xl:text-sm lg:text-xs text-sm"
-          >
-            Contactez moi !
-            <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
-          </a>
-        </div>
+        <a href="/MOR-VALENTIN-CV-2024.pdf" download>
+          <div className=" text-white group border-1  border-zinc-200 hover:border-violet-400 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
+            <span className="hover-group: group-hover:text-violet-400  opacity-0 translate- ">
+              Télécharger un CV
+              <FontAwesomeIcon className="ml-3" icon={faDownload} />
+            </span>
+            <span className="transition-all group-hover:text-violet-400 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+              Télécharger un CV
+              <FontAwesomeIcon className="ml-3" icon={faDownload} />
+            </span>
+            <span className="transition-all group-hover:text-violet-400  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+              Télécharger un CV
+              <FontAwesomeIcon className="ml-3" icon={faDownload} />
+            </span>
+          </div>
+        </a>
+        <a
+          href="mailto:valentinmor.pro@gmail.com"
+          className="lg:ml-10 mt-5 lg:mt-0"
+        >
+          <div className=" text-white group border-1  border-zinc-200 hover:border-violet-400 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
+            <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
+              Contactez moi !
+              <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
+            </span>
+            <span className="transition-all group-hover:text-violet-400 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+              Contactez moi !
+              <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
+            </span>
+            <span className="transition-all group-hover:text-violet-400  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+              Contactez moi !
+              <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
+            </span>
+          </div>
+        </a>
       </div>
     </div>
   );

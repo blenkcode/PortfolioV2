@@ -20,12 +20,12 @@ function Right() {
   useEffect(() => {
     gsap.fromTo(
       btnRef.current,
-      { opacity: 0, x: 200, visibility: "hidden" },
+      { opacity: 0, visibility: "hidden" },
       {
         opacity: 1,
-        x: 0,
-        duration: 2,
-        delay: 4,
+
+        duration: 3.5,
+        delay: 3.5,
         ease: "power3.out",
         visibility: "visible",
       }
@@ -35,7 +35,7 @@ function Right() {
   return (
     <div
       ref={btnRef}
-      className="mr-0 invisible flex flex-col lg:items-start lg:justify-center md:items-center  lg:h-lvh font-hind  w-full "
+      className="mr-0 invisible flex flex-col items-start justify-center   h-fit font-hind  w-full "
     >
       <div className="flex flex-col lg:items-start justify-center md:items-center">
         {" "}
@@ -49,7 +49,7 @@ function Right() {
           <div className="absolute inset-0 z-0 bg-violet-900 opacity-10 rounded-full blur-3xl animation-move-loop max-w1/2"></div>
         </div>
         <div className=" mt-10  lg:px-0 w-full flex flex-col justify-center items-center   ">
-          <div className="flex flex-col items-start pl-2  w-full px-0 lg:pl-10  mb-3 text-sm 2xl:text-xl xl:text-sm lg:text-xs font-Noehmi text-white">
+          {/* <div className="flex flex-col items-start pl-2  w-full px-0 lg:pl-10  mb-3 text-sm 2xl:text-xl xl:text-sm lg:text-xs font-Noehmi text-white">
             <div className=" mb-3 w-fit ">
               <FontAwesomeIcon
                 className="mr-3 text-violet-400 text-sm"
@@ -71,7 +71,7 @@ function Right() {
               />
               Maintenance des services
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

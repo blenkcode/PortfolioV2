@@ -16,13 +16,24 @@ function Portfolio() {
   };
 
   return (
-    <div className="flex font-Noehmi flex-col items-center justify-center w-10/12 2xl:w-8/12 mx-auto relative h-fit pb-24 sm:pt-12 pt-0 2xl:mt-32 mt-32 lg:mt-24 md:mt-16">
-      <div className="lg:text-4xl text-2xl text-white lg:mb-32 mb-12   px-5 lg:py-5 py-2">
+    <div className="flex font-Noehmi flex-col items-center justify-center w-10/12 2xl:w-8/12 mx-auto relative h-fit pb-24 sm:pt-12 pt-0 2xl:mt-32 mt-32 lg:mt-0 md:mt-16 ">
+      {/* <div className="lg:text-4xl text-2xl text-white lg:mb-32 mb-12   px-5 lg:py-5 py-2">
         Projets 💡
+      </div> */}
+      <div className="fixed  right-10 flex items-end flex-col text-zinc">
+        <span>Le Chant des Oiseaux </span>
+        <span>Mutable Instruments</span>
+        <span>Sport -Santé Méditerranée </span>
+        <span>Heaf</span>
+        <span>Carby</span>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10  border-0 sm:p-[2rem] p-0 h-fit rounded-md z-50 ">
-        <div>
-          <div onClick={() => handleproject()} className="relative group">
+
+      <div className="flex flex-col justify-center items-center border-0 sm:p-[2rem] p-0 h-fit rounded-md z-50 ">
+        <div className="flex items-center flex-col justify-center ">
+          <div
+            onClick={() => handleproject()}
+            className="relative group w-1/2  "
+          >
             <div className="mb-10 border-solid hover:border-violet-500 hover:border-opacity-40 border-zinc-400 border-4 rounded-md  p-1 bg-zinc-900 transform transition-transform duration-300 group-hover:scale-105">
               {" "}
               <img src="./mocklcdo1.png" alt="LCDO" />{" "}
@@ -32,7 +43,7 @@ function Portfolio() {
             </div>
           </div>
 
-          <div onClick={() => handleheaf()} className="relative group">
+          <div onClick={() => handleheaf()} className="relative group w-1/2">
             <div className="hover:border-violet-500 hover:border-opacity-40  border-solid border-zinc-400 border-4 rounded-md  p-1 bg-zinc-900 transform transition-transform duration-300 group-hover:scale-105">
               {" "}
               <img src="./h1.png" alt="Heaf" />{" "}
@@ -41,9 +52,7 @@ function Portfolio() {
               </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div onClick={() => handlemutable()} className="relative group">
+          <div onClick={() => handlemutable()} className="relative group w-1/2">
             <div className="mb-10 hover:border-violet-500 hover:border-opacity-40 border-solid border-zinc-400 border-4 rounded-md  p-1 bg-zinc-900 transform transition-transform duration-300 group-hover:scale-105">
               {" "}
               <img src="./mutable.png" alt="Site marchand" />{" "}
@@ -52,8 +61,10 @@ function Portfolio() {
               </div>
             </div>
           </div>
-
-          <div onClick={() => handlecarby()} className="relative group">
+          <div
+            onClick={() => handlecarby()}
+            className="relative group w-1/2 mt-10"
+          >
             <div className="hover:border-violet-500 hover:border-opacity-40  border-solid border-zinc-400 border-4 rounded-md  p-1 bg-zinc-900 transform transition-transform duration-300 group-hover:scale-105">
               {" "}
               <img src="./k1.png" alt="Cabinet Kinesithérapie" />{" "}

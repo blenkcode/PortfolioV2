@@ -1,13 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDownload,
-  faEnvelope,
-  faAtom,
-} from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faAtom } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import SliderKine from "../components/SliderKine";
 import { useRouter } from "next/router";
-
+import Background from "../components/Background";
 function lcdo() {
   const router = useRouter();
   const handlerouter = () => {
@@ -15,22 +11,25 @@ function lcdo() {
   };
   return (
     <div className="overflow-hidden font-Noehmi bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
+      <div className="blur-xl fixed top-0 right-0 w-full h-screen flex flex-row -translate-y-96  ">
+        <Background></Background>
+      </div>
       <div className="  flex flex-col sm:p-36 p-10 sm:pt-32 pt-32 z-40 ">
         <img
           onClick={() => handlerouter()}
-          class="w-16 shadow-inner top-5 left-5 cursor-pointer absolute"
+          class="lg:w-16 w-12 shadow-inner top-5 left-5 cursor-pointer absolute"
           src="logo2.png"
           alt="VM Logo"
         />
         <div className="flex flex-col justify-center ">
-          <h1 className="font-bold text-7xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">
+          <h1 className="font-bold text-2xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">
             <span className="text-violet-400">S</span>
             port - Santé
           </h1>
-          <div className="font-bold text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
+          <div className="font-Satoshi font-thintext-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
             Site Vitrine pour cabinet de Kinésithérapie / Ostéopathie
           </div>
-          <div className="text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
+          <div className=" font-Satoshi font-thin text-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
             Situé à Marseillan dans l'Hérault ce cabinet d'ostéopathie et
             kinésithérapie propose différents service , en analyse de course,
             Bike fiting, et massages.
@@ -38,7 +37,7 @@ function lcdo() {
           </div>
         </div>
 
-        <div className="text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
+        <div className=" font-Satoshi font-thin text-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
           <u>Technologies utilisées :</u> React, Next.js, Redux, Tailwind CSS,
           Gsap.
         </div>
@@ -63,7 +62,7 @@ function lcdo() {
           </a>
         </div>
       </div>
-      <div className="  flex h-auto sm:px-36 px-2 py-10 sm:pr-36 pr:0 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12 flex-col justify-start items-center">
+      <div className=" z-50 flex h-auto sm:px-36 px-2 py-10 sm:pr-36 pr:0 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12 flex-col justify-start items-center">
         <SliderKine></SliderKine>
       </div>
       <div className="z-20 max-w-72 overflow-hidden">

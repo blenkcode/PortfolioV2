@@ -5,18 +5,25 @@ import Left from "./Left";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Portfoliov2 from "./Portfoliov2";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { useRouter } from "next/router";
 import Background from "./Background";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
+import { useRouter } from "next/router";
 function Home() {
-  const router = useRouter();
-
   const handlerouter = () => {
     router.push("/");
   };
+  const router = useRouter();
+
+  // Stocke le chemin précédent
+  useEffect(() => {
+    // Vérifiez si le paramètre query "scrollToPortfolio" est présent
+    if (router.query.scrollToPortfolio) {
+      // Scroller vers portfolioRef
+      portfolioRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [router.query]);
 
   const leftRef = useRef(null);
   const mainRef = useRef(null);
@@ -342,16 +349,16 @@ function Home() {
       .timeline({
         scrollTrigger: {
           trigger: mainRef.current, // Élément déclencheur pour l'animation
-          start: "10%", // Animation commence à 10% du défilement
-          end: "22%", // Fin de l'animation à 45% du défilement
+          start: "13%", // Animation commence à 10% du défilement
+          end: "26%", // Fin de l'animation à 45% du défilement
           scrub: 3, // Synchronisation avec le défilement
           // Marqueurs pour le débogage
         },
       })
       .fromTo(
         svgRef.current.querySelector("circle"),
-        { strokeDashoffset: 440 }, // Commence avec un cercle vide
-        { strokeDashoffset: 0, duration: 1, ease: "none" } // Se remplit progressivement
+        { strokeDashoffset: 440, stroke: "#FDFAF8" }, // Commence avec un cercle vide
+        { strokeDashoffset: 0, duration: 1, stroke: "#A287F2", ease: "none" } // Se remplit progressivement
       );
   }, []);
   return (

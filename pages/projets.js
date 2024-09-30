@@ -7,7 +7,11 @@ import Background from "../components/Background";
 function projets() {
   const router = useRouter();
   const handlerouter = () => {
-    router.push("/");
+    // Redirige vers "/" avec un state ou query paramètre
+    router.push({
+      pathname: "/",
+      query: { scrollToPortfolio: true }, // Utilisation d'un query paramètre
+    });
   };
   return (
     <div className="overflow-hidden font-Noehmi bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">

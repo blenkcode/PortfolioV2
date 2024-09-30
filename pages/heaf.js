@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAtom } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import SliderHeaf from "../components/SliderHeaf";
 import { useRouter } from "next/router";
@@ -7,7 +7,11 @@ import Background from "../components/Background";
 function heaf() {
   const router = useRouter();
   const handlerouter = () => {
-    router.push("/");
+    // Redirige vers "/" avec un state ou query paramètre
+    router.push({
+      pathname: "/",
+      query: { scrollToPortfolio: true }, // Utilisation d'un query paramètre
+    });
   };
   return (
     <div className="overflow-hidden font-Noehmi bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
@@ -29,7 +33,7 @@ function heaf() {
           <div className="font-Satoshi font-thin text-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
             Web-application de santé, accompagnement et conseil nutritionels.
           </div>
-          <div className=" font-Satoshi font-thintext-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
+          <div className=" font-Satoshi font-thin text-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
             Heaf est là pour vous apporter des connaissances et des{" "}
             <b className="text-violet-400">plans nutritionnels</b> guidés avec
             différents programmes, basés sur{" "}
@@ -47,24 +51,55 @@ function heaf() {
           <u>Technologies utilisées :</u> Javascript, React, Chart.js Next.js
           Redux, MongoDB, Tailwind CSS, Spline, Express, Node.js.
         </div>
-
-        <div className="flex-col flex sm:inline-block mt-10 sm:mt-20">
-          {" "}
+        <div className="flex-col font-Satoshi font-thin flex sm:inline-block mt-5 ">
           <a
             href="https://github.com/blenkcode/heaf-front-end"
-            download
-            className="border-zinc-300 border-solid border-2 rounded-md px-5 mb-10 py-3 w-fit hover:border-violet-400 hover:text-violet-400"
+            target="_blank"
+            className="z-50"
           >
-            Repository
-            <FontAwesomeIcon className="ml-3" icon={faGithub} />
+            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex text-lg justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden mb-5">
+              <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
+                Repository
+                <FontAwesomeIcon className="ml-3" icon={faGithub} />
+              </span>
+              <span className="transition-all  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+                Repository
+                <FontAwesomeIcon className="ml-3" icon={faGithub} />
+              </span>
+              <span className="transition-all   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+                Repository
+                <FontAwesomeIcon className="ml-3" icon={faGithub} />
+              </span>
+            </div>
           </a>
           <a
             href="https://heaf-front-end.vercel.app/"
-            download
-            className="border-zinc-300 sm:ml-10  ml-0 border-solid border-2 w-fit rounded-md px-5 py-3 hover:border-violet-400 hover:text-violet-400"
+            target="_blank"
+            className="z-50 "
           >
-            Demo
-            <FontAwesomeIcon className="ml-3" icon={faAtom} />
+            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex text-lg justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
+              <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
+                Visitez
+                <FontAwesomeIcon
+                  className="ml-3 -rotate-45"
+                  icon={faArrowRight}
+                />
+              </span>
+              <span className="transition-all  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+                Visitez
+                <FontAwesomeIcon
+                  className="ml-3 -rotate-45"
+                  icon={faArrowRight}
+                />
+              </span>
+              <span className="transition-all   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+                Visitez
+                <FontAwesomeIcon
+                  className="ml-3 -rotate-45"
+                  icon={faArrowRight}
+                />
+              </span>
+            </div>
           </a>
         </div>
       </div>

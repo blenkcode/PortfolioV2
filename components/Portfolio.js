@@ -20,13 +20,6 @@ function Portfolio() {
       {/* <div className="lg:text-4xl text-2xl text-white lg:mb-32 mb-12   px-5 lg:py-5 py-2">
         Projets 💡
       </div> */}
-      <div className="fixed  right-10 flex items-end flex-col text-zinc">
-        <span>Le Chant des Oiseaux </span>
-        <span>Mutable Instruments</span>
-        <span>Sport -Santé Méditerranée </span>
-        <span>Heaf</span>
-        <span>Carby</span>
-      </div>
 
       <div className="flex flex-col justify-center items-center border-0 sm:p-[2rem] p-0 h-fit rounded-md z-50 ">
         <div className="flex items-center flex-col justify-center ">

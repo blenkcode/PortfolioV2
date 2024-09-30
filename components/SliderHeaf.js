@@ -25,7 +25,7 @@ function Slider() {
           </div>
         ))}
       </Carousel>
-      <div className="grid grid-cols-3 gap-5 w-150 2xl:w-200 mt-20">
+      <div className="grid grid-cols-3 gap-5 w-150 2xl:w-200 mt-20 z-50">
         {data.map((slide, index) => (
           <div className="flex justify-center items-center">
             {" "}
@@ -34,7 +34,7 @@ function Slider() {
               src={slide.url}
               alt={`Thumb ${slide.id}`}
               onClick={() => setSelectedIndex(index)}
-              className={`w-60 h-auto  m-2 border-2 ${
+              className={`w-60 h-auto rounded-full  m-2 border-2 ${
                 index === selectedIndex
                   ? "border-violet-400"
                   : "border-transparent"

@@ -32,32 +32,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               const progress = self.progress * 100; // Progrès du scroll en pourcentage
               console.log(`Progress: ${progress}%`); // Debug
               if (screenWidth > 1000) {
-                if (screenWidth >= 1024 && screenWidth <= 1280) {
-                  setLcdo(true);
-                  if (progress < 0) {
-                    setLcdo(true);
-                  } else {
-                    setLcdo(false);
-                  }
-
-                  if (progress >= 10 && progress < 25) {
-                    setSante(true);
-                  } else {
-                    setSante(false);
-                  }
-
-                  if (progress >= 25 && progress < 40) {
-                    setHeaf(true);
-                  } else {
-                    setHeaf(false);
-                  }
-
-                  if (progress >= 40 && progress <= 100) {
-                    setMutable(true);
-                  } else {
-                    setMutable(false);
-                  }
-                } else {
+                if (screenWidth >= 1280) {
                   if (progress < 14) {
                     setLcdo(true);
                   } else {
@@ -78,6 +53,33 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
                   } else {
                     setMutable(false);
                   }
+                }
+                if (screenWidth >= 1024 && screenWidth <= 1280) {
+                  setLcdo(true);
+                  if (progress < 9) {
+                    setLcdo(true);
+                  } else {
+                    setLcdo(false);
+                  }
+
+                  if (progress >= 9 && progress < 21) {
+                    setSante(true);
+                  } else {
+                    setSante(false);
+                  }
+
+                  if (progress >= 21 && progress < 33) {
+                    setHeaf(true);
+                  } else {
+                    setHeaf(false);
+                  }
+
+                  if (progress >= 33 && progress <= 100) {
+                    setMutable(true);
+                  } else {
+                    setMutable(false);
+                  }
+                } else {
                 }
               } else {
                 setLcdo(false);
@@ -105,7 +107,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       bassShotRef.current.currentTime = 0;
 
       // Régler le volume
-      bassShotRef.current.volume = 1;
+      bassShotRef.current.volume = 0.5;
 
       // Tenter de jouer le son avec gestion des erreurs
       bassShotRef.current.play().catch((error) => {
@@ -119,7 +121,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       bassShot2Ref.current.currentTime = 0;
 
       // Régler le volume
-      bassShot2Ref.current.volume = 1;
+      bassShot2Ref.current.volume = 0.5;
 
       // Tenter de jouer le son avec gestion des erreurs
       bassShot2Ref.current.play().catch((error) => {
@@ -142,7 +144,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   };
 
   return (
-    <div className="w-full lg:fixed shadow-2xl right-1/2 lg:translate-x-1/2 2xl:top-96 xl:top-72 z-40">
+    <div className="w-full lg:fixed shadow-2xl right-1/2 lg:translate-x-1/2 2xl:top-96 xl:translate-y-10 xl:top-72 z-40">
       <audio ref={bassShotRef} src="/bassshot.wav"></audio>
       <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
       <div className="absolute right-20 text-zinc-200 text-xl flex items-end justify-center flex-col text-zinc font-Satoshi font-thin z-50 lg:visible invisible ">
@@ -297,7 +299,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       </div>
       <div className="fixed lg:visible invisible left-20 text-zinc-200  flex items-start justify-center flex-col text-base  shadow-2xl text-zinc font-Satoshi font-thin   ">
         <span
-          className={`mb-1 fixed w-80 lg:text-sm 2xl:text-base top-5 xl:left-8 2xl:left-16 lg:left-5 transition-opacity duration-300 shadow-2xl p-10  rounded-xl ${
+          className={`mb-1 fixed xl:w-80 lg:w-64 top-5 xl:text-sm lg:text-xs 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl ${
             lcdo ? "opacity-100 lg:visible" : "opacity-0 invisible"
           }`}
         >
@@ -313,7 +315,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </div>
         </span>
         <span
-          className={`mb-1 fixed w-80 top-5 lg:text-sm 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
+          className={`mb-1 fixed xl:w-80 lg:w-64 top-5 xl:text-sm lg:text-xs 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
             sante ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -329,7 +331,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </div>
         </span>
         <span
-          className={`mb-1 fixed w-80 lg:text-sm 2xl:text-base top-5 xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
+          className={`mb-1 fixed xl:w-80 lg:w-64 top-5 xl:text-sm lg:text-xs 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
             heaf ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -349,7 +351,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </div>
         </span>
         <span
-          className={`mb-1 fixed w-80 top-5 lg:text-sm 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
+          className={`mb-1 fixed xl:w-80 lg:w-64 top-5 xl:text-sm lg:text-xs 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
             mutable ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -375,7 +377,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       >
         <div
           onClick={() => handleproject()}
-          className="relative group 2xl:w-144 xl:w-110 w-4/5  "
+          className="relative group 2xl:w-144 xl:w-110 w-4/5  lg:w-96 "
         >
           <div
             className={`border-solid  border-opacity-50 border-4 rounded-md  p-1 bg-zinc-900 transform transition-all duration-300 ${
@@ -394,7 +396,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         </div>
         <div
           onClick={() => handlecarby()}
-          className="relative group 2xl:w-144 xl:w-110 w-4/5 mt-10 "
+          className="relative group 2xl:w-144 xl:w-110 lg:w-96 w-4/5 mt-10 "
         >
           <div
             className={`border-solid border-opacity-50 border-4 rounded-md  p-1 bg-zinc-900 transform transition-all duration-300 ${
@@ -409,7 +411,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         </div>
         <div
           onClick={() => handleheaf()}
-          className="relative group 2xl:w-144 xl:w-110 w-4/5 mt-10 "
+          className="relative group 2xl:w-144 xl:w-110 w-4/5 lg:w-96  mt-10 "
         >
           <div
             className={`border-solid border-opacity-50 border-4 rounded-md  p-1 bg-zinc-900 transform transition-all duration-300  ${
@@ -424,7 +426,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         </div>
         <div
           onClick={() => handlemutable()}
-          className="relative group 2xl:w-144 xl:w-110 w-4/5  mt-10 "
+          className="relative group 2xl:w-144 xl:w-110 w-4/5 lg:w-96  mt-10 "
         >
           <div
             className={`border-solid border-opacity-50 border-4 rounded-md  p-1 bg-zinc-900 transform transition-all duration-300  ${

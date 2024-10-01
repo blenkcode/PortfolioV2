@@ -100,13 +100,8 @@ function Left() {
   const bassShot2Ref = useRef(null);
   const playShot = () => {
     if (bassShotRef.current) {
-      // Revenir au début du son pour qu'il se rejoue à chaque hover
       bassShotRef.current.currentTime = 0;
-
-      // Régler le volume
       bassShotRef.current.volume = 1;
-
-      // Tenter de jouer le son avec gestion des erreurs
       bassShotRef.current.play().catch((error) => {
         console.log("Erreur lors de la lecture de l'audio :", error);
       });
@@ -114,13 +109,8 @@ function Left() {
   };
   const playShot2 = () => {
     if (bassShot2Ref.current) {
-      // Revenir au début du son pour qu'il se rejoue à chaque hover
       bassShot2Ref.current.currentTime = 0;
-
-      // Régler le volume
       bassShot2Ref.current.volume = 1;
-
-      // Tenter de jouer le son avec gestion des erreurs
       bassShot2Ref.current.play().catch((error) => {
         console.log("Erreur lors de la lecture de l'audio :", error);
       });
@@ -187,7 +177,7 @@ function Left() {
 
       <div
         ref={textRef}
-        className=" font-Satoshi font-thin invisible flex-col flex z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-5 text-md  lg:text-md xl:text-lg bg-zinc-500 shadow-xl bg-opacity-20 p-3 rounded-xl  md:w-fit w-4/5"
+        className=" font-Satoshi font-thin invisible flex-col flex z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-5 text-md  lg:text-md 2xl:text-lg bg-zinc-500 shadow-xl bg-opacity-20 p-3 rounded-xl  md:w-fit w-4/5"
       >
         {" "}
         <span>

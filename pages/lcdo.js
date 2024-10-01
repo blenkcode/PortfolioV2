@@ -1,72 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import SliderLcdo from "../components/SliderLcdo";
-import { useRouter } from "next/router";
+
 import Background from "../components/Background";
-import Time from "../components/Time";
 
 function lcdo() {
-  const router = useRouter();
-  const handlerouter = () => {
-    // Redirige vers "/" avec un state ou query paramètre
-    router.push({
-      pathname: "/",
-      query: { scrollToPortfolio: true }, // Utilisation d'un query paramètre
-    });
-  };
   return (
     <div className="overflow-hidden font-Noehmi bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
       <div className="blur-xl fixed top-0 right-0 w-full h-screen flex flex-row -translate-y-96  ">
         <Background></Background>
       </div>
-      <div className="absolute md:top-7 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
-        <div className="flex lg:px-7 px-2 w-full justify-between  items-center  ">
-          <div className="flex w-fit ">
-            <div
-              onClick={handlerouter}
-              className="sm:mr-20 text-zinc-200  w-fit  font-Satoshi cursor-pointer font-thin relative group"
-            >
-              <span className="opacity-0">V</span>
-              <span className="opacity-0">/</span>
-              <span className="opacity-0">M</span>
 
-              <span className="absolute font-bold -translate-x-4 group-hover:-translate-x-1 transition-all duration-200 2xl:text-base lg:text-sm">
-                V
-              </span>
-              <span className="absolute font-thin text-zinc-300 group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm">
-                /
-              </span>
-              <span className="absolute font-semibold translate-x-3 2xl:text-base lg:text-sm">
-                M
-              </span>
-            </div>
-            <div className="invisible md:visible md:relative absolute -translatey-full lg:-translate-y-0">
-              {" "}
-              <Time></Time>
-            </div>
-          </div>
-          <div className="flex font-source items-center justify-end w-fit text-zinc-100 ">
-            <a
-              href="https://www.linkedin.com/in/valentin-mor-a03174114/"
-              target="_blank"
-              className="lg:mr-7 lg:ml-12 mr-2 ml-5"
-            >
-              <FontAwesomeIcon
-                className="text-xl 2xl:text-2xl lg:text-xl text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
-                icon={faLinkedin}
-              />
-            </a>
-            <a target="_blank" href="https://github.com/blenkcode">
-              <FontAwesomeIcon
-                className="text-xl 2xl:text-2xl lg:text-xl mr-5 ml-3 lg:ml-0  text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
-                icon={faGithub}
-              />
-            </a>
-          </div>
-        </div>
-      </div>
       <div className="  flex flex-col sm:px-20 sm:pt-32 pt-20 px-5 z-40 ">
         <div className="flex flex-col justify-center ">
           <h1 className="font-bold text-3xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">

@@ -1,15 +1,143 @@
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import Time from "./Time";
+import { useRef } from "react";
+import { useRouter } from "next/router";
+import { useMainRef } from "../MainRefContext";
 function Header() {
+  const { mainRefValue } = useMainRef();
+  const hoverSoundRef = useRef(null);
+  const clickSoundRef = useRef(null);
+  const bassRef = useRef(null);
+  const router = useRouter();
+  const swooshRef = useRef(null);
+  const playbassSound = () => {
+    if (clickSoundRef.current) {
+      bassRef.current.currentTime = 0;
+      bassRef.current.volume = 1;
+      bassRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
+  const handleProject = () => {
+    playbassSound();
+    if (mainRefValue) {
+      const mainRect = mainRefValue.getBoundingClientRect();
+
+      const scrollPosition =
+        mainRect.top + window.scrollY + mainRect.height * 0.5;
+
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+  const playSwooshSound = () => {
+    if (swooshRef.current) {
+      swooshRef.current.currentTime = 0;
+      swooshRef.current.volume = 0.4;
+      swooshRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
+  const playHoverSound = () => {
+    if (hoverSoundRef.current) {
+      hoverSoundRef.current.currentTime = 0;
+      hoverSoundRef.current.volume = 0.4;
+      hoverSoundRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
+
+  const playClickSound = () => {
+    if (clickSoundRef.current) {
+      clickSoundRef.current.currentTime = 0;
+      clickSoundRef.current.volume = 0.3;
+      clickSoundRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
+
+  const handlerouter = () => {
+    router.push("/");
+
+    if (scrollY >= 1) {
+      playbassSound();
+    } else {
+      playClickSound();
+    }
+  };
   return (
-    <div className="absolute top-0 left-0 w-full h-20 bg-white">
-      <div className="flex justify-between items-center">
-        <img class="w-16 shadow-inner" src="logo2.png" alt="VM Logo" />
-        <ul className="flex font-source justify-around w-3/6">
-          <li>01. Accueil</li>
-          <li>02. À propos</li>
-          <li>03. Portfolio</li>
-        </ul>
+    <div className="lg:fixed absolute md:top-7 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
+      <div className="flex lg:px-7 px-2 w-full justify-between  items-center  ">
+        <audio ref={bassRef} src="/reversebass.wav"></audio>
+        <audio ref={hoverSoundRef} src="/interface1.wav"></audio>
+        <audio ref={clickSoundRef} src="/click1.wav"></audio>
+
+        <audio ref={swooshRef} src="/swoosh.wav"></audio>
+        <div className="flex w-fit ">
+          <div
+            onClick={handlerouter}
+            onMouseEnter={playHoverSound}
+            className="sm:mr-20 lg:mr-5 xl:mr-20 text-zinc-200  w-fit  font-Satoshi cursor-pointer font-thin relative group"
+          >
+            <span className="opacity-0">V</span>
+            <span className="opacity-0">V</span>
+            <span className="opacity-0">V</span>
+            <span className="opacity-0">V</span>
+            <span className="opacity-0">/</span>
+            <span className="opacity-0">M</span>
+            <div className="-translate-y-6 translate-x-6">
+              <span className="absolute font-bold -translate-x-4 group-hover:-translate-x-1 transition-all duration-200 2xl:text-base lg:text-sm">
+                V
+              </span>
+              <span className="absolute font-thin text-zinc-300 group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm">
+                /
+              </span>
+              <span className="absolute font-semibold translate-x-3 2xl:text-base lg:text-sm">
+                M
+              </span>
+            </div>
+          </div>
+          <div className="invisible md:visible md:relative absolute -translatey-full lg:-translate-y-0">
+            {" "}
+            <Time></Time>
+          </div>
+        </div>
+        <div className="flex font-source items-center justify-end w-fit text-zinc-100 ">
+          <div
+            onMouseEnter={playSwooshSound}
+            onClick={handleProject}
+            className="font-Satoshi font-thin group cursor-pointer "
+          >
+            <div className="relative 2xl:text-base lg:text-sm">
+              <span className="mr-2">/</span>PROJECTS
+              <div className="h-1 w-0 translate-y-1 bg-zinc-200 group-hover:w-full transition-all duration-200  rounded-full"></div>
+            </div>
+          </div>
+          <a
+            href="https://www.linkedin.com/in/valentin-mor-a03174114/"
+            target="_blank"
+            className="lg:mr-7 lg:ml-12 mr-2 ml-5"
+          >
+            <FontAwesomeIcon
+              className="text-xl 2xl:text-2xl lg:text-xl text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
+              icon={faLinkedin}
+            />
+          </a>
+          <a target="_blank" href="https://github.com/blenkcode">
+            <FontAwesomeIcon
+              className="text-xl 2xl:text-2xl lg:text-xl mr-5 ml-3 lg:ml-0  text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
+              icon={faGithub}
+            />
+          </a>
+        </div>
       </div>
     </div>
   );

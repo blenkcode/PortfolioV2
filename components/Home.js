@@ -2,58 +2,16 @@ import Right from "./Right";
 import Stack from "./Stack";
 import Portfolio from "./Portfolio";
 import Left from "./Left";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Portfoliov2 from "./Portfoliov2";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import Background from "./Background";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
-import Time from "./Time";
-function Home() {
-  const handlerouter = () => {
-    router.push("/");
 
-    if (scrollY >= 1) {
-      playbassSound();
-    } else {
-      playClickSound();
-    }
-  };
-
-  const playClickSound = () => {
-    if (clickSoundRef.current) {
-      // Revenir au début du son pour qu'il se rejoue
-      clickSoundRef.current.currentTime = 0;
-
-      // Régler le volume
-      clickSoundRef.current.volume = 0.3;
-
-      // Tenter de jouer le son avec gestion des erreurs
-      clickSoundRef.current.play().catch((error) => {
-        console.log("Erreur lors de la lecture de l'audio :", error);
-      });
-    }
-  };
-  const playbassSound = () => {
-    if (clickSoundRef.current) {
-      // Revenir au début du son pour qu'il se rejoue
-      bassRef.current.currentTime = 0;
-
-      // Régler le volume
-      bassRef.current.volume = 1;
-
-      // Tenter de jouer le son avec gestion des erreurs
-      bassRef.current.play().catch((error) => {
-        console.log("Erreur lors de la lecture de l'audio :", error);
-      });
-    }
-  };
+import { useMainRef } from "../MainRefContext";
+function Home({}) {
   const router = useRouter();
-
-  // Stocke le chemin précédent
-
   const leftRef = useRef(null);
   const mainRef = useRef(null);
   const circleRef = useRef(null);
@@ -68,34 +26,23 @@ function Home() {
   const stackRef = useRef(null);
   const portfolioRef = useRef(null);
   const svgRef = useRef(null);
-
+  const { setMainRefValue } = useMainRef();
   const morphRef = useRef(null);
-
-  const handleProject = () => {
-    playbassSound();
-    if (mainRef.current) {
-      // Obtenir la hauteur de mainRef et la position relative
-      const mainRect = mainRef.current.getBoundingClientRect();
-
-      // Calculer la position du scroll à 45% de la hauteur de mainRef
-      const scrollPosition =
-        mainRect.top + window.scrollY + mainRect.height * 0.5;
-
-      // Scroller jusqu'à cette position avec un comportement smooth
-      window.scrollTo({
-        top: scrollPosition,
-        behavior: "smooth",
-      });
-    }
-  };
   useEffect(() => {
-    // Vérifiez si le paramètre query "scrollToPortfolio" est présent
-    if (router.query.scrollToPortfolio) {
-      // Scroller vers portfolioRef
+    if (mainRef.current) {
+      // Passe la valeur de mainRef.current au contexte
+      setMainRefValue(mainRef.current);
+    }
+  }, [setMainRefValue]);
+
+  useEffect(() => {
+    const screenWidth = window.innerWidth;
+    if (router.query.scrollToPortfolio && screenWidth > 1000) {
       portfolioRef.current?.scrollIntoView({ behavior: "auto" });
     }
   }, [router.query]);
 
+  //GSAP SCROLL EVENTS
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const screenWidth = window.innerWidth;
@@ -104,36 +51,32 @@ function Home() {
         .timeline({
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "3%", // Déclenchement au début
-            end: "60%", // Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // Synchronisé avec le scroll
-            // Activer les marqueurs pour le débogage
+            start: "3%",
+            end: "60%",
+            scrub: 3,
           },
         })
         .fromTo(
           mainRef.current,
           { backgroundColor: "rgba(24, 24, 27, 0.6)" },
-          { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 } // Premier changement
+          { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 }
         )
-        .to(
-          mainRef.current,
-          { backgroundColor: "rgba(24, 24, 27, 0.6)", duration: 1 } // Deuxième changement
-        );
+        .to(mainRef.current, {
+          backgroundColor: "rgba(24, 24, 27, 0.6)",
+          duration: 1,
+        });
 
-      // Animation de la section Home
       gsap.fromTo(
         leftRef.current,
         { x: 0, opacity: 1 },
         {
           x: -940,
           opacity: 0,
-          // ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "3%", // Déclenchement au centre de l'écran
-            end: "8%", // Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // L'animation est liée au scroll
-            // Activer les marqueurs pour déboguer
+            start: "3%",
+            end: "8%",
+            scrub: 3,
           },
         }
       );
@@ -142,14 +85,12 @@ function Home() {
         { opacity: 1, x: 0 },
         {
           opacity: 0,
-
           x: 700,
-          // ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "3%", // Déclenchement au centre de l'écran
-            end: "8%", // Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // L'animation est liée au scroll
+            start: "3%",
+            end: "8%",
+            scrub: 3,
           },
         }
       );
@@ -161,15 +102,11 @@ function Home() {
           opacity: 1,
           scale: 1,
           visibility: "visible",
-
-          // ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "9%", // Déclenchement au centre de l'écran
-            end: "9%", // Fin de l'animation quand le bas atteint le haut
-            scrub: 2, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "9%",
+            end: "9%",
+            scrub: 2,
           },
         }
       );
@@ -178,33 +115,61 @@ function Home() {
         { y: -150 },
         {
           y: -810,
-
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "40%", // Déclenchement au centre de l'écran
-            end: "46%", // Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "40%",
+            end: "46%",
+            scrub: 3,
           },
         }
       );
-      gsap.fromTo(
-        portfolioRef.current,
-        { y: 900, visibility: "hidden" },
-        {
-          y: -400,
-          visibility: "visible",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "40%", // Déclenchement au centre de l'écran
-            end: "46%", // Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // L'animation est liée au scroll
+      if (screenWidth >= 1536) {
+        gsap.fromTo(
+          portfolioRef.current,
+          { y: 900, visibility: "hidden" },
+          {
+            y: -400,
+            visibility: "visible",
+            scrollTrigger: {
+              trigger: mainRef.current,
+              start: "40%",
+              end: "46%",
+              scrub: 3,
+            },
+          }
+        );
+      } else if (screenWidth >= 1280) {
+        gsap.fromTo(
+          portfolioRef.current,
+          { y: 900, visibility: "hidden" },
+          {
+            y: -450,
+            visibility: "visible",
+            scrollTrigger: {
+              trigger: mainRef.current,
+              start: "40%",
+              end: "46%",
+              scrub: 3,
+            },
+          }
+        );
+      } else if (screenWidth >= 1024) {
+        gsap.fromTo(
+          portfolioRef.current,
+          { y: 900, visibility: "hidden" },
+          {
+            y: -1050,
+            visibility: "visible",
+            scrollTrigger: {
+              trigger: mainRef.current,
+              start: "35%",
+              end: "46%",
+              scrub: 3,
+            },
+          }
+        );
+      }
 
-            // Activer les marqueurs pour déboguer
-          },
-        }
-      );
       gsap.set(circleRef.current, { scale: 0 });
       gsap.fromTo(
         circleRef.current,
@@ -215,11 +180,9 @@ function Home() {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "2%", // Déclenchement au centre de l'écran
-            end: "10%", //// Fin de l'animation quand le bas atteint le haut
-            scrub: 2, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "2%",
+            end: "10%",
+            scrub: 2,
           },
         }
       );
@@ -228,15 +191,12 @@ function Home() {
         { y: 0 },
         {
           y: 900,
-
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "30%", // Déclenchement au centre de l'écran
-            end: "45%", //// Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "30%",
+            end: "45%",
+            scrub: 3,
           },
         }
       );
@@ -249,11 +209,9 @@ function Home() {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "5%", // Déclenchement au centre de l'écran
-            end: "35%", //// Fin de l'animation quand le bas atteint le haut
-            scrub: 1, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "5%",
+            end: "35%",
+            scrub: 1,
           },
         }
       );
@@ -266,11 +224,9 @@ function Home() {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "4%", // Déclenchement au centre de l'écran
-            end: "30%", //// Fin de l'animation quand le bas atteint le haut
-            scrub: 2, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "4%",
+            end: "30%",
+            scrub: 2,
           },
         }
       );
@@ -283,11 +239,9 @@ function Home() {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "10%", // Déclenchement au centre de l'écran
-            end: "40%", //// Fin de l'animation quand le bas atteint le haut
-            scrub: 2, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "10%",
+            end: "40%",
+            scrub: 2,
           },
         }
       );
@@ -300,11 +254,9 @@ function Home() {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "20%", // Déclenchement au centre de l'écran
-            end: "37%", //// Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "20%",
+            end: "37%",
+            scrub: 3,
           },
         }
       );
@@ -317,11 +269,9 @@ function Home() {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "10%", // Déclenchement au centre de l'écran
-            end: "39%", //// Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "10%",
+            end: "39%",
+            scrub: 3,
           },
         }
       );
@@ -334,11 +284,9 @@ function Home() {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "14%", // Déclenchement au centre de l'écran
-            end: "40%", //// Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "14%",
+            end: "40%",
+            scrub: 3,
           },
         }
       );
@@ -351,132 +299,84 @@ function Home() {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "17%", // Déclenchement au centre de l'écran
-            end: "41%", //// Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // L'animation est liée au scroll
-
-            // Activer les marqueurs pour déboguer
+            start: "17%",
+            end: "41%",
+            scrub: 3,
           },
         }
       );
 
       gsap.to(".rotate-y", {
         keyframes: [
-          {
-            x: -400,
-            y: -50, // Translation horizontale
-            rotateZ: 360, // Rotation initiale
-            scale: 1.2, // Échelle initiale
-
-            duration: 30, // Première étape
-          },
+          { x: -400, y: -50, rotateZ: 360, scale: 1.2, duration: 30 },
         ],
-
-        repeat: -1, // Répétition infinie
-        yoyo: true, // Animation aller-retour
+        repeat: -1,
+        yoyo: true,
       });
     } else {
       gsap
         .timeline({
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "1%", // Déclenchement au début
-            end: "60%", // Fin de l'animation quand le bas atteint le haut
-            scrub: 3, // Synchronisé avec le scroll
-            // Activer les marqueurs pour le débogage
+            start: "1%",
+            end: "60%",
+            scrub: 3,
           },
         })
         .fromTo(
           mainRef.current,
-          { backgroundColor: "rgba(24, 24, 27, 0.6)" },
-          { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 } // Premier changement
+          { backgroundColor: "rgba(24, 24, 27, 0.7)" },
+          { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 }
         )
-        .to(
-          mainRef.current,
-          { backgroundColor: "rgba(24, 24, 27, 0.6)", duration: 1 } // Deuxième changement
-        );
+        .to(mainRef.current, {
+          backgroundColor: "rgba(24, 24, 27, 0.7)",
+          duration: 1,
+        });
     }
   }, []);
+  //GSAP ANIMATION
   useEffect(() => {
     gsap
       .timeline({
         scrollTrigger: {
           trigger: mainRef.current,
-          start: "3%", // Déclenchement au début
-          end: "60%", // Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // Synchronisé avec le scroll
-          // Activer les marqueurs pour le débogage
+          start: "3%",
+          end: "60%",
+          scrub: 3,
         },
       })
       .fromTo(
         morphRef.current,
         { opacity: 1, filter: "blur(32px)" },
-        { opacity: 0, duration: 1 } // Premier changement
+        { opacity: 0, duration: 1 }
       )
-      .to(
-        morphRef.current,
-        {
-          opacity: 1,
-          duration: 1,
-          filter: "blur(64px)",
-        } // Deuxième changement
-      );
+      .to(morphRef.current, {
+        opacity: 1,
+        duration: 1,
+        filter: "blur(64px)",
+      });
   }, [mainRef, morphRef]);
   useEffect(() => {
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: mainRef.current, // Élément déclencheur pour l'animation
-          start: "13%", // Animation commence à 10% du défilement
-          end: "26%", // Fin de l'animation à 45% du défilement
-          scrub: 3, // Synchronisation avec le défilement
-          // Marqueurs pour le débogage
+          trigger: mainRef.current,
+          start: "13%",
+          end: "26%",
+          scrub: 3,
         },
       })
       .fromTo(
         svgRef.current.querySelector("circle"),
-        { strokeDashoffset: 440, stroke: "#FDFAF8" }, // Commence avec un cercle vide
-        { strokeDashoffset: 0, duration: 1, stroke: "#A287F2", ease: "none" } // Se remplit progressivement
+        { strokeDashoffset: 440, stroke: "#FDFAF8" },
+        { strokeDashoffset: 0, duration: 1, stroke: "#A287F2", ease: "none" }
       );
   }, []);
-  const hoverSoundRef = useRef(null);
-  const clickSoundRef = useRef(null);
-  const bassRef = useRef(null);
-
-  const swooshRef = useRef(null);
-  const playSwooshSound = () => {
-    if (swooshRef.current) {
-      // Revenir au début du son pour qu'il se rejoue à chaque hover
-      swooshRef.current.currentTime = 0;
-
-      // Régler le volume
-      swooshRef.current.volume = 0.4;
-
-      // Tenter de jouer le son avec gestion des erreurs
-      swooshRef.current.play().catch((error) => {
-        console.log("Erreur lors de la lecture de l'audio :", error);
-      });
-    }
-  };
-  const playHoverSound = () => {
-    if (hoverSoundRef.current) {
-      // Revenir au début du son pour qu'il se rejoue à chaque hover
-      hoverSoundRef.current.currentTime = 0;
-
-      // Régler le volume
-      hoverSoundRef.current.volume = 0.4;
-
-      // Tenter de jouer le son avec gestion des erreurs
-      hoverSoundRef.current.play().catch((error) => {
-        console.log("Erreur lors de la lecture de l'audio :", error);
-      });
-    }
-  };
 
   return (
     <main
       ref={mainRef}
-      className=" flex flex-col bg-zinc-900 bg-opacity-60 items-center justify-center relative overflow-hidden h-auto w-full  "
+      className=" flex flex-col bg-zinc-900 bg-opacity-70 items-center justify-center relative overflow-hidden h-auto w-full  "
     >
       <div
         ref={morphRef}
@@ -484,88 +384,24 @@ function Home() {
       >
         <Background></Background>
       </div>
-      <audio ref={bassRef} src="/reversebass.wav"></audio>
-      <audio ref={hoverSoundRef} src="/interface1.wav"></audio>
-      <audio ref={clickSoundRef} src="/click1.wav"></audio>
 
-      <audio ref={swooshRef} src="/swoosh.wav"></audio>
-      <div className="lg:fixed absolute md:top-7 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
-        <div className="flex lg:px-7 px-2 w-full justify-between  items-center  ">
-          <div className="flex w-fit ">
-            <div
-              onClick={handlerouter}
-              onMouseEnter={playHoverSound}
-              className="sm:mr-20 text-zinc-200  w-fit  font-Satoshi cursor-pointer font-thin relative group"
-            >
-              <span className="opacity-0">V</span>
-              <span className="opacity-0">V</span>
-              <span className="opacity-0">V</span>
-              <span className="opacity-0">V</span>
-              <span className="opacity-0">/</span>
-              <span className="opacity-0">M</span>
-              <div className="-translate-y-6 translate-x-6">
-                <span className="absolute font-bold -translate-x-4 group-hover:-translate-x-1 transition-all duration-200 2xl:text-base lg:text-sm">
-                  V
-                </span>
-                <span className="absolute font-thin text-zinc-300 group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm">
-                  /
-                </span>
-                <span className="absolute font-semibold translate-x-3 2xl:text-base lg:text-sm">
-                  M
-                </span>
-              </div>
-            </div>
-            <div className="invisible md:visible md:relative absolute -translatey-full lg:-translate-y-0">
-              {" "}
-              <Time></Time>
-            </div>
-          </div>
-          <div className="flex font-source items-center justify-end w-fit text-zinc-100 ">
-            <div
-              onMouseEnter={playSwooshSound}
-              onClick={handleProject}
-              className="font-Satoshi font-thin group cursor-pointer "
-            >
-              <div className="relative 2xl:text-base lg:text-sm">
-                <span className="mr-2">/</span>PROJECTS
-                <div className="h-1 w-0 translate-y-1 bg-zinc-200 group-hover:w-full transition-all duration-200  rounded-full"></div>
-              </div>
-            </div>
-            <a
-              href="https://www.linkedin.com/in/valentin-mor-a03174114/"
-              target="_blank"
-              className="lg:mr-7 lg:ml-12 mr-2 ml-5"
-            >
-              <FontAwesomeIcon
-                className="text-xl 2xl:text-2xl lg:text-xl text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
-                icon={faLinkedin}
-              />
-            </a>
-            <a target="_blank" href="https://github.com/blenkcode">
-              <FontAwesomeIcon
-                className="text-xl 2xl:text-2xl lg:text-xl mr-5 ml-3 lg:ml-0  text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
-                icon={faGithub}
-              />
-            </a>
-          </div>
-        </div>
-      </div>
       <div className="flex flex-col px-5 lg:px-0 lg:mt-0 mt-20 justify-center items-center w-full relative   ">
         <div
           ref={leftRef}
-          className=" lg:fixed lg:top-1/4 2xl:left-52 xl:left-32 lg:left-20  lg:w-1/2 top-24 left-5 z-40     "
+          className="lg:fixed 2xl:left-52 xl:left-32 lg:left-20 lg:w-1/2 top-1/2 transform -translate-y-1/2 left-5 z-40"
         >
           <Left></Left>
         </div>
+
         <div
           ref={rightRef}
-          className="  fixed 2xl:right-52 xl:right-20 lg:right-10  lg:top-1/4 invisible lg:visible "
+          className="fixed 2xl:right-52 xl:right-20 lg:right-10 top-1/2 transform -translate-y-1/2 invisible lg:visible"
         >
           <Right></Right>
         </div>
         <div
           ref={circleRef}
-          className="w-circlee invisible rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed  h-circlee bg-opacity-30 bg-zinc-900 z-30"
+          className="w-circlee invisible rounded-full  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee bg-opacity-30 bg-zinc-900 z-30"
         >
           <svg
             ref={svgRef}
@@ -578,11 +414,11 @@ function Home() {
               cx="75"
               cy="75"
               r="70"
-              stroke="#FDFAF8" // Couleur de la bordure
-              strokeWidth="0.5" // Épaisseur de la bordure
-              fill="none" // Pas de remplissage interne
-              strokeDasharray="440" // Longueur de la circonférence
-              strokeDashoffset="440" // Commence avec la bordure vide
+              stroke="#FDFAF8"
+              strokeWidth="0.5"
+              fill="none"
+              strokeDasharray="440"
+              strokeDashoffset="440"
             ></circle>
           </svg>
         </div>
@@ -639,21 +475,15 @@ function Home() {
         </div>
         <div
           ref={portfolioRef}
-          className="w-full lg:fixed py-10 lg:py-0 shadow-2xl lg:invisible visible right-1/2 lg:translate-x-1/2 top-96 z-40"
+          className="w-full lg:fixed py-10 lg:py-0  2xl:shadow-2xl lg:shadow-none shadow-2xl lg:invisible visible right-1/2 lg:translate-x-1/2 xl:top-96 z-40"
         >
           {" "}
           <Portfoliov2 mainRef={mainRef} />
         </div>
-
-        <div className="lg:mt-0 lg:pt-0 lg:h-fit h-0 opacity-0 lg:visible invisible  ">
-          <div className=" h-fit max-h-f lg:mt-36 mt-24 flex items-center justify-center ">
-            <Stack></Stack>
-          </div>
-
-          <Portfolio></Portfolio>
-          <Portfolio></Portfolio>
-          <Portfolio></Portfolio>
-        </div>
+        <div className="w-full lg:h-500 h-0"></div>
+        <div className="w-full xl:h-500 lg:h-200 h-0"></div>
+        <div className="w-full 2xl:h-500 xl:h-0"></div>
+        <div className="w-full 2xl:h-500 xl:h-0 "></div>
       </div>
     </main>
   );

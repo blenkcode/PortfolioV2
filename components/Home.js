@@ -136,10 +136,9 @@ function Home() {
     );
     gsap.fromTo(
       stackRef.current,
-      { y: -140, visibility: "visible" },
+      { y: -140 },
       {
         y: -810,
-        visibility: "hidden",
 
         scrollTrigger: {
           trigger: mainRef.current,

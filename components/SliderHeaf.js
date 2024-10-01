@@ -12,7 +12,7 @@ function Slider() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <div className="container mx-auto  flex flex-col justify-center items-center">
+    <div className="container mx-auto  flex flex-col justify-center items-center z-50">
       <Carousel
         className="carousel"
         showThumbs={false} // Désactiver les vignettes par défaut

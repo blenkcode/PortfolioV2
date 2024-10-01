@@ -18,24 +18,27 @@ function Right() {
   const btnRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      btnRef.current,
-      { opacity: 0, visibility: "hidden" },
-      {
-        opacity: 1,
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 1000) {
+      gsap.fromTo(
+        btnRef.current,
+        { opacity: 0, visibility: "hidden" },
+        {
+          opacity: 1,
 
-        duration: 3.5,
-        delay: 3.5,
-        ease: "power3.out",
-        visibility: "visible",
-      }
-    );
+          duration: 3.5,
+          delay: 3.5,
+          ease: "power3.out",
+          visibility: "visible",
+        }
+      );
+    }
   }, []);
 
   return (
     <div
       ref={btnRef}
-      className="mr-0 invisible flex flex-col items-start justify-center   h-fit font-hind  w-full "
+      className="mr-0 invisible  flex flex-col items-start justify-center   h-fit font-hind  w-full "
     >
       <div className="flex flex-col lg:items-start justify-center md:items-center">
         {" "}

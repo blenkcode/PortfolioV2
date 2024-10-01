@@ -156,7 +156,7 @@ function Left() {
 
       <div
         ref={textRef}
-        className=" font-Satoshi font-thin invisible flex-col flex z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-5 text-sm  lg:text-md xl:text-lg bg-zinc-500 shadow-xl bg-opacity-20 p-3 rounded-xl  md:w-fit w-4/5"
+        className=" font-Satoshi font-thin invisible flex-col flex z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-5 text-md  lg:text-md xl:text-lg bg-zinc-500 shadow-xl bg-opacity-20 p-3 rounded-xl  md:w-fit w-4/5"
       >
         {" "}
         <span>

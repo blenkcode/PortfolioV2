@@ -59,283 +59,307 @@ function Home() {
       portfolioRef.current?.scrollIntoView({ behavior: "auto" });
     }
   }, [router.query]);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "3%", // Déclenchement au début
-          end: "60%", // Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // Synchronisé avec le scroll
-          // Activer les marqueurs pour le débogage
-        },
-      })
-      .fromTo(
-        mainRef.current,
-        { backgroundColor: "rgba(24, 24, 27, 0.6)" },
-        { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 } // Premier changement
-      )
-      .to(
-        mainRef.current,
-        { backgroundColor: "rgba(24, 24, 27, 0.6)", duration: 1 } // Deuxième changement
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 1000) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "3%", // Déclenchement au début
+            end: "60%", // Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // Synchronisé avec le scroll
+            // Activer les marqueurs pour le débogage
+          },
+        })
+        .fromTo(
+          mainRef.current,
+          { backgroundColor: "rgba(24, 24, 27, 0.6)" },
+          { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 } // Premier changement
+        )
+        .to(
+          mainRef.current,
+          { backgroundColor: "rgba(24, 24, 27, 0.6)", duration: 1 } // Deuxième changement
+        );
+
+      // Animation de la section Home
+      gsap.fromTo(
+        leftRef.current,
+        { x: 0, opacity: 1 },
+        {
+          x: -940,
+          opacity: 0,
+          // ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "3%", // Déclenchement au centre de l'écran
+            end: "8%", // Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // L'animation est liée au scroll
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        rightRef.current,
+        { opacity: 1, x: 0 },
+        {
+          opacity: 0,
+
+          x: 700,
+          // ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "3%", // Déclenchement au centre de l'écran
+            end: "8%", // Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // L'animation est liée au scroll
+          },
+        }
       );
 
-    // Animation de la section Home
-    gsap.fromTo(
-      leftRef.current,
-      { x: 0, opacity: 1 },
-      {
-        x: -940,
-        opacity: 0,
-        // ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "3%", // Déclenchement au centre de l'écran
-          end: "8%", // Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // L'animation est liée au scroll
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      rightRef.current,
-      { opacity: 1, x: 0 },
-      {
-        opacity: 0,
-
-        x: 700,
-        // ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "3%", // Déclenchement au centre de l'écran
-          end: "8%", // Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // L'animation est liée au scroll
-        },
-      }
-    );
-
-    gsap.fromTo(
-      stackRef.current,
-      { opacity: 0, visibility: "hidden", scale: 0.2 },
-      {
-        opacity: 1,
-        scale: 1,
-        visibility: "visible",
-
-        // ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "9%", // Déclenchement au centre de l'écran
-          end: "9%", // Fin de l'animation quand le bas atteint le haut
-          scrub: 2, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      stackRef.current,
-      { y: -140 },
-      {
-        y: -810,
-
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "40%", // Déclenchement au centre de l'écran
-          end: "46%", // Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      portfolioRef.current,
-      { y: 900, visibility: "hidden" },
-      {
-        y: -400,
-        visibility: "visible",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "40%", // Déclenchement au centre de l'écran
-          end: "46%", // Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.set(circleRef.current, { scale: 0 });
-    gsap.fromTo(
-      circleRef.current,
-      { scale: 0, visibility: "hidden" },
-      {
-        scale: 1,
-        visibility: "visible",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "2%", // Déclenchement au centre de l'écran
-          end: "10%", //// Fin de l'animation quand le bas atteint le haut
-          scrub: 2, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      circleRef.current,
-      { y: 0 },
-      {
-        y: 900,
-
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "30%", // Déclenchement au centre de l'écran
-          end: "45%", //// Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      circle2Ref.current,
-      { y: -1000, visibility: "hidden" },
-      {
-        y: 700,
-        visibility: "visibkle",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "5%", // Déclenchement au centre de l'écran
-          end: "35%", //// Fin de l'animation quand le bas atteint le haut
-          scrub: 1, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      circle3Ref.current,
-      { y: 700, visibility: "hidden" },
-      {
-        y: -1000,
-        visibility: "visible",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "4%", // Déclenchement au centre de l'écran
-          end: "30%", //// Fin de l'animation quand le bas atteint le haut
-          scrub: 2, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      circle4Ref.current,
-      { y: 500, visibility: "hidden" },
-      {
-        y: -1000,
-        visibility: "visible",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "10%", // Déclenchement au centre de l'écran
-          end: "40%", //// Fin de l'animation quand le bas atteint le haut
-          scrub: 2, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      circle5Ref.current,
-      { y: -1000, visibility: "hidden" },
-      {
-        y: 1000,
-        visibility: "visible",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "20%", // Déclenchement au centre de l'écran
-          end: "37%", //// Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      circle6Ref.current,
-      { y: -700, visibility: "hidden" },
-      {
-        y: 1000,
-        visibility: "visible",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "10%", // Déclenchement au centre de l'écran
-          end: "39%", //// Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      circle7Ref.current,
-      { y: 700, visibility: "hidden" },
-      {
-        y: -1200,
-        visibility: "visible",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "14%", // Déclenchement au centre de l'écran
-          end: "40%", //// Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-    gsap.fromTo(
-      circle8Ref.current,
-      { y: -1000, visibility: "hidden" },
-      {
-        y: 700,
-        visibility: "visible",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "17%", // Déclenchement au centre de l'écran
-          end: "41%", //// Fin de l'animation quand le bas atteint le haut
-          scrub: 3, // L'animation est liée au scroll
-
-          // Activer les marqueurs pour déboguer
-        },
-      }
-    );
-
-    gsap.to(".rotate-y", {
-      keyframes: [
+      gsap.fromTo(
+        stackRef.current,
+        { opacity: 0, visibility: "hidden", scale: 0.2 },
         {
-          x: -400,
-          y: -50, // Translation horizontale
-          rotateZ: 360, // Rotation initiale
-          scale: 1.2, // Échelle initiale
+          opacity: 1,
+          scale: 1,
+          visibility: "visible",
 
-          duration: 30, // Première étape
-        },
-      ],
+          // ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "9%", // Déclenchement au centre de l'écran
+            end: "9%", // Fin de l'animation quand le bas atteint le haut
+            scrub: 2, // L'animation est liée au scroll
 
-      repeat: -1, // Répétition infinie
-      yoyo: true, // Animation aller-retour
-    });
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        stackRef.current,
+        { y: -140 },
+        {
+          y: -810,
+
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "40%", // Déclenchement au centre de l'écran
+            end: "46%", // Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        portfolioRef.current,
+        { y: 900, visibility: "hidden" },
+        {
+          y: -400,
+          visibility: "visible",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "40%", // Déclenchement au centre de l'écran
+            end: "46%", // Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.set(circleRef.current, { scale: 0 });
+      gsap.fromTo(
+        circleRef.current,
+        { scale: 0, visibility: "hidden" },
+        {
+          scale: 1,
+          visibility: "visible",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "2%", // Déclenchement au centre de l'écran
+            end: "10%", //// Fin de l'animation quand le bas atteint le haut
+            scrub: 2, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        circleRef.current,
+        { y: 0 },
+        {
+          y: 900,
+
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "30%", // Déclenchement au centre de l'écran
+            end: "45%", //// Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        circle2Ref.current,
+        { y: -1000, visibility: "hidden" },
+        {
+          y: 700,
+          visibility: "visibkle",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "5%", // Déclenchement au centre de l'écran
+            end: "35%", //// Fin de l'animation quand le bas atteint le haut
+            scrub: 1, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        circle3Ref.current,
+        { y: 700, visibility: "hidden" },
+        {
+          y: -1000,
+          visibility: "visible",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "4%", // Déclenchement au centre de l'écran
+            end: "30%", //// Fin de l'animation quand le bas atteint le haut
+            scrub: 2, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        circle4Ref.current,
+        { y: 500, visibility: "hidden" },
+        {
+          y: -1000,
+          visibility: "visible",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "10%", // Déclenchement au centre de l'écran
+            end: "40%", //// Fin de l'animation quand le bas atteint le haut
+            scrub: 2, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        circle5Ref.current,
+        { y: -1000, visibility: "hidden" },
+        {
+          y: 1000,
+          visibility: "visible",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "20%", // Déclenchement au centre de l'écran
+            end: "37%", //// Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        circle6Ref.current,
+        { y: -700, visibility: "hidden" },
+        {
+          y: 1000,
+          visibility: "visible",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "10%", // Déclenchement au centre de l'écran
+            end: "39%", //// Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        circle7Ref.current,
+        { y: 700, visibility: "hidden" },
+        {
+          y: -1200,
+          visibility: "visible",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "14%", // Déclenchement au centre de l'écran
+            end: "40%", //// Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+      gsap.fromTo(
+        circle8Ref.current,
+        { y: -1000, visibility: "hidden" },
+        {
+          y: 700,
+          visibility: "visible",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "17%", // Déclenchement au centre de l'écran
+            end: "41%", //// Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // L'animation est liée au scroll
+
+            // Activer les marqueurs pour déboguer
+          },
+        }
+      );
+
+      gsap.to(".rotate-y", {
+        keyframes: [
+          {
+            x: -400,
+            y: -50, // Translation horizontale
+            rotateZ: 360, // Rotation initiale
+            scale: 1.2, // Échelle initiale
+
+            duration: 30, // Première étape
+          },
+        ],
+
+        repeat: -1, // Répétition infinie
+        yoyo: true, // Animation aller-retour
+      });
+    } else {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "1%", // Déclenchement au début
+            end: "60%", // Fin de l'animation quand le bas atteint le haut
+            scrub: 3, // Synchronisé avec le scroll
+            // Activer les marqueurs pour le débogage
+          },
+        })
+        .fromTo(
+          mainRef.current,
+          { backgroundColor: "rgba(24, 24, 27, 0.6)" },
+          { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 } // Premier changement
+        )
+        .to(
+          mainRef.current,
+          { backgroundColor: "rgba(24, 24, 27, 0.6)", duration: 1 } // Deuxième changement
+        );
+    }
   }, []);
   useEffect(() => {
     gsap
@@ -392,12 +416,12 @@ function Home() {
         <Background></Background>
       </div>
 
-      <div className="fixed md:top-7 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
-        <div className="flex ml-4 md:ml-8 md:mr-8 justify-between items-center  ">
-          <div className="flex ">
+      <div className="lg:fixed absolute md:top-7 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
+        <div className="flex lg:px-7 px-2 w-full justify-between  items-center  ">
+          <div className="flex w-fit ">
             <div
               onClick={handlerouter}
-              className="mr-10 text-zinc-200  w-16 font-Satoshi cursor-pointer font-thin relative group"
+              className="sm:mr-20 text-zinc-200  w-fit  font-Satoshi cursor-pointer font-thin relative group"
             >
               <span className="opacity-0">V</span>
               <span className="opacity-0">/</span>
@@ -413,12 +437,12 @@ function Home() {
                 M
               </span>
             </div>
-            <div className="invisible md:visible">
+            <div className="invisible md:visible md:relative absolute -translatey-full lg:-translate-y-0">
               {" "}
               <Time></Time>
             </div>
           </div>
-          <div className="flex font-source mb-5 md:mb-0 justify-end w-44 text-zinc-100 ">
+          <div className="flex font-source items-center justify-end w-fit text-zinc-100 ">
             <div
               onClick={handleProject}
               className="font-Satoshi font-thin group cursor-pointer "
@@ -431,42 +455,42 @@ function Home() {
             <a
               href="https://www.linkedin.com/in/valentin-mor-a03174114/"
               target="_blank"
-              className="mr-7 ml-12"
+              className="lg:mr-7 lg:ml-12 mr-2 ml-5"
             >
               <FontAwesomeIcon
-                className="text-2xl 2xl:text-2xl lg:text-xl text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
+                className="text-xl 2xl:text-2xl lg:text-xl text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
                 icon={faLinkedin}
               />
             </a>
             <a target="_blank" href="https://github.com/blenkcode">
               <FontAwesomeIcon
-                className="text-2xl 2xl:text-2xl lg:text-xl mr-5  text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
+                className="text-xl 2xl:text-2xl lg:text-xl mr-5 ml-3 lg:ml-0  text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
                 icon={faGithub}
               />
             </a>
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center w-full relative   ">
+      <div className="flex flex-col px-5 lg:px-0 lg:mt-0 mt-20 justify-center items-center w-full relative   ">
         <div
           ref={leftRef}
-          className=" fixed lg:top-1/4 2xl:left-52 xl:left-32 lg:left-20  lg:w-1/2 top-24 left-5 z-40     "
+          className=" lg:fixed lg:top-1/4 2xl:left-52 xl:left-32 lg:left-20  lg:w-1/2 top-24 left-5 z-40     "
         >
           <Left></Left>
         </div>
         <div
           ref={rightRef}
-          className="   fixed 2xl:right-52 xl:right-20 lg:right-10  lg:top-1/4 invisible lg:visible "
+          className="  fixed 2xl:right-52 xl:right-20 lg:right-10  lg:top-1/4 invisible lg:visible "
         >
           <Right></Right>
         </div>
         <div
           ref={circleRef}
-          className="w-circlee invisible rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed h-circlee bg-opacity-30 bg-zinc-900 z-30"
+          className="w-circlee invisible rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed  h-circlee bg-opacity-30 bg-zinc-900 z-30"
         >
           <svg
             ref={svgRef}
-            className="absolute -top-16 opacity-60 -left-16 translate-x-1 translate-y-1"
+            className="absolute -top-16  opacity-60 -left-16 translate-x-1 translate-y-1"
             width="600"
             height="600"
             viewBox="0 0 150 150"
@@ -529,20 +553,20 @@ function Home() {
         </div>
         <div
           ref={stackRef}
-          className=" w-full  fixed right-1/2 invisible translate-x-1/2 top-1/2  z-30"
+          className=" w-full py-10 lg:py-0 lg:fixed right-1/2 lg:invisible lg:translate-x-1/2 top-1/2  z-30"
         >
           {" "}
           <Stack></Stack>
         </div>
         <div
           ref={portfolioRef}
-          className="w-full fixed shadow-2xl invisible right-1/2 translate-x-1/2 top-96 z-40"
+          className="w-full lg:fixed py-10 lg:py-0 shadow-2xl lg:invisible visible right-1/2 lg:translate-x-1/2 top-96 z-40"
         >
           {" "}
           <Portfoliov2 mainRef={mainRef} />
         </div>
 
-        <div className="lg:mt-0 lg:pt-0 h-fit opacity-0  ">
+        <div className="lg:mt-0 lg:pt-0 lg:h-fit h-0 opacity-0 lg:visible invisible  ">
           <div className=" h-fit max-h-f lg:mt-36 mt-24 flex items-center justify-center ">
             <Stack></Stack>
           </div>

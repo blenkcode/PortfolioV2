@@ -16,78 +16,77 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
     const screenWidth = window.innerWidth;
 
     gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      lcdoRef.current,
-      { y: 0 },
-      {
-        y: -1300,
+    if (screenWidth > 1000) {
+      gsap.fromTo(
+        lcdoRef.current,
+        { y: 0 },
+        {
+          y: -1300,
 
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "50%", // Déclenchement au centre de l'écran
-          end: "100%", // Fin de l'animation quand le bas atteint le haut
-          scrub: 1,
-          onUpdate: (self) => {
-            const progress = self.progress * 100; // Progrès du scroll en pourcentage
-            console.log(`Progress: ${progress}%`); // Debug
-            if (screenWidth > 1000) {
-              if (screenWidth >= 1024 && screenWidth <= 1280) {
-                if (progress < 11) {
-                  setLcdo(true);
-                } else {
-                  setLcdo(false);
-                }
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "50%", // Déclenchement au centre de l'écran
+            end: "100%", // Fin de l'animation quand le bas atteint le haut
+            scrub: 1,
+            onUpdate: (self) => {
+              const progress = self.progress * 100; // Progrès du scroll en pourcentage
+              console.log(`Progress: ${progress}%`); // Debug
+              if (screenWidth > 1000) {
+                if (screenWidth >= 1024 && screenWidth <= 1280) {
+                  if (progress < 11) {
+                    setLcdo(true);
+                  } else {
+                    setLcdo(false);
+                  }
 
-                if (progress >= 11 && progress < 25) {
-                  setSante(true);
-                } else {
-                  setSante(false);
-                }
+                  if (progress >= 11 && progress < 25) {
+                    setSante(true);
+                  } else {
+                    setSante(false);
+                  }
 
-                if (progress >= 25 && progress < 40) {
-                  setHeaf(true);
-                } else {
-                  setHeaf(false);
-                }
+                  if (progress >= 25 && progress < 40) {
+                    setHeaf(true);
+                  } else {
+                    setHeaf(false);
+                  }
 
-                if (progress >= 40 && progress <= 100) {
-                  setMutable(true);
+                  if (progress >= 40 && progress <= 100) {
+                    setMutable(true);
+                  } else {
+                    setMutable(false);
+                  }
                 } else {
-                  setMutable(false);
+                  if (progress < 14) {
+                    setLcdo(true);
+                  } else {
+                    setLcdo(false);
+                  }
+                  if (progress >= 14 && progress < 30) {
+                    setSante(true);
+                  } else {
+                    setSante(false);
+                  }
+                  if (progress >= 30 && progress < 54) {
+                    setHeaf(true);
+                  } else {
+                    setHeaf(false);
+                  }
+                  if (progress >= 54 && progress <= 100) {
+                    setMutable(true);
+                  } else {
+                    setMutable(false);
+                  }
                 }
               } else {
-                if (progress < 14) {
-                  setLcdo(true);
-                } else {
-                  setLcdo(false);
-                }
-
-                if (progress >= 14 && progress < 30) {
-                  setSante(true);
-                } else {
-                  setSante(false);
-                }
-
-                if (progress >= 30 && progress < 54) {
-                  setHeaf(true);
-                } else {
-                  setHeaf(false);
-                }
-
-                if (progress >= 54 && progress <= 100) {
-                  setMutable(true);
-                } else {
-                  setMutable(false);
-                }
+                setLcdo(false);
               }
-            } else {
-              setLcdo(false);
-            }
-            // Gestion des différents états en fonction du pourcentage de progression
+              // Gestion des différents états en fonction du pourcentage de progression
+            },
           },
-        },
-      }
-    );
+        }
+      );
+    }
   }, []);
 
   const handleproject = () => {
@@ -104,10 +103,10 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   };
 
   return (
-    <div className="w-full fixed shadow-2xl right-1/2 translate-x-1/2 2xl:top-96 xl:top-72 z-40">
+    <div className="w-full lg:fixed shadow-2xl right-1/2 lg:translate-x-1/2 2xl:top-96 xl:top-72 z-40">
       <div className="absolute right-20 text-zinc-200 text-xl flex items-end justify-center flex-col text-zinc font-Satoshi font-thin z-50 lg:visible invisible ">
         <span
-          className={`mb-1 2xl:text-lg xl:text-md lg:text-sm fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
+          className={`mb-1 2xl:text-lg invisible lg:visible xl:text-md lg:text-sm fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
             lcdo ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -258,7 +257,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       <div className="fixed lg:visible invisible left-20 text-zinc-200  flex items-start justify-center flex-col text-base  shadow-2xl text-zinc font-Satoshi font-thin   ">
         <span
           className={`mb-1 fixed w-80 lg:text-sm 2xl:text-base top-5 xl:left-8 2xl:left-16 lg:left-5 transition-opacity duration-300 shadow-2xl p-10  rounded-xl ${
-            lcdo ? "opacity-100 visible" : "opacity-0 invisible"
+            lcdo ? "opacity-100 lg:visible" : "opacity-0 invisible"
           }`}
         >
           <div className="mb-2">

@@ -55,7 +55,7 @@ function Stack({}) {
         Stack Technique <div className="ml-3">🛠️</div>
       </div> */}
 
-      <div className="flex flex-col sm:flex-row items-center justify-center px-5 lg:px-0 sm:pl-0 sm:pb-0 pb-0 w-full overflow-visible relative  ">
+      <div className="flex   flex-col sm:flex-row items-center justify-center  lg:px-0 sm:pl-0 sm:pb-0 pb-0 w-full overflow-visible relative  ">
         {/* <span className="lg:visible invisible lg:flex absolute -rotate-6 -top-10 left-80 text-lg text-violet-300">
           Hover me !<img className="w-5 ml-5" src="./cursor1.png"></img>
         </span>
@@ -65,7 +65,7 @@ function Stack({}) {
         <div
           className={`${
             isVisible
-              ? "    z-50 flex lg:flex-row flex-col  opacity-100 translate-y-0 transition duration-[2000ms]"
+              ? "    z-50 flex lg:flex-row flex-col   opacity-100 translate-y-0 transition duration-[2000ms]"
               : styles.invisible
           } flex flex-col lg:flex-row items-center justify-center`}
         >
@@ -76,7 +76,7 @@ function Stack({}) {
               <Cubes2></Cubes2>
             </div>
           )} */}
-          <div className="2xl:px-16 sm:px-7 px-6 lg:w-1/3  rounded-lg z-10  lg:mt-0 mt-10 relative ">
+          <div className="2xl:px-16 sm:px-7  lg:w-1/3   rounded-lg z-10  lg:mt-0 mt-10 relative ">
             <p className="2xl:text-lg lg:text-base font-thin text-md text-zinc-200 z-20  font-Satoshi  ">
               J'utilise <b className="text-violet-400 font-bold">TypeScript</b>{" "}
               pour vous offrir des sites modernes et performants avec les

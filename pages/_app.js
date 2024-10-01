@@ -7,7 +7,7 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/VM.png" />
+        <link rel="icon" href="/VM.png" className="rounded-full" />
         <title>Valentin MOR</title>
       </Head>
       <Component {...pageProps} />

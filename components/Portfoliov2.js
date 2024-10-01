@@ -18,10 +18,10 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
       lcdoRef.current,
-      { y: 0, visibility: "hidden" },
+      { y: 0 },
       {
         y: -1300,
-        visibility: "visible",
+
         scrollTrigger: {
           trigger: mainRef.current,
           start: "50%", // Déclenchement au centre de l'écran
@@ -331,7 +331,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       </div>
       <div
         ref={lcdoRef}
-        className="flex items-center flex-col justify-center invisible  "
+        className="flex items-center flex-col justify-center   "
       >
         <div
           onClick={() => handleproject()}

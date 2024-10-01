@@ -112,7 +112,7 @@ function Left() {
         <div className="flex items-end">
           <div
             ref={nameRef}
-            className="  invisible z-20 flex items-end text-4xl 2xl:text-6xl xl-text-5xl lg:text-4xl md:text-5xl sm:text-4xl font-Noehmi font-semi-bold text-purple-200  00"
+            className="  invisible z-20 flex items-end text-4xl 2xl:text-6xl xl-text-5xl lg:text-4xl md:text-5xl sm:text-4xl font-Noehmi font-semi-bold text-violet-300  00"
           >
             Valentin Mor{" "}
           </div>
@@ -156,34 +156,35 @@ function Left() {
 
       <div
         ref={textRef}
-        className=" font-Satoshi font-thin invisible  z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-10 text-lg bg-zinc-800 bg-opacity-30 p-3 rounded-xl  w-fit"
+        className=" font-Satoshi font-thin invisible flex-col flex z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-5 text-sm  lg:text-md xl:text-lg bg-zinc-500 shadow-xl bg-opacity-20 p-3 rounded-xl  md:w-fit w-4/5"
       >
         {" "}
-        Je suis un développeur{" "}
-        <span className="text-violet-400 font-source">Next</span> &{" "}
-        <span className="text-violet-400 font-source">Node.js</span> basé à{" "}
-        <b>Montpellier.</b>
-        <br></br>
-        <br></br>
-        Je réalise vos futures applications{" "}
-        <span className="font-source text-violet-400">Web</span> &{" "}
-        <span className="font-source text-violet-400">Mobile</span>.
+        <span>
+          Je suis un développeur <span className="text-violet-300 ">Next</span>{" "}
+          & <span className="text-violet-300 ">Node.js</span> basé à{" "}
+          <b>Montpellier.</b>
+        </span>
+        <span className="mt-2">
+          Je réalise vos futures applications{" "}
+          <span className=" text-violet-300">Web</span> &{" "}
+          <span className=" text-violet-300">Mobile</span>.
+        </span>
       </div>
       <div
         ref={btnRef}
-        className="mt-12 opacity-0 font-Satoshi font-thin lg:mt-12 flex flex-col lg:flex-row  sm:pl-0 "
+        className="mt-5 opacity-0 font-Satoshi font-thin lg:mt-12 flex flex-col lg:flex-row  sm:pl-0 "
       >
         <a href="/MOR-VALENTIN-CV-2024.pdf" download>
-          <div className=" text-white group border-1  border-zinc-200 hover:border-violet-400 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
-            <span className="hover-group: group-hover:text-violet-400  opacity-0 translate- ">
+          <div className=" text-white group border-1  border-zinc-200 hover:border-violet-300 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
+            <span className="hover-group: group-hover:text-violet-300  opacity-0 translate-  xl:text-md  text-sm  ">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
-            <span className="transition-all group-hover:text-violet-400 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+            <span className=" xl:text-md  text-sm   transition-all group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
-            <span className="transition-all group-hover:text-violet-400  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+            <span className=" xl:text-md  text-sm  transition-all group-hover:text-violet-300  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
@@ -193,16 +194,16 @@ function Left() {
           href="mailto:valentinmor.pro@gmail.com"
           className="lg:ml-10 mt-5 lg:mt-0"
         >
-          <div className=" text-white group border-1  border-zinc-200 hover:border-violet-400 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
-            <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
+          <div className=" text-white group border-1  border-zinc-200 hover:border-violet-300 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
+            <span className="hover-group:  xl:text-md  text-sm hover:text-sky-600  opacity-0 translate-">
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>
-            <span className="transition-all group-hover:text-violet-400 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+            <span className="transition-all  xl:text-md  text-sm  group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>
-            <span className="transition-all group-hover:text-violet-400  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+            <span className="transition-all  xl:text-md  text-sm group-hover:text-violet-300  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>

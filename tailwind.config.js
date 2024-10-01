@@ -70,6 +70,7 @@ module.exports = {
         900: "900px",
       },
       height: {
+        1: "1px",
         110: "28rem",
         128: "32rem", // 512px
         144: "36rem", // 576px
@@ -110,6 +111,7 @@ module.exports = {
       Dirtyline: ["Dirtyline"],
       Chillax: ["Chillax-Variable"],
       Satoshi: ["Satoshi-Variable"],
+      Safiro: ["safiromedium"],
     },
   },
   plugins: [],

@@ -7,7 +7,7 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/logo2.png" />
+        <link rel="icon" href="/VM.png" />
         <title>Valentin MOR</title>
       </Head>
       <Component {...pageProps} />

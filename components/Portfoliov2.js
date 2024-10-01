@@ -30,28 +30,54 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             const progress = self.progress * 100; // Progrès du scroll en pourcentage
             console.log(`Progress: ${progress}%`); // Debug
             if (screenWidth > 1000) {
-              if (progress < 14) {
-                setLcdo(true);
-              } else {
-                setLcdo(false);
-              }
+              if (screenWidth >= 1024 && screenWidth <= 1280) {
+                if (progress < 11) {
+                  setLcdo(true);
+                } else {
+                  setLcdo(false);
+                }
 
-              if (progress >= 14 && progress < 30) {
-                setSante(true);
-              } else {
-                setSante(false);
-              }
+                if (progress >= 11 && progress < 25) {
+                  setSante(true);
+                } else {
+                  setSante(false);
+                }
 
-              if (progress >= 30 && progress < 54) {
-                setHeaf(true);
-              } else {
-                setHeaf(false);
-              }
+                if (progress >= 25 && progress < 40) {
+                  setHeaf(true);
+                } else {
+                  setHeaf(false);
+                }
 
-              if (progress >= 54 && progress <= 100) {
-                setMutable(true);
+                if (progress >= 40 && progress <= 100) {
+                  setMutable(true);
+                } else {
+                  setMutable(false);
+                }
               } else {
-                setMutable(false);
+                if (progress < 14) {
+                  setLcdo(true);
+                } else {
+                  setLcdo(false);
+                }
+
+                if (progress >= 14 && progress < 30) {
+                  setSante(true);
+                } else {
+                  setSante(false);
+                }
+
+                if (progress >= 30 && progress < 54) {
+                  setHeaf(true);
+                } else {
+                  setHeaf(false);
+                }
+
+                if (progress >= 54 && progress <= 100) {
+                  setMutable(true);
+                } else {
+                  setMutable(false);
+                }
               }
             } else {
               setLcdo(false);
@@ -77,10 +103,10 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   };
 
   return (
-    <div className="w-full fixed shadow-2xl right-1/2 translate-x-1/2 top-96 z-40">
+    <div className="w-full fixed shadow-2xl right-1/2 translate-x-1/2 2xl:top-96 xl:top-72 z-40">
       <div className="absolute right-20 text-zinc-200 text-xl flex items-end justify-center flex-col text-zinc font-Satoshi font-thin z-50 lg:visible invisible ">
         <span
-          className={`mb-1 fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
+          className={`mb-1 2xl:text-lg xl:text-md lg:text-sm fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
             lcdo ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -91,7 +117,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             target="_blank"
             className="z-50"
           >
-            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex text-lg justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
+            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-smjustify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
               <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
                 Visitez
                 <FontAwesomeIcon
@@ -118,7 +144,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         </span>
 
         <span
-          className={`mb-1 fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
+          className={`mb-1 2xl:text-lg xl:text-md lg:text-sm fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
             sante ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -128,7 +154,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             href="https://sport-sante-mediterranee.vercel.app/"
             target="_blank"
           >
-            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex text-lg justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
+            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-smjustify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
               <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
                 Visitez
                 <FontAwesomeIcon
@@ -154,7 +180,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </a>
         </span>
         <span
-          className={`mb-1 fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
+          className={`mb-1 2xl:text-lg xl:text-md lg:text-sm fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
             heaf ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -165,7 +191,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             target="_blank"
             className="z-50"
           >
-            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex text-lg justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
+            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
               <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
                 Visitez
                 <FontAwesomeIcon
@@ -191,7 +217,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </a>
         </span>
         <span
-          className={`mb-1 fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
+          className={`mb-1 2xl:text-lg xl:text-md lg:text-sm fixed top-5 transition-opacity duration-300 flex flex-col items-end ${
             mutable ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -202,7 +228,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             target="_blank"
             className="z-50"
           >
-            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex text-lg justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
+            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
               <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
                 Visitez
                 <FontAwesomeIcon
@@ -228,9 +254,9 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </a>
         </span>
       </div>
-      <div className="fixed lg:visible invisible left-20 text-zinc-200 text-md flex items-start justify-center flex-col shadow-2xl text-zinc font-Satoshi font-thin   ">
+      <div className="fixed lg:visible invisible left-20 text-zinc-200  flex items-start justify-center flex-col text-base  shadow-2xl text-zinc font-Satoshi font-thin   ">
         <span
-          className={`mb-1 fixed w-80 top-5 transition-opacity duration-300 shadow-2xl p-10  rounded-xl ${
+          className={`mb-1 fixed w-80 lg:text-sm 2xl:text-base top-5 xl:left-8 2xl:left-16 lg:left-5 transition-opacity duration-300 shadow-2xl p-10  rounded-xl ${
             lcdo ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -246,7 +272,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </div>
         </span>
         <span
-          className={`mb-1 fixed w-80 top-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
+          className={`mb-1 fixed w-80 top-5 lg:text-sm 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
             sante ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -262,7 +288,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </div>
         </span>
         <span
-          className={`mb-1 fixed w-80 top-5 transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
+          className={`mb-1 fixed w-80 lg:text-sm 2xl:text-base top-5 xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
             heaf ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -282,7 +308,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </div>
         </span>
         <span
-          className={`mb-1 fixed w-80 top-5 transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
+          className={`mb-1 fixed w-80 top-5 lg:text-sm 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
             mutable ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
@@ -308,7 +334,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       >
         <div
           onClick={() => handleproject()}
-          className="relative group lg:w-144 w-4/5  "
+          className="relative group 2xl:w-144 xl:w-110 w-4/5  "
         >
           <div
             className={`border-solid  border-opacity-50 border-4 rounded-md  p-1 bg-zinc-900 transform transition-all duration-300 ${
@@ -327,7 +353,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         </div>
         <div
           onClick={() => handlecarby()}
-          className="relative group lg:w-144 w-4/5 mt-10 "
+          className="relative group 2xl:w-144 xl:w-110 w-4/5 mt-10 "
         >
           <div
             className={`border-solid border-opacity-50 border-4 rounded-md  p-1 bg-zinc-900 transform transition-all duration-300 ${
@@ -342,7 +368,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         </div>
         <div
           onClick={() => handleheaf()}
-          className="relative group lg:w-144 w-4/5 mt-10 "
+          className="relative group 2xl:w-144 xl:w-110 w-4/5 mt-10 "
         >
           <div
             className={`border-solid border-opacity-50 border-4 rounded-md  p-1 bg-zinc-900 transform transition-all duration-300  ${
@@ -357,7 +383,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         </div>
         <div
           onClick={() => handlemutable()}
-          className="relative group lg:w-144 w-4/5  mt-10 "
+          className="relative group 2xl:w-144 xl:w-110 w-4/5  mt-10 "
         >
           <div
             className={`border-solid border-opacity-50 border-4 rounded-md  p-1 bg-zinc-900 transform transition-all duration-300  ${

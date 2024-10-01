@@ -10,6 +10,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
+import Time from "./Time";
 function Home() {
   const handlerouter = () => {
     router.push("/");
@@ -17,13 +18,6 @@ function Home() {
   const router = useRouter();
 
   // Stocke le chemin précédent
-  useEffect(() => {
-    // Vérifiez si le paramètre query "scrollToPortfolio" est présent
-    if (router.query.scrollToPortfolio) {
-      // Scroller vers portfolioRef
-      portfolioRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [router.query]);
 
   const leftRef = useRef(null);
   const mainRef = useRef(null);
@@ -41,6 +35,30 @@ function Home() {
   const svgRef = useRef(null);
 
   const morphRef = useRef(null);
+
+  const handleProject = () => {
+    if (mainRef.current) {
+      // Obtenir la hauteur de mainRef et la position relative
+      const mainRect = mainRef.current.getBoundingClientRect();
+
+      // Calculer la position du scroll à 45% de la hauteur de mainRef
+      const scrollPosition =
+        mainRect.top + window.scrollY + mainRect.height * 0.5;
+
+      // Scroller jusqu'à cette position avec un comportement smooth
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+  useEffect(() => {
+    // Vérifiez si le paramètre query "scrollToPortfolio" est présent
+    if (router.query.scrollToPortfolio) {
+      // Scroller vers portfolioRef
+      portfolioRef.current?.scrollIntoView({ behavior: "auto" });
+    }
+  }, [router.query]);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap
@@ -55,12 +73,12 @@ function Home() {
       })
       .fromTo(
         mainRef.current,
-        { backgroundColor: "rgba(24, 24, 27, 0.7)" },
+        { backgroundColor: "rgba(24, 24, 27, 0.6)" },
         { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 } // Premier changement
       )
       .to(
         mainRef.current,
-        { backgroundColor: "rgba(24, 24, 27, 0.7)", duration: 1 } // Deuxième changement
+        { backgroundColor: "rgba(24, 24, 27, 0.6)", duration: 1 } // Deuxième changement
       );
 
     // Animation de la section Home
@@ -118,7 +136,7 @@ function Home() {
     );
     gsap.fromTo(
       stackRef.current,
-      { y: 80 },
+      { y: -140 },
       {
         y: -800,
 
@@ -361,6 +379,7 @@ function Home() {
         { strokeDashoffset: 0, duration: 1, stroke: "#A287F2", ease: "none" } // Se remplit progressivement
       );
   }, []);
+
   return (
     <main
       ref={mainRef}
@@ -373,24 +392,55 @@ function Home() {
         <Background></Background>
       </div>
 
-      <div className="fixed md:top-5 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
-        <div className="flex ml-4 md:ml-5 md:mr-5 justify-between items-center  ">
-          <img
-            onClick={() => handlerouter()}
-            class="2xl:w-16 xl:w-14 w-12 shadow-inner cursor-pointer"
-            src="logo2.png"
-            alt="VM Logo"
-          />
-          <div className="flex font-source justify-end w-44 ">
-            <a href="https://www.linkedin.com/in/valentin-mor-a03174114/">
+      <div className="fixed md:top-7 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
+        <div className="flex ml-4 md:ml-8 md:mr-8 justify-between items-center  ">
+          <div className="flex ">
+            <div
+              onClick={handlerouter}
+              className="mr-10 text-zinc-200  w-16 font-Satoshi cursor-pointer font-thin relative group"
+            >
+              <span className="opacity-0">V</span>
+              <span className="opacity-0">/</span>
+              <span className="opacity-0">M</span>
+
+              <span className="absolute font-bold -translate-x-4 group-hover:-translate-x-1 transition-all duration-200 2xl:text-base lg:text-sm">
+                V
+              </span>
+              <span className="absolute font-thin text-zinc-300 group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm">
+                /
+              </span>
+              <span className="absolute font-semibold translate-x-3 2xl:text-base lg:text-sm">
+                M
+              </span>
+            </div>
+            <div className="invisible md:visible">
+              {" "}
+              <Time></Time>
+            </div>
+          </div>
+          <div className="flex font-source mb-5 md:mb-0 justify-end w-44 text-zinc-100 ">
+            <div
+              onClick={handleProject}
+              className="font-Satoshi font-thin group cursor-pointer "
+            >
+              <div className="relative 2xl:text-base lg:text-sm">
+                <span className="mr-2">/</span>PROJECTS
+                <div className="h-1 w-0 translate-y-1 bg-zinc-200 group-hover:w-full transition-all duration-200  rounded-full"></div>
+              </div>
+            </div>
+            <a
+              href="https://www.linkedin.com/in/valentin-mor-a03174114/"
+              target="_blank"
+              className="mr-7 ml-12"
+            >
               <FontAwesomeIcon
-                className="text-2xl mr-5  text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
+                className="text-2xl 2xl:text-2xl lg:text-xl text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
                 icon={faLinkedin}
               />
             </a>
-            <a href="https://github.com/blenkcode">
+            <a target="_blank" href="https://github.com/blenkcode">
               <FontAwesomeIcon
-                className="text-2xl mr-5  text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
+                className="text-2xl 2xl:text-2xl lg:text-xl mr-5  text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
                 icon={faGithub}
               />
             </a>
@@ -406,13 +456,13 @@ function Home() {
         </div>
         <div
           ref={rightRef}
-          className="   fixed 2xl:right-52 xl:right-20 lg:right-20 lg:top-1/4 invisible lg:visible "
+          className="   fixed 2xl:right-52 xl:right-20 lg:right-10  lg:top-1/4 invisible lg:visible "
         >
           <Right></Right>
         </div>
         <div
           ref={circleRef}
-          className="w-circlee invisible rounded-full lg:top-1/4 top-32 fixed h-circlee bg-opacity-30 bg-zinc-900 z-30"
+          className="w-circlee invisible rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed h-circlee bg-opacity-30 bg-zinc-900 z-30"
         >
           <svg
             ref={svgRef}
@@ -479,7 +529,7 @@ function Home() {
         </div>
         <div
           ref={stackRef}
-          className=" w-full  fixed right-1/2 invisible translate-x-1/2 lg:top-1/4  top-24 z-30"
+          className=" w-full  fixed right-1/2 invisible translate-x-1/2 top-1/2  z-30"
         >
           {" "}
           <Stack></Stack>

@@ -97,6 +97,7 @@ function Left() {
     );
   }, []);
   const bassShotRef = useRef(null);
+  const bassShot2Ref = useRef(null);
   const playShot = () => {
     if (bassShotRef.current) {
       // Revenir au début du son pour qu'il se rejoue à chaque hover
@@ -111,10 +112,25 @@ function Left() {
       });
     }
   };
+  const playShot2 = () => {
+    if (bassShot2Ref.current) {
+      // Revenir au début du son pour qu'il se rejoue à chaque hover
+      bassShot2Ref.current.currentTime = 0;
+
+      // Régler le volume
+      bassShot2Ref.current.volume = 1;
+
+      // Tenter de jouer le son avec gestion des erreurs
+      bassShot2Ref.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
   return (
     <div className="  w-full text-white h-full flex flex-col items-start justify-center   ">
       <div className=" sm:pl-0 w-fit">
         <audio ref={bassShotRef} src="/bassshot.wav"></audio>
+        <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
         <div className="overflow-hidden">
           {" "}
           <div
@@ -208,7 +224,7 @@ function Left() {
         <a
           href="mailto:valentinmor.pro@gmail.com"
           className="lg:ml-10 mt-5 lg:mt-0"
-          onMouseEnter={playShot}
+          onMouseEnter={playShot2}
         >
           <div className=" text-white group border-1  border-zinc-200 hover:border-violet-300 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
             <span className="hover-group:  xl:text-md  text-sm hover:text-sky-600  opacity-0 translate-">

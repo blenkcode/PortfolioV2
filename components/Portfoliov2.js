@@ -92,9 +92,13 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
 
   useEffect(() => {
     playShot();
-  }, [lcdo, heaf, mutable, sante]);
+  }, [heaf, sante]);
+  useEffect(() => {
+    playShot2();
+  }, [mutable, sante]);
 
   const bassShotRef = useRef(null);
+  const bassShot2Ref = useRef(null);
   const playShot = () => {
     if (bassShotRef.current) {
       // Revenir au début du son pour qu'il se rejoue à chaque hover
@@ -105,6 +109,20 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
 
       // Tenter de jouer le son avec gestion des erreurs
       bassShotRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
+  const playShot2 = () => {
+    if (bassShot2Ref.current) {
+      // Revenir au début du son pour qu'il se rejoue à chaque hover
+      bassShot2Ref.current.currentTime = 0;
+
+      // Régler le volume
+      bassShot2Ref.current.volume = 1;
+
+      // Tenter de jouer le son avec gestion des erreurs
+      bassShot2Ref.current.play().catch((error) => {
         console.log("Erreur lors de la lecture de l'audio :", error);
       });
     }
@@ -126,6 +144,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   return (
     <div className="w-full lg:fixed shadow-2xl right-1/2 lg:translate-x-1/2 2xl:top-96 xl:top-72 z-40">
       <audio ref={bassShotRef} src="/bassshot.wav"></audio>
+      <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
       <div className="absolute right-20 text-zinc-200 text-xl flex items-end justify-center flex-col text-zinc font-Satoshi font-thin z-50 lg:visible invisible ">
         <span
           className={`mb-1 2xl:text-lg invisible lg:visible xl:text-md lg:text-sm fixed top-5 transition-opacity duration-300 flex flex-col items-end ${

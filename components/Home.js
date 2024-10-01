@@ -388,7 +388,7 @@ function Home({}) {
       <div className="flex flex-col px-5 lg:px-0 lg:mt-0 mt-20 justify-center items-center w-full relative   ">
         <div
           ref={leftRef}
-          className="lg:fixed 2xl:left-52 xl:left-32 lg:left-20 lg:w-1/2 top-1/2 transform -translate-y-1/2 left-5 z-40"
+          className="lg:fixed 2xl:left-52 xl:left-32 lg:left-20 lg:w-1/2 top-1/2 transform lg:-translate-y-1/2 left-5 z-40"
         >
           <Left></Left>
         </div>

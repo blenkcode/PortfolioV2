@@ -14,6 +14,41 @@ import Time from "./Time";
 function Home() {
   const handlerouter = () => {
     router.push("/");
+
+    if (scrollY >= 1) {
+      playbassSound();
+    } else {
+      playClickSound();
+    }
+  };
+
+  const playClickSound = () => {
+    if (clickSoundRef.current) {
+      // Revenir au début du son pour qu'il se rejoue
+      clickSoundRef.current.currentTime = 0;
+
+      // Régler le volume
+      clickSoundRef.current.volume = 0.3;
+
+      // Tenter de jouer le son avec gestion des erreurs
+      clickSoundRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
+  const playbassSound = () => {
+    if (clickSoundRef.current) {
+      // Revenir au début du son pour qu'il se rejoue
+      bassRef.current.currentTime = 0;
+
+      // Régler le volume
+      bassRef.current.volume = 1;
+
+      // Tenter de jouer le son avec gestion des erreurs
+      bassRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
   };
   const router = useRouter();
 
@@ -37,6 +72,7 @@ function Home() {
   const morphRef = useRef(null);
 
   const handleProject = () => {
+    playbassSound();
     if (mainRef.current) {
       // Obtenir la hauteur de mainRef et la position relative
       const mainRect = mainRef.current.getBoundingClientRect();
@@ -139,7 +175,7 @@ function Home() {
       );
       gsap.fromTo(
         stackRef.current,
-        { y: -140 },
+        { y: -150 },
         {
           y: -810,
 
@@ -403,39 +439,81 @@ function Home() {
         { strokeDashoffset: 0, duration: 1, stroke: "#A287F2", ease: "none" } // Se remplit progressivement
       );
   }, []);
+  const hoverSoundRef = useRef(null);
+  const clickSoundRef = useRef(null);
+  const bassRef = useRef(null);
+
+  const swooshRef = useRef(null);
+  const playSwooshSound = () => {
+    if (swooshRef.current) {
+      // Revenir au début du son pour qu'il se rejoue à chaque hover
+      swooshRef.current.currentTime = 0;
+
+      // Régler le volume
+      swooshRef.current.volume = 0.4;
+
+      // Tenter de jouer le son avec gestion des erreurs
+      swooshRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
+  const playHoverSound = () => {
+    if (hoverSoundRef.current) {
+      // Revenir au début du son pour qu'il se rejoue à chaque hover
+      hoverSoundRef.current.currentTime = 0;
+
+      // Régler le volume
+      hoverSoundRef.current.volume = 0.4;
+
+      // Tenter de jouer le son avec gestion des erreurs
+      hoverSoundRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
 
   return (
     <main
       ref={mainRef}
-      className=" flex flex-col items-center justify-center relative overflow-hidden h-auto w-full  "
+      className=" flex flex-col bg-zinc-900 bg-opacity-60 items-center justify-center relative overflow-hidden h-auto w-full  "
     >
       <div
         ref={morphRef}
-        className="blur-xl fixed top-0 right-0 w-full h-screen flex flex-row -translate-y-96  "
+        className="blur-2xl fixed top-0 right-0 w-full h-screen flex flex-row -translate-y-96  "
       >
         <Background></Background>
       </div>
+      <audio ref={bassRef} src="/reversebass.wav"></audio>
+      <audio ref={hoverSoundRef} src="/interface1.wav"></audio>
+      <audio ref={clickSoundRef} src="/click1.wav"></audio>
 
+      <audio ref={swooshRef} src="/swoosh.wav"></audio>
       <div className="lg:fixed absolute md:top-7 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
         <div className="flex lg:px-7 px-2 w-full justify-between  items-center  ">
           <div className="flex w-fit ">
             <div
               onClick={handlerouter}
+              onMouseEnter={playHoverSound}
               className="sm:mr-20 text-zinc-200  w-fit  font-Satoshi cursor-pointer font-thin relative group"
             >
               <span className="opacity-0">V</span>
+              <span className="opacity-0">V</span>
+              <span className="opacity-0">V</span>
+              <span className="opacity-0">V</span>
               <span className="opacity-0">/</span>
               <span className="opacity-0">M</span>
-
-              <span className="absolute font-bold -translate-x-4 group-hover:-translate-x-1 transition-all duration-200 2xl:text-base lg:text-sm">
-                V
-              </span>
-              <span className="absolute font-thin text-zinc-300 group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm">
-                /
-              </span>
-              <span className="absolute font-semibold translate-x-3 2xl:text-base lg:text-sm">
-                M
-              </span>
+              <div className="-translate-y-6 translate-x-6">
+                <span className="absolute font-bold -translate-x-4 group-hover:-translate-x-1 transition-all duration-200 2xl:text-base lg:text-sm">
+                  V
+                </span>
+                <span className="absolute font-thin text-zinc-300 group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm">
+                  /
+                </span>
+                <span className="absolute font-semibold translate-x-3 2xl:text-base lg:text-sm">
+                  M
+                </span>
+              </div>
             </div>
             <div className="invisible md:visible md:relative absolute -translatey-full lg:-translate-y-0">
               {" "}
@@ -444,6 +522,7 @@ function Home() {
           </div>
           <div className="flex font-source items-center justify-end w-fit text-zinc-100 ">
             <div
+              onMouseEnter={playSwooshSound}
               onClick={handleProject}
               className="font-Satoshi font-thin group cursor-pointer "
             >

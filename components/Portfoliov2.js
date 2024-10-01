@@ -7,14 +7,14 @@ import { useRouter } from "next/router";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   const lcdoRef = useRef(null);
-  const [lcdo, setLcdo] = useState(true);
+  const [lcdo, setLcdo] = useState(false);
   const [sante, setSante] = useState(false);
   const [mutable, setMutable] = useState(false);
   const [heaf, setHeaf] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const screenWidth = window.innerWidth;
-
+    setLcdo(true);
     gsap.registerPlugin(ScrollTrigger);
     if (screenWidth > 1000) {
       gsap.fromTo(
@@ -33,13 +33,14 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               console.log(`Progress: ${progress}%`); // Debug
               if (screenWidth > 1000) {
                 if (screenWidth >= 1024 && screenWidth <= 1280) {
-                  if (progress < 11) {
+                  setLcdo(true);
+                  if (progress < 0) {
                     setLcdo(true);
                   } else {
                     setLcdo(false);
                   }
 
-                  if (progress >= 11 && progress < 25) {
+                  if (progress >= 10 && progress < 25) {
                     setSante(true);
                   } else {
                     setSante(false);
@@ -89,6 +90,26 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
     }
   }, []);
 
+  useEffect(() => {
+    playShot();
+  }, [lcdo, heaf, mutable, sante]);
+
+  const bassShotRef = useRef(null);
+  const playShot = () => {
+    if (bassShotRef.current) {
+      // Revenir au début du son pour qu'il se rejoue à chaque hover
+      bassShotRef.current.currentTime = 0;
+
+      // Régler le volume
+      bassShotRef.current.volume = 1;
+
+      // Tenter de jouer le son avec gestion des erreurs
+      bassShotRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
+
   const handleproject = () => {
     router.push("/lcdo");
   };
@@ -104,6 +125,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
 
   return (
     <div className="w-full lg:fixed shadow-2xl right-1/2 lg:translate-x-1/2 2xl:top-96 xl:top-72 z-40">
+      <audio ref={bassShotRef} src="/bassshot.wav"></audio>
       <div className="absolute right-20 text-zinc-200 text-xl flex items-end justify-center flex-col text-zinc font-Satoshi font-thin z-50 lg:visible invisible ">
         <span
           className={`mb-1 2xl:text-lg invisible lg:visible xl:text-md lg:text-sm fixed top-5 transition-opacity duration-300 flex flex-col items-end ${

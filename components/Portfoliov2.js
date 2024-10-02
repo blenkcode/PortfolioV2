@@ -473,7 +473,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             } `}
           >
             {" "}
-            <img src="./h1.png" alt="Cabinet Kinesithérapie" />{" "}
+            <img src="./newh1.png" alt="Cabinet Kinesithérapie" />{" "}
           </div>
         </div>
         <div

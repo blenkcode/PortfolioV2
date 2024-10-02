@@ -378,7 +378,7 @@ function Home({}) {
         scrollTrigger: {
           trigger: mainRef.current,
           start: "13%",
-          end: "18%",
+          end: "23%",
           scrub: 1,
         },
       })

@@ -363,6 +363,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             lcdo ? "opacity-100 lg:visible" : "opacity-0 invisible"
           }`}
         >
+          <div className="mb-2">En développement Alpha.</div>
           <div className="mb-2">
             Site Vitrine / Web Application pour le Festival LCDO
           </div>
@@ -380,10 +381,9 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           }`}
         >
           <div className="mb-2">
-            Situé à Marseillan dans l'Hérault ce cabinet d'
-            <b className="text-violet-400">ostéopathie</b> et
-            <b className="text-violet-400"> kinésithérapie</b> propose
-            différents service , en analyse de course, Bike fiting, et massages.
+            Situé à Marseillan dans l'Hérault ce cabinet d' ostéopathie et
+            kinésithérapie propose différents service , en analyse de course,
+            Bike fiting, et massages.
           </div>
           <div>
             <u>Technologies utilisées :</u> React, Next.js, Redux, Tailwind CSS,
@@ -399,11 +399,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             Web-application de santé, accompagnement et conseil nutritionels.
           </div>
           <div className="mb-2">
-            Heaf est là pour vous apporter des connaissances et des{" "}
-            <b className="text-violet-400">plans nutritionnels</b> guidés avec
-            différents programmes, basés sur{" "}
-            <b className="text-violet-400">vos objectifs</b> : perdre du poids,
-            gagner du muscle, se préparer pour une course.
+            Perdre du poids, prendre du muscle, se maintenir en forme.
           </div>
           <div>
             <u>Technologies utilisées :</u> Javascript, React, Chart.js Next.js
@@ -417,16 +413,12 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         >
           <div className="mb-2">Site marchand en produits de musique.</div>
           <div className="mb-2">
-            Pour ce projet j'ai décidé de mettre à l'honneur une de mes passions
-            : <b className="text-violet-400">la synthèse modulaire</b> et plus
-            particulièrement la compagnie Française Mutable Instruments
-            désormais inactive depuis l'année dernière.
-            <br></br> Page d'acceuil, <b className="text-violet-400">magasin</b>{" "}
-            et possibilité de stocker des articles en{" "}
-            <b className="text-violet-400">favoris</b> ou bien directement dans{" "}
-            <b className="text-violet-400">son panier</b>.
+            La compagnie Française Mutable Instruments est spécialisée dans la
+            production de module de synthèse audio.
+            <br></br> Page d'acceuil, magasin et possibilité de stocker des
+            articles en favoris.
           </div>
-          <div>
+          <div className="mt-2">
             <u>Technologies utilisées :</u> React, Next.js, Redux, Tailwind CSS.
           </div>
         </span>
@@ -466,7 +458,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             }`}
           >
             {" "}
-            <img src="./k1.png" alt="Cabinet Kinesithérapie" />{" "}
+            <img src="./sante1.png" alt="Cabinet Kinesithérapie" />{" "}
           </div>
         </div>
         <div

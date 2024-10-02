@@ -76,26 +76,24 @@ function Stack({}) {
               <Cubes2></Cubes2>
             </div>
           )} */}
-          <div className="2xl:px-16 sm:px-7  lg:w-1/3   rounded-lg z-10  lg:mt-0 mt-10 relative ">
+          <div className="2xl:px-16 sm:px-7  lg:w-1/3  translate-x-7 rounded-lg z-10  lg:mt-0 mt-10 relative ">
             <p className="2xl:text-lg xl:text-base lg:text-sm font-thin text-md text-zinc-200 z-20  font-Satoshi  ">
               J'utilise <b className="text-violet-400 font-bold">TypeScript</b>{" "}
-              pour vous offrir des sites modernes et performants avec les
-              technologies les plus avancées. <br /> <br />
+              pour vous offrir des sites modernes performants et aisemment
+              maintenable. <br /> <br />
               Pour le développement front-end, j'emploie les frameworks
-              <b className="text-violet-400 font-bold"> React</b> et{" "}
-              <b className="text-violet-400 font-bold">Next.js</b>, avec{" "}
-              <b className="text-violet-400 font-bold">Redux</b> pour la gestion
-              des états et les librairies{" "}
-              <b className="text-violet-400 font-bold">Tailwind</b> &{" "}
-              <b className="text-violet-400 font-bold">Gsap</b> pour un design
-              soigné et des animations captivantes.
+              <b className="text-violet-400 font-bold"> React</b> et sa
+              surcouche <b className="text-violet-400 font-bold">Next.js</b>.
+              Une gestion des états globaux avec{" "}
+              <b className="text-violet-400 font-bold">Redux</b> et pour un
+              design soigné et des animations captivantes les librairies{" "}
+              <b className="text-violet-400 font-bold">Tailwind CSS</b> &{" "}
+              <b className="text-violet-400 font-bold">Gsap</b>
               <br /> <br />
-              Pour le back-end, je m'appuie sur{" "}
+              Pour la gestion de vos serveurs et data-base je m'appuie sur{" "}
               <b className="text-violet-400 font-bold">Node.js</b>,{" "}
               <b className="text-violet-400 font-bold">Express</b> et{" "}
-              <b className="text-violet-400 font-bold">Socket.io</b> afin de
-              gérer les serveurs, les requêtes et opérations CRUD sur bases de
-              données.
+              <b className="text-violet-400 font-bold">MongoDB</b>
             </p>
             {/* <div className="z-50  absolute -top-10 -right-10 2xl:h-128 2xl:w-128 xl:h-110 xl:w-110 w-96 h-96 bg-violet-500   transition-opacity  lg:opacity-70 opacity-0 rounded-full bg-opacity-20 "></div> */}
           </div>

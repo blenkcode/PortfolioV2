@@ -381,9 +381,9 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           }`}
         >
           <div className="mb-2">
-            Situé à Marseillan dans l'Hérault ce cabinet d' ostéopathie et
-            kinésithérapie propose différents service , en analyse de course,
-            Bike fiting, et massages.
+            Situé à Marseillan dans l'Hérault ce cabinet d'ostéopathie et
+            kinésithérapie propose différents services, analyse de course, bike
+            fiting, et massages.
           </div>
           <div>
             <u>Technologies utilisées :</u> React, Next.js, Redux, Tailwind CSS,

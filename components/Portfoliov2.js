@@ -32,7 +32,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               const progress = self.progress * 100; // Progrès du scroll en pourcentage
               console.log(`Progress: ${progress}%`); // Debug
               if (screenWidth > 1000) {
-                if (screenWidth >= 1280) {
+                if (screenWidth > 1280) {
                   if (progress < 14) {
                     setLcdo(true);
                   } else {
@@ -53,33 +53,57 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
                   } else {
                     setMutable(false);
                   }
-                }
-                if (screenWidth >= 1024 && screenWidth <= 1280) {
+                } else if (screenWidth > 1024 && screenWidth <= 1280) {
                   setLcdo(true);
-                  if (progress < 9) {
+                  if (progress < 11) {
                     setLcdo(true);
                   } else {
                     setLcdo(false);
                   }
 
-                  if (progress >= 9 && progress < 21) {
+                  if (progress >= 11 && progress < 23.375) {
                     setSante(true);
                   } else {
                     setSante(false);
                   }
 
-                  if (progress >= 21 && progress < 33) {
+                  if (progress >= 23.375 && progress < 38.625) {
                     setHeaf(true);
                   } else {
                     setHeaf(false);
                   }
 
-                  if (progress >= 33 && progress <= 100) {
+                  if (progress >= 38.625 && progress <= 100) {
                     setMutable(true);
                   } else {
                     setMutable(false);
                   }
-                } else {
+                } else if (screenWidth <= 1024) {
+                  console.log("Action pour écran  1024px");
+                  setLcdo(true);
+                  if (progress < 9.2) {
+                    setLcdo(true);
+                  } else {
+                    setLcdo(false);
+                  }
+
+                  if (progress >= 9.2 && progress < 20.6) {
+                    setSante(true);
+                  } else {
+                    setSante(false);
+                  }
+
+                  if (progress >= 20.6 && progress < 33.3) {
+                    setHeaf(true);
+                  } else {
+                    setHeaf(false);
+                  }
+
+                  if (progress >= 33.3 && progress <= 100) {
+                    setMutable(true);
+                  } else {
+                    setMutable(false);
+                  }
                 }
               } else {
                 setLcdo(false);
@@ -107,7 +131,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       bassShotRef.current.currentTime = 0;
 
       // Régler le volume
-      bassShotRef.current.volume = 0.5;
+      bassShotRef.current.volume = 0.2;
 
       // Tenter de jouer le son avec gestion des erreurs
       bassShotRef.current.play().catch((error) => {
@@ -121,7 +145,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       bassShot2Ref.current.currentTime = 0;
 
       // Régler le volume
-      bassShot2Ref.current.volume = 0.5;
+      bassShot2Ref.current.volume = 0.2;
 
       // Tenter de jouer le son avec gestion des erreurs
       bassShot2Ref.current.play().catch((error) => {
@@ -143,8 +167,19 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
     router.push("/kine");
   };
 
+  const clickSoundRef = useRef(null);
+  const playClickSound = () => {
+    if (clickSoundRef.current) {
+      clickSoundRef.current.currentTime = 0;
+      clickSoundRef.current.volume = 0.3;
+      clickSoundRef.current.play().catch((error) => {
+        console.log("Erreur lors de la lecture de l'audio :", error);
+      });
+    }
+  };
   return (
     <div className="w-full lg:fixed shadow-2xl right-1/2 lg:translate-x-1/2 2xl:top-96 xl:translate-y-10 xl:top-72 z-40">
+      <audio ref={clickSoundRef} src="/click1.wav"></audio>
       <audio ref={bassShotRef} src="/bassshot.wav"></audio>
       <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
       <div className="absolute right-20 text-zinc-200 text-xl flex items-end justify-center flex-col text-zinc font-Satoshi font-thin z-50 lg:visible invisible ">
@@ -154,11 +189,17 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           }`}
         >
           <div className="mb-5">Le Chant des Oiseaux</div>
-
+          <div
+            className=" text-sm font-satoshi 
+          "
+          >
+            / PORTFOLIO 2024
+          </div>
           <a
             href="https://lcdo-three.vercel.app/"
             target="_blank"
-            className="z-50"
+            className="z-50 mt-5"
+            onMouseEnter={playClickSound}
           >
             <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-smjustify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
               <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
@@ -192,10 +233,17 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           }`}
         >
           <div className="mb-5">Sport-Santé Méditerranée</div>
-
+          <div
+            className=" text-sm font-satoshi 
+          "
+          >
+            / PORTFOLIO 2024
+          </div>
           <a
+            className="z-50 mt-5"
             href="https://sport-sante-mediterranee.vercel.app/"
             target="_blank"
+            onMouseEnter={playClickSound}
           >
             <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-smjustify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
               <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
@@ -228,11 +276,17 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           }`}
         >
           <div className="mb-5">Heaf</div>
-
+          <div
+            className=" text-sm font-satoshi 
+          "
+          >
+            / PORTFOLIO 2024
+          </div>
           <a
             href="https://heaf-front-end.vercel.app/"
             target="_blank"
-            className="z-50"
+            className="z-50 mt-5"
+            onMouseEnter={playClickSound}
           >
             <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
               <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
@@ -265,11 +319,17 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           }`}
         >
           <div className="mb-5">Mutable Instruments</div>
-
+          <div
+            className=" text-sm font-satoshi 
+          "
+          >
+            / PORTFOLIO 2024
+          </div>
           <a
             href="https://mutable-instruments-shop.vercel.app/"
             target="_blank"
-            className="z-50"
+            className="z-50 mt-5"
+            onMouseEnter={playClickSound}
           >
             <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
               <span className="hover-group: hover:text-sky-600  opacity-0 translate-">

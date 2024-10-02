@@ -101,7 +101,7 @@ function Left() {
   const playShot = () => {
     if (bassShotRef.current) {
       bassShotRef.current.currentTime = 0;
-      bassShotRef.current.volume = 1;
+      bassShotRef.current.volume = 0.4;
       bassShotRef.current.play().catch((error) => {
         console.log("Erreur lors de la lecture de l'audio :", error);
       });
@@ -110,7 +110,7 @@ function Left() {
   const playShot2 = () => {
     if (bassShot2Ref.current) {
       bassShot2Ref.current.currentTime = 0;
-      bassShot2Ref.current.volume = 1;
+      bassShot2Ref.current.volume = 0.4;
       bassShot2Ref.current.play().catch((error) => {
         console.log("Erreur lors de la lecture de l'audio :", error);
       });

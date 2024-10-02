@@ -22,6 +22,7 @@ function Home({}) {
   const circle6Ref = useRef(null);
   const circle7Ref = useRef(null);
   const circle8Ref = useRef(null);
+  const circle9Ref = useRef(null);
   const rightRef = useRef(null);
   const stackRef = useRef(null);
   const portfolioRef = useRef(null);
@@ -158,7 +159,7 @@ function Home({}) {
           portfolioRef.current,
           { y: 900, visibility: "hidden" },
           {
-            y: -1050,
+            y: -950,
             visibility: "visible",
             scrollTrigger: {
               trigger: mainRef.current,
@@ -205,13 +206,13 @@ function Home({}) {
         { y: -1000, visibility: "hidden" },
         {
           y: 700,
-          visibility: "visibkle",
+          visibility: "visible",
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
             start: "5%",
-            end: "35%",
-            scrub: 1,
+            end: "38%",
+            scrub: 2,
           },
         }
       );
@@ -225,7 +226,7 @@ function Home({}) {
           scrollTrigger: {
             trigger: mainRef.current,
             start: "4%",
-            end: "30%",
+            end: "34%",
             scrub: 2,
           },
         }
@@ -239,7 +240,7 @@ function Home({}) {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "10%",
+            start: "7%",
             end: "40%",
             scrub: 2,
           },
@@ -249,14 +250,14 @@ function Home({}) {
         circle5Ref.current,
         { y: -1000, visibility: "hidden" },
         {
-          y: 1000,
+          y: 700,
           visibility: "visible",
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "20%",
-            end: "37%",
-            scrub: 3,
+            start: "13%",
+            end: "39%",
+            scrub: 2,
           },
         }
       );
@@ -269,8 +270,8 @@ function Home({}) {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "10%",
-            end: "39%",
+            start: "4%",
+            end: "42%",
             scrub: 3,
           },
         }
@@ -284,8 +285,8 @@ function Home({}) {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "14%",
-            end: "40%",
+            start: "5%",
+            end: "38%",
             scrub: 3,
           },
         }
@@ -299,8 +300,23 @@ function Home({}) {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "17%",
-            end: "41%",
+            start: "12%",
+            end: "40%",
+            scrub: 3,
+          },
+        }
+      );
+      gsap.fromTo(
+        circle9Ref.current,
+        { y: 700, visibility: "hidden" },
+        {
+          y: -1200,
+          visibility: "visible",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "7%",
+            end: "40%",
             scrub: 3,
           },
         }
@@ -362,7 +378,7 @@ function Home({}) {
         scrollTrigger: {
           trigger: mainRef.current,
           start: "13%",
-          end: "26%",
+          end: "18%",
           scrub: 3,
         },
       })
@@ -401,7 +417,7 @@ function Home({}) {
         </div>
         <div
           ref={circleRef}
-          className="w-circlee invisible rounded-full  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee bg-opacity-30 bg-zinc-900 z-30"
+          className="invisible rounded-full  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee w-circlee  bg-opacity-30 bg-zinc-900 z-30"
         >
           <svg
             ref={svgRef}
@@ -415,7 +431,7 @@ function Home({}) {
               cy="75"
               r="70"
               stroke="#FDFAF8"
-              strokeWidth="0.5"
+              strokeWidth="2"
               fill="none"
               strokeDasharray="440"
               strokeDashoffset="440"
@@ -431,13 +447,13 @@ function Home({}) {
         </div>
         <div
           ref={circle3Ref}
-          className="w-64 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 left-20 fixed h-64 bg-opacity-30 bg-violet-300"
+          className="w-36 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 left-36 fixed h-36 bg-opacity-30 bg-violet-300"
         >
           <img src="/next.png"></img>
         </div>
         <div
           ref={circle4Ref}
-          className="w-44 rounded-full invisible shadow-2xl bottom-80 flex justify-center items-center left-96 translate-x-20 fixed h-44 bg-opacity-30 bg-violet-300"
+          className="w-40 rounded-full invisible shadow-2xl bottom-80 flex justify-center items-center left-80 translate-x-20 fixed h-40 bg-opacity-30 bg-violet-300"
         >
           <img src="/node.png"></img>
         </div>
@@ -456,15 +472,21 @@ function Home({}) {
         </div>
         <div
           ref={circle7Ref}
-          className="w-52 rounded-full invisible shadow-2xl -bottom-20 flex justify-center items-center z-10 left-20 fixed h-52 bg-opacity-30 bg-violet-300"
+          className="w-40 rounded-full invisible shadow-2xl -bottom-20 flex justify-center items-center z-10 left-20 fixed h-40 bg-opacity-30 bg-violet-300"
         >
           <img src="/tail.png" className="w-4/5"></img>
         </div>
         <div
           ref={circle8Ref}
-          className="w-44 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 right-20 fixed h-44 bg-opacity-30 bg-violet-300"
+          className="w-36 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 right-20 fixed h-36 bg-opacity-30 bg-violet-300"
         >
-          <img src="/redux.png" className="w-2/3 "></img>
+          <img src="/redux1.png" className="w-2/3 "></img>
+        </div>
+        <div
+          ref={circle9Ref}
+          className="w-36 rounded-full invisible shadow-2xl -bottom-20 flex justify-center items-center z-10 left-96 fixed h-36 bg-opacity-30 bg-violet-300"
+        >
+          <img src="/gsaplogo.png" className="w-2/3 grayscale "></img>
         </div>
         <div
           ref={stackRef}

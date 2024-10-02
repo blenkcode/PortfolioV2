@@ -65,7 +65,7 @@ function Stack({}) {
         <div
           className={`${
             isVisible
-              ? "    z-50 flex lg:flex-row flex-col   opacity-100 translate-y-0 transition duration-[2000ms]"
+              ? "    z-50 flex lg:flex-row flex-col  opacity-100 translate-y-0 transition duration-[2000ms]"
               : styles.invisible
           } flex flex-col lg:flex-row items-center justify-center`}
         >
@@ -76,8 +76,8 @@ function Stack({}) {
               <Cubes2></Cubes2>
             </div>
           )} */}
-          <div className="2xl:px-16 sm:px-7  lg:w-1/3  translate-x-7 rounded-lg z-10  lg:mt-0 mt-10 relative ">
-            <p className="2xl:text-lg xl:text-base lg:text-sm font-thin text-md text-zinc-200 z-20  font-Satoshi  ">
+          <div className="2xl:px-16 sm:px-7  lg:w-1/3  lg:translate-x-7 rounded-lg z-10  lg:mt-0 mt-10 relative ">
+            <p className="2xl:text-lg  xl:text-base lg:text-sm font-thin text-md text-zinc-200 z-20  font-Satoshi  ">
               J'utilise <b className="text-violet-400 font-bold">TypeScript</b>{" "}
               pour vous offrir des sites modernes performants et aisemment
               maintenable. <br /> <br />

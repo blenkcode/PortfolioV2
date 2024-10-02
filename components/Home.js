@@ -379,7 +379,7 @@ function Home({}) {
           trigger: mainRef.current,
           start: "13%",
           end: "18%",
-          scrub: 3,
+          scrub: 1,
         },
       })
       .fromTo(

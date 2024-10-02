@@ -15,7 +15,7 @@ function Header() {
   const playbassSound = () => {
     if (clickSoundRef.current) {
       bassRef.current.currentTime = 0;
-      bassRef.current.volume = 0.7;
+      bassRef.current.volume = 0.4;
       bassRef.current.play().catch((error) => {
         console.log("Erreur lors de la lecture de l'audio :", error);
       });

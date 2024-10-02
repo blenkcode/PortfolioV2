@@ -197,15 +197,15 @@ function Left() {
       >
         <a href="/MOR-VALENTIN-CV-2024.pdf" download onMouseEnter={playShot}>
           <div className=" text-white group border-1  border-zinc-200 hover:border-violet-300 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
-            <span className="hover-group: group-hover:text-violet-300  opacity-0 translate-  xl:text-md  text-sm  ">
+            <span className="hover-group: group-hover:text-violet-300  opacity-0 translate-  2xl:text-lg lg:text-base text-sm  ">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
-            <span className=" xl:text-md  text-sm   transition-all group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+            <span className=" 2xl:text-lg lg:text-base text-sm  transition-all group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
-            <span className=" xl:text-md  text-sm  transition-all group-hover:text-violet-300  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+            <span className=" 2xl:text-lg lg:text-base text-sm transition-all group-hover:text-violet-300  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
@@ -217,15 +217,15 @@ function Left() {
           onMouseEnter={playShot2}
         >
           <div className=" text-white group border-1  border-zinc-200 hover:border-violet-300 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
-            <span className="hover-group:  xl:text-md  text-sm hover:text-sky-600  opacity-0 translate-">
+            <span className="hover-group: 2xl:text-lg lg:text-base text-sm hover:text-sky-600  opacity-0 translate-">
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>
-            <span className="transition-all  xl:text-md  text-sm  group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+            <span className="transition-all 2xl:text-lg lg:text-base text-sm  group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>
-            <span className="transition-all  xl:text-md  text-sm group-hover:text-violet-300  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+            <span className="transition-all  2xl:text-lg lg:text-base text-sm group-hover:text-violet-300  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>

@@ -171,7 +171,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   const playClickSound = () => {
     if (clickSoundRef.current) {
       clickSoundRef.current.currentTime = 0;
-      clickSoundRef.current.volume = 0.3;
+      clickSoundRef.current.volume = 0.1;
       clickSoundRef.current.play().catch((error) => {
         console.log("Erreur lors de la lecture de l'audio :", error);
       });

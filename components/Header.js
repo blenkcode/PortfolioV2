@@ -74,14 +74,14 @@ function Header() {
     }
   };
   return (
-    <div className="lg:fixed absolute md:top-7 top-4 left-0 w-full h-auto bg-transparent items-center z-50">
+    <div className="lg:fixed absolute md:top-7 top-4 left-0 w-full h-auto bg-transparent items-center z-50 ">
       <div className="flex lg:px-7 px-2 w-full justify-between  items-center  ">
         <audio ref={bassRef} src="/reversebass.wav"></audio>
         <audio ref={hoverSoundRef} src="/interface1.wav"></audio>
         <audio ref={clickSoundRef} src="/click1.wav"></audio>
 
         <audio ref={swooshRef} src="/swoosh.wav"></audio>
-        <div className="flex w-fit ">
+        <div className="flex w-fit z-50">
           <div
             onClick={handlerouter}
             onMouseEnter={playHoverSound}

@@ -18,14 +18,15 @@ function Right() {
     // Avoids animation if the screen width is less than 1000
     if (screenWidth > 1000) {
       // Set initial state to avoid recalculations
-      gsap.set(btnRef.current, { opacity: 0, visibility: "hidden" });
+      gsap.set(btnRef.current, { opacity: 0, visibility: "hidden", x: 50 });
 
       // Animate opacity and visibility in one go
       gsap.to(btnRef.current, {
         opacity: 1,
+        x: 0,
         visibility: "visible",
-        duration: 3.5,
-        delay: 3.5,
+        duration: 2,
+        delay: 2.3,
         ease: "power3.out",
       });
     }

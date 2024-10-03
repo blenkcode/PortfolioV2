@@ -20,7 +20,7 @@ function Left() {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: 0.5,
+        delay: 0,
         ease: "power3.out",
         visibility: "visible",
       }
@@ -32,7 +32,7 @@ function Left() {
         opacity: 1,
         x: 0,
         duration: 1.5,
-        delay: 1.2,
+        delay: 0.5,
         ease: "power3.out",
         visibility: "visible",
       }
@@ -44,7 +44,7 @@ function Left() {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: 1.7,
+        delay: 0.8,
         ease: "power3.out",
         visibility: "visible",
       }
@@ -68,7 +68,7 @@ function Left() {
         stagger: 0.05,
         rotation: 360,
         scale: 100,
-        delay: 2.4,
+        delay: 1.3,
         visibility: "visible",
       }
     );
@@ -79,7 +79,7 @@ function Left() {
         opacity: 1,
         blur: 0,
         duration: 3.5,
-        delay: 3.5,
+        delay: 2.3,
         ease: "power3.out",
         visibility: "visible",
       }
@@ -91,7 +91,7 @@ function Left() {
         opacity: 1,
 
         duration: 3.5,
-        delay: 3.5,
+        delay: 2.3,
         ease: "power3.out",
       }
     );

@@ -69,6 +69,12 @@ module.exports = {
       translate: {
         900: "900px",
       },
+      zIndex: {
+        60: "60", // Nouvelle valeur pour z-60
+        70: "70", // Nouvelle valeur pour z-70
+        100: "100", // Nouvelle valeur pour z-100
+        // Ajoutez d'autres valeurs si nécessaire
+      },
       height: {
         1: "1px",
         110: "28rem",

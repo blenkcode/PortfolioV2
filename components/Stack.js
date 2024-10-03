@@ -10,8 +10,8 @@ function Stack({}) {
              
            flex-col lg:flex-row items-center justify-center"
         >
-          <div className="2xl:px-16 sm:px-7  lg:w-1/3  lg:translate-x-7 rounded-lg z-10  lg:mt-0 mt-10 relative ">
-            <p className="2xl:text-lg  xl:text-base lg:text-sm font-thin text-md text-zinc-200 z-20  font-Satoshi  ">
+          <div className="2xl:px-16 sm:px-7  lg:w-110   rounded-lg z-10  lg:mt-0 mt-10 relative ">
+            <p className="  xl:text-base lg:text-sm font-thin text-md text-zinc-200 z-20  font-Satoshi  ">
               J'utilise <b className="text-violet-400 font-bold">TypeScript</b>{" "}
               pour vous offrir des sites modernes, performants et aisément
               maintenables <br /> <br />

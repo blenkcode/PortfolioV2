@@ -63,7 +63,7 @@ module.exports = {
         192: "48rem",
         200: "52rem", // 768px
         256: "64rem",
-        circlee: "30rem", // 1024px
+        circlee: "32rem", // 1024px
         // Ajoutez autant de tailles que vous le souhaitez
       },
       translate: {
@@ -85,7 +85,7 @@ module.exports = {
         200: "52rem", // 768px
         256: "64rem", // 1024px
         500: "100rem",
-        circlee: "30rem",
+        circlee: "32rem",
         quatre: "80%", // 75% de la hauteur
         vin: "20%", // 25% de la hauteur
 

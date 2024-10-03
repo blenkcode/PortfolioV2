@@ -31,12 +31,12 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               const progress = self.progress * 100; // Progrès du scroll en pourcentage
               console.log(`Progress: ${progress}%`); // Debug
               if (screenWidth > 1000) {
-                if (progress < 12) {
+                if (progress < 11) {
                   setLcdo(true);
                 } else {
                   setLcdo(false);
                 }
-                if (progress >= 12 && progress < 25) {
+                if (progress >= 11 && progress < 25) {
                   setSante(true);
                 } else {
                   setSante(false);

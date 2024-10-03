@@ -58,20 +58,19 @@ function Home({}) {
         })
         .fromTo(
           mainRef.current,
-          { backgroundColor: "rgba(24, 24, 27, 0.6)" },
-          { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 }
+          { backgroundColor: "rgba(24, 24, 27, 1)" },
+          { backgroundColor: "rgba(24, 24, 27, 0.3)", duration: 1 }
         )
         .to(mainRef.current, {
-          backgroundColor: "rgba(24, 24, 27, 0.6)",
+          backgroundColor: "rgba(24, 24, 27, 1)",
           duration: 1,
         });
 
       gsap.fromTo(
         leftRef.current,
-        { x: 0, y: 0, opacity: 1 },
+        { y: 0, opacity: 1 },
         {
-          x: "-100%",
-          y: "100%",
+          y: "-100%",
           opacity: 0,
           scrollTrigger: {
             trigger: mainRef.current,
@@ -83,11 +82,11 @@ function Home({}) {
       );
       gsap.fromTo(
         rightRef.current,
-        { opacity: 1, x: 0, y: 0 },
+        { opacity: 1, y: 0 },
         {
           opacity: 0,
-          x: "100%",
-          y: "100%",
+
+          y: "-100%",
           scrollTrigger: {
             trigger: mainRef.current,
             start: "0%",
@@ -230,13 +229,13 @@ function Home({}) {
           "<"
         );
 
-      gsap.to(".rotate-y", {
-        keyframes: [
-          { x: -400, y: -50, rotateZ: 360, scale: 1.2, duration: 30 },
-        ],
-        repeat: -1,
-        yoyo: true,
-      });
+      // gsap.to(".rotate-y", {
+      //   keyframes: [
+      //     { x: -400, y: -50, rotateZ: 360, scale: 1.2, duration: 30 },
+      //   ],
+      //   repeat: -1,
+      //   yoyo: true,
+      // });
     } else {
       gsap
         .timeline({
@@ -249,11 +248,11 @@ function Home({}) {
         })
         .fromTo(
           mainRef.current,
-          { backgroundColor: "rgba(24, 24, 27, 0.7)" },
+          { backgroundColor: "rgba(24, 24, 27, 0.6)" },
           { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 }
         )
         .to(mainRef.current, {
-          backgroundColor: "rgba(24, 24, 27, 0.7)",
+          backgroundColor: "rgba(24, 24, 27, 0.6)",
           duration: 1,
         });
     }
@@ -288,7 +287,7 @@ function Home({}) {
       .fromTo(
         svgRef.current.querySelector("circle"),
         { strokeDashoffset: 440, stroke: "#FDFAF8" },
-        { strokeDashoffset: 0, duration: 1, stroke: "#A287F2", ease: "none" }
+        { strokeDashoffset: 0, duration: 1, stroke: "#4F5053", ease: "none" }
       );
   }, []);
 
@@ -299,7 +298,7 @@ function Home({}) {
     >
       <div
         ref={morphRef}
-        className="fixed top-1/2  blur-3xl right-1/2 translate-x-1/2 -translate-y-1/2 w-full h-screen flex flex-row    "
+        className="fixed top-1/2   right-1/2 translate-x-1/2 -translate-y-1/2 w-full h-screen flex flex-row    "
       >
         <Background></Background>
       </div>
@@ -320,11 +319,11 @@ function Home({}) {
         <div className="w-full lg:h-lvh">
           <div
             ref={circleRef}
-            className="invisible rounded-full  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee w-circlee  bg-opacity-30 bg-zinc-900 z-30"
+            className="invisible rounded-full shadow-2xl  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee w-circlee  bg-opacity-70 bg-zinc-900 z-30"
           >
             <svg
               ref={svgRef}
-              className="absolute -top-16  opacity-60 -left-16 translate-x-1 translate-y-1"
+              className="absolute -top-16  opacity-60 -left-16 translate-x-5 translate-y-5"
               width="600"
               height="600"
               viewBox="0 0 150 150"
@@ -333,7 +332,7 @@ function Home({}) {
                 cx="75"
                 cy="75"
                 r="70"
-                stroke="#FDFAF8"
+                stroke="#4F5053"
                 strokeWidth="2"
                 fill="none"
                 strokeDasharray="440"
@@ -343,51 +342,51 @@ function Home({}) {
           </div>
           <div
             ref={circle2Ref}
-            className="w-40 rounded-full invisible shadow-2xl flex items-center justify-center bottom-10 right-96 fixed h-40 bg-opacity-30 z-10 bg-violet-300"
+            className="w-40 rounded-full invisible shadow-2xl flex items-center justify-center bottom-10 right-96 fixed h-40 bg-opacity-30 z-10 bg-violet-400"
           >
             {" "}
             <img src="/react.png" className="w-2/3"></img>
           </div>
           <div
             ref={circle3Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-72 flex justify-center items-center z-10 left-36 fixed h-40 bg-opacity-30 bg-violet-300"
+            className="w-40 rounded-full invisible shadow-2xl bottom-72 flex justify-center items-center z-10 left-36 fixed h-40 bg-opacity-30 bg-violet-400"
           >
             <img src="/next.png"></img>
           </div>
           <div
             ref={circle4Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-80 flex justify-center items-center left-80 translate-x-20 fixed h-40 bg-opacity-30 bg-violet-300"
+            className="w-40 rounded-full invisible shadow-2xl bottom-80 flex justify-center items-center left-80 translate-x-20 fixed h-40 bg-opacity-30 bg-violet-400"
           >
             <img src="/node.png"></img>
           </div>
           <div
             ref={circle5Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-72  flex justify-center items-center z-10 right-96 fixed h-40 bg-opacity-30 bg-violet-300"
+            className="w-40 rounded-full invisible shadow-2xl bottom-72  flex justify-center items-center z-10 right-96 fixed h-40 bg-opacity-30 bg-violet-400"
           >
             <img src="/ex.png" className="w-2/3"></img>
           </div>
 
           <div
             ref={circle6Ref}
-            className="w-40 rounded-full invisible shadow-2xl top-20 flex justify-center items-center z-10 right-20 fixed h-40 bg-opacity-30 bg-violet-300"
+            className="w-40 rounded-full invisible shadow-2xl top-20 flex justify-center items-center z-10 right-20 fixed h-40 bg-opacity-30 bg-violet-400"
           >
             <img src="/mongo.png" className="w-2/3"></img>
           </div>
           <div
             ref={circle7Ref}
-            className="w-40 rounded-full invisible shadow-2xl -bottom-32 flex justify-center items-center z-10 left-36 fixed h-40 bg-opacity-30 bg-violet-300"
+            className="w-40 rounded-full invisible shadow-2xl -bottom-32 flex justify-center items-center z-10 left-36 fixed h-40 bg-opacity-30 bg-violet-400"
           >
             <img src="/tail.png" className="w-4/5"></img>
           </div>
           <div
             ref={circle8Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 right-20 fixed h-40 bg-opacity-30 bg-violet-300"
+            className="w-40 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 right-20 fixed h-40 bg-opacity-30 bg-violet-400"
           >
             <img src="/redux1.png" className="w-2/3 "></img>
           </div>
           <div
             ref={circle9Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-0 flex justify-center items-center z-10 left-96 fixed h-40 bg-opacity-30 bg-violet-300"
+            className="w-40 rounded-full invisible shadow-2xl bottom-0 flex justify-center items-center z-10 left-96 fixed h-40 bg-opacity-30 bg-violet-400"
           >
             <img src="/gsaplogo.png" className="w-2/3 grayscale "></img>
           </div>

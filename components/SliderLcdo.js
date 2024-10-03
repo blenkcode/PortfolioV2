@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 
 function SliderLcdo() {
   const data = [
-    { url: "/mocklcdo1.png", id: 1 },
+    { url: "/lcdo1.webp", id: 1 },
     { url: "/mocklcdo2.png", id: 2 },
     { url: "/mocklcdo3.png", id: 3 },
     { url: "/mocklcdo4.png", id: 4 },

@@ -128,10 +128,10 @@ function Home({}) {
 
       gsap.fromTo(
         portfolioRef.current,
-        { y: "100%" }, // Commence avec l'élément hors écran (translate-y-full)
+        { y: "100%", visibility: "hidden" }, // Commence avec l'élément hors écran (translate-y-full)
         {
           y: "0%", // Translate jusqu'à y = 0 (visible à l'écran)
-
+          visibility: "visible",
           scrollTrigger: {
             trigger: mainRef.current, // Déclencher avec le scrolling de mainRef
             start: "40%", // Commence à 40% du scroll

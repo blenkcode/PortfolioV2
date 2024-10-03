@@ -45,7 +45,7 @@ function Right() {
         <div className="relative flex flex-col xl:items-start justify-center items-center lg:px-10 ">
           <img
             className="2xl:w-96 xl:w-80 lg:w-80 md:w-1/2 sm:w-1/2 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
-            src="https://res.cloudinary.com/dmijime4v/image/upload/v1725829736/o2o6p2sihg2gzeulpzhe.png"
+            src="/VM.webp"
             alt="Valentin Mor portrait"
           />
 

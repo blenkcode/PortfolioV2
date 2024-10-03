@@ -269,15 +269,10 @@ function Home({}) {
           scrub: 3,
         },
       })
-      .fromTo(
-        morphRef.current,
-        { opacity: 1, filter: "blur(32px)" },
-        { opacity: 0, duration: 1 }
-      )
+      .fromTo(morphRef.current, { opacity: 1 }, { opacity: 0, duration: 1 })
       .to(morphRef.current, {
         opacity: 1,
         duration: 1,
-        filter: "blur(64px)",
       });
   }, [mainRef, morphRef]);
   useEffect(() => {
@@ -304,9 +299,9 @@ function Home({}) {
     >
       <div
         ref={morphRef}
-        className="blur-2xl fixed top-0 right-0 w-full h-screen flex flex-row -translate-y-96  "
+        className="fixed top-1/2  blur-3xl right-1/2 translate-x-1/2 -translate-y-1/2 w-full h-screen flex flex-row    "
       >
-        {/* <Background></Background> */}
+        <Background></Background>
       </div>
 
       <div className="flex flex-col px-5 lg:px-0 lg:mt-0 mt-20 justify-center items-center w-full relative   ">

@@ -385,7 +385,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           >
             {" "}
             <img
-              src="./mocklcdo1.png"
+              src="./lcdo1.webp"
               className="lcdogroup group"
               alt="LCDO"
             />{" "}
@@ -403,7 +403,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             }`}
           >
             {" "}
-            <img src="./sante1.png" alt="Cabinet Kinesithérapie" />{" "}
+            <img src="./sante1.webp" alt="Cabinet Kinesithérapie" />{" "}
           </div>
         </div>
         <div
@@ -433,7 +433,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             } `}
           >
             {" "}
-            <img src="./mutable.png" alt="Cabinet Kinesithérapie" />{" "}
+            <img src="./mutable.webp" alt="Cabinet Kinesithérapie" />{" "}
           </div>
         </div>
       </div>

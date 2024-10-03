@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   const lcdoRef = useRef(null);
-  const [lcdo, setLcdo] = useState(true);
+  const [lcdo, setLcdo] = useState(false);
   const [sante, setSante] = useState(false);
   const [mutable, setMutable] = useState(false);
   const [heaf, setHeaf] = useState(false);

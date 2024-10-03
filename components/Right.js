@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import styles from "../styles/Home.module.css";
+
 import { gsap } from "gsap";
 
 const FontAwesomeIcon = dynamic(
@@ -8,30 +8,26 @@ const FontAwesomeIcon = dynamic(
     import("@fortawesome/react-fontawesome").then((mod) => mod.FontAwesomeIcon),
   { ssr: false }
 );
-import {
-  faLaptop,
-  faDatabase,
-  faScrewdriverWrench,
-} from "@fortawesome/free-solid-svg-icons";
 
 function Right() {
   const btnRef = useRef(null);
 
   useEffect(() => {
     const screenWidth = window.innerWidth;
-    if (screenWidth > 1000) {
-      gsap.fromTo(
-        btnRef.current,
-        { opacity: 0, visibility: "hidden" },
-        {
-          opacity: 1,
 
-          duration: 3.5,
-          delay: 3.5,
-          ease: "power3.out",
-          visibility: "visible",
-        }
-      );
+    // Avoids animation if the screen width is less than 1000
+    if (screenWidth > 1000) {
+      // Set initial state to avoid recalculations
+      gsap.set(btnRef.current, { opacity: 0, visibility: "hidden" });
+
+      // Animate opacity and visibility in one go
+      gsap.to(btnRef.current, {
+        opacity: 1,
+        visibility: "visible",
+        duration: 3.5,
+        delay: 3.5,
+        ease: "power3.out",
+      });
     }
   }, []);
 
@@ -45,8 +41,11 @@ function Right() {
         <div className="relative flex flex-col xl:items-start justify-center items-center lg:px-10 ">
           <img
             className="2xl:w-96 xl:w-80 lg:w-80 md:w-1/2 sm:w-1/2 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
-            src="/VM.webp"
+            src="/VMlow.webp"
             alt="Valentin Mor portrait"
+            loading="lazy"
+            rel="preload"
+            fetchpriority="high"
           />
 
           <div className="absolute inset-0 z-0 bg-violet-900 opacity-10 rounded-full blur-3xl animation-move-loop max-w1/2"></div>

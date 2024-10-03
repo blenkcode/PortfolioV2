@@ -402,7 +402,7 @@ function Home({}) {
 
         <div
           ref={portfolioRef}
-          className="w-full h-lvh  lg:invisible visible lg:fixed top-0 lg:py-0 2xl:shadow-2xl lg:shadow-none shadow-2xl z-40"
+          className="w-full h-lvh  lg:invisible visible lg:fixed top-0 lg:py-0 2xl:shadow-2xl lg:shadow-none shadow-2xl z-50"
         >
           <Portfoliov2 mainRef={mainRef} />
         </div>

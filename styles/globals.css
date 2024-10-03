@@ -33,3 +33,6 @@
   font-display: swap;
   font-style: normal;
 }
+.rotate-y {
+  will-change: transform, opacity;
+}

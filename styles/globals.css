@@ -3,90 +3,23 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Lexend";
-  src: url("/fonts/Lexend-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-}
-@font-face {
   font-family: "Source Code Pro";
   src: url("/fonts/SourceCodePro-VariableFont_wght.ttf") format("truetype");
   font-weight: 200 900;
   font-style: normal;
 }
-@font-face {
-  font-family: "Raleway";
-  src: url("/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Hind";
-  src: url("/fonts/Hind-Regular.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-}
+
 @font-face {
   font-family: "Nohemi";
   src: url("/fonts/Nohemi-Light-BF6438cc5899919.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
-@font-face {
-  font-family: "Dirtyline";
-  src: url("/fonts/dirtyline-36daysoftype-2022.otf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: "safiromedium";
-  src: url("/fonts/safiro-medium-webfont.eot");
-  src: url("/fonts/safiro-medium-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("/fonts/safiro-medium-webfont.woff2") format("woff2"),
-    url("/fonts/safiro-medium-webfont.woff") format("woff"),
-    url("/fonts/safiro-medium-webfont.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
 * {
   box-sizing: border-box;
 }
-/* @keyframes rotateY {
-  0% {
-    transform: translateX(-400px) rotateZ(0deg) scale(1);
-    border-radius: 100%;
-  }
-  50% {
-    transform: translateX(-200px) rotateZ(180deg) scale(1.2);
-    border-radius: 70%;
-  }
-  100% {
-    transform: translateX(-400px) rotateZ(360deg) scale(1);
-    border-radius: 100%;
-  }
-}
 
-.rotate-y {
-  animation: rotateY 120s infinite ease-in-out;
-} */
-
-@keyframes fadeIn {
-  0% {
-    transform: translateX(-150px);
-    opacity: 0%;
-  }
-
-  100% {
-    transform: translateX(0px);
-    opacity: 100%;
-  }
-}
-
-.fadeIn {
-  animation: fadeIn 1s forwards ease-in-out;
-}
 .hidden {
   opacity: 0;
   visibility: hidden; /* Masque l'élément initialement */

@@ -1,6 +1,6 @@
 import Right from "./Right";
 import Stack from "./Stack";
-import Portfolio from "./Portfolio";
+
 import Left from "./Left";
 import Portfoliov2 from "./Portfoliov2";
 import Background from "./Background";
@@ -31,7 +31,6 @@ function Home({}) {
   const morphRef = useRef(null);
   useEffect(() => {
     if (mainRef.current) {
-      // Passe la valeur de mainRef.current au contexte
       setMainRefValue(mainRef.current);
     }
   }, [setMainRefValue]);
@@ -69,13 +68,14 @@ function Home({}) {
 
       gsap.fromTo(
         leftRef.current,
-        { x: 0, opacity: 1 },
+        { x: 0, y: 0, opacity: 1 },
         {
-          x: -940,
+          x: "-100%",
+          y: "100%",
           opacity: 0,
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "3%",
+            start: "0%",
             end: "8%",
             scrub: 3,
           },
@@ -83,13 +83,14 @@ function Home({}) {
       );
       gsap.fromTo(
         rightRef.current,
-        { opacity: 1, x: 0 },
+        { opacity: 1, x: 0, y: 0 },
         {
           opacity: 0,
-          x: 700,
+          x: "100%",
+          y: "100%",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "3%",
+            start: "0%",
             end: "8%",
             scrub: 3,
           },
@@ -118,58 +119,28 @@ function Home({}) {
           y: -810,
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "40%",
-            end: "46%",
+            start: "30%",
+            end: "40%",
             scrub: 3,
           },
         }
       );
-      if (screenWidth >= 1536) {
-        gsap.fromTo(
-          portfolioRef.current,
-          { y: 900, visibility: "hidden" },
-          {
-            y: -400,
-            visibility: "visible",
-            scrollTrigger: {
-              trigger: mainRef.current,
-              start: "40%",
-              end: "46%",
-              scrub: 3,
-            },
-          }
-        );
-      } else if (screenWidth >= 1280) {
-        gsap.fromTo(
-          portfolioRef.current,
-          { y: 900, visibility: "hidden" },
-          {
-            y: -450,
-            visibility: "visible",
-            scrollTrigger: {
-              trigger: mainRef.current,
-              start: "40%",
-              end: "46%",
-              scrub: 3,
-            },
-          }
-        );
-      } else if (screenWidth >= 1024) {
-        gsap.fromTo(
-          portfolioRef.current,
-          { y: 900, visibility: "hidden" },
-          {
-            y: -950,
-            visibility: "visible",
-            scrollTrigger: {
-              trigger: mainRef.current,
-              start: "35%",
-              end: "46%",
-              scrub: 3,
-            },
-          }
-        );
-      }
+
+      gsap.fromTo(
+        portfolioRef.current,
+        { y: "100%" }, // Commence avec l'élément hors écran (translate-y-full)
+        {
+          y: "0%", // Translate jusqu'à y = 0 (visible à l'écran)
+
+          scrollTrigger: {
+            trigger: mainRef.current, // Déclencher avec le scrolling de mainRef
+            start: "40%", // Commence à 40% du scroll
+            end: "42%", // Finit à 46% du scroll
+            scrub: 2,
+            // Synchronisation avec le scroll
+          },
+        }
+      );
 
       gsap.set(circleRef.current, { scale: 0 });
       gsap.fromTo(
@@ -196,131 +167,68 @@ function Home({}) {
           scrollTrigger: {
             trigger: mainRef.current,
             start: "30%",
-            end: "45%",
-            scrub: 3,
-          },
-        }
-      );
-      gsap.fromTo(
-        circle2Ref.current,
-        { y: -1000, visibility: "hidden" },
-        {
-          y: 700,
-          visibility: "visible",
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "5%",
-            end: "38%",
-            scrub: 2,
-          },
-        }
-      );
-      gsap.fromTo(
-        circle3Ref.current,
-        { y: 700, visibility: "hidden" },
-        {
-          y: -1000,
-          visibility: "visible",
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "4%",
-            end: "34%",
-            scrub: 2,
-          },
-        }
-      );
-      gsap.fromTo(
-        circle4Ref.current,
-        { y: 500, visibility: "hidden" },
-        {
-          y: -1000,
-          visibility: "visible",
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "7%",
-            end: "40%",
-            scrub: 2,
-          },
-        }
-      );
-      gsap.fromTo(
-        circle5Ref.current,
-        { y: -1000, visibility: "hidden" },
-        {
-          y: 700,
-          visibility: "visible",
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "13%",
-            end: "39%",
-            scrub: 2,
-          },
-        }
-      );
-      gsap.fromTo(
-        circle6Ref.current,
-        { y: -700, visibility: "hidden" },
-        {
-          y: 1000,
-          visibility: "visible",
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "4%",
-            end: "42%",
-            scrub: 3,
-          },
-        }
-      );
-      gsap.fromTo(
-        circle7Ref.current,
-        { y: 700, visibility: "hidden" },
-        {
-          y: -1200,
-          visibility: "visible",
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "5%",
-            end: "38%",
-            scrub: 3,
-          },
-        }
-      );
-      gsap.fromTo(
-        circle8Ref.current,
-        { y: -1000, visibility: "hidden" },
-        {
-          y: 700,
-          visibility: "visible",
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "12%",
             end: "40%",
             scrub: 3,
           },
         }
       );
-      gsap.fromTo(
-        circle9Ref.current,
-        { y: 700, visibility: "hidden" },
-        {
-          y: -1200,
-          visibility: "visible",
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "7%",
-            end: "40%",
-            scrub: 3,
-          },
-        }
-      );
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: mainRef.current,
+          start: "5%",
+          end: "40%",
+          scrub: 2,
+        },
+      });
+
+      timeline
+        .fromTo(
+          circle2Ref.current,
+          { y: -1000, visibility: "hidden" },
+          { y: 700, visibility: "visible", ease: "power1.inOut" }
+        )
+        .fromTo(
+          circle3Ref.current,
+          { y: 700, visibility: "hidden" },
+          { y: -1000, visibility: "visible", ease: "power1.inOut" },
+          "<" // "<" signifie que cette animation commence au même moment que la précédente
+        )
+        .fromTo(
+          circle4Ref.current,
+          { y: 500, x: 110, visibility: "hidden" },
+          { y: -1000, visibility: "visible", ease: "power1.inOut" },
+          "<"
+        )
+        .fromTo(
+          circle5Ref.current,
+          { y: -1000, visibility: "hidden" },
+          { y: 700, visibility: "visible", ease: "power1.inOut" },
+          "<"
+        )
+        .fromTo(
+          circle6Ref.current,
+          { y: -700, visibility: "hidden" },
+          { y: 1000, visibility: "visible", ease: "power1.inOut", scrub: 3 },
+          "<"
+        )
+        .fromTo(
+          circle7Ref.current,
+          { y: 700, visibility: "hidden" },
+          { y: -1200, visibility: "visible", ease: "power1.inOut", scrub: 3 },
+          "<"
+        )
+        .fromTo(
+          circle8Ref.current,
+          { y: -1000, visibility: "hidden" },
+          { y: 700, visibility: "visible", ease: "power1.inOut", scrub: 3 },
+          "<"
+        )
+        .fromTo(
+          circle9Ref.current,
+          { y: 700, x: 60, visibility: "hidden" },
+          { y: -1200, visibility: "visible", ease: "power1.inOut", scrub: 3 },
+          "<"
+        );
 
       gsap.to(".rotate-y", {
         keyframes: [
@@ -402,110 +310,113 @@ function Home({}) {
       </div>
 
       <div className="flex flex-col px-5 lg:px-0 lg:mt-0 mt-20 justify-center items-center w-full relative   ">
-        <div
-          ref={leftRef}
-          className="lg:fixed 2xl:left-52 xl:left-32 lg:left-20 lg:w-1/2 top-1/2 transform lg:-translate-y-1/2 left-5 z-40"
-        >
-          <Left></Left>
-        </div>
+        <div className="flex w-full lg:flex-row flex-col lg:h-lvh justify-center items-center ">
+          <div ref={leftRef} className=" lg:w-1/2 top-1/2 transform  z-40">
+            <Left></Left>
+          </div>
 
-        <div
-          ref={rightRef}
-          className="fixed 2xl:right-52 xl:right-20 lg:right-10 top-1/2 transform -translate-y-1/2 invisible lg:visible"
-        >
-          <Right></Right>
-        </div>
-        <div
-          ref={circleRef}
-          className="invisible rounded-full  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee w-circlee  bg-opacity-30 bg-zinc-900 z-30"
-        >
-          <svg
-            ref={svgRef}
-            className="absolute -top-16  opacity-60 -left-16 translate-x-1 translate-y-1"
-            width="600"
-            height="600"
-            viewBox="0 0 150 150"
+          <div
+            ref={rightRef}
+            className="  transform fixed lg:relative invisible lg:visible"
           >
-            <circle
-              cx="75"
-              cy="75"
-              r="70"
-              stroke="#FDFAF8"
-              strokeWidth="2"
-              fill="none"
-              strokeDasharray="440"
-              strokeDashoffset="440"
-            ></circle>
-          </svg>
+            <Right></Right>
+          </div>
         </div>
-        <div
-          ref={circle2Ref}
-          className="w-36 rounded-full invisible shadow-2xl flex items-center justify-center bottom-32 right-96 fixed h-36 bg-opacity-30 z-10 bg-violet-300"
-        >
-          {" "}
-          <img src="/react.png" className="w-2/3"></img>
-        </div>
-        <div
-          ref={circle3Ref}
-          className="w-36 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 left-36 fixed h-36 bg-opacity-30 bg-violet-300"
-        >
-          <img src="/next.png"></img>
-        </div>
-        <div
-          ref={circle4Ref}
-          className="w-40 rounded-full invisible shadow-2xl bottom-80 flex justify-center items-center left-80 translate-x-20 fixed h-40 bg-opacity-30 bg-violet-300"
-        >
-          <img src="/node.png"></img>
-        </div>
-        <div
-          ref={circle5Ref}
-          className="w-40 rounded-full invisible shadow-2xl -bottom-0  flex justify-center items-center z-10 right-96 fixed h-40 bg-opacity-30 bg-violet-300"
-        >
-          <img src="/ex.png" className="w-2/3"></img>
+        <div className="w-full lg:h-lvh">
+          <div
+            ref={circleRef}
+            className="invisible rounded-full  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee w-circlee  bg-opacity-30 bg-zinc-900 z-30"
+          >
+            <svg
+              ref={svgRef}
+              className="absolute -top-16  opacity-60 -left-16 translate-x-1 translate-y-1"
+              width="600"
+              height="600"
+              viewBox="0 0 150 150"
+            >
+              <circle
+                cx="75"
+                cy="75"
+                r="70"
+                stroke="#FDFAF8"
+                strokeWidth="2"
+                fill="none"
+                strokeDasharray="440"
+                strokeDashoffset="440"
+              ></circle>
+            </svg>
+          </div>
+          <div
+            ref={circle2Ref}
+            className="w-40 rounded-full invisible shadow-2xl flex items-center justify-center bottom-10 right-96 fixed h-40 bg-opacity-30 z-10 bg-violet-300"
+          >
+            {" "}
+            <img src="/react.png" className="w-2/3"></img>
+          </div>
+          <div
+            ref={circle3Ref}
+            className="w-40 rounded-full invisible shadow-2xl bottom-72 flex justify-center items-center z-10 left-36 fixed h-40 bg-opacity-30 bg-violet-300"
+          >
+            <img src="/next.png"></img>
+          </div>
+          <div
+            ref={circle4Ref}
+            className="w-40 rounded-full invisible shadow-2xl bottom-80 flex justify-center items-center left-80 translate-x-20 fixed h-40 bg-opacity-30 bg-violet-300"
+          >
+            <img src="/node.png"></img>
+          </div>
+          <div
+            ref={circle5Ref}
+            className="w-40 rounded-full invisible shadow-2xl bottom-72  flex justify-center items-center z-10 right-96 fixed h-40 bg-opacity-30 bg-violet-300"
+          >
+            <img src="/ex.png" className="w-2/3"></img>
+          </div>
+
+          <div
+            ref={circle6Ref}
+            className="w-40 rounded-full invisible shadow-2xl top-20 flex justify-center items-center z-10 right-20 fixed h-40 bg-opacity-30 bg-violet-300"
+          >
+            <img src="/mongo.png" className="w-2/3"></img>
+          </div>
+          <div
+            ref={circle7Ref}
+            className="w-40 rounded-full invisible shadow-2xl -bottom-32 flex justify-center items-center z-10 left-36 fixed h-40 bg-opacity-30 bg-violet-300"
+          >
+            <img src="/tail.png" className="w-4/5"></img>
+          </div>
+          <div
+            ref={circle8Ref}
+            className="w-40 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 right-20 fixed h-40 bg-opacity-30 bg-violet-300"
+          >
+            <img src="/redux1.png" className="w-2/3 "></img>
+          </div>
+          <div
+            ref={circle9Ref}
+            className="w-40 rounded-full invisible shadow-2xl bottom-0 flex justify-center items-center z-10 left-96 fixed h-40 bg-opacity-30 bg-violet-300"
+          >
+            <img src="/gsaplogo.png" className="w-2/3 grayscale "></img>
+          </div>
+          <div
+            ref={stackRef}
+            className=" w-full py-10 lg:py-0 lg:fixed right-1/2 lg:invisible lg:translate-x-1/2 top-1/2  z-30"
+          >
+            {" "}
+            <Stack></Stack>
+          </div>
         </div>
 
-        <div
-          ref={circle6Ref}
-          className="w-40 rounded-full invisible shadow-2xl bottom-96 flex justify-center items-center z-10 right-20 fixed h-40 bg-opacity-30 bg-violet-300"
-        >
-          <img src="/mongo.png" className="w-2/3"></img>
-        </div>
-        <div
-          ref={circle7Ref}
-          className="w-40 rounded-full invisible shadow-2xl -bottom-20 flex justify-center items-center z-10 left-20 fixed h-40 bg-opacity-30 bg-violet-300"
-        >
-          <img src="/tail.png" className="w-4/5"></img>
-        </div>
-        <div
-          ref={circle8Ref}
-          className="w-36 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 right-20 fixed h-36 bg-opacity-30 bg-violet-300"
-        >
-          <img src="/redux1.png" className="w-2/3 "></img>
-        </div>
-        <div
-          ref={circle9Ref}
-          className="w-36 rounded-full invisible shadow-2xl -bottom-20 flex justify-center items-center z-10 left-96 fixed h-36 bg-opacity-30 bg-violet-300"
-        >
-          <img src="/gsaplogo.png" className="w-2/3 grayscale "></img>
-        </div>
-        <div
-          ref={stackRef}
-          className=" w-full py-10 lg:py-0 lg:fixed right-1/2 lg:invisible lg:translate-x-1/2 top-1/2  z-30"
-        >
-          {" "}
-          <Stack></Stack>
-        </div>
         <div
           ref={portfolioRef}
-          className="w-full lg:fixed py-10 lg:py-0  2xl:shadow-2xl lg:shadow-none shadow-2xl lg:invisible visible right-1/2 lg:translate-x-1/2 xl:top-96 z-40"
+          className="w-full h-lvh  lg:fixed top-0 lg:py-0 2xl:shadow-2xl lg:shadow-none shadow-2xl z-40"
         >
-          {" "}
           <Portfoliov2 mainRef={mainRef} />
         </div>
-        <div className="w-full lg:h-500 h-0"></div>
-        <div className="w-full xl:h-500 lg:h-200 h-0"></div>
-        <div className="w-full 2xl:h-500 xl:h-0"></div>
-        <div className="w-full 2xl:h-500 xl:h-0 "></div>
+        <div className="w-full lg:visible invisible h-0 lg:h-lvh opacity-0  lg:py-0 2xl:shadow-2xl lg:shadow-none shadow-2xl z-40">
+          {" "}
+        </div>
+        <div className="w-full lg:visible invisible h-0 lg:h-lvh opacity-0  lg:py-0 2xl:shadow-2xl lg:shadow-none shadow-2xl z-40">
+          {" "}
+        </div>
       </div>
     </main>
   );

@@ -29,7 +29,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             scrub: 1,
             onUpdate: (self) => {
               const progress = self.progress * 100; // Progrès du scroll en pourcentage
-              console.log(`Progress: ${progress}%`); // Debug
+              // console.log(`Progress: ${progress}%`); // Debug
               if (screenWidth > 1000) {
                 if (progress < 11) {
                   setLcdo(true);
@@ -63,9 +63,11 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
 
   useEffect(() => {
     playShot();
+    console.log("sound");
   }, [heaf, sante]);
   useEffect(() => {
     playShot2();
+    console.log("sound");
   }, [mutable, sante]);
 
   const bassShotRef = useRef(null);
@@ -90,7 +92,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       bassShot2Ref.current.currentTime = 0;
 
       // Régler le volume
-      bassShot2Ref.current.volume = 0.2;
+      bassShot2Ref.current.volume = 0.5;
 
       // Tenter de jouer le son avec gestion des erreurs
       bassShot2Ref.current.play().catch((error) => {
@@ -122,8 +124,12 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       });
     }
   };
+
   return (
     <div className="w-full lg:fixed h-full  lg:mt-0   ">
+      <audio ref={clickSoundRef} src="/click1.wav"></audio>
+      <audio ref={bassShotRef} src="/bassshot.wav"></audio>
+      <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
       <div className="flex w-full h-full items-end justify-between lg:pl-0 pl-10 ">
         <div className="lg:w-1/4 lg:h-2/3 w-0 h-0 lg:visible invisible ">
           <div className=" lg:visible invisible   text-zinc-200  flex items-center justify-start  flex-col text-base  shadow-2xl text-zinc font-Satoshi font-thin   ">
@@ -275,7 +281,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </div>
         </div>
 
-        <div className="lg:w-1/4 w-0 lg:h-2/3 lg:visible invisible h-0 text-zinc-200 font-Satoshi font-thin flex flex-col items-end pr-10 z-50 relative">
+        <div className="lg:w-1/4 w-0 lg:h-2/3 lg:visible invisible h-0 text-zinc-200 font-Satoshi font-thin flex flex-col items-end pr-12 z-50 relative">
           <div
             className={`mb-1 2xl:text-lg invisible lg:visible xl:text-md lg:text-sm fixed top-1/2 -translate-y-1/2 transition-opacity  flex flex-col items-end ${
               lcdo ? "opacity-100 visible z-60" : "opacity-0 invisible z-10"
@@ -428,6 +434,45 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
                 </span>
               </div>
             </a>
+          </div>
+          <div className="absolute bottom-10 flex items-center justify-center   right-10  ">
+            <div className=" h-32 w-32 border-2 border-solid border-zinc-500 rounded-full flex items-start justify-center relative overflow-hidden">
+              {" "}
+              <div className="flex items-start absolute top-1/2 right-1/2 translate-x-1/2 justify-center -translate-y-1/2 ">
+                <div className="text-3xl flex items-center justify-center -translate-x-3 -translate-y-6 w-10 h-10 -rotate-45 overflow-hidden">
+                  <div
+                    className={`absolute rotate-45 transition-all duration-500 ${
+                      lcdo ? "-translate-y-0" : "-translate-y-full"
+                    }`}
+                  >
+                    1
+                  </div>
+                  <div
+                    className={`absolute rotate-45 transition-all duration-500 ${
+                      sante ? "-translate-y-0" : "translate-y-full"
+                    }`}
+                  >
+                    2
+                  </div>
+                  <div
+                    className={`absolute rotate-45 transition-all duration-500 ${
+                      heaf ? "-translate-y-0" : "-translate-y-full"
+                    }`}
+                  >
+                    3
+                  </div>
+                  <div
+                    className={`absolute rotate-45 transition-all duration-500 ${
+                      mutable ? "-translate-y-0" : "translate-y-full"
+                    }`}
+                  >
+                    4
+                  </div>
+                </div>
+                <div className="text-3xl translate-x-1 translate-y-5">4</div>
+                <div className="h-1 w-2/3 absolute bg-zinc-500 translate-y-5 -rotate-45"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -306,7 +306,7 @@ function Home({}) {
         ref={morphRef}
         className="blur-2xl fixed top-0 right-0 w-full h-screen flex flex-row -translate-y-96  "
       >
-        <Background></Background>
+        {/* <Background></Background> */}
       </div>
 
       <div className="flex flex-col px-5 lg:px-0 lg:mt-0 mt-20 justify-center items-center w-full relative   ">
@@ -407,7 +407,7 @@ function Home({}) {
 
         <div
           ref={portfolioRef}
-          className="w-full h-lvh  lg:fixed top-0 lg:py-0 2xl:shadow-2xl lg:shadow-none shadow-2xl z-40"
+          className="w-full h-lvh  lg:invisible visible lg:fixed top-0 lg:py-0 2xl:shadow-2xl lg:shadow-none shadow-2xl z-40"
         >
           <Portfoliov2 mainRef={mainRef} />
         </div>

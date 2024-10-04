@@ -313,11 +313,11 @@ function Home({}) {
       })
       .fromTo(
         svgRef.current.querySelector("circle"),
-        { strokeDashoffset: 440, stroke: isDarkMode ? "#FDFAF8" : "#4F5053" },
+        { strokeDashoffset: 440, stroke: isDarkMode ? "#4F5053" : "#AAA9BD" },
         {
           strokeDashoffset: 0,
           duration: 1,
-          stroke: isDarkMode ? "#4F5053" : "#4F5053",
+          stroke: isDarkMode ? "#4F5053" : "#AAA9BD",
           ease: "none",
         }
       );
@@ -359,7 +359,7 @@ function Home({}) {
           >
             <svg
               ref={svgRef}
-              className="absolute -top-16  opacity-60 -left-16 translate-x-5 translate-y-5"
+              className="absolute -top-16  opacity-100 -left-16 translate-x-5 translate-y-5"
               width="600"
               height="600"
               viewBox="0 0 150 150"

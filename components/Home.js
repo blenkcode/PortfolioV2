@@ -79,18 +79,18 @@ function Home({}) {
         mainRef.current,
         {
           backgroundColor: isDarkMode
-            ? "rgba(24, 24, 27, 0.8)"
+            ? "rgba(24, 24, 27, 1)"
             : "rgba(1, 10, 10, 0.1)",
         },
         {
           backgroundColor: isDarkMode
-            ? "rgba(24, 24, 27, 0.8)"
+            ? "rgba(24, 24, 27, 1)"
             : "rgba(24, 24, 27, 0.1)",
           duration: 1,
         }
       ).to(mainRef.current, {
         backgroundColor: isDarkMode
-          ? "rgba(24, 24, 27, 0.8)"
+          ? "rgba(24, 24, 27, 1)"
           : "rgba(24, 24, 27, 0.1)",
         duration: 1,
       });

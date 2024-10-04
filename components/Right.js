@@ -44,18 +44,12 @@ function Right() {
           {" "}
           <img
             className=" z-20 2xl:w-96 xl:w-80 lg:w-80 md:w-1/2 sm:w-1/2 shadow-2xl-violet-900   "
-            src="/finalvm.webp"
+            src="/VM.webp"
             alt="Valentin Mor portrait"
             loading="lazy"
             rel="preload"
             fetchpriority="high"
           />
-          {/* <div className="absolute inset-0 z-0 bg-violet-900 opacity-10 rounded-full blur-3xl  max-w1/2"></div>
-          <div className="absolute flex rotate-two -left-14 -top-14 translate-x-8">
-            <div className="h-96 w-96 -translate-y-10 rounded-full  shadow-md    overflow-hidden mr-5">
-              <div className="h-full w-full  rounded-full blur-3xl"></div>
-            </div>
-          </div> */}
         </div>
         <div className=" mt-10  lg:px-0 w-full flex flex-col justify-center items-center   "></div>
       </div>

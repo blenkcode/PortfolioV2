@@ -41,31 +41,21 @@ function Right() {
       <div className="flex flex-col lg:items-start justify-center md:items-center">
         {" "}
         <div className="relative flex flex-col xl:items-start justify-center items-center lg:px-10 ">
+          {" "}
           <img
-            className="2xl:w-96 xl:w-80 lg:w-80 md:w-1/2 sm:w-1/2 shadow-2xl-violet-900 shadow-inner-5xl-violet-300 z-10"
-            src="/finalVM.webp"
+            className=" z-20 2xl:w-96 xl:w-80 lg:w-80 md:w-1/2 sm:w-1/2 shadow-2xl-violet-900   "
+            src="/finalvm.webp"
             alt="Valentin Mor portrait"
             loading="lazy"
             rel="preload"
             fetchpriority="high"
           />
-
-          <div className="absolute inset-0 z-0 bg-violet-900 opacity-10 rounded-full blur-3xl animation-move-loop max-w1/2"></div>
-          <div
-            className={`h-1 rounded-full w-24  absolute top-7 2xl:translate-x-14 xl:translate-x-12 lg:-translate-x-16 -rotate-one ${
-              isDarkMode ? "bg-white" : "bg-violet-900"
-            }`}
-          ></div>
-          <div
-            className={`h-1 rounded-full xl:w-44 2xl:w-56  absolute 2xl:top-56 xl:top-44 right-10 xl:translate-x-12 2xl:translate-x-20 lg:-translate-x-96 rotate-two ${
-              isDarkMode ? "bg-white" : "bg-violet-900"
-            }`}
-          ></div>
-          <div
-            className={`h-1 rounded-full w-16   absolute bottom-8 translate-x-8 xl:rotate-three -rotate-12 xl:translate-y-0 lg:translate-y-2 ${
-              isDarkMode ? "bg-white" : "bg-violet-900"
-            }`}
-          ></div>
+          {/* <div className="absolute inset-0 z-0 bg-violet-900 opacity-10 rounded-full blur-3xl  max-w1/2"></div>
+          <div className="absolute flex rotate-two -left-14 -top-14 translate-x-8">
+            <div className="h-96 w-96 -translate-y-10 rounded-full  shadow-md    overflow-hidden mr-5">
+              <div className="h-full w-full  rounded-full blur-3xl"></div>
+            </div>
+          </div> */}
         </div>
         <div className=" mt-10  lg:px-0 w-full flex flex-col justify-center items-center   "></div>
       </div>

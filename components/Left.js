@@ -188,8 +188,8 @@ function Left() {
 
       <div
         ref={textRef}
-        className={` font-Satoshi font-thin invisible flex-col flex z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-5 text-md  lg:text-md 2xl:text-lg bg-zinc-500 shadow-xl bg-opacity-20 p-3 rounded-xl  md:w-fit w-4/5  ${
-          isDarkMode ? "text-white " : "text-zinc-700"
+        className={` font-Satoshi font-normal invisible flex-col flex z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-5 text-md  lg:text-md 2xl:text-lg  shadow-xl bg-opacity-20 p-3 rounded-xl  md:w-fit w-4/5  ${
+          isDarkMode ? "text-white shadow-2xl" : "text-zinc-700 shadow-2xl"
         }`}
       >
         {" "}
@@ -241,7 +241,7 @@ function Left() {
             className={` group border-1  border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ${
               isDarkMode
                 ? "text-white border-zinc-200 hover:border-violet-300 "
-                : "text-zinc-700 border-zinc-700 hover:border-violet-900  "
+                : "text-zinc-900 border-zinc-900 hover:border-violet-900  "
             }`}
           >
             <span className="hover-group: group-hover:text-violet-300  opacity-0 translate-  2xl:text-lg lg:text-base text-sm  ">
@@ -273,7 +273,7 @@ function Left() {
             className={` group border-1  border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden  ${
               isDarkMode
                 ? "text-white border-zinc-200 hover:border-violet-300"
-                : "text-zinc-700 border-zinc-700 hover:border-violet-900"
+                : "text-zinc-900 border-zinc-900 hover:border-violet-900"
             }`}
           >
             <span className="hover-group: 2xl:text-lg lg:text-base text-sm hover:text-sky-600  opacity-0 translate-">

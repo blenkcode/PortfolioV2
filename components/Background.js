@@ -11,7 +11,7 @@ const Background = () => {
           y: -50, // Translation verticale
           rotateZ: 360, // Rotation sur l'axe Z
           scale: 1.2, // Échelle
-          duration: 30, // Durée de l'animation
+          duration: 20, // Durée de l'animation
         },
       ],
       repeat: -1, // Répétition infinie

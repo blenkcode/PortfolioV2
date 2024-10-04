@@ -60,7 +60,7 @@ function Home({}) {
         {
           backgroundColor: isDarkMode
             ? "rgba(24, 24, 27, 0.8)"
-            : "rgba(1, 10, 10, 0.1)",
+            : "rgba(1, 10, 10, 0.3)",
         },
         {
           backgroundColor: isDarkMode
@@ -71,7 +71,7 @@ function Home({}) {
       ).to(mainRef.current, {
         backgroundColor: isDarkMode
           ? "rgba(24, 24, 27, 0.8)"
-          : "rgba(24, 24, 27, 0.1)",
+          : "rgba(24, 24, 27, 0.3)",
         duration: 1,
       });
     } else {

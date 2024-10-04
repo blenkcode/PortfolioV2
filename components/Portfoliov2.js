@@ -130,7 +130,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   };
 
   return (
-    <div className="w-full lg:fixed h-full  lg:mt-0   ">
+    <div className="w-full lg:fixed h-full  lg:mt-0  mt-3 ">
       <audio ref={clickSoundRef} src="/click1.wav"></audio>
       <audio ref={bassShotRef} src="/bassshot.wav"></audio>
       <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
@@ -219,7 +219,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className="relative group w-full  lg:w-2/5 "
             >
               <div
-                className={` z-40   rounded-md  p-2 transform transition-all duration-300 ${
+                className={` z-40   rounded-md  lg:p-2 p-1 transform transition-all duration-300 ${
                   lcdo
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
@@ -238,7 +238,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className="relative group lg:w-2/5 w-full  mt-10 "
             >
               <div
-                className={` z-40   rounded-md  p-2  transform transition-all duration-300 ${
+                className={` z-40   rounded-md   lg:p-2 p-1  transform transition-all duration-300 ${
                   sante
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
@@ -257,7 +257,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className="relative group lg:w-2/5 w-full   mt-10 "
             >
               <div
-                className={` z-40   rounded-md  p-2 transform transition-all duration-300 ${
+                className={` z-40   rounded-md   lg:p-2 p-1 transform transition-all duration-300 ${
                   heaf
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
@@ -272,7 +272,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className="relative group lg:w-2/5 w-full   mt-10 "
             >
               <div
-                className={` z-40   rounded-md  p-2  transform transition-all duration-300 ${
+                className={` z-40   rounded-md   lg:p-2 p-1  transform transition-all duration-300 ${
                   mutable
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "

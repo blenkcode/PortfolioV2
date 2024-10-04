@@ -8,9 +8,11 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
+import { useTheme } from "../ThemeContext";
 
 import { useMainRef } from "../MainRefContext";
 function Home({}) {
+  const { isDarkMode } = useTheme();
   const router = useRouter();
   const leftRef = useRef(null);
   const mainRef = useRef(null);
@@ -29,6 +31,7 @@ function Home({}) {
   const svgRef = useRef(null);
   const { setMainRefValue } = useMainRef();
   const morphRef = useRef(null);
+  const backgroundTriggerRef = useRef(null);
   useEffect(() => {
     if (mainRef.current) {
       setMainRefValue(mainRef.current);
@@ -36,35 +39,63 @@ function Home({}) {
   }, [setMainRefValue]);
 
   useEffect(() => {
-    const screenWidth = window.innerWidth;
-    if (router.query.scrollToPortfolio && screenWidth > 1000) {
-      portfolioRef.current?.scrollIntoView({ behavior: "auto" });
+    // Supprimer uniquement le ScrollTrigger lié au background si il existe
+    if (backgroundTriggerRef.current) {
+      backgroundTriggerRef.current.kill();
     }
-  }, [router.query]);
 
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: mainRef.current,
+        start: "3%",
+        end: "60%",
+        scrub: 3,
+        onUpdate: (self) => {},
+      },
+    });
+
+    tl.fromTo(
+      mainRef.current,
+      {
+        backgroundColor: isDarkMode
+          ? "rgba(24, 24, 27, 0.8)"
+          : "rgba(1, 10, 10, 0.1)",
+      },
+      {
+        backgroundColor: isDarkMode
+          ? "rgba(24, 24, 27, 0.5)"
+          : "rgba(24, 24, 27, 1)",
+        duration: 1,
+      }
+    ).to(mainRef.current, {
+      backgroundColor: isDarkMode
+        ? "rgba(24, 24, 27, 0.8)"
+        : "rgba(24, 24, 27, 0.1)",
+      duration: 1,
+    });
+
+    backgroundTriggerRef.current = tl.scrollTrigger;
+    ScrollTrigger.refresh();
+
+    return () => {
+      if (backgroundTriggerRef.current) {
+        backgroundTriggerRef.current.kill();
+      }
+    };
+  }, [isDarkMode]);
   //GSAP SCROLL EVENTS
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const screenWidth = window.innerWidth;
     if (screenWidth > 1000) {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "3%",
-            end: "60%",
-            scrub: 3,
-          },
-        })
-        .fromTo(
-          mainRef.current,
-          { backgroundColor: "rgba(24, 24, 27, 1)" },
-          { backgroundColor: "rgba(24, 24, 27, 0.3)", duration: 1 }
-        )
-        .to(mainRef.current, {
-          backgroundColor: "rgba(24, 24, 27, 1)",
-          duration: 1,
-        });
+      // const tl = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: mainRef.current,
+      //     start: "3%",
+      //     end: "60%",
+      //     scrub: 3,
+      //   },
+      // });
 
       gsap.fromTo(
         leftRef.current,
@@ -228,33 +259,6 @@ function Home({}) {
           { y: -1200, visibility: "visible", ease: "power1.inOut", scrub: 3 },
           "<"
         );
-
-      // gsap.to(".rotate-y", {
-      //   keyframes: [
-      //     { x: -400, y: -50, rotateZ: 360, scale: 1.2, duration: 30 },
-      //   ],
-      //   repeat: -1,
-      //   yoyo: true,
-      // });
-    } else {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "1%",
-            end: "60%",
-            scrub: 3,
-          },
-        })
-        .fromTo(
-          mainRef.current,
-          { backgroundColor: "rgba(24, 24, 27, 0.6)" },
-          { backgroundColor: "rgba(24, 24, 27, 1)", duration: 1 }
-        )
-        .to(mainRef.current, {
-          backgroundColor: "rgba(24, 24, 27, 0.6)",
-          duration: 1,
-        });
     }
   }, []);
   //GSAP ANIMATION
@@ -286,19 +290,26 @@ function Home({}) {
       })
       .fromTo(
         svgRef.current.querySelector("circle"),
-        { strokeDashoffset: 440, stroke: "#FDFAF8" },
-        { strokeDashoffset: 0, duration: 1, stroke: "#4F5053", ease: "none" }
+        { strokeDashoffset: 440, stroke: isDarkMode ? "#FDFAF8" : "#4F5053" },
+        {
+          strokeDashoffset: 0,
+          duration: 1,
+          stroke: isDarkMode ? "#4F5053" : "#4F5053",
+          ease: "none",
+        }
       );
   }, []);
-
+  console.log(isDarkMode);
   return (
     <main
       ref={mainRef}
-      className=" flex flex-col bg-zinc-900 bg-opacity-70 items-center justify-center relative overflow-hidden h-auto w-full  "
+      className=" flex flex-col transition-colors  bg-opacity-70 items-center justify-center relative overflow-hidden h-auto w-full  "
     >
       <div
         ref={morphRef}
-        className="fixed top-1/2   right-1/2 translate-x-1/2 -translate-y-1/2 w-full h-screen flex flex-row    "
+        className={`fixed top-1/2   right-1/2 translate-x-1/2 -translate-y-1/2 w-full h-screen flex flex-row    ${
+          isDarkMode ? "opacity-100 " : "opacity-0 "
+        }`}
       >
         <Background></Background>
       </div>
@@ -319,7 +330,9 @@ function Home({}) {
         <div className="w-full lg:h-lvh">
           <div
             ref={circleRef}
-            className="invisible rounded-full shadow-2xl  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee w-circlee  bg-opacity-70 bg-zinc-900 z-30"
+            className={`invisible rounded-full shadow-2xl  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee w-circlee  bg-opacity-70  z-30 ${
+              isDarkMode ? "bg-zinc-900" : "bg-zinc-200"
+            }`}
           >
             <svg
               ref={svgRef}

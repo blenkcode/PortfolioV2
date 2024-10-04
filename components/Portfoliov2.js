@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useRef, useEffect } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { gsap } from "gsap/dist/gsap";
+import { useTheme } from "../ThemeContext";
+
 import { useRouter } from "next/router";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 const Portfoliov2 = React.forwardRef(({ mainRef }) => {
@@ -60,6 +62,8 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       );
     }
   }, []);
+
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     playShot();
@@ -132,7 +136,11 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
       <div className="flex w-full h-full items-end justify-between lg:pl-0 pl-10 ">
         <div className="lg:w-1/4 lg:h-2/3 w-0 h-0 lg:visible invisible ">
-          <div className=" lg:visible invisible   text-zinc-200  flex items-center justify-start  flex-col text-base  shadow-2xl text-zinc font-Satoshi font-thin   ">
+          <div
+            className={`lg:visible invisible     flex items-center justify-start  flex-col text-base  shadow-2xl text-zinc font-Satoshi font-thin   ${
+              isDarkMode ? "text-zinc-200" : "text-zinc-800"
+            }`}
+          >
             <span
               className={`mb-1 mt-10 fixed xl:w-80 lg:w-64 top-1/2 -translate-y-1/2 xl:text-sm lg:text-xs 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl ${
                 lcdo ? "opacity-100 lg:visible" : "opacity-0 invisible"
@@ -211,11 +219,11 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className="relative group w-full  lg:w-2/5 "
             >
               <div
-                className={` z-40   rounded-md  p-2 bg-white transform transition-all duration-300 ${
+                className={` z-40   rounded-md  p-2 transform transition-all duration-300 ${
                   lcdo
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } `}
+                } ${isDarkMode ? "bg-white" : "bg-zinc-900"}`}
               >
                 {" "}
                 <img
@@ -230,11 +238,11 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className="relative group lg:w-2/5 w-full  mt-10 "
             >
               <div
-                className={` z-40   rounded-md  p-2 bg-white transform transition-all duration-300 ${
+                className={` z-40   rounded-md  p-2  transform transition-all duration-300 ${
                   sante
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } `}
+                } ${isDarkMode ? "bg-white" : "bg-zinc-900"}`}
               >
                 {" "}
                 <img
@@ -249,11 +257,11 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className="relative group lg:w-2/5 w-full   mt-10 "
             >
               <div
-                className={` z-40   rounded-md  p-2 bg-white transform transition-all duration-300 ${
+                className={` z-40   rounded-md  p-2 transform transition-all duration-300 ${
                   heaf
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } `}
+                } ${isDarkMode ? "bg-white" : "bg-zinc-900"}`}
               >
                 {" "}
                 <img src="./newh1.png" alt="Heaf" className="rounded-md" />{" "}
@@ -264,11 +272,11 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className="relative group lg:w-2/5 w-full   mt-10 "
             >
               <div
-                className={` z-40   rounded-md  p-2 bg-white transform transition-all duration-300 ${
+                className={` z-40   rounded-md  p-2  transform transition-all duration-300 ${
                   mutable
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } `}
+                } ${isDarkMode ? "bg-white" : "bg-zinc-900"}`}
               >
                 {" "}
                 <img
@@ -281,7 +289,11 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           </div>
         </div>
 
-        <div className="lg:w-1/4 w-0 lg:h-2/3 lg:visible invisible h-0 text-zinc-200 font-Satoshi font-thin flex flex-col items-end pr-12 z-50 relative">
+        <div
+          className={`lg:w-1/4 w-0 lg:h-2/3 lg:visible invisible h-0 text-zinc-200 font-Satoshi font-thin flex flex-col items-end pr-12 z-50 relative ${
+            isDarkMode ? "text-zinc-200" : "text-zinc-800"
+          }`}
+        >
           <div
             className={`mb-1 2xl:text-lg invisible lg:visible xl:text-md lg:text-sm fixed top-1/2 -translate-y-1/2 transition-opacity  flex flex-col items-end ${
               lcdo ? "opacity-100 visible z-60" : "opacity-0 invisible z-10"
@@ -295,7 +307,13 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className=" mt-5   "
               onMouseEnter={playClickSound}
             >
-              <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
+              <div
+                className={`group border hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
+                  isDarkMode
+                    ? "border-zinc-200 text-white  "
+                    : "border-zinc-900 text-zinc-900 "
+                }`}
+              >
                 <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
                   Visitez
                   <FontAwesomeIcon
@@ -334,7 +352,13 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className=" mt-5   "
               onMouseEnter={playClickSound}
             >
-              <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
+              <div
+                className={`group border hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
+                  isDarkMode
+                    ? "border-zinc-200 text-white  "
+                    : "border-zinc-900 text-zinc-900 "
+                }`}
+              >
                 <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
                   Visitez
                   <FontAwesomeIcon
@@ -372,7 +396,13 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className=" mt-5   "
               onMouseEnter={playClickSound}
             >
-              <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
+              <div
+                className={`group border hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
+                  isDarkMode
+                    ? "border-zinc-200 text-white  "
+                    : "border-zinc-900 text-zinc-900 "
+                }`}
+              >
                 <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
                   Visitez
                   <FontAwesomeIcon
@@ -410,7 +440,13 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               className=" mt-5   "
               onMouseEnter={playClickSound}
             >
-              <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden">
+              <div
+                className={`group border hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
+                  isDarkMode
+                    ? "border-zinc-200 text-white  "
+                    : "border-zinc-900 text-zinc-900 "
+                }`}
+              >
                 <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
                   Visitez
                   <FontAwesomeIcon
@@ -436,8 +472,11 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             </a>
           </div>
           <div className="absolute bottom-10 flex items-center justify-center   right-10  ">
-            <div className=" h-32 w-32 border-2 border-solid border-zinc-500 rounded-full flex items-start justify-center relative overflow-hidden">
-              {" "}
+            <div
+              className={` h-32 w-32 border-2 border-solid  rounded-full flex items-start transition-all  justify-center relative overflow-hidden ${
+                isDarkMode ? "border-zinc-500" : "border-zinc-800"
+              } `}
+            >
               <div className="flex items-start absolute top-1/2 right-1/2 translate-x-1/2 justify-center -translate-y-1/2 ">
                 <div className="text-3xl flex items-center justify-center -translate-x-3 -translate-y-6 w-10 h-10 -rotate-45 overflow-hidden">
                   <div
@@ -470,7 +509,11 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
                   </div>
                 </div>
                 <div className="text-3xl translate-x-1 translate-y-5">4</div>
-                <div className="h-1 w-2/3 absolute bg-zinc-500 translate-y-5 -rotate-45"></div>
+                <div
+                  className={`h-1 w-2/3 absolute transition-all  translate-y-5 -rotate-45 ${
+                    isDarkMode ? "bg-zinc-500" : "bg-zinc-800"
+                  } `}
+                ></div>
               </div>
             </div>
           </div>

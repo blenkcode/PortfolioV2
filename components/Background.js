@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { gsap } from "gsap/dist/gsap";
-
+import { useTheme } from "../ThemeContext";
 const Background = () => {
+  const { isDarkMode } = useTheme();
   useEffect(() => {
     gsap.to(".rotate-y", {
       keyframes: [
@@ -18,20 +19,36 @@ const Background = () => {
     });
   }, []);
   return (
-    <div className="w-full h-screen flex flex-row  blur-3xl    ">
+    <div
+      className={`w-full h-screen flex flex-row   ${
+        isDarkMode ? "opacity-100 blur-3xl " : "opacity-100 blur-xl"
+      }`}
+    >
       <div className=" flex ">
         <div className="w-200  h-200 rounded-full translate-y-20  bg-violet-400 bg-opacity-10 rotate-y ">
-          <div className="w-192 h-192 rounded-full -translate-x-52 - translate-y-20  bg-zinc-900 bg-opacity-40 ">
+          <div
+            className={`w-192 h-192 rounded-full -translate-x-52 - translate-y-20  bg-zinc-900  ${
+              isDarkMode ? "bg-opacity-40" : "bg-opacity-10 blur-xl"
+            }`}
+          >
             <div className="w-110 h-110 -translate-x-10 -translate-y-20  rounded-full bg-violet-400 bg-opacity-10 "></div>
           </div>
         </div>
         <div className="w-200 scale-150 h-200 rounded-full translate-y-20  bg-violet-400 bg-opacity-10 rotate-y delay-700">
-          <div className="w-192 h-192 rounded-full -translate-x-52 - translate-y-20  bg-zinc-900 bg-opacity-50 ">
+          <div
+            className={`w-192 h-192 rounded-full -translate-x-52 - translate-y-20  bg-zinc-900  ${
+              isDarkMode ? "bg-opacity-40" : "bg-opacity-10 blur-xl"
+            }`}
+          >
             <div className="w-110 h-110 -translate-x-10 -translate-y-20  rounded-full bg-violet-400 bg-opacity-10 "></div>
           </div>
         </div>
         <div className="w-200  h-200 rounded-full translate-y-20  bg-violet-400 bg-opacity-10 rotate-y delay-300">
-          <div className="w-192 h-192 rounded-full -translate-x-52 - translate-y-20  bg-zinc-700 bg-opacity-50 ">
+          <div
+            className={`w-192 h-192 rounded-full -translate-x-52 - translate-y-20  bg-zinc-900  ${
+              isDarkMode ? "bg-opacity-40" : "bg-opacity-10"
+            }`}
+          >
             <div className="w-110 h-110 -translate-x-10 -translate-y-20  rounded-full bg-violet-400 bg-opacity-10 "></div>
           </div>
         </div>

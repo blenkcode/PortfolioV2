@@ -6,7 +6,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    lightMode: "class",
     extend: {
+      rotate: {
+        one: "23deg",
+        two: "80deg",
+        three: "24deg",
+      },
       animation: {
         "rotate-y": "rotateY 60s infinite linear",
       },

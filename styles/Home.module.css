@@ -28,8 +28,17 @@
   visibility: hidden;
 }
 
+.ALight {
+  color: rgb(24, 24, 28);
+  visibility: hidden;
+}
+
 .C {
   color: rgb(262, 234, 255);
+  visibility: hidden;
+}
+.CLight {
+  color: rgb(39, 23, 66);
   visibility: hidden;
 }
 
@@ -37,14 +46,24 @@
   color: rgb(252, 224, 255);
   visibility: hidden;
 }
-
+.KLight {
+  color: rgb(52, 29, 87);
+  visibility: hidden;
+}
 .D {
   color: rgb(242, 214, 255);
   visibility: hidden;
 }
-
+.DLight {
+  color: rgb(52, 32, 83);
+  visibility: hidden;
+}
 .e {
   color: rgb(232, 204, 255);
+  visibility: hidden;
+}
+.eLight {
+  color: rgb(60, 36, 96);
   visibility: hidden;
 }
 
@@ -52,9 +71,17 @@
   color: rgb(222, 194, 255);
   visibility: hidden;
 }
+.vLight {
+  color: rgb(62, 36, 104);
+  visibility: hidden;
+}
 
 .ee {
   color: rgb(212, 184, 255);
+  visibility: hidden;
+}
+.eeLight {
+  color: rgb(60, 36, 99);
   visibility: hidden;
 }
 
@@ -62,8 +89,16 @@
   color: rgb(202, 174, 255);
   visibility: hidden;
 }
+.lLight {
+  color: rgb(59, 31, 103);
+  visibility: hidden;
+}
 .o {
   color: rgb(192, 164, 255);
+  visibility: hidden;
+}
+.oLight {
+  color: rgb(61, 30, 109);
   visibility: hidden;
 }
 
@@ -71,9 +106,16 @@
   color: rgb(182, 154, 255);
   visibility: hidden;
 }
-
+.pLight {
+  color: rgb(65, 29, 123);
+  visibility: hidden;
+}
 .eee {
   color: rgb(172, 144, 254);
+  visibility: hidden;
+}
+.eeeLight {
+  color: rgb(66, 25, 131);
   visibility: hidden;
 }
 
@@ -81,7 +123,10 @@
   color: rgb(162, 134, 255);
   visibility: hidden;
 }
-
+.rLight {
+  color: rgb(75, 29, 149);
+  visibility: hidden;
+}
 .VV {
   color: rgb(162, 134, 255);
 }

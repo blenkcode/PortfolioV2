@@ -3,8 +3,9 @@ import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef } from "react";
-
+import { useTheme } from "../ThemeContext";
 function Left() {
+  const { isDarkMode } = useTheme();
   const hiRef = useRef(null);
   const nameRef = useRef(null);
   const imRef = useRef(null);
@@ -125,7 +126,9 @@ function Left() {
           {" "}
           <div
             ref={hiRef}
-            className=" opacity-0 invisible z-20 text-lg 2xl:text-2xl xl:text-lg lg:text-lg md-text-md sm-text-sm text-white font-source font-light   mb-3"
+            className={` opacity-0 invisible z-20 text-lg 2xl:text-2xl xl:text-lg lg:text-lg md-text-md sm-text-sm font-source font-light   mb-3 ${
+              isDarkMode ? "text-white " : "text-zinc-700"
+            }`}
           >
             Hi, my name is
           </div>
@@ -133,14 +136,18 @@ function Left() {
         <div className="flex items-end">
           <div
             ref={nameRef}
-            className="  invisible z-20 flex items-end text-4xl 2xl:text-6xl xl-text-5xl lg:text-4xl md:text-5xl sm:text-4xl font-Noehmi font-semi-bold text-violet-300  00"
+            className={` invisible z-20 flex items-end text-4xl 2xl:text-6xl xl-text-5xl lg:text-4xl md:text-5xl sm:text-4xl font-Noehmi font-semi-bold   ${
+              isDarkMode ? "text-violet-300 " : "text-violet-900"
+            }`}
           >
             Valentin Mor{" "}
           </div>
           <div className="overflow-hidden">
             <div
               ref={imRef}
-              className=" invisible z-20 lg:ml-6 2xl:mb-2 xl:mb-1 md:mb-0 mb-1 ml-4 text-lg 2xl:text-2xl xl:text-xl lg:text-lg md-text-m sm-text-sm font-source font-light text-white"
+              className={`invisible z-20 lg:ml-6 2xl:mb-2 xl:mb-1 md:mb-0 mb-1 ml-4 text-lg 2xl:text-2xl xl:text-xl lg:text-lg md-text-m sm-text-sm font-source font-light ${
+                isDarkMode ? "text-white " : "text-zinc-700"
+              }`}
             >
               {" "}
               I'm a{" "}
@@ -152,43 +159,77 @@ function Left() {
           ref={fullstackRef}
           className="  z-20 bg-transparent mt-4 font-bold font-Noehmi text-5xl 2xl:text-7xl xl-text-6xl lg:text-6xl md:text-5xl sm:text-5xl"
         >
-          <span className={styles.A}>F</span>
-          <span className={styles.A}>u</span>
-          <span className={styles.A}>l</span>
-          <span className={styles.A}>l</span>
-          <span className={styles.A}>-</span>
-          <span className={styles.A}>S</span>
-          <span className={styles.A}>t</span>
-          <span className={styles.A}>a</span>
-          <span className={styles.C}>c</span>
-          <span className={styles.K}>k</span>
+          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>F</span>
+          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>u</span>
+          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>l</span>
+          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>l</span>
+          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>-</span>
+          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>S</span>
+          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>t</span>
+          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>a</span>
+          <span className={`${isDarkMode ? styles.C : styles.CLight}`}>c</span>
+          <span className={`${isDarkMode ? styles.K : styles.KLight}`}>k</span>
           <span className={styles.A}> </span>
-          <span className={styles.D}>D</span>
-          <span className={styles.e}>e</span>
-          <span className={styles.v}>v</span>
-          <span className={styles.ee}>e</span>
-          <span className={styles.l}>l</span>
-          <span className={styles.o}>o</span>
-          <span className={styles.p}>p</span>
-          <span className={styles.eee}>e</span>
-          <span className={styles.r}>r</span>
+          <span className={`${isDarkMode ? styles.D : styles.DLight}`}>D</span>
+          <span className={`${isDarkMode ? styles.e : styles.eLight}`}>e</span>
+          <span className={`${isDarkMode ? styles.v : styles.vLight}`}>v</span>
+          <span className={`${isDarkMode ? styles.ee : styles.eeLight}`}>
+            e
+          </span>
+          <span className={`${isDarkMode ? styles.l : styles.lLight}`}>l</span>
+          <span className={`${isDarkMode ? styles.o : styles.oLight}`}>o</span>
+          <span className={`${isDarkMode ? styles.p : styles.pLight}`}>p</span>
+          <span className={`${isDarkMode ? styles.eee : styles.eeeLight}`}>
+            e
+          </span>
+          <span className={`${isDarkMode ? styles.r : styles.rLight}`}>r</span>
         </div>
       </div>
 
       <div
         ref={textRef}
-        className=" font-Satoshi font-thin invisible flex-col flex z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-5 text-md  lg:text-md 2xl:text-lg bg-zinc-500 shadow-xl bg-opacity-20 p-3 rounded-xl  md:w-fit w-4/5"
+        className={` font-Satoshi font-thin invisible flex-col flex z-10 2xl:mt-15 xl:mt-15 lg:mt-10 mt-5 text-md  lg:text-md 2xl:text-lg bg-zinc-500 shadow-xl bg-opacity-20 p-3 rounded-xl  md:w-fit w-4/5  ${
+          isDarkMode ? "text-white " : "text-zinc-700"
+        }`}
       >
         {" "}
         <span>
-          Je suis un développeur <span className="text-violet-300 ">Next</span>{" "}
-          & <span className="text-violet-300 ">Node.js</span> basé à{" "}
-          <b>Montpellier.</b>
+          Je suis un développeur{" "}
+          <span
+            className={`  ${
+              isDarkMode ? "text-violet-300" : "text-violet-900"
+            }`}
+          >
+            Next
+          </span>{" "}
+          &{" "}
+          <span
+            className={`  ${
+              isDarkMode ? "text-violet-300" : "text-violet-900"
+            }`}
+          >
+            Node.js
+          </span>{" "}
+          basé à <b>Montpellier.</b>
         </span>
         <span className="mt-2">
           Je réalise vos futures applications{" "}
-          <span className=" text-violet-300">Web</span> &{" "}
-          <span className=" text-violet-300">Mobile</span>.
+          <span
+            className={`  ${
+              isDarkMode ? "text-violet-300" : "text-violet-900"
+            }`}
+          >
+            Web
+          </span>{" "}
+          &{" "}
+          <span
+            className={`  ${
+              isDarkMode ? "text-violet-300" : "text-violet-900"
+            }`}
+          >
+            Mobile
+          </span>
+          .
         </span>
       </div>
       <div
@@ -196,7 +237,13 @@ function Left() {
         className="mt-5 opacity-0 font-Satoshi font-thin lg:mt-12 flex flex-col lg:flex-row  sm:pl-0 "
       >
         <a href="/MOR-VALENTIN-CV-2024.pdf" download onMouseEnter={playShot}>
-          <div className=" text-white group border-1  border-zinc-200 hover:border-violet-300 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
+          <div
+            className={` group border-1  border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ${
+              isDarkMode
+                ? "text-white border-zinc-200 hover:border-violet-300 "
+                : "text-zinc-700 border-zinc-700 hover:border-violet-900  "
+            }`}
+          >
             <span className="hover-group: group-hover:text-violet-300  opacity-0 translate-  2xl:text-lg lg:text-base text-sm  ">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
@@ -205,7 +252,13 @@ function Left() {
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
-            <span className=" 2xl:text-lg lg:text-base text-sm transition-all group-hover:text-violet-300  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+            <span
+              className={`transition-all  2xl:text-lg lg:text-base text-sm   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
+                isDarkMode
+                  ? "group-hover:text-violet-300"
+                  : "group-hover:text-violet-900"
+              }`}
+            >
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
@@ -216,16 +269,34 @@ function Left() {
           className="lg:ml-10 mt-5 lg:mt-0"
           onMouseEnter={playShot2}
         >
-          <div className=" text-white group border-1  border-zinc-200 hover:border-violet-300 border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden ">
+          <div
+            className={` group border-1  border-opacity-50  py-2 px-4 rounded-lg flex  justify-center  items-center cursor-pointer transition-all  w-fit relative duration-300 overflow-hidden  ${
+              isDarkMode
+                ? "text-white border-zinc-200 hover:border-violet-300"
+                : "text-zinc-700 border-zinc-700 hover:border-violet-900"
+            }`}
+          >
             <span className="hover-group: 2xl:text-lg lg:text-base text-sm hover:text-sky-600  opacity-0 translate-">
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>
-            <span className="transition-all 2xl:text-lg lg:text-base text-sm  group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+            <span
+              className={`transition-all 2xl:text-lg lg:text-base text-sm   duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20 ${
+                isDarkMode
+                  ? "group-hover:text-violet-300"
+                  : "group-hover:text-violet-900"
+              }`}
+            >
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>
-            <span className="transition-all  2xl:text-lg lg:text-base text-sm group-hover:text-violet-300  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+            <span
+              className={`transition-all  2xl:text-lg lg:text-base text-sm   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
+                isDarkMode
+                  ? "group-hover:text-violet-300"
+                  : "group-hover:text-violet-900"
+              }`}
+            >
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>

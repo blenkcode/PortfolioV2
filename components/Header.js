@@ -5,7 +5,10 @@ import Time from "./Time";
 import { useRef } from "react";
 import { useRouter } from "next/router";
 import { useMainRef } from "../MainRefContext";
+import ThemeSwitcher from "./ThemeSwitcher";
+import { useTheme } from "../ThemeContext";
 function Header() {
+  const { isDarkMode } = useTheme();
   const { mainRefValue } = useMainRef();
   const hoverSoundRef = useRef(null);
   const clickSoundRef = useRef(null);
@@ -85,7 +88,9 @@ function Header() {
           <div
             onClick={handlerouter}
             onMouseEnter={playHoverSound}
-            className="sm:mr-20 lg:mr-5 xl:mr-20 text-zinc-200  w-fit  font-Satoshi cursor-pointer font-thin relative group"
+            className={`sm:mr-20 lg:mr-5 xl:mr-20  w-fit  font-Satoshi cursor-pointer font-thin relative group ${
+              isDarkMode ? "text-zinc-200 " : "text-zinc-800"
+            }`}
           >
             <span className="opacity-0">V</span>
             <span className="opacity-0">V</span>
@@ -97,7 +102,11 @@ function Header() {
               <span className="absolute font-bold -translate-x-4 group-hover:-translate-x-1 transition-all duration-200 2xl:text-base lg:text-sm">
                 V
               </span>
-              <span className="absolute font-thin text-zinc-300 group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm">
+              <span
+                className={`absolute font-thin  group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm ${
+                  isDarkMode ? "text-zinc-300 " : "text-zinc-800"
+                }`}
+              >
                 /
               </span>
               <span className="absolute font-semibold translate-x-3 2xl:text-base lg:text-sm">
@@ -110,7 +119,12 @@ function Header() {
             <Time></Time>
           </div>
         </div>
-        <div className="flex font-source items-center justify-end w-fit text-zinc-100 ">
+        <div
+          className={`flex font-source items-center justify-end w-fit text-zinc-100 ${
+            isDarkMode ? "text-zinc-200 " : "text-zinc-800"
+          }`}
+        >
+          <ThemeSwitcher></ThemeSwitcher>
           <div
             onMouseEnter={playSwooshSound}
             onClick={handleProject}
@@ -124,16 +138,20 @@ function Header() {
           <a
             href="https://www.linkedin.com/in/valentin-mor-a03174114/"
             target="_blank"
-            className="lg:mr-7 lg:ml-12 mr-2 ml-5"
+            className="lg:mr-12 lg:ml-12 mr-2 ml-5"
           >
             <FontAwesomeIcon
-              className="text-xl 2xl:text-2xl lg:text-xl text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
+              className={`text-xl 2xl:text-2xl lg:text-xl  transition duration-200 ease-in-out hover:text-violet-400 ${
+                isDarkMode ? "text-zinc-200 " : "text-zinc-800"
+              }`}
               icon={faLinkedin}
             />
           </a>
           <a target="_blank" href="https://github.com/blenkcode">
             <FontAwesomeIcon
-              className="text-xl 2xl:text-2xl lg:text-xl mr-5 ml-3 lg:ml-0  text-zinc-200 transition duration-200 ease-in-out hover:text-violet-400"
+              className={`text-xl 2xl:text-2xl lg:text-xl mr-5 lg:mr-6 ml-3 lg:ml-0  transition duration-200 ease-in-out hover:text-violet-400 ${
+                isDarkMode ? "text-zinc-200 " : "text-zinc-800"
+              }`}
               icon={faGithub}
             />
           </a>

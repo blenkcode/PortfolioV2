@@ -39,49 +39,52 @@ function Home({}) {
   }, [setMainRefValue]);
 
   useEffect(() => {
-    // Supprimer uniquement le ScrollTrigger lié au background si il existe
-    if (backgroundTriggerRef.current) {
-      backgroundTriggerRef.current.kill();
-    }
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: mainRef.current,
-        start: "3%",
-        end: "60%",
-        scrub: 3,
-        onUpdate: (self) => {},
-      },
-    });
-
-    tl.fromTo(
-      mainRef.current,
-      {
-        backgroundColor: isDarkMode
-          ? "rgba(24, 24, 27, 0.8)"
-          : "rgba(1, 10, 10, 0.1)",
-      },
-      {
-        backgroundColor: isDarkMode
-          ? "rgba(24, 24, 27, 0.5)"
-          : "rgba(24, 24, 27, 1)",
-        duration: 1,
-      }
-    ).to(mainRef.current, {
-      backgroundColor: isDarkMode
-        ? "rgba(24, 24, 27, 0.8)"
-        : "rgba(24, 24, 27, 0.1)",
-      duration: 1,
-    });
-
-    backgroundTriggerRef.current = tl.scrollTrigger;
-    ScrollTrigger.refresh();
-
-    return () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 1000) {
       if (backgroundTriggerRef.current) {
         backgroundTriggerRef.current.kill();
       }
-    };
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: mainRef.current,
+          start: "3%",
+          end: "60%",
+          scrub: 3,
+          onUpdate: (self) => {},
+        },
+      });
+
+      tl.fromTo(
+        mainRef.current,
+        {
+          backgroundColor: isDarkMode
+            ? "rgba(24, 24, 27, 0.8)"
+            : "rgba(1, 10, 10, 0.1)",
+        },
+        {
+          backgroundColor: isDarkMode
+            ? "rgba(24, 24, 27, 0.5)"
+            : "rgba(24, 24, 27, 1)",
+          duration: 1,
+        }
+      ).to(mainRef.current, {
+        backgroundColor: isDarkMode
+          ? "rgba(24, 24, 27, 0.8)"
+          : "rgba(24, 24, 27, 0.1)",
+        duration: 1,
+      });
+
+      backgroundTriggerRef.current = tl.scrollTrigger;
+      ScrollTrigger.refresh();
+
+      return () => {
+        if (backgroundTriggerRef.current) {
+          backgroundTriggerRef.current.kill();
+        }
+      };
+    }
+    // Supprimer uniquement le ScrollTrigger lié au background si il existe
   }, [isDarkMode]);
   //GSAP SCROLL EVENTS
   useEffect(() => {

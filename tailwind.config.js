@@ -63,12 +63,14 @@ module.exports = {
         "border-animate": "border-animate 4s ease-in-out infinite",
       },
       rotate: {
+        1: "90deg",
         one: "100deg",
         two: "5deg",
         three: "190deg",
         four: "-64deg",
         five: "67deg",
         six: "130deg",
+        360: "360deg",
       },
       transitionDuration: {
         0: "0ms",
@@ -106,6 +108,7 @@ module.exports = {
         "-80": "-20rem",
       },
       width: {
+        left1: "10rem",
         110: "28rem",
         128: "32rem", // 512px
         144: "36rem", // 576px

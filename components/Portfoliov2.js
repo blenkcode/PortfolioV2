@@ -1,12 +1,12 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useRef, useEffect } from "react";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { gsap } from "gsap/dist/gsap";
 import { useTheme } from "../ThemeContext";
-
+import MenuSlider from "./MenuSlider";
 import { useRouter } from "next/router";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Visitez from "./Visitez";
+import PortfolioCounter from "./PortfolioCounter";
 const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   const lcdoRef = useRef(null);
   const [lcdo, setLcdo] = useState(false);
@@ -14,6 +14,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   const [mutable, setMutable] = useState(false);
   const [heaf, setHeaf] = useState(false);
   const router = useRouter();
+  const { isDarkMode } = useTheme();
   useEffect(() => {
     const screenWidth = window.innerWidth;
     setLcdo(true);
@@ -62,8 +63,6 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       );
     }
   }, []);
-
-  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     playShot();
@@ -128,85 +127,92 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
       });
     }
   };
-
+  const data = [
+    {
+      infos1: "Site Vitrine / Web Application pour le Festival LCDO",
+      infos2: " Interface administrateur / Vitrine / Shop / Line-Up.",
+      techno: "React, Next.js, Redux, MongoDB, Tailwind CSS, Node.js, Express.",
+      link: "https://lcdo-three.vercel.app/",
+    },
+    {
+      infos1:
+        "Situé à Marseillan dans l'Hérault ce cabinet d'ostéopathie et kinésithérapie propose différents services, analyse de course, bike fiting, et massages.",
+      infos2: " ",
+      techno: "React, Next.js, Redux, Tailwind CSS, Gsap.",
+      link: "https://sport-sante-mediterranee.vercel.app/",
+    },
+    {
+      infos1:
+        " Web-application de santé, accompagnement et conseil nutritionels.",
+      infos2: "Perdre du poids, prendre du muscle, se maintenir en forme.",
+      techno:
+        "Javascript, React, Chart.js Next.js Redux, MongoDB, Tailwind CSS, Spline, Express, Node.js.",
+      link: "https://heaf-front-end.vercel.app/",
+    },
+    {
+      infos1: "Site marchand en produits de musique.",
+      infos2:
+        "  La compagnie Française Mutable Instruments est spécialisée dans la production de module de synthèse audio, page d'acceuil, magasin et possibilité de stocker des articles en favoris.",
+      techno: "React, Next.js, Redux, Tailwind CSS",
+      link: "https://mutable-instruments-shop.vercel.app/",
+    },
+  ];
   return (
     <div className="w-full lg:fixed h-full  lg:mt-0  mt-3 ">
       <audio ref={clickSoundRef} src="/click1.wav"></audio>
       <audio ref={bassShotRef} src="/bassshot.wav"></audio>
       <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
       <div className="flex w-full h-full items-end justify-between lg:pl-0 pl-10 ">
-        <div className="lg:w-1/4 lg:h-2/3 w-0 h-0 lg:visible invisible ">
+        <div className="lg:w-1/4 lg:h-2/3 w-0 h-0 lg:visible invisible  ">
           <div
-            className={`lg:visible invisible     flex items-center justify-start  flex-col text-base  shadow-2xl text-zinc font-Satoshi font-thin   ${
+            className={`lg:visible invisible  h-full  flex items-center justify-start  flex-col text-base   text-zinc font-Satoshi font-thin   ${
               isDarkMode ? "text-zinc-200" : "text-zinc-800"
             }`}
           >
-            <span
-              className={`mb-1 mt-10 fixed xl:w-80 lg:w-64 top-1/2 -translate-y-1/2 xl:text-sm lg:text-xs 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl ${
+            <div
+              className={` fixed left-10 top-1/2 -translate-y-14 ${
                 lcdo ? "opacity-100 lg:visible" : "opacity-0 invisible"
               }`}
             >
-              <div className="mb-2">En développement Alpha.</div>
-              <div className="mb-2">
-                Site Vitrine / Web Application pour le Festival LCDO
-              </div>
-              <div className="mb-2">
-                Interface administrateur / Vitrine / Shop / Line-Up.
-              </div>
-              <div>
-                <u>Technologies utilisées :</u> React, Next.js, Redux, MongoDB,
-                Tailwind CSS, Node.js, Express.
-              </div>
-            </span>
-            <span
-              className={`mb-1 mt-8 fixed xl:w-80 lg:w-64 top-1/2 -translate-y-1/2 xl:text-sm lg:text-xs 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
-                sante ? "opacity-100 visible" : "opacity-0 invisible"
+              <MenuSlider
+                infos1={data[0].infos1}
+                infos2={data[0].infos2}
+                techno={data[0].techno}
+              ></MenuSlider>
+            </div>
+            <div
+              className={` fixed left-10 top-1/2 -translate-y-14 ${
+                sante ? "opacity-100 lg:visible" : "opacity-0 invisible"
               }`}
             >
-              <div className="mb-2">
-                Situé à Marseillan dans l'Hérault ce cabinet d'ostéopathie et
-                kinésithérapie propose différents services, analyse de course,
-                bike fiting, et massages.
-              </div>
-              <div>
-                <u>Technologies utilisées :</u> React, Next.js, Redux, Tailwind
-                CSS, Gsap.
-              </div>
-            </span>
-            <span
-              className={`mb-1 fixed mt-12 xl:w-80 lg:w-64 top-1/2 -translate-y-1/2 xl:text-sm lg:text-xs 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
-                heaf ? "opacity-100 visible" : "opacity-0 invisible"
+              <MenuSlider
+                infos1={data[1].infos1}
+                infos2={data[1].infos2}
+                techno={data[1].techno}
+              ></MenuSlider>
+            </div>
+            <div
+              className={` fixed left-10 top-1/2 -translate-y-14 ${
+                heaf ? "opacity-100 lg:visible" : "opacity-0 invisible"
               }`}
             >
-              <div className="mb-2">
-                Web-application de santé, accompagnement et conseil
-                nutritionels.
-              </div>
-              <div className="mb-2">
-                Perdre du poids, prendre du muscle, se maintenir en forme.
-              </div>
-              <div>
-                <u>Technologies utilisées :</u> Javascript, React, Chart.js
-                Next.js Redux, MongoDB, Tailwind CSS, Spline, Express, Node.js.
-              </div>
-            </span>
-            <span
-              className={`mb-1 mt-20 fixed xl:w-80 lg:w-64 top-1/2 -translate-y-1/2 xl:text-sm lg:text-xs 2xl:text-base xl:left-8 2xl:left-16 lg:left-5  transition-opacity duration-300 shadow-2xl p-10  rounded-xl  ${
-                mutable ? "opacity-100 visible" : "opacity-0 invisible"
+              <MenuSlider
+                infos1={data[2].infos1}
+                infos2={data[2].infos2}
+                techno={data[2].techno}
+              ></MenuSlider>
+            </div>
+            <div
+              className={` fixed left-10 top-1/2 -translate-y-14 ${
+                mutable ? "opacity-100 lg:visible" : "opacity-0 invisible"
               }`}
             >
-              <div className="mb-2">Site marchand en produits de musique.</div>
-              <div className="mb-2">
-                La compagnie Française Mutable Instruments est spécialisée dans
-                la production de module de synthèse audio.
-                <br></br> Page d'acceuil, magasin et possibilité de stocker des
-                articles en favoris.
-              </div>
-              <div className="mt-2">
-                <u>Technologies utilisées :</u> React, Next.js, Redux, Tailwind
-                CSS.
-              </div>
-            </span>
+              <MenuSlider
+                infos1={data[3].infos1}
+                infos2={data[3].infos2}
+                techno={data[3].techno}
+              ></MenuSlider>
+            </div>
           </div>
         </div>
         <div className="w-fit lg:h-2/3 ">
@@ -216,14 +222,14 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           >
             <div
               onClick={() => handleproject()}
-              className="relative group w-full  lg:w-2/5 "
+              className="relative group w-full  lg:w-1/2 "
             >
               <div
-                className={` z-40   rounded-md  lg:p-2 p-1 transform transition-all duration-300 ${
+                className={` z-40   rounded-md   transform transition-all duration-300 ${
                   lcdo
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } ${isDarkMode ? "bg-white" : "bg-zinc-900"}`}
+                } `}
               >
                 {" "}
                 <img
@@ -235,14 +241,14 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             </div>
             <div
               onClick={() => handlecarby()}
-              className="relative group lg:w-2/5 w-full  mt-10 "
+              className="relative group  lg:w-1/2  w-full  mt-10 "
             >
               <div
-                className={` z-40   rounded-md   lg:p-2 p-1  transform transition-all duration-300 ${
+                className={` z-40   rounded-md   transform transition-all duration-300 ${
                   sante
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } ${isDarkMode ? "bg-white" : "bg-zinc-900"}`}
+                } `}
               >
                 {" "}
                 <img
@@ -254,14 +260,14 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             </div>
             <div
               onClick={() => handleheaf()}
-              className="relative group lg:w-2/5 w-full   mt-10 "
+              className="relative group  lg:w-1/2  w-full   mt-10 "
             >
               <div
-                className={` z-40   rounded-md   lg:p-2 p-1 transform transition-all duration-300 ${
+                className={` z-40   rounded-md   transform transition-all duration-300 ${
                   heaf
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } ${isDarkMode ? "bg-white" : "bg-zinc-900"}`}
+                } `}
               >
                 {" "}
                 <img src="./newh1.png" alt="Heaf" className="rounded-md" />{" "}
@@ -269,14 +275,14 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             </div>
             <div
               onClick={() => handlemutable()}
-              className="relative group lg:w-2/5 w-full   mt-10 "
+              className="relative group  lg:w-1/2  w-full   mt-10 "
             >
               <div
-                className={` z-40   rounded-md   lg:p-2 p-1  transform transition-all duration-300 ${
+                className={` z-40   rounded-md    transform transition-all duration-300 ${
                   mutable
                     ? "opacity-100  scale-105 "
                     : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } ${isDarkMode ? "bg-white" : "bg-zinc-900"}`}
+                } `}
               >
                 {" "}
                 <img
@@ -301,42 +307,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           >
             <div className="mb-5 ">Le Chant des Oiseaux</div>
             <div className=" text-sm font-satoshi ">/ PORTFOLIO 2024</div>
-            <a
-              href="https://lcdo-three.vercel.app/"
-              target="_blank"
-              className=" mt-5   "
-              onMouseEnter={playClickSound}
-            >
-              <div
-                className={`group border hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
-                  isDarkMode
-                    ? "border-zinc-200 text-white  "
-                    : "border-zinc-900 text-zinc-900 "
-                }`}
-              >
-                <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-                <span className="transition-all  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-                <span className="transition-all   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-              </div>
-            </a>
+            <Visitez link={data[0].link}></Visitez>
           </div>
           <div
             className={`mb-1 2xl:text-lg invisible lg:visible xl:text-md lg:text-sm fixed top-1/2 -translate-y-1/2 transition-opacity  flex flex-col items-end ${
@@ -346,42 +317,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             <div className="mb-5">Sport-Santé Méditerranée</div>
 
             <div className=" text-sm font-satoshi ">/ PORTFOLIO 2024</div>
-            <a
-              href="https://sport-sante-mediterranee.vercel.app/"
-              target="_blank"
-              className=" mt-5   "
-              onMouseEnter={playClickSound}
-            >
-              <div
-                className={`group border hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
-                  isDarkMode
-                    ? "border-zinc-200 text-white  "
-                    : "border-zinc-900 text-zinc-900 "
-                }`}
-              >
-                <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-                <span className="transition-all  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-                <span className="transition-all   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-              </div>
-            </a>
+            <Visitez link={data[1].link}></Visitez>
           </div>
           <div
             className={`mb-1 2xl:text-lg invisible lg:visible xl:text-md lg:text-sm fixed top-1/2 -translate-y-1/2 transition-opacity flex flex-col items-end ${
@@ -390,42 +326,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           >
             <div className="mb-5">Heaf</div>
             <div className=" text-sm font-satoshi ">/ PORTFOLIO 2024</div>
-            <a
-              href="https://heaf-front-end.vercel.app/"
-              target="_blank"
-              className=" mt-5   "
-              onMouseEnter={playClickSound}
-            >
-              <div
-                className={`group border hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
-                  isDarkMode
-                    ? "border-zinc-200 text-white  "
-                    : "border-zinc-900 text-zinc-900 "
-                }`}
-              >
-                <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-                <span className="transition-all  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-                <span className="transition-all   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-              </div>
-            </a>
+            <Visitez link={data[2].link}></Visitez>
           </div>
           <div
             className={`mb-1 2xl:text-lg invisible lg:visible xl:text-md lg:text-sm fixed top-1/2 -translate-y-1/2 transition-opacity  flex flex-col items-end ${
@@ -434,88 +335,15 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           >
             <div className="mb-5">Mutable Instruments</div>
             <div className=" text-sm font-satoshi ">/ PORTFOLIO 2024</div>
-            <a
-              href="https://mutable-instruments-shop.vercel.app/"
-              target="_blank"
-              className=" mt-5   "
-              onMouseEnter={playClickSound}
-            >
-              <div
-                className={`group border hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
-                  isDarkMode
-                    ? "border-zinc-200 text-white  "
-                    : "border-zinc-900 text-zinc-900 "
-                }`}
-              >
-                <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-                <span className="transition-all  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-                <span className="transition-all   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
-                  Visitez
-                  <FontAwesomeIcon
-                    className="ml-3 -rotate-45"
-                    icon={faArrowRight}
-                  />
-                </span>
-              </div>
-            </a>
+            <Visitez link={data[3].link}></Visitez>
           </div>
           <div className="absolute bottom-10 flex items-center justify-center   right-10  ">
-            <div
-              className={` h-32 w-32 border-2 border-solid  rounded-full flex items-start transition-all  justify-center relative overflow-hidden ${
-                isDarkMode ? "border-zinc-500" : "border-zinc-800"
-              } `}
-            >
-              <div className="flex items-start absolute top-1/2 right-1/2 translate-x-1/2 justify-center -translate-y-1/2 ">
-                <div className="text-3xl flex items-center justify-center -translate-x-3 -translate-y-6 w-10 h-10 -rotate-45 overflow-hidden">
-                  <div
-                    className={`absolute rotate-45 transition-all duration-500 ${
-                      lcdo ? "-translate-y-0" : "-translate-y-full"
-                    }`}
-                  >
-                    1
-                  </div>
-                  <div
-                    className={`absolute rotate-45 transition-all duration-500 ${
-                      sante ? "-translate-y-0" : "translate-y-full"
-                    }`}
-                  >
-                    2
-                  </div>
-                  <div
-                    className={`absolute rotate-45 transition-all duration-500 ${
-                      heaf ? "-translate-y-0" : "-translate-y-full"
-                    }`}
-                  >
-                    3
-                  </div>
-                  <div
-                    className={`absolute rotate-45 transition-all duration-500 ${
-                      mutable ? "-translate-y-0" : "translate-y-full"
-                    }`}
-                  >
-                    4
-                  </div>
-                </div>
-                <div className="text-3xl translate-x-1 translate-y-5">4</div>
-                <div
-                  className={`h-1 w-2/3 absolute transition-all  translate-y-5 -rotate-45 ${
-                    isDarkMode ? "bg-zinc-500" : "bg-zinc-800"
-                  } `}
-                ></div>
-              </div>
-            </div>
+            <PortfolioCounter
+              lcdo={lcdo}
+              sante={sante}
+              heaf={heaf}
+              mutable={mutable}
+            />
           </div>
         </div>
       </div>

@@ -118,15 +118,15 @@ function Left() {
     }
   };
   return (
-    <div className="  w-full text-white h-full flex flex-col items-start justify-center   ">
+    <div className="  w-full text-white h-full flex flex-col items-start justify-center    ">
       <div className=" sm:pl-0 w-fit">
         <audio ref={bassShotRef} src="/bassshot.wav"></audio>
         <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
-        <div className="overflow-hidden">
+        <div className="overflow-hidden ">
           {" "}
           <div
             ref={hiRef}
-            className={` opacity-0 invisible z-20 text-lg 2xl:text-2xl xl:text-lg lg:text-lg md-text-md sm-text-sm font-source font-light   mb-3 ${
+            className={` opacity-0 invisible  text-lg 2xl:text-2xl xl:text-lg lg:text-lg md-text-md sm-text-sm font-source font-light   mb-3 ${
               isDarkMode ? "text-white " : "text-zinc-700"
             }`}
           >
@@ -213,7 +213,7 @@ function Left() {
           basé à <b>Montpellier.</b>
         </span>
         <span className="mt-2">
-          Je réalise vos futures applications{" "}
+          Je design et code vos futures applications{" "}
           <span
             className={`  ${
               isDarkMode ? "text-violet-300" : "text-violet-900"

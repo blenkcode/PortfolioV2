@@ -9,7 +9,7 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
 import { useTheme } from "../ThemeContext";
-
+import Stack2 from "../components/Stack2";
 import { useMainRef } from "../MainRefContext";
 function Home({}) {
   const { isDarkMode } = useTheme();
@@ -27,8 +27,9 @@ function Home({}) {
   const circle9Ref = useRef(null);
   const rightRef = useRef(null);
   const stackRef = useRef(null);
+  const stack2Ref = useRef(null);
   const portfolioRef = useRef(null);
-  const svgRef = useRef(null);
+
   const { setMainRefValue } = useMainRef();
   const morphRef = useRef(null);
   const backgroundTriggerRef = useRef(null);
@@ -60,18 +61,18 @@ function Home({}) {
         {
           backgroundColor: isDarkMode
             ? "rgba(24, 24, 27, 0.8)"
-            : "rgba(1, 10, 10, 0.3)",
+            : "rgba(1, 10, 10, 0.1)",
         },
         {
           backgroundColor: isDarkMode
-            ? "rgba(24, 24, 27, 0.5)"
-            : "rgba(24, 24, 27, 1)",
+            ? "rgba(24, 24, 27, 0.8)"
+            : "rgba(24, 24, 27, 0.1)",
           duration: 1,
         }
       ).to(mainRef.current, {
         backgroundColor: isDarkMode
           ? "rgba(24, 24, 27, 0.8)"
-          : "rgba(24, 24, 27, 0.3)",
+          : "rgba(24, 24, 27, 0.1)",
         duration: 1,
       });
     } else {
@@ -122,59 +123,68 @@ function Home({}) {
 
       gsap.fromTo(
         leftRef.current,
-        { y: 0, opacity: 1 },
+        { y: 0 },
         {
           y: "-100%",
-          opacity: 0,
+
           scrollTrigger: {
             trigger: mainRef.current,
             start: "0%",
             end: "8%",
-            scrub: 3,
-          },
-        }
-      );
-      gsap.fromTo(
-        rightRef.current,
-        { opacity: 1, y: 0 },
-        {
-          opacity: 0,
-
-          y: "-100%",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "0%",
-            end: "8%",
-            scrub: 3,
-          },
-        }
-      );
-
-      gsap.fromTo(
-        stackRef.current,
-        { opacity: 0, visibility: "hidden", scale: 0.2 },
-        {
-          opacity: 1,
-          scale: 1,
-          visibility: "visible",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "9%",
-            end: "9%",
             scrub: 2,
           },
         }
       );
       gsap.fromTo(
-        stackRef.current,
-        { y: -150 },
+        rightRef.current,
+        { y: 0 },
         {
-          y: -810,
+          y: "-100%",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "30%",
-            end: "40%",
-            scrub: 3,
+            start: "0%",
+            end: "8%",
+            scrub: 2,
+          },
+        }
+      );
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: mainRef.current,
+          start: "0%", // Commence à 1% du défilement
+          end: "40%", // Fin à 40% du défilement
+          scrub: 2, // Scrub de 2 secondes pour fluidifier l'animation
+        },
+      });
+
+      // Première animation : translate Y de 200% à 0% entre 1% et 8%
+      tl.fromTo(
+        stackRef.current,
+        { y: "200%", visibility: "hidden" }, // L'élément commence hors écran
+        {
+          y: "0%",
+
+          visibility: "visible", // L'élément remonte à 0%
+          scrollTrigger: {
+            start: "0%", // Débute à 1% du défilement
+            end: "8%", // Se termine à 8% du défilement
+            scrub: 2, // Animation fluide sur 2 secondes
+          },
+        }
+      );
+
+      // Première animation : translate Y de 200% à 0% entre 1% et 8%
+      tl.fromTo(
+        stackRef.current,
+        { y: "0%" }, // L'élément commence hors écran
+        {
+          y: "-200%",
+
+          // L'élément remonte à 0%
+          scrollTrigger: {
+            start: "35%", // Débute à 1% du défilement
+            end: "40%", // Se termine à 8% du défilement
+            scrub: 2, // Animation fluide sur 2 secondes
           },
         }
       );
@@ -187,9 +197,9 @@ function Home({}) {
           visibility: "visible",
           scrollTrigger: {
             trigger: mainRef.current, // Déclencher avec le scrolling de mainRef
-            start: "40%", // Commence à 40% du scroll
+            start: "38%", // Commence à 40% du scroll
             end: "42%", // Finit à 46% du scroll
-            scrub: 2,
+            scrub: 1,
             // Synchronisation avec le scroll
           },
         }
@@ -285,43 +295,23 @@ function Home({}) {
     }
   }, []);
   //GSAP ANIMATION
-  useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "3%",
-          end: "60%",
-          scrub: 3,
-        },
-      })
-      .fromTo(morphRef.current, { opacity: 1 }, { opacity: 0, duration: 1 })
-      .to(morphRef.current, {
-        opacity: 1,
-        duration: 1,
-      });
-  }, [mainRef, morphRef]);
-  useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: mainRef.current,
-          start: "13%",
-          end: "23%",
-          scrub: 1,
-        },
-      })
-      .fromTo(
-        svgRef.current.querySelector("circle"),
-        { strokeDashoffset: 440, stroke: isDarkMode ? "#4F5053" : "#AAA9BD" },
-        {
-          strokeDashoffset: 0,
-          duration: 1,
-          stroke: isDarkMode ? "#4F5053" : "#AAA9BD",
-          ease: "none",
-        }
-      );
-  }, []);
+  // useEffect(() => {
+  //   gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: mainRef.current,
+  //         start: "3%",
+  //         end: "60%",
+  //         scrub: 3,
+  //       },
+  //     })
+  //     .fromTo(morphRef.current, { opacity: 1 }, { opacity: 0, duration: 1 })
+  //     .to(morphRef.current, {
+  //       opacity: 1,
+  //       duration: 1,
+  //     });
+  // }, [mainRef, morphRef]);
+
   console.log(isDarkMode);
   return (
     <main
@@ -352,86 +342,11 @@ function Home({}) {
         </div>
         <div className="w-full lg:h-lvh">
           <div
-            ref={circleRef}
-            className={`invisible rounded-full shadow-2xl  left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 fixed  h-circlee w-circlee  bg-opacity-70  z-30 ${
-              isDarkMode ? "bg-zinc-900" : "bg-zinc-200"
-            }`}
-          >
-            <svg
-              ref={svgRef}
-              className="absolute -top-16  opacity-100 -left-16 translate-x-5 translate-y-5"
-              width="600"
-              height="600"
-              viewBox="0 0 150 150"
-            >
-              <circle
-                cx="75"
-                cy="75"
-                r="70"
-                stroke="#4F5053"
-                strokeWidth="2"
-                fill="none"
-                strokeDasharray="440"
-                strokeDashoffset="440"
-              ></circle>
-            </svg>
-          </div>
-          <div
-            ref={circle2Ref}
-            className="w-40 rounded-full invisible shadow-2xl flex items-center justify-center bottom-10 right-96 fixed h-40 bg-opacity-30 z-10 bg-violet-400"
-          >
-            {" "}
-            <img src="/react.png" className="w-2/3"></img>
-          </div>
-          <div
-            ref={circle3Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-72 flex justify-center items-center z-10 left-36 fixed h-40 bg-opacity-30 bg-violet-400"
-          >
-            <img src="/next.png"></img>
-          </div>
-          <div
-            ref={circle4Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-80 flex justify-center items-center left-80 translate-x-20 fixed h-40 bg-opacity-30 bg-violet-400"
-          >
-            <img src="/node.png"></img>
-          </div>
-          <div
-            ref={circle5Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-72  flex justify-center items-center z-10 right-96 fixed h-40 bg-opacity-30 bg-violet-400"
-          >
-            <img src="/ex.png" className="w-2/3"></img>
-          </div>
-
-          <div
-            ref={circle6Ref}
-            className="w-40 rounded-full invisible shadow-2xl top-20 flex justify-center items-center z-10 right-20 fixed h-40 bg-opacity-30 bg-violet-400"
-          >
-            <img src="/mongo.png" className="w-2/3"></img>
-          </div>
-          <div
-            ref={circle7Ref}
-            className="w-40 rounded-full invisible shadow-2xl -bottom-32 flex justify-center items-center z-10 left-36 fixed h-40 bg-opacity-30 bg-violet-400"
-          >
-            <img src="/tail.png" className="w-4/5"></img>
-          </div>
-          <div
-            ref={circle8Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-32 flex justify-center items-center z-10 right-20 fixed h-40 bg-opacity-30 bg-violet-400"
-          >
-            <img src="/redux1.png" className="w-2/3 "></img>
-          </div>
-          <div
-            ref={circle9Ref}
-            className="w-40 rounded-full invisible shadow-2xl bottom-0 flex justify-center items-center z-10 left-96 fixed h-40 bg-opacity-30 bg-violet-400"
-          >
-            <img src="/gsaplogo.png" className="w-2/3 grayscale "></img>
-          </div>
-          <div
             ref={stackRef}
-            className=" w-full py-10 lg:py-0 lg:fixed right-1/2 lg:invisible lg:translate-x-1/2 top-1/2  z-30"
+            className=" w-full py-10 lg:invisible lg:py-0 lg:fixed top-1/2 lg:-translate-y-1/2  z-30"
           >
             {" "}
-            <Stack></Stack>
+            <Stack mainref={mainRef}></Stack>
           </div>
         </div>
 

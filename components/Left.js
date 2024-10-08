@@ -157,7 +157,7 @@ function Left() {
 
         <div
           ref={fullstackRef}
-          className="  z-20 bg-transparent mt-4 font-bold font-Noehmi text-5xl 2xl:text-7xl xl-text-6xl lg:text-6xl md:text-5xl sm:text-5xl"
+          className="  z-20 bg-transparent mt-4 font-bold font-Noehmi text-6xl 2xl:text-7xl xl-text-6xl lg:text-6xl md:text-5xl sm:text-5xl"
         >
           <span className={`${isDarkMode ? styles.A : styles.ALight}`}>F</span>
           <span className={`${isDarkMode ? styles.A : styles.ALight}`}>u</span>
@@ -234,7 +234,7 @@ function Left() {
       </div>
       <div
         ref={btnRef}
-        className="mt-5 opacity-0 font-Satoshi font-thin lg:mt-12 flex flex-col lg:flex-row  sm:pl-0 "
+        className="mt-14 opacity-0 font-Satoshi font-thin lg:mt-12 w-full items-center justify-center flex flex-col lg:flex-row  sm:pl-0 "
       >
         <a href="/MOR-VALENTIN-CV-2024.pdf" download onMouseEnter={playShot}>
           <div
@@ -248,12 +248,12 @@ function Left() {
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
-            <span className=" 2xl:text-lg lg:text-base text-sm  transition-all group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+            <span className=" 2xl:text-lg lg:text-base text-sm transition-all group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
             <span
-              className={`transition-all  2xl:text-lg lg:text-base text-sm   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
+              className={`transition-all  2xl:text-lg lg:text-base text-sm duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
                 isDarkMode
                   ? "group-hover:text-violet-300"
                   : "group-hover:text-violet-900"
@@ -266,7 +266,7 @@ function Left() {
         </a>
         <a
           href="mailto:valentinmor.pro@gmail.com"
-          className="lg:ml-10 mt-5 lg:mt-0"
+          className="lg:ml-10 mt-5 lg:mt-0 "
           onMouseEnter={playShot2}
         >
           <div
@@ -291,7 +291,7 @@ function Left() {
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>
             <span
-              className={`transition-all  2xl:text-lg lg:text-base text-sm   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
+              className={`transition-all  2xl:text-lg lg:text-base text-sm  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
                 isDarkMode
                   ? "group-hover:text-violet-300"
                   : "group-hover:text-violet-900"

@@ -343,7 +343,7 @@ function Home({}) {
         <div className="w-full lg:h-lvh">
           <div
             ref={stackRef}
-            className=" w-full py-10 lg:invisible lg:py-0 lg:fixed top-1/2 lg:-translate-y-1/2  z-30"
+            className=" w-full py-8 lg:invisible lg:py-0 lg:fixed top-1/2 lg:-translate-y-1/2  z-30"
           >
             {" "}
             <Stack mainref={mainRef}></Stack>

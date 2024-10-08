@@ -17,17 +17,11 @@ function Home({}) {
   const leftRef = useRef(null);
   const mainRef = useRef(null);
   const circleRef = useRef(null);
-  const circle2Ref = useRef(null);
-  const circle3Ref = useRef(null);
-  const circle4Ref = useRef(null);
-  const circle5Ref = useRef(null);
-  const circle6Ref = useRef(null);
-  const circle7Ref = useRef(null);
-  const circle8Ref = useRef(null);
-  const circle9Ref = useRef(null);
+  const techRef = useRef(null);
+  const spanRef = useRef(null);
   const rightRef = useRef(null);
   const stackRef = useRef(null);
-  const stack2Ref = useRef(null);
+  const groupRef = useRef(null);
   const portfolioRef = useRef(null);
 
   const { setMainRefValue } = useMainRef();
@@ -112,26 +106,17 @@ function Home({}) {
     gsap.registerPlugin(ScrollTrigger);
     const screenWidth = window.innerWidth;
     if (screenWidth > 1000) {
-      // const tl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: mainRef.current,
-      //     start: "3%",
-      //     end: "60%",
-      //     scrub: 3,
-      //   },
-      // });
-
       gsap.fromTo(
         leftRef.current,
         { y: 0 },
         {
-          y: "-100%",
+          y: "-150%",
 
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "0%",
-            end: "8%",
-            scrub: 2,
+            start: "1%",
+            end: "3%",
+            scrub: 1,
           },
         }
       );
@@ -139,52 +124,80 @@ function Home({}) {
         rightRef.current,
         { y: 0 },
         {
-          y: "-100%",
+          y: "-150%",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "0%",
-            end: "8%",
-            scrub: 2,
+            start: "1%",
+            end: "3%",
+            scrub: 1,
           },
         }
       );
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: mainRef.current,
-          start: "0%", // Commence à 1% du défilement
-          end: "40%", // Fin à 40% du défilement
-          scrub: 2, // Scrub de 2 secondes pour fluidifier l'animation
+          start: "30%", // Point de départ global de la timeline
+          end: "41%", // Point de fin global
+          scrub: 1, // Permet un effet fluide en synchronisant l'animation avec le scroll
         },
       });
 
-      // Première animation : translate Y de 200% à 0% entre 1% et 8%
+      // Première animation - de y: 200% à y: 0% entre 30% et 31%
       tl.fromTo(
-        stackRef.current,
-        { y: "200%", visibility: "hidden" }, // L'élément commence hors écran
+        groupRef.current,
+        { y: "200%", visibility: "hidden" },
         {
           y: "0%",
-
-          visibility: "visible", // L'élément remonte à 0%
+          visibility: "visible",
           scrollTrigger: {
-            start: "0%", // Débute à 1% du défilement
-            end: "8%", // Se termine à 8% du défilement
-            scrub: 2, // Animation fluide sur 2 secondes
+            trigger: mainRef.current,
+            start: "23%",
+            end: "25%",
+            scrub: 1,
           },
         }
       );
 
-      // Première animation : translate Y de 200% à 0% entre 1% et 8%
+      // Deuxième animation - de y: 0% à y: -200% entre 40% et 41%
       tl.fromTo(
-        stackRef.current,
-        { y: "0%" }, // L'élément commence hors écran
+        groupRef.current,
+        { y: "0%" },
         {
-          y: "-200%",
-
-          // L'élément remonte à 0%
+          y: "-170%",
           scrollTrigger: {
-            start: "39%", // Débute à 1% du défilement
-            end: "40%", // Se termine à 8% du défilement
-            scrub: 2, // Animation fluide sur 2 secondes
+            trigger: mainRef.current,
+            start: "37%",
+            end: "43%",
+            scrub: 1,
+          },
+        }
+      );
+      gsap.fromTo(
+        techRef.current,
+        { x: 0 },
+        {
+          x: "-50%",
+
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "24%",
+            end: "27%",
+            scrub: 3,
+          },
+        }
+      );
+      gsap.fromTo(
+        spanRef.current,
+        { x: "100%" },
+        {
+          x: "0%",
+
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "24%",
+            end: "27%",
+            scrub: 3,
           },
         }
       );
@@ -197,9 +210,9 @@ function Home({}) {
           visibility: "visible",
           scrollTrigger: {
             trigger: mainRef.current, // Déclencher avec le scrolling de mainRef
-            start: "40%", // Commence à 40% du scroll
-            end: "41%", // Finit à 46% du scroll
-            scrub: 1,
+            start: "25%", // Commence à 40% du scroll
+            end: "26%", // Finit à 46% du scroll
+            scrub: 2,
             // Synchronisation avec le scroll
           },
         }
@@ -221,96 +234,52 @@ function Home({}) {
           },
         }
       );
-      gsap.fromTo(
-        circleRef.current,
-        { y: 0 },
-        {
-          y: 900,
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: mainRef.current,
-            start: "30%",
-            end: "40%",
-            scrub: 3,
-          },
-        }
-      );
-      const timeline = gsap.timeline({
+    }
+  }, []);
+  useEffect(() => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 1000) {
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: mainRef.current,
-          start: "5%",
-          end: "40%",
-          scrub: 2,
+          start: "1%", // Début du trigger à 1% du scroll
+          end: "2%", // Fin du trigger à 31% du scroll
+          scrub: 1, // Synchronisation avec le scroll pour un effet fluide
+          // Utile pour le développement, désactive pour la production
         },
       });
 
-      timeline
-        .fromTo(
-          circle2Ref.current,
-          { y: -1000, visibility: "hidden" },
-          { y: 700, visibility: "visible", ease: "power1.inOut" }
-        )
-        .fromTo(
-          circle3Ref.current,
-          { y: 700, visibility: "hidden" },
-          { y: -1000, visibility: "visible", ease: "power1.inOut" },
-          "<" // "<" signifie que cette animation commence au même moment que la précédente
-        )
-        .fromTo(
-          circle4Ref.current,
-          { y: 500, x: 110, visibility: "hidden" },
-          { y: -1000, visibility: "visible", ease: "power1.inOut" },
-          "<"
-        )
-        .fromTo(
-          circle5Ref.current,
-          { y: -1000, visibility: "hidden" },
-          { y: 700, visibility: "visible", ease: "power1.inOut" },
-          "<"
-        )
-        .fromTo(
-          circle6Ref.current,
-          { y: -700, visibility: "hidden" },
-          { y: 1000, visibility: "visible", ease: "power1.inOut", scrub: 3 },
-          "<"
-        )
-        .fromTo(
-          circle7Ref.current,
-          { y: 700, visibility: "hidden" },
-          { y: -1200, visibility: "visible", ease: "power1.inOut", scrub: 3 },
-          "<"
-        )
-        .fromTo(
-          circle8Ref.current,
-          { y: -1000, visibility: "hidden" },
-          { y: 700, visibility: "visible", ease: "power1.inOut", scrub: 3 },
-          "<"
-        )
-        .fromTo(
-          circle9Ref.current,
-          { y: 700, x: 60, visibility: "hidden" },
-          { y: -1200, visibility: "visible", ease: "power1.inOut", scrub: 3 },
-          "<"
-        );
+      tl.fromTo(
+        stackRef.current,
+        { y: "200%", visibility: "hidden" },
+        {
+          y: "0%",
+          visibility: "visible",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "2%",
+            end: "4%",
+            scrub: 1,
+          },
+        }
+      );
+
+      // Deuxième animation - de y: 0% à y: -200% entre 40% et 41%
+      tl.fromTo(
+        stackRef.current,
+        { y: "0%" },
+        {
+          y: "-200%",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: "20%",
+            end: "25%",
+            scrub: 1,
+          },
+        }
+      );
     }
   }, []);
-  //GSAP ANIMATION
-  // useEffect(() => {
-  //   gsap
-  //     .timeline({
-  //       scrollTrigger: {
-  //         trigger: mainRef.current,
-  //         start: "3%",
-  //         end: "60%",
-  //         scrub: 3,
-  //       },
-  //     })
-  //     .fromTo(morphRef.current, { opacity: 1 }, { opacity: 0, duration: 1 })
-  //     .to(morphRef.current, {
-  //       opacity: 1,
-  //       duration: 1,
-  //     });
-  // }, [mainRef, morphRef]);
 
   console.log(isDarkMode);
   return (
@@ -327,7 +296,7 @@ function Home({}) {
         <Background></Background>
       </div>
 
-      <div className="flex flex-col px-5 lg:px-0 lg:mt-0 mt-20 justify-center items-center w-full relative   ">
+      <div className="flex flex-col px-5 lg:px-0 lg:mt-0 mt-20  justify-center items-center w-full relative   ">
         <div className="flex w-full lg:flex-row flex-col lg:h-lvh justify-center items-center ">
           <div ref={leftRef} className=" lg:w-1/2 top-1/2 transform  z-40">
             <Left></Left>
@@ -340,19 +309,144 @@ function Home({}) {
             <Right></Right>
           </div>
         </div>
-        <div className="w-full lg:h-lvh">
+        <div className="w-full lg:h-lvh relative">
           <div
             ref={stackRef}
-            className=" w-full py-8 lg:invisible lg:py-0 lg:fixed top-1/2 lg:-translate-y-1/2  z-30"
+            className=" w-full py-8 lg:fixed top-1/2 left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 lg:invisible lg:py-0  z-30"
           >
             {" "}
             <Stack mainref={mainRef}></Stack>
           </div>
         </div>
-
+        {/* <div
+          ref={groupRef}
+          className="flex flex-col w-full lg:invisible fixed top-1/3 items-center "
+        >
+          <div
+            ref={spanRef}
+            className="w-256 h-110 -top-0 rounded-full bg-violet-400 absolute -right-80"
+          ></div>
+          <div ref={techRef}>
+            <div className=" grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8 justify-items-center">
+              <div className="bg-zinc-900  bg-opacity-40 rounded-xl items-center justify-center overflow-hidden h-32 w-32 flex flex-col relative group">
+                <img
+                  src="nex.webp"
+                  className="w-1/3 grayscale group-hover:scale-150 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute  text-sm  bottom-3 text-white font-thin">
+                  Next.js
+                </span>
+              </div>
+              <div className="bg-zinc-900  group bg-opacity-40 rounded-xl items-center justify-center overflow-hidden h-32 w-32 flex flex-col relative">
+                <img
+                  src="react.png"
+                  className="w-1/3 grayscale group-hover:scale-150 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute text-sm bottom-3 text-white font-thin">
+                  React
+                </span>
+              </div>
+              <div className="bg-zinc-900  group bg-opacity-40 rounded-xl items-center justify-center overflow-hidden h-32 w-32 flex flex-col relative">
+                <img
+                  src="tail.png"
+                  className="w-1/3 grayscale group-hover:scale-150 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-thin">
+                  Tailwind
+                </span>
+              </div>
+              <div className="bg-zinc-900 group  bg-opacity-40 rounded-xl items-center justify-center overflow-hidden h-32 w-32 flex flex-col relative">
+                <img
+                  src="redux1.png"
+                  className="w-1/3 grayscale group-hover:scale-150 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-thin">
+                  Redux
+                </span>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8  mb-8 justify-items-center">
+              <div className="bg-zinc-900  group bg-opacity-40 rounded-xl items-center justify-center overflow-hidden h-32 w-32 flex flex-col relative">
+                <img
+                  src="node.png"
+                  className="w-1/2 grayscale group-hover:scale-150 transition-all duration-500 absolute top-5 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-thin">
+                  Node.js
+                </span>
+              </div>
+              <div className="bg-zinc-900 group  bg-opacity-40 rounded-xl items-center justify-center overflow-hidden h-32 w-32 flex flex-col relative">
+                <img
+                  src="ts.png"
+                  className="w-1/3 grayscale group-hover:scale-150 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-thin">
+                  TypeScript
+                </span>
+              </div>
+              <div className="bg-zinc-900 group  bg-opacity-40 rounded-xl items-center justify-center overflow-hidden h-32 w-32 flex flex-col relative">
+                <img
+                  src="ex.png"
+                  className="w-1/2 grayscale group-hover:scale-125 transition-all duration-500 absolute top-5 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-thin">
+                  Express
+                </span>
+              </div>
+              <div className="bg-zinc-900 group bg-opacity-40 rounded-xl items-center justify-center overflow-hidden h-32 w-32 flex flex-col relative">
+                <img
+                  src="mongo.png"
+                  className="w-1/2 grayscale group-hover:scale-125 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-thin">
+                  Mongo DB
+                </span>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8  mb-8 justify-items-center">
+              <div className="bg-zinc-900  bg-opacity-40 rounded-xl items-center justify-center overflow-hidden group h-32 w-32 flex flex-col relative">
+                <img
+                  src="git.png"
+                  className="w-1/3 grayscale group-hover:scale-150 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-thin">
+                  Git
+                </span>
+              </div>
+              <div className="bg-zinc-900  bg-opacity-40 rounded-xl items-center justify-center overflow-hidden group h-32 w-32 flex flex-col relative">
+                <img
+                  src="gsaplogo.png"
+                  className="w-1/3 grayscale group-hover:scale-150 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-source">
+                  Gsap
+                </span>
+              </div>
+              <div className="bg-zinc-900  bg-opacity-40 rounded-xl items-center justify-center overflow-hidden group h-32 w-32 flex flex-col relative">
+                <img
+                  src="spline.png"
+                  className="w-1/3 grayscale group-hover:scale-150 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-thin">
+                  Spline
+                </span>
+              </div>
+              <div className="bg-zinc-900  bg-opacity-40 rounded-xl items-center justify-center overflow-hidden group h-32 w-32 flex flex-col relative">
+                <img
+                  src="expo.png"
+                  className="w-1/3 grayscale group-hover:scale-150 transition-all duration-500 absolute top-7 "
+                ></img>
+                <span className="absolute text-sm  bottom-3 text-white font-thin">
+                  Expo
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> */}
+        <div className="fixed top-1/2 -translate-y-1/2"></div>
         <div
           ref={portfolioRef}
-          className="w-full lg:h-lvh mt-10  lg:mt-0  pb-10 lg:pb-0 flex items-start justify-center lg:invisible visible lg:fixed top-0 lg:py-0 2xl:shadow-2xl lg:shadow-none shadow-2xl  "
+          className="w-full lg:h-lvh mt-10  lg:mt-0  pb-10 lg:pb-0 flex items-start justify-center lg:invisible visible lg:fixed top-0 lg:py-0   "
         >
           <Portfoliov2 mainRef={mainRef} />
         </div>

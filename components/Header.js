@@ -68,9 +68,16 @@ function Header() {
   };
 
   const handlerouter = () => {
-    router.push("/");
+    if (router.pathname === "/") {
+      // Si l'URL actuelle est déjà "/"
+      window.scrollTo({ top: 0, behavior: "smooth" }); // Remonte en haut de la page
+    } else {
+      // Si l'URL n'est pas "/"
+      router.push("/"); // Redirige vers "/"
+    }
 
-    if (scrollY >= 1) {
+    // Détection du scroll pour jouer les sons
+    if (window.scrollY >= 1) {
       playbassSound();
     } else {
       playClickSound();

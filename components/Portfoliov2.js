@@ -27,7 +27,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           y: "-110%",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "55%", // Déclenchement au centre de l'écran
+            start: "45%", // Déclenchement au centre de l'écran
             end: "100%", // Fin de l'animation quand le bas atteint le haut
             scrub: 1,
             onUpdate: (self) => {

@@ -244,16 +244,16 @@ function Left() {
                 : "text-zinc-900 border-zinc-900 hover:border-violet-900  "
             }`}
           >
-            <span className="hover-group: group-hover:text-violet-300  opacity-0 translate-  2xl:text-lg lg:text-base text-sm  ">
+            <span className="hover-group: group-hover:text-violet-300  opacity-0 translate-  2xl:text-lg lg:text-base text-base  ">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
-            <span className=" 2xl:text-lg lg:text-base text-sm transition-all group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+            <span className=" 2xl:text-lg lg:text-base text-base transition-all group-hover:text-violet-300 duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
               Télécharger un CV
               <FontAwesomeIcon className="ml-3" icon={faDownload} />
             </span>
             <span
-              className={`transition-all  2xl:text-lg lg:text-base text-sm duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
+              className={`transition-all  2xl:text-lg lg:text-base text-base duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
                 isDarkMode
                   ? "group-hover:text-violet-300"
                   : "group-hover:text-violet-900"
@@ -276,12 +276,12 @@ function Left() {
                 : "text-zinc-900 border-zinc-900 hover:border-violet-900"
             }`}
           >
-            <span className="hover-group: 2xl:text-lg lg:text-base text-sm hover:text-sky-600  opacity-0 translate-">
+            <span className="hover-group: 2xl:text-lg lg:text-base text-base hover:text-sky-600  opacity-0 translate-">
               Contactez moi !
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>
             <span
-              className={`transition-all 2xl:text-lg lg:text-base text-sm   duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20 ${
+              className={`transition-all 2xl:text-lg lg:text-base text-base  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20 ${
                 isDarkMode
                   ? "group-hover:text-violet-300"
                   : "group-hover:text-violet-900"
@@ -291,7 +291,7 @@ function Left() {
               <FontAwesomeIcon className="ml-3" icon={faEnvelope} />
             </span>
             <span
-              className={`transition-all  2xl:text-lg lg:text-base text-sm  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
+              className={`transition-all  2xl:text-lg lg:text-base text-base  duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20 ${
                 isDarkMode
                   ? "group-hover:text-violet-300"
                   : "group-hover:text-violet-900"

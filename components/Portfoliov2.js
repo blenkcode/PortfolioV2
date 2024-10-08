@@ -222,7 +222,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
           >
             <div
               onClick={() => handleproject()}
-              className="relative group w-full  lg:w-1/2 "
+              className="relative group w-full  lg:w-1/2 shadow-xl"
             >
               <div
                 className={` z-40   rounded-md   transform transition-all duration-300 ${
@@ -241,7 +241,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             </div>
             <div
               onClick={() => handlecarby()}
-              className="relative group  lg:w-1/2  w-full  mt-10 "
+              className="relative group  lg:w-1/2  w-full shadow-xl mt-10 "
             >
               <div
                 className={` z-40   rounded-md   transform transition-all duration-300 ${
@@ -260,7 +260,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             </div>
             <div
               onClick={() => handleheaf()}
-              className="relative group  lg:w-1/2  w-full   mt-10 "
+              className="relative group  lg:w-1/2  w-full shadow-xl  mt-10 "
             >
               <div
                 className={` z-40   rounded-md   transform transition-all duration-300 ${
@@ -275,7 +275,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             </div>
             <div
               onClick={() => handlemutable()}
-              className="relative group  lg:w-1/2  w-full   mt-10 "
+              className="relative group  lg:w-1/2  w-full  shadow-xl mt-10 "
             >
               <div
                 className={` z-40   rounded-md    transform transition-all duration-300 ${

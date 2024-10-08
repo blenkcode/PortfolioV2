@@ -182,7 +182,7 @@ function Home({}) {
 
           // L'élément remonte à 0%
           scrollTrigger: {
-            start: "35%", // Débute à 1% du défilement
+            start: "39%", // Débute à 1% du défilement
             end: "40%", // Se termine à 8% du défilement
             scrub: 2, // Animation fluide sur 2 secondes
           },
@@ -197,8 +197,8 @@ function Home({}) {
           visibility: "visible",
           scrollTrigger: {
             trigger: mainRef.current, // Déclencher avec le scrolling de mainRef
-            start: "38%", // Commence à 40% du scroll
-            end: "42%", // Finit à 46% du scroll
+            start: "40%", // Commence à 40% du scroll
+            end: "41%", // Finit à 46% du scroll
             scrub: 1,
             // Synchronisation avec le scroll
           },
@@ -321,7 +321,7 @@ function Home({}) {
       <div
         ref={morphRef}
         className={`fixed top-1/2   right-1/2 translate-x-1/2 -translate-y-1/2 w-full h-screen flex flex-row    ${
-          isDarkMode ? "opacity-100 " : "opacity-0 "
+          isDarkMode ? "opacity-100 " : "opacity-100 "
         }`}
       >
         <Background></Background>

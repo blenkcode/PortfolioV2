@@ -40,11 +40,11 @@ const Svg = ({ mainRef }) => {
       })
       .fromTo(
         circleElement,
-        { strokeDashoffset: 440, stroke: isDarkMode ? "#FDFAF8" : "#AAA9BD" },
+        { strokeDashoffset: 440, stroke: isDarkMode ? "#FDFAF8" : "#27272A" },
         {
           strokeDashoffset: 0,
           duration: 1,
-          stroke: isDarkMode ? "#C4B5FD" : "#AAA9BD",
+          stroke: isDarkMode ? "#C4B5FD" : "#5B21B6",
           ease: "none",
         }
       );
@@ -63,7 +63,6 @@ const Svg = ({ mainRef }) => {
           cx="75"
           cy="75"
           r="70"
-          stroke="#4F5053"
           strokeWidth="2"
           fill="none"
           strokeDasharray="440"
@@ -71,9 +70,9 @@ const Svg = ({ mainRef }) => {
         ></circle>
       </svg>
       <div
-        className={`absolute top-9 -right-16  font-source text-white ${
+        className={`absolute top-9 -right-16  font-source  ${
           display ? "opacity-100" : "opacity-0"
-        }`}
+        } ${isDarkMode ? "text-white" : "text-zinc-900"}`}
       >
         {progress}%
       </div>

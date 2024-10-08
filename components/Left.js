@@ -234,7 +234,7 @@ function Left() {
       </div>
       <div
         ref={btnRef}
-        className="mt-14 opacity-0 font-Satoshi font-thin lg:mt-12 w-full items-center justify-center flex flex-col lg:flex-row  sm:pl-0 "
+        className="mt-14 opacity-0 font-Satoshi font-thin lg:mt-12 w-full items-center lg:items-start justify-center lg:justify-start flex flex-col lg:flex-row  sm:pl-0 "
       >
         <a href="/MOR-VALENTIN-CV-2024.pdf" download onMouseEnter={playShot}>
           <div

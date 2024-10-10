@@ -114,7 +114,7 @@ function Home({}) {
             trigger: mainRef.current, // Déclencher avec le scrolling de mainRef
             start: "40%", // Commence à 40% du scroll
             end: "41%", // Finit à 46% du scroll
-            scrub: 1,
+            scrub: 3,
             // Synchronisation avec le scroll
           },
         }

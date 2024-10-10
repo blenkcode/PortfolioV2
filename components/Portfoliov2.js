@@ -13,6 +13,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
   const [sante, setSante] = useState(false);
   const [mutable, setMutable] = useState(false);
   const [heaf, setHeaf] = useState(false);
+  const [carby, setCarby] = useState(false);
   const router = useRouter();
   const { isDarkMode } = useTheme();
   useEffect(() => {
@@ -39,17 +40,22 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
                 } else {
                   setLcdo(false);
                 }
-                if (progress >= 11 && progress < 25) {
+                if (progress >= 11 && progress < 22) {
                   setSante(true);
                 } else {
                   setSante(false);
                 }
-                if (progress >= 25 && progress < 42) {
+                if (progress >= 22 && progress < 36) {
+                  setCarby(true);
+                } else {
+                  setCarby(false);
+                }
+                if (progress >= 36 && progress < 48) {
                   setHeaf(true);
                 } else {
                   setHeaf(false);
                 }
-                if (progress >= 42 && progress <= 100) {
+                if (progress >= 48 && progress <= 100) {
                   setMutable(true);
                 } else {
                   setMutable(false);
@@ -114,6 +120,9 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
     router.push("/mutable");
   };
   const handlecarby = () => {
+    router.push("/carby");
+  };
+  const handlekine = () => {
     router.push("/kine");
   };
 
@@ -155,6 +164,13 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         "  La compagnie Française Mutable Instruments est spécialisée dans la production de module de synthèse audio, page d'acceuil, magasin et possibilité de stocker des articles en favoris.",
       techno: "React, Next.js, Redux, Tailwind CSS",
       link: "https://mutable-instruments-shop.vercel.app/",
+    },
+    {
+      infos1: " Application Mobile eco-responsable.",
+      infos2:
+        "  Carby est une application React-Native qui vous aide à prendre conscience de votre impact carbone !",
+      techno:
+        "Javascript, React-Native, Expo, Next.js Redux, MongoDB, CSS, Figma, Express, Node.js.",
     },
   ];
   return (
@@ -213,6 +229,17 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
                 techno={data[3].techno}
               ></MenuSlider>
             </div>
+            <div
+              className={` fixed left-10 top-1/2 -translate-y-14 ${
+                carby ? "opacity-100 lg:visible" : "opacity-0 invisible"
+              }`}
+            >
+              <MenuSlider
+                infos1={data[4].infos1}
+                infos2={data[4].infos2}
+                techno={data[4].techno}
+              ></MenuSlider>
+            </div>
           </div>
         </div>
         <div className="w-fit lg:h-2/3 ">
@@ -240,7 +267,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               </div>
             </div>
             <div
-              onClick={() => handlecarby()}
+              onClick={() => handlekine()}
               className="relative group  lg:w-1/2  w-full shadow-xl mt-10 "
             >
               <div
@@ -255,6 +282,25 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
                   src="./sante1.webp"
                   alt="Cabinet Kinesithérapie"
                   className=" rounded-md "
+                />{" "}
+              </div>
+            </div>
+            <div
+              onClick={() => handlecarby()}
+              className="relative group  lg:w-1/2  w-full shadow-xl  mt-10 "
+            >
+              <div
+                className={` z-40   rounded-md   transform transition-all duration-300 ${
+                  carby
+                    ? "opacity-100  scale-105 "
+                    : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
+                } `}
+              >
+                {" "}
+                <img
+                  src="./carbyframe.png"
+                  alt="Carby"
+                  className="rounded-md"
                 />{" "}
               </div>
             </div>
@@ -337,12 +383,21 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             <div className=" text-sm font-satoshi ">/ PORTFOLIO 2024</div>
             <Visitez link={data[3].link}></Visitez>
           </div>
+          <div
+            className={`mb-1 2xl:text-lg invisible lg:visible xl:text-md lg:text-sm fixed top-1/2 -translate-y-1/2 transition-opacity  flex flex-col items-end ${
+              carby ? "opacity-100 visible z-60" : "opacity-0 invisible z-10"
+            }`}
+          >
+            <div className="mb-5">Carby</div>
+            <div className=" text-sm font-satoshi ">/ PORTFOLIO 2024</div>
+          </div>
           <div className="absolute bottom-10 flex items-center justify-center   right-10  ">
             <PortfolioCounter
               lcdo={lcdo}
               sante={sante}
               heaf={heaf}
               mutable={mutable}
+              carby={carby}
             />
           </div>
         </div>

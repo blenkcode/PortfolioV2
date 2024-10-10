@@ -1,37 +1,46 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDownload,
-  faEnvelope,
-  faAtom,
-} from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Slider from "../components/Slider";
-import { useRouter } from "next/router";
+import Backgroundv2 from "../components/Backgroundv2";
+import { useTheme } from "../ThemeContext";
+function heaf() {
+  const data = [
+    { url: "/newh1.png", id: 1 },
+    { url: "/newh2.png", id: 2 },
+    { url: "/h3.png", id: 3 },
+  ];
 
-function carby() {
-  const router = useRouter();
-  const handlerouter = () => {
-    router.push("/");
-  };
+  const { isDarkMode } = useTheme();
   return (
-    <div className="overflow-hidden font-hind bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
-      <div className="  flex flex-col sm:p-36 p-10 sm:pt-32 pt-32 z-40 ">
-        <img
-          onClick={() => handlerouter()}
-          class="w-16 shadow-inner top-5 left-5 cursor-pointer absolute"
-          src="logo2.png"
-          alt="VM Logo"
-        />
+    <div
+      className={`overflow-hidden font-Noehmi  w-full min-h-lvh  grid grid-cols-1 lg:grid-cols-2  relative  ${
+        isDarkMode ? "bg-zinc-900 text-white " : "bg-violet-100 text-black "
+      }`}
+    >
+      <div
+        className={` absolute ${isDarkMode ? "opacity-50 " : "opacity-50 "}`}
+      >
+        {" "}
+        <Backgroundv2></Backgroundv2>
+      </div>
+
+      <div className="  flex flex-col lg:justify-center sm:px-20  lg:pt-0 pt-20 px-5 z-40 ">
         <div className="flex flex-col justify-center ">
-          <h1 className="font-bold text-7xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">
-            <span className="text-violet-400">C</span>
+          <h1 className="font-bold text-3xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">
+            <span
+              className={` ${
+                isDarkMode ? "text-violet-400" : "text-violet-900 "
+              }`}
+            >
+              C
+            </span>
             arby
           </h1>
-          <div className="font-bold text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
+          <div className="font-Satoshi font-thin text-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
             Application Mobile eco-responsable.
           </div>
-          <div className="text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
-            {" "}
+          <div className=" font-Satoshi font-thin text-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
             Carby est une application React-Native qui vous aide à prendre
             conscience de votre impact carbone ! <br></br>
             <br></br>Qui a dit que l'
@@ -45,82 +54,38 @@ function carby() {
           </div>
         </div>
 
-        <div className="text-xl 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
+        <div className=" font-Satoshi font-thintext-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
           <u>Technologies utilisées :</u> Javascript, React-Native, Expo,
-          Next.js Redux, MongoDB, CSS, Figma, Express, Node.js, external API.
+          Next.js Redux, MongoDB, CSS, Figma, Express, Node.js.
         </div>
-        {/* <div className="flex items-center  justify-start w-full mb-16">
-          <img
-            className="w-10 mr-5 2xl:w-12 md:w-10 h-fit grayscale "
-            src="react.png"
-          ></img>
-          <img
-            className="w-10 mr-5  first-letter:2xl:w-12 md:w-10 h-fit grayscale "
-            src="next.png"
-          ></img>
-          <img
-            className="w-10 mr-5  2xl:w-12 md:w-10 h-fit grayscale "
-            src="redux.png"
-          ></img>
-          <img
-            className="w-10 mr-5 2xl:w-12 md:w-10 h-fit grayscale "
-            src="mongo.png"
-          ></img>
-          <img
-            className="w-10 mr-5  2xl:w-12 md:w-10 h-fit grayscale "
-            src="tailwind.png"
-          ></img>
-          <img
-            className="w-10 mr-5  2xl:w-12 md:w-10 h-fit grayscale "
-            src="expr.png"
-          ></img>
-
-          <img className="w-12 grayscale" src="node.png"></img>
-        </div> */}
-        <div className="flex-col flex sm:inline-block mt-10 sm:mt-20">
-          {" "}
+        <div className="flex-col font-Satoshi font-thin flex sm:inline-block mt-5 ">
           <a
-            href="https://github.com/blenkcode/carby-frontend"
-            download
-            className="border-zinc-300 border-solid border-2 rounded-md px-5 mb-10 py-3 w-fit hover:border-violet-400 hover:text-violet-400"
+            href="https://github.com/blenkcode/heaf-front-end"
+            target="_blank"
+            className="z-50"
           >
-            Repository
-            <FontAwesomeIcon className="ml-3" icon={faGithub} />
-          </a>
-          <a
-            href="https://www.youtube.com/watch?v=oNzGviNhjJ8"
-            download
-            className="border-zinc-300 sm:ml-10  ml-0 border-solid border-2 w-fit rounded-md px-5 py-3 hover:border-violet-400 hover:text-violet-400"
-          >
-            Demo
-            <FontAwesomeIcon className="ml-3" icon={faAtom} />
+            <div className="text-white group border border-zinc-200 hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-50 border-opacity-50 py-2 px-4 rounded-lg flex text-lg justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden mb-5">
+              <span className="hover-group: hover:text-sky-600  opacity-0 translate-">
+                Repository
+                <FontAwesomeIcon className="ml-3" icon={faGithub} />
+              </span>
+              <span className="transition-all  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+                Repository
+                <FontAwesomeIcon className="ml-3" icon={faGithub} />
+              </span>
+              <span className="transition-all   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+                Repository
+                <FontAwesomeIcon className="ml-3" icon={faGithub} />
+              </span>
+            </div>
           </a>
         </div>
       </div>
-      <div className="  flex h-auto px-0 py-36 pr-0 sm:pr-0 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12  flex-col justify-start items-center">
-        <div className="grid  gap-14 2xl:grid-cols-3 md:grid-cols-3 sm:grid-cols-2">
-          {" "}
-          <img className="sm:w-40 w-60" src="./c1.png"></img>
-          <img className="sm:w-40 w-60" src="./c2.png"></img>
-          <img className="sm:w-40 w-60" src="./c3.png"></img>{" "}
-          <img className="sm:w-40 w-60" src="./c4.png"></img>
-          <img className="sm:w-40 w-60" src="./c5.png"></img>
-          <img className="sm:w-40 w-60" src="./c6.png"></img>
-        </div>
-      </div>
-      <div className="z-20 max-w-72 overflow-hidden">
-        <div className="animate-rotate-y w-200 h-256 border-solid border-1 border-zinc-400 opacity-10 rounded-full absolute left-1 -translate-x-1/2 top-10 transform"></div>
-
-        <div className=" w-256 h-200 border-solid border-1 border-zinc-600 opacity-20 rounded-full absolute left-1 -translate-x-96 top-10 transform"></div>
-        <div className="animate-rotate-y w-96 h-80 border-solid border-1 border-zinc-600 opacity-30 rounded-full absolute left-1 -translate-x-96 top-64 transform"></div>
-        <div className="animate-rotate-y w-200 h-192 border-solid border-1 border-zinc-400 opacity-20 rounded-full absolute left-1 -translate-x-3/4 top-80 transform"></div>
-        <div className="animate-rotate-y w-192 h-160 bg-zinc-950 opacity-50 rounded-full blur-3xl absolute left-1 -translate-x-1/3 top-72 transform"></div>
-        <div className="animate-rotate-y w-256 h-200 bg-violet-900 opacity-5 rounded-full blur-3xl absolute left-1 -translate-x-1/2 top-10 transform"></div>
-        <div className="animate-rotate-y w-256 h-200 bg-zinc-600 opacity-5 rounded-full blur-3xl absolute left-10 -translate-x-1/2 top-20 transform"></div>
-        <div className="animate-rotate-y w-144 h-128 bg-zinc-600 opacity-20 rounded-full blur-3xl absolute left-1 -translate-x-7 top-72 transform"></div>
+      <div className="  flex flex-col lg:justify-center items-center sm:px-20 xl:pt-0 lg:pt-0 pt-20 px-5 z-40 ">
+        <img src="/carbyscreens.png" className="lg:w-4/5"></img>
       </div>
     </div>
   );
 }
 
-export default carby;
+export default heaf;

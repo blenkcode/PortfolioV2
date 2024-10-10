@@ -43,7 +43,7 @@ function Home({}) {
         leftRef.current,
         { y: 0 },
         {
-          y: "-50%",
+          y: "-60%",
 
           scrollTrigger: {
             trigger: mainRef.current,
@@ -57,7 +57,7 @@ function Home({}) {
         rightRef.current,
         { y: 0 },
         {
-          y: "-50%",
+          y: "-60%",
           scrollTrigger: {
             trigger: mainRef.current,
             start: "1%",

@@ -7,8 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 const MenuSlider = ({ infos1, infos2, techno }) => {
   const { isDarkMode } = useTheme();
-  const [infos, setInfos] = useState(true); // Etat pour le menu Informations
-  const [technos, setTechnos] = useState(true); // Etat pour le menu Technologies
+  const [infos, setInfos] = useState(false); // Etat pour le menu Informations
+  const [technos, setTechnos] = useState(false); // Etat pour le menu Technologies
 
   // Gestion de l'affichage du menu Informations
   const handleInfos = () => {

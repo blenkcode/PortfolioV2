@@ -34,7 +34,7 @@ function Header() {
 
       window.scrollTo({
         top: scrollPosition,
-        behavior: "smooth",
+        behavior: "auto",
       });
     }
   };
@@ -70,7 +70,7 @@ function Header() {
   const handlerouter = () => {
     if (router.pathname === "/") {
       // Si l'URL actuelle est déjà "/"
-      window.scrollTo({ top: 0, behavior: "smooth" }); // Remonte en haut de la page
+      window.scrollTo({ top: 0, behavior: "auto" }); // Remonte en haut de la page
     } else {
       // Si l'URL n'est pas "/"
       router.push("/"); // Redirige vers "/"
@@ -127,11 +127,15 @@ function Header() {
           </div>
         </div>
         <div
-          className={`flex font-source items-center justify-end w-fit text-zinc-100 ${
+          className={`flex font-source items-center justify-end w-fit lg:max-w-none max-w-36 text-zinc-100 ${
             isDarkMode ? "text-zinc-200 " : "text-zinc-800"
           }`}
         >
-          <ThemeSwitcher></ThemeSwitcher>
+          <div className="sm:visible invisible">
+            {" "}
+            <ThemeSwitcher></ThemeSwitcher>
+          </div>
+
           <div
             onMouseEnter={playSwooshSound}
             onClick={handleProject}

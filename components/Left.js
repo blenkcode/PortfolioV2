@@ -32,9 +32,9 @@ function Left() {
       {
         opacity: 1,
         x: 0,
-        duration: 1.5,
+        duration: 1.8,
         delay: 0.5,
-        ease: "power3.out",
+        ease: "elastic.out(1, 0.8)",
         visibility: "visible",
       }
     );
@@ -55,9 +55,7 @@ function Left() {
     gsap.fromTo(
       letters,
       {
-        opacity: 0,
         y: 100,
-        scale: 50,
 
         visibility: "hidden",
       },
@@ -65,10 +63,10 @@ function Left() {
         opacity: 1,
         y: 0,
         duration: 0.3,
-        ease: "power3.out",
-        stagger: 0.05,
+        ease: "power1.out",
+        stagger: 0.04,
         rotation: 360,
-        scale: 100,
+
         delay: 1.3,
         visibility: "visible",
       }
@@ -154,35 +152,70 @@ function Left() {
             </div>
           </div>
         </div>
-
-        <div
-          ref={fullstackRef}
-          className="  z-20 bg-transparent mt-4 font-bold font-Noehmi text-6xl 2xl:text-7xl xl-text-6xl lg:text-6xl md:text-5xl sm:text-5xl"
-        >
-          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>F</span>
-          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>u</span>
-          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>l</span>
-          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>l</span>
-          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>-</span>
-          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>S</span>
-          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>t</span>
-          <span className={`${isDarkMode ? styles.A : styles.ALight}`}>a</span>
-          <span className={`${isDarkMode ? styles.C : styles.CLight}`}>c</span>
-          <span className={`${isDarkMode ? styles.K : styles.KLight}`}>k</span>
-          <span className={styles.A}> </span>
-          <span className={`${isDarkMode ? styles.D : styles.DLight}`}>D</span>
-          <span className={`${isDarkMode ? styles.e : styles.eLight}`}>e</span>
-          <span className={`${isDarkMode ? styles.v : styles.vLight}`}>v</span>
-          <span className={`${isDarkMode ? styles.ee : styles.eeLight}`}>
-            e
-          </span>
-          <span className={`${isDarkMode ? styles.l : styles.lLight}`}>l</span>
-          <span className={`${isDarkMode ? styles.o : styles.oLight}`}>o</span>
-          <span className={`${isDarkMode ? styles.p : styles.pLight}`}>p</span>
-          <span className={`${isDarkMode ? styles.eee : styles.eeeLight}`}>
-            e
-          </span>
-          <span className={`${isDarkMode ? styles.r : styles.rLight}`}>r</span>
+        <div cl>
+          <div
+            ref={fullstackRef}
+            className="  z-20 bg-transparent mt-4 font-bold font-Noehmi text-6xl 2xl:text-7xl xl-text-6xl lg:text-6xl md:text-5xl sm:text-5xl"
+          >
+            <span className={`${isDarkMode ? styles.A : styles.ALight}`}>
+              F
+            </span>
+            <span className={`${isDarkMode ? styles.A : styles.ALight}`}>
+              u
+            </span>
+            <span className={`${isDarkMode ? styles.A : styles.ALight}`}>
+              l
+            </span>
+            <span className={`${isDarkMode ? styles.A : styles.ALight}`}>
+              l
+            </span>
+            <span className={`${isDarkMode ? styles.A : styles.ALight}`}>
+              -
+            </span>
+            <span className={`${isDarkMode ? styles.A : styles.ALight}`}>
+              S
+            </span>
+            <span className={`${isDarkMode ? styles.A : styles.ALight}`}>
+              t
+            </span>
+            <span className={`${isDarkMode ? styles.A : styles.ALight}`}>
+              a
+            </span>
+            <span className={`${isDarkMode ? styles.C : styles.CLight}`}>
+              c
+            </span>
+            <span className={`${isDarkMode ? styles.K : styles.KLight}`}>
+              k
+            </span>
+            <span className={styles.A}> </span>
+            <span className={`${isDarkMode ? styles.D : styles.DLight}`}>
+              D
+            </span>
+            <span className={`${isDarkMode ? styles.e : styles.eLight}`}>
+              e
+            </span>
+            <span className={`${isDarkMode ? styles.v : styles.vLight}`}>
+              v
+            </span>
+            <span className={`${isDarkMode ? styles.ee : styles.eeLight}`}>
+              e
+            </span>
+            <span className={`${isDarkMode ? styles.l : styles.lLight}`}>
+              l
+            </span>
+            <span className={`${isDarkMode ? styles.o : styles.oLight}`}>
+              o
+            </span>
+            <span className={`${isDarkMode ? styles.p : styles.pLight}`}>
+              p
+            </span>
+            <span className={`${isDarkMode ? styles.eee : styles.eeeLight}`}>
+              e
+            </span>
+            <span className={`${isDarkMode ? styles.r : styles.rLight}`}>
+              r
+            </span>
+          </div>
         </div>
       </div>
 
@@ -234,7 +267,7 @@ function Left() {
       </div>
       <div
         ref={btnRef}
-        className="mt-14 opacity-0 font-Satoshi font-thin lg:mt-12 w-full items-center lg:items-start justify-center lg:justify-start flex flex-col lg:flex-row  sm:pl-0 "
+        className="mt-14 opacity-0 font-Satoshi font-thin lg:mt-12 w-full items-start lg:items-start justify-center lg:justify-start flex flex-col lg:flex-row  sm:pl-0 "
       >
         <a href="/MOR-VALENTIN-CV-2024.pdf" download onMouseEnter={playShot}>
           <div

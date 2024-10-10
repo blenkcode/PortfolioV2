@@ -1,9 +1,10 @@
-import { useState } from "react";
 import { useTheme } from "../ThemeContext";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 const ThemeSwitcher = () => {
   const clickSoundRef = useRef(null);
   const { isDarkMode, toggleTheme } = useTheme();
+
+  const [invisible, setInvisible] = useState(false);
   const playClickSound = () => {
     if (clickSoundRef.current) {
       clickSoundRef.current.currentTime = 0;
@@ -18,10 +19,11 @@ const ThemeSwitcher = () => {
     playClickSound();
     toggleTheme();
   };
+
   return (
     <button
       onClick={handleClick}
-      className={`w-14 h-8 border-1  border-solid text-white rounded-full relative lg:mr-10 mr-5  px-1 overflow-hidden scale-90 ${
+      className={`w-14 h-8 border-1   border-solid text-white rounded-full relative lg:mr-10 mr-5  px-1 overflow-hidden scale-90 ${
         isDarkMode
           ? "bg-zinc-700 border-zinc-300 "
           : " border-zinc-700 bg-transparent"

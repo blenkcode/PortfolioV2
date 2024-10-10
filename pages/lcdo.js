@@ -1,23 +1,68 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTheme } from "../ThemeContext";
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import SliderLcdo from "../components/SliderLcdo";
+import Slider from "../components/Slider";
 
-import Background from "../components/Background";
+import Backgroundv2 from "../components/Backgroundv2";
 
 function lcdo() {
+  const data = [
+    { url: "/lcdo1.webp", id: 1 },
+    { url: "/mocklcdo2.png", id: 2 },
+    { url: "/mocklcdo3.png", id: 3 },
+    { url: "/mocklcdo4.png", id: 4 },
+  ];
+  const { isDarkMode } = useTheme();
   return (
-    <div className="overflow-hidden font-Noehmi bg-zinc-900 w-full min-h-lvh text-zinc-200 grid grid-cols-1 2xl:grid-cols-2 md:grid-cols-1 relative  ">
-      <div className="blur-xl fixed top-0 right-0 w-full h-screen flex flex-row -translate-y-96  ">
-        <Background></Background>
+    <div
+      className={`overflow-hidden font-Noehmi  w-full min-h-lvh  grid grid-cols-1 lg:grid-cols-2  relative  ${
+        isDarkMode ? "bg-zinc-900 text-white " : "bg-violet-100 text-black "
+      }`}
+    >
+      <div
+        className={` absolute ${isDarkMode ? "opacity-50 " : "opacity-50 "}`}
+      >
+        {" "}
+        <Backgroundv2></Backgroundv2>
       </div>
 
-      <div className="  flex flex-col sm:px-20 sm:pt-32 pt-20 px-5 z-40 ">
+      <div className="  flex flex-col lg:justify-center sm:px-20  lg:pt-0 pt-20 px-5 z-40 ">
         <div className="flex flex-col justify-center ">
-          <h1 className="font-bold text-3xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">
-            <span className="text-violet-400">C</span>
-            hant des Oiseaux
+          <h1 className="font-bold text-3xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10 w-full">
+            <span
+              className={` ${
+                isDarkMode ? "text-violet-400" : "text-violet-900 "
+              }`}
+            >
+              L
+            </span>
+            e{" "}
+            <span
+              className={` ${
+                isDarkMode ? "text-violet-400" : "text-violet-900 "
+              }`}
+            >
+              C
+            </span>
+            hant{" "}
+            <span
+              className={` ${
+                isDarkMode ? "text-violet-400" : "text-violet-900 "
+              }`}
+            >
+              D
+            </span>
+            es{" "}
+            <span
+              className={` ${
+                isDarkMode ? "text-violet-400" : "text-violet-900 "
+              }`}
+            >
+              O
+            </span>
+            iseaux
           </h1>
           <div className="font-Satoshi font-thin text-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
             Site Vitrine pour le Festival LCDO
@@ -85,19 +130,8 @@ function lcdo() {
           </a>
         </div>
       </div>
-      <div className="  flex h-auto sm:px-36 px-2 py-10 sm:pr-36 pr:0 2xl:py-36 xl:py-20 lg:py-16 md:py-14 sm:py-12 flex-col justify-start items-center z-50">
-        <SliderLcdo></SliderLcdo>
-      </div>
-      <div className="z-20 max-w-72 overflow-hidden">
-        <div className="animate-rotate-y w-200 h-256 border-solid border-1 border-zinc-400 opacity-10 rounded-full absolute left-1 -translate-x-1/2 top-10 transform"></div>
-
-        <div className=" w-256 h-200 border-solid border-1 border-zinc-600 opacity-20 rounded-full absolute left-1 -translate-x-96 top-10 transform"></div>
-        <div className="animate-rotate-y w-96 h-80 border-solid border-1 border-zinc-600 opacity-30 rounded-full absolute left-1 -translate-x-96 top-64 transform"></div>
-        <div className="animate-rotate-y w-200 h-192 border-solid border-1 border-zinc-400 opacity-20 rounded-full absolute left-1 -translate-x-3/4 top-80 transform"></div>
-        <div className="animate-rotate-y w-192 h-160 bg-zinc-950 opacity-50 rounded-full blur-3xl absolute left-1 -translate-x-1/3 top-72 transform"></div>
-        <div className="animate-rotate-y w-256 h-200 bg-violet-900 opacity-5 rounded-full blur-3xl absolute left-1 -translate-x-1/2 top-10 transform"></div>
-        <div className="animate-rotate-y w-256 h-200 bg-zinc-600 opacity-5 rounded-full blur-3xl absolute left-10 -translate-x-1/2 top-20 transform"></div>
-        <div className="animate-rotate-y w-144 h-128 bg-zinc-600 opacity-20 rounded-full blur-3xl absolute left-1 -translate-x-7 top-72 transform"></div>
+      <div className="  flex flex-col lg:justify-center sm:px-20 xl:pt-0 lg:pt-0 pt-20 px-5 z-40 ">
+        <Slider data={data}></Slider>
       </div>
     </div>
   );

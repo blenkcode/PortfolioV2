@@ -33,7 +33,7 @@ function Stack({ mainRef }) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: mainRef,
-          start: "2%", // Le scroll commence à 25%, déclenchant les animations
+          start: "8%", // Le scroll commence à 25%, déclenchant les animations
           scrub: false, // Pas de synchronisation avec le scroll, les animations s'exécutent avec leurs durées définies
         },
       });

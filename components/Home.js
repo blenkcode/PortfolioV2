@@ -1,15 +1,12 @@
 import Right from "./Right";
 import Stack from "./Stack";
-
 import Left from "./Left";
 import Portfoliov2 from "./Portfoliov2";
-import Background from "./Background";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
 import { useTheme } from "../ThemeContext";
-import Stack2 from "../components/Stack2";
 import Backgroundv2 from "./Backgroundv2";
 import { useMainRef } from "../MainRefContext";
 function Home({}) {
@@ -49,7 +46,7 @@ function Home({}) {
             trigger: mainRef.current,
             start: "1%",
             end: "100%",
-            scrub: 3,
+            scrub: 1,
           },
         }
       );
@@ -62,7 +59,7 @@ function Home({}) {
             trigger: mainRef.current,
             start: "1%",
             end: "100%",
-            scrub: 3,
+            scrub: 1,
           },
         }
       );
@@ -196,7 +193,7 @@ function Home({}) {
         isDarkMode ? "bg-zinc-900 " : "bg-violet-100 "
       }`}
     >
-      <div className={` ${isDarkMode ? "opacity-30 " : "opacity-50 "}`}>
+      <div className={` ${isDarkMode ? "opacity-50 " : "opacity-50 "}`}>
         {" "}
         <Backgroundv2></Backgroundv2>
       </div>

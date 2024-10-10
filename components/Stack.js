@@ -210,7 +210,7 @@ function Stack({ mainRef }) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: mainRef,
-          start: "3%", // Le scroll commence à 25%, déclenchant les animations
+          start: "15%", // Le scroll commence à 25%, déclenchant les animations
           scrub: false, // Pas de synchronisation avec le scroll, les animations s'exécutent avec leurs durées définies
         },
       });
@@ -279,6 +279,41 @@ function Stack({ mainRef }) {
         },
         "<" // Déclenche simultanément avec interactifRef
       );
+      tl.fromTo(
+        uiRef.current,
+        { x: "-100%", y: 5, scale: 0, opacity: 0 },
+        {
+          x: 0,
+          y: 5,
+          scale: 1,
+          opacity: 1,
+          duration: 1, // Durée de 2 secondes// Durée de 2 secondes
+        },
+        "+=0.5" // Déclenche simultanément avec interactifRef
+      );
+      tl.fromTo(
+        resRef.current,
+        { x: "100%", scale: 0, y: 5, opacity: 0 },
+        {
+          x: 0,
+          y: 5,
+          opacity: 1,
+          scale: 1,
+          duration: 1, // Durée de 2 secondes// Durée de 2 secondes
+        },
+        "<" // Déclenche simultanément avec interactifRef
+      );
+
+      tl.fromTo(
+        dataRef.current,
+        { scale: 0 },
+        {
+          scale: 1,
+
+          duration: 1, // Durée de 2 secondes// Durée de 2 secondes
+        },
+        "<" // Déclenche simultanément avec interactifRef
+      );
     }
     // Créer une timeline pour gérer les animations enchaînées
   }, [isDarkMode, mainRef]);
@@ -340,7 +375,7 @@ function Stack({ mainRef }) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: mainRef,
-          start: "40%", // Le scroll commence à 25%, déclenchant les animations
+          start: "50%", // Le scroll commence à 25%, déclenchant les animations
           scrub: false, // Pas de synchronisation avec le scroll, les animations s'exécutent avec leurs durées définies
         },
       });

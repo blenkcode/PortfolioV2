@@ -206,6 +206,37 @@ function Stack({ mainRef }) {
         },
         "<" // Déclenche simultanément avec interactifRef
       );
+      tl.fromTo(
+        resRef.current,
+        { y: "120%" },
+        {
+          y: 15,
+          ease: "elastic.out(1, 0.9)",
+          duration: 2, // Durée de 2 secondes// Durée de 2 secondes
+        },
+        "<" // Déclenche simultanément avec interactifRef
+      );
+      tl.fromTo(
+        uiRef.current,
+        { y: "120%" },
+        {
+          y: 15,
+          ease: "elastic.out(1, 0.9)",
+          duration: 2.1, // Durée de 2 secondes // Durée de 2 secondes
+        },
+        "-=1.5" // Déclenche simultanément avec interactifRef
+      );
+
+      tl.fromTo(
+        dataRef.current,
+        { y: "120%" },
+        {
+          y: 15,
+          ease: "elastic.out(1, 0.9)",
+          duration: 2.1, // Durée de 2 secondes
+        },
+        "-=2.8" // Déclenche simultanément avec interactifRef
+      );
     } else {
       const tl = gsap.timeline({
         scrollTrigger: {

@@ -12,28 +12,28 @@ const PortfolioCounter = ({ lcdo, sante, heaf, mutable, carby }) => {
         <div className="text-3xl flex items-center justify-center -translate-x-3 -translate-y-6 w-10 h-10 -rotate-45 overflow-hidden">
           <div
             className={`absolute rotate-45 transition-all duration-500 ${
-              lcdo ? "-translate-y-0" : "-translate-y-full"
+              sante ? "-translate-y-0" : "-translate-y-full"
             }`}
           >
             1
           </div>
           <div
             className={`absolute rotate-45 transition-all duration-500 ${
-              sante ? "-translate-y-0" : "translate-y-full"
+              heaf ? "-translate-y-0" : "translate-y-full"
             }`}
           >
             2
           </div>
           <div
             className={`absolute rotate-45 transition-all duration-500 ${
-              carby ? "-translate-y-0" : "-translate-y-full"
+              lcdo ? "-translate-y-0" : "-translate-y-full"
             }`}
           >
             3
           </div>
           <div
             className={`absolute rotate-45 transition-all duration-500 ${
-              heaf ? "translate-y-0" : "translate-y-full"
+              carby ? "translate-y-0" : "translate-y-full"
             }`}
           >
             4

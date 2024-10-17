@@ -252,3 +252,19 @@
     opacity: 1;
   }
 }
+.svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.line-svg {
+  transition: all 0.5s ease-in-out;
+}
+
+.line-svg:hover .line {
+  d: path("M 50 100 Q 250 50 450 100"); /* Change the path to curve */
+  stroke: red; /* Change stroke color on hover */
+  transition: all 0.5s ease-in-out;
+}

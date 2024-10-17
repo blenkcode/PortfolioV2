@@ -6,9 +6,9 @@ import Backgroundv2 from "../components/Backgroundv2";
 import { useTheme } from "../ThemeContext";
 function heaf() {
   const data = [
-    { url: "/newh1.png", id: 1 },
-    { url: "/newh2.png", id: 2 },
-    { url: "/h3.png", id: 3 },
+    { url: "/fh1.png", id: 1 },
+    { url: "/fh2.png", id: 2 },
+    { url: "/fh3.png", id: 3 },
   ];
 
   const { isDarkMode } = useTheme();
@@ -55,8 +55,8 @@ function heaf() {
         </div>
 
         <div className=" font-Satoshi font-thintext-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">
-          <u>Technologies utilisées :</u> Javascript, React, Chart.js Next.js
-          Redux, MongoDB, Tailwind CSS, Spline, Express, Node.js.
+          <u>Technologies utilisées :</u> TypeScript, React, Next.js, NextAuth ,
+          MongoDB, Tailwind CSS, Express, Node.js.
         </div>
         <div className="flex-col font-Satoshi font-thin flex sm:inline-block mt-5 ">
           <a
@@ -80,7 +80,7 @@ function heaf() {
             </div>
           </a>
           <a
-            href="https://heaf-front-end.vercel.app/"
+            href="https://heafv2.vercel.app/"
             target="_blank"
             className="z-50 "
           >

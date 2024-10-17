@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useTheme } from "../ThemeContext";
 import Backgroundv2 from "./Backgroundv2";
 import { useMainRef } from "../MainRefContext";
+import Strech from "./Strech";
 function Home({}) {
   const { isDarkMode } = useTheme();
   const router = useRouter();
@@ -193,11 +194,11 @@ function Home({}) {
         isDarkMode ? "bg-zinc-900 " : "bg-violet-100 "
       }`}
     >
+      {" "}
       <div className={` ${isDarkMode ? "opacity-50 " : "opacity-50 "}`}>
         {" "}
         <Backgroundv2></Backgroundv2>
       </div>
-
       {/* <div
         ref={morphRef}
         className={`fixed top-1/2   right-1/2 translate-x-1/2 -translate-y-1/2 w-full h-screen flex flex-row    ${
@@ -206,7 +207,6 @@ function Home({}) {
       >
         <Background></Background>
       </div> */}
-
       <div className="flex flex-col px-5 lg:px-0 lg:mt-0 mt-20  justify-center items-center w-full relative   ">
         <div className="flex w-full lg:flex-row flex-col lg:h-lvh justify-center items-center ">
           <div ref={leftRef} className=" lg:w-1/2 top-1/2 transform  z-40">

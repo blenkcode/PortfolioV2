@@ -36,24 +36,24 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               // console.log(`Progress: ${progress}%`); // Debug
               if (screenWidth > 1000) {
                 if (progress < 11) {
-                  setLcdo(true);
-                } else {
-                  setLcdo(false);
-                }
-                if (progress >= 11 && progress < 22) {
                   setSante(true);
                 } else {
                   setSante(false);
                 }
-                if (progress >= 22 && progress < 36) {
-                  setCarby(true);
-                } else {
-                  setCarby(false);
-                }
-                if (progress >= 36 && progress < 48) {
+                if (progress >= 11 && progress < 22) {
                   setHeaf(true);
                 } else {
                   setHeaf(false);
+                }
+                if (progress >= 22 && progress < 36) {
+                  setLcdo(true);
+                } else {
+                  setLcdo(false);
+                }
+                if (progress >= 36 && progress < 48) {
+                  setCarby(true);
+                } else {
+                  setCarby(false);
                 }
                 if (progress >= 48 && progress <= 100) {
                   setMutable(true);
@@ -155,8 +155,8 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         " Web-application de santé, accompagnement et conseil nutritionels.",
       infos2: "Perdre du poids, prendre du muscle, se maintenir en forme.",
       techno:
-        "Javascript, React, Chart.js Next.js Redux, MongoDB, Tailwind CSS, Spline, Express, Node.js.",
-      link: "https://heaf-front-end.vercel.app/",
+        "TypeScript, React, Next.js, NextAuth, ZOD, MongoDB, Tailwind CSS, Express, Node.js.",
+      link: "https://heafv2.vercel.app/",
     },
     {
       infos1: "Site marchand en produits de musique.",
@@ -248,25 +248,6 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             className="flex items-center flex-col justify-center  "
           >
             <div
-              onClick={() => handleproject()}
-              className="relative group w-full  lg:w-1/2 shadow-xl"
-            >
-              <div
-                className={` z-40   rounded-md   transform transition-all duration-300 ${
-                  lcdo
-                    ? "opacity-100  scale-105 "
-                    : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } `}
-              >
-                {" "}
-                <img
-                  src="./lcdo1.webp"
-                  alt="LCDO"
-                  className=" rounded-md "
-                />{" "}
-              </div>
-            </div>
-            <div
               onClick={() => handlekine()}
               className="relative group  lg:w-1/2  w-full shadow-xl mt-10 "
             >
@@ -281,6 +262,40 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
                 <img
                   src="./sante1.webp"
                   alt="Cabinet Kinesithérapie"
+                  className=" rounded-md "
+                />{" "}
+              </div>
+            </div>
+            <div
+              onClick={() => handleheaf()}
+              className="relative group  lg:w-1/2  w-full shadow-xl  mt-10 "
+            >
+              <div
+                className={` z-40   rounded-md   transform transition-all duration-300 ${
+                  heaf
+                    ? "opacity-100  scale-105 "
+                    : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
+                } `}
+              >
+                {" "}
+                <img src="./fh3.png" alt="Heaf" className="rounded-md" />{" "}
+              </div>
+            </div>
+            <div
+              onClick={() => handleproject()}
+              className="relative group w-full  lg:w-1/2 shadow-xl mt-10"
+            >
+              <div
+                className={` z-40   rounded-md   transform transition-all duration-300 ${
+                  lcdo
+                    ? "opacity-100  scale-105 "
+                    : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
+                } `}
+              >
+                {" "}
+                <img
+                  src="./lcdo1.webp"
+                  alt="LCDO"
                   className=" rounded-md "
                 />{" "}
               </div>
@@ -304,21 +319,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
                 />{" "}
               </div>
             </div>
-            <div
-              onClick={() => handleheaf()}
-              className="relative group  lg:w-1/2  w-full shadow-xl  mt-10 "
-            >
-              <div
-                className={` z-40   rounded-md   transform transition-all duration-300 ${
-                  heaf
-                    ? "opacity-100  scale-105 "
-                    : "lg:opacity-15 lg:scale-100  opacity-100  scale-105 "
-                } `}
-              >
-                {" "}
-                <img src="./newh1.png" alt="Heaf" className="rounded-md" />{" "}
-              </div>
-            </div>
+
             <div
               onClick={() => handlemutable()}
               className="relative group  lg:w-1/2  w-full  shadow-xl mt-10 "

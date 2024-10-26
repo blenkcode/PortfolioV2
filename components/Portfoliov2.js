@@ -23,12 +23,12 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
     if (screenWidth > 1000) {
       gsap.fromTo(
         lcdoRef.current,
-        { y: "5%" },
+        { y: "100%" },
         {
           y: "-110%",
           scrollTrigger: {
             trigger: mainRef.current,
-            start: "45%", // Déclenchement au centre de l'écran
+            start: "50%", // Déclenchement au centre de l'écran
             end: "100%", // Fin de l'animation quand le bas atteint le haut
             scrub: 1,
             onUpdate: (self) => {
@@ -174,19 +174,19 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
     },
   ];
   return (
-    <div className="w-full lg:fixed h-full  lg:mt-0  mt-3 ">
+    <div className="w-full h-lvh flex  lg:mt-0  mt-3 relative ">
       <audio ref={clickSoundRef} src="/click1.wav"></audio>
       <audio ref={bassShotRef} src="/bassshot.wav"></audio>
       <audio ref={bassShot2Ref} src="/bassshot2.wav"></audio>
       <div className="flex w-full h-full items-end justify-between lg:pl-0 pl-10 ">
-        <div className="lg:w-1/4 lg:h-2/3 w-0 h-0 lg:visible invisible  ">
+        <div className="lg:w-1/4  lg:h-2/3 w-0 h-0 lg:visible invisible  ">
           <div
             className={`lg:visible invisible  h-full  flex items-center justify-start  flex-col text-base   text-zinc font-Satoshi font-thin   ${
               isDarkMode ? "text-zinc-200" : "text-zinc-800"
             }`}
           >
             <div
-              className={` fixed left-10 top-1/2 -translate-y-14 ${
+              className={` absolute left-10 top-1/2 -translate-y-14 ${
                 lcdo ? "opacity-100 lg:visible" : "opacity-0 invisible"
               }`}
             >
@@ -197,7 +197,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               ></MenuSlider>
             </div>
             <div
-              className={` fixed left-10 top-1/2 -translate-y-14 ${
+              className={` absolute left-10 top-1/2 -translate-y-14 ${
                 sante ? "opacity-100 lg:visible" : "opacity-0 invisible"
               }`}
             >
@@ -208,7 +208,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               ></MenuSlider>
             </div>
             <div
-              className={` fixed left-10 top-1/2 -translate-y-14 ${
+              className={` absolute left-10 top-1/2 -translate-y-14 ${
                 heaf ? "opacity-100 lg:visible" : "opacity-0 invisible"
               }`}
             >
@@ -219,7 +219,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
               ></MenuSlider>
             </div>
             <div
-              className={` fixed left-10 top-1/2 -translate-y-14 ${
+              className={` absolute left-10 top-1/2 -translate-y-14 ${
                 mutable ? "opacity-100 lg:visible" : "opacity-0 invisible"
               }`}
             >
@@ -343,7 +343,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
         </div>
 
         <div
-          className={`lg:w-1/4 w-0 lg:h-2/3 lg:visible invisible h-0 text-zinc-200 font-Satoshi font-thin flex flex-col items-end pr-12 z-50 relative ${
+          className={`lg:w-1/4 w-0 lg:h-2/3 lg:visible invisible h-0 text-zinc-200 font-Satoshi font-thin flex flex-col items-end pr-12 z-50  ${
             isDarkMode ? "text-zinc-200" : "text-zinc-800"
           }`}
         >
@@ -392,7 +392,7 @@ const Portfoliov2 = React.forwardRef(({ mainRef }) => {
             <div className="mb-5">Carby</div>
             <div className=" text-sm font-satoshi ">/ PORTFOLIO 2024</div>
           </div>
-          <div className="absolute bottom-10 flex items-center justify-center   right-10  ">
+          <div className="absolute top-10 flex items-center justify-center   left-10  ">
             <PortfolioCounter
               lcdo={lcdo}
               sante={sante}

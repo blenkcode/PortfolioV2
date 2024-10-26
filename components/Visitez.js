@@ -25,7 +25,7 @@ const Visitez = ({ link }) => {
       {" "}
       <audio ref={clickSoundRef} src="/click1.wav"></audio>
       <div
-        className={`group border hover:border-violet-400 hover:bg-violet-400 hover:bg-opacity-40 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
+        className={`group border hover:border-amber-400 hover:bg-amber-400 hover:bg-opacity-40 border-opacity-50 py-2 px-4 rounded-lg flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative duration-300 overflow-hidden ${
           isDarkMode
             ? "border-zinc-200 text-white  "
             : "border-zinc-900 text-zinc-900 "

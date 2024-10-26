@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { ThemeProvider } from "../ThemeContext"; // Charge FontAwesome après
 import { MainRefProvider } from "../MainRefContext";
+
 function App({ Component, pageProps }) {
   const [mainRef, setMainRef] = useState(null);
   return (

@@ -1,7 +1,7 @@
 function Maintenance() {
   return (
-    <main className="bg-zinc-900 flex  w-full h-lvh flex-col items-center justify-center relative overflow-hidden  ">
-      <div className=" z-20 bg-transparent mt-3 text-zinc-100 font-bold text-7xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl ">
+    <main className="bg-neutral-200 flex  w-full h-lvh flex-col items-center justify-center relative overflow-hidden  ">
+      <div className="text-neutral-800 z-20 bg-transparent mt-3 font-bold text-7xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl ">
         Portfolio en maintenance.
       </div>
       <div className="z-20 max-w-72 overflow-hidden">

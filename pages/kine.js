@@ -2,16 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Slider from "../components/Slider";
-import { useTheme } from "../ThemeContext";
-import Backgroundv2 from "../components/Backgroundv2";
-function lcdo() {
+
+function kine() {
   const data = [
     { url: "/sante1.png", id: 1 },
     { url: "/sante2.png", id: 2 },
     { url: "/sante3.png", id: 1 },
     { url: "/sante4.png", id: 2 },
   ];
-  const { isDarkMode } = useTheme();
+
   return (
     <div
       className={`overflow-hidden font-Noehmi  w-full min-h-lvh  flex lg:flex-row flex-col relative  items-center ${
@@ -22,7 +21,6 @@ function lcdo() {
         className={` absolute ${isDarkMode ? "opacity-50 " : "opacity-50 "}`}
       >
         {" "}
-        <Backgroundv2></Backgroundv2>
       </div>
 
       <div className="  flex flex-col lg:justify-center sm:px-20  lg:pt-0 pt-20 px-5 z-40 ">
@@ -119,4 +117,4 @@ function lcdo() {
   );
 }
 
-export default lcdo;
+export default kine;

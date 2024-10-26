@@ -5,8 +5,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Slider from "../components/Slider";
 
-import Backgroundv2 from "../components/Backgroundv2";
-
 function lcdo() {
   const data = [
     { url: "/lcdo1.webp", id: 1 },
@@ -21,13 +19,6 @@ function lcdo() {
         isDarkMode ? "bg-zinc-900 text-white " : "bg-violet-100 text-black "
       }`}
     >
-      <div
-        className={` absolute ${isDarkMode ? "opacity-50 " : "opacity-50 "}`}
-      >
-        {" "}
-        <Backgroundv2></Backgroundv2>
-      </div>
-
       <div className="  flex flex-col lg:justify-center sm:px-20  lg:pt-0 pt-20 px-5 z-40 ">
         <div className="flex flex-col justify-center ">
           <h1 className="font-bold text-3xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10 w-full">

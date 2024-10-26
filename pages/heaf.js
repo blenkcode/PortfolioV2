@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Slider from "../components/Slider";
-import Backgroundv2 from "../components/Backgroundv2";
+
 import { useTheme } from "../ThemeContext";
 function heaf() {
   const data = [
@@ -22,7 +22,6 @@ function heaf() {
         className={` absolute ${isDarkMode ? "opacity-50 " : "opacity-50 "}`}
       >
         {" "}
-        <Backgroundv2></Backgroundv2>
       </div>
 
       <div className="  flex flex-col lg:justify-center sm:px-20  lg:pt-0 pt-20 px-5 z-40 ">

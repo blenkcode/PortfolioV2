@@ -10,6 +10,10 @@ module.exports = {
     extend: {
       // Ajouter les keyframes combinés
       keyframes: {
+        scrollDown: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(70%)" },
+        },
         rotateY: {
           "0%": { transform: "rotateY(0deg)" },
           "100%": { transform: "rotateY(360deg)" },
@@ -61,17 +65,9 @@ module.exports = {
         "move-right2": "translateY 9.5s ease-in-out infinite ",
         "move-right3": "translateZ 5.5s ease-in-out infinite ",
         "border-animate": "border-animate 4s ease-in-out infinite",
+        scroll: "scrollDown 30s linear infinite",
       },
-      rotate: {
-        1: "90deg",
-        one: "100deg",
-        two: "5deg",
-        three: "190deg",
-        four: "-64deg",
-        five: "67deg",
-        six: "130deg",
-        360: "360deg",
-      },
+
       transitionDuration: {
         0: "0ms",
         2000: "2000ms", // 2 secondes
@@ -109,6 +105,7 @@ module.exports = {
       },
       width: {
         left1: "10rem",
+        1: "2px",
         110: "28rem",
         128: "32rem", // 512px
         144: "36rem", // 576px
@@ -116,10 +113,27 @@ module.exports = {
         192: "48rem",
         200: "52rem", // 768px
         256: "64rem",
+        300: "10%",
         circlee: "32rem", // 1024px
       },
       translate: {
         900: "900px",
+      },
+      rotate: {
+        "-180": "-180deg",
+        "-90": "-90deg",
+        "-45": "-45deg",
+        0: "0",
+        45: "45deg",
+        90: "90deg",
+        180: "180deg",
+      },
+      transform: {
+        "rotate-x-90": "rotateX(90deg)", // Une seule parenthèse à la fin
+        "-rotate-x-90": "rotateX(-90deg)", // Une seule parenthèse à la fin
+      },
+      inset: {
+        "5vw": "1vw", // Ajouter une option pour top à 10vw
       },
       zIndex: {
         60: "60", // Nouvelle valeur pour z-60
@@ -127,19 +141,27 @@ module.exports = {
         100: "100", // Nouvelle valeur pour z-100
       },
       height: {
+        dynamic: "4vw",
         1.2: "2.5px",
-        1: "1px",
+        1: "2px",
         110: "28rem",
         128: "32rem", // 512px
         144: "36rem", // 576px
         160: "40rem", // 640px
         192: "48rem",
-        200: "52rem", // 768px
+        200: "52rem",
+        300: "130%", // 768px
         256: "64rem", // 1024px
         500: "100rem",
         circlee: "32rem",
         quatre: "80%", // 75% de la hauteur
         vin: "20%", // 25% de la hauteur
+      },
+      scale: {
+        200: "3",
+        115: "1.15",
+        80: "0.8",
+        85: "0.85", // ou '0.8' ou '80%'
       },
       borderWidth: {
         1: "1px",
@@ -159,6 +181,13 @@ module.exports = {
       Chillax: ["Chillax-Variable"],
       Satoshi: ["Satoshi-Variable"],
       Safiro: ["safiromedium"],
+      montreal: ["PPNeueMontreal", "sans-serif"],
+      FKGroteskNeue: ["FKGroteskNeue", "sans-serif"],
+      Metana: ["Metana", "sans-serif"],
+      projekt: ["projekt", "sans-serif"],
+      neutral: ["Neutral", "sans-serif"],
+      playfair: ["playfair", "sans-serif"],
+      PPMori: ["PPMori", "sans-serif"],
     },
   },
   plugins: [],

@@ -16,7 +16,7 @@ const fragmentShader = `
         );
         
         // Définir la taille de base de la grille
-        float gridSize = 5.0;
+        float gridSize = 8.0;
         
         // Calculer la distance au point de la souris
         vec2 mouseDirection = uMouse - uPrevMouse;

@@ -64,6 +64,7 @@ const SmoothCounter = () => {
           opacity: 0,
           visibility: "hidden",
           duration: 0.2,
+          //
         },
         "<"
       );
@@ -72,13 +73,13 @@ const SmoothCounter = () => {
   return (
     <div
       ref={bgRef}
-      className="fixed transition-all duration-1000  opacity-100 font-projekt top-0 w-full h-lvh transition-overlay bg-neutral-200 flex items-start justify-end p-10  "
+      className="fixed transition-all duration-1000  opacity-100 font-Satoshi top-0 w-full h-lvh transition-overlay bg-stone-200 flex items-start justify-end p-10  "
     >
       <div
         ref={textRef}
         className=" text-neutral-800 text-8xl absolute bottom-10 left-10"
       >
-        <div className="text-sm mb-10 font-thin">Valentin MOR</div>
+        <div className="text-lg mb-10 font-thin">Valentin MOR</div>
         <div className="dynamic-text font-thin">Portfolio /2024</div>
       </div>
 
@@ -125,14 +126,6 @@ const SmoothCounter = () => {
           </div>
         </span>
       </div>
-      {/* <div className="circle23  absolute top-1/2 right-1/2 -translate-y-1/2 translate-x-1/2 ">
-          <div className="relative w-full h-full ">
-            <div className="absolute w-10 h-10 border-neutral-800 border-l-2 bottom-0 left-0"></div>
-            <div className="absolute w-20 h-10 border-neutral-800 border-b-2 bottom-0 left-0"></div>
-            <div className="absolute w-10 h-10 border-neutral-800 border-r-2 -top-0 right-0"></div>
-            <div className="absolute w-20 h-10 border-neutral-800 border-t-2 top-0 right-0"></div>
-          </div>
-        </div> */}
     </div>
   );
 };

@@ -13,34 +13,15 @@ function kine() {
 
   return (
     <div
-      className={`overflow-hidden font-Noehmi  w-full min-h-lvh  flex lg:flex-row flex-col relative  items-center ${
-        isDarkMode ? "bg-zinc-900 text-white " : "bg-violet-100 text-black "
-      }`}
+      className={`overflow-hidden font-Noehmi  w-full min-h-lvh  flex lg:flex-row flex-col relative  items-center `}
     >
-      <div
-        className={` absolute ${isDarkMode ? "opacity-50 " : "opacity-50 "}`}
-      >
-        {" "}
-      </div>
+      <div className={` absolute opacity-50 `}> </div>
 
       <div className="  flex flex-col lg:justify-center sm:px-20  lg:pt-0 pt-20 px-5 z-40 ">
         <div className="flex flex-col  ">
           <h1 className="font-bold text-2xl 2xl:text-7xl xl-text-7xl lg:text-6xl md:text-6xl sm:text-5xl mb-10 xs:p-10">
-            <span
-              className={` ${
-                isDarkMode ? "text-violet-400" : "text-violet-900 "
-              }`}
-            >
-              S
-            </span>
-            port -{" "}
-            <span
-              className={` ${
-                isDarkMode ? "text-violet-400" : "text-violet-900 "
-              }`}
-            >
-              S
-            </span>
+            <span className="">S</span>
+            port - <span className="">S</span>
             anté
           </h1>
           <div className="font-Satoshi font-thintext-md 2xl:text-xl xl-text-xl lg:text-lg md:text-sm sm:text-sm mb-10">

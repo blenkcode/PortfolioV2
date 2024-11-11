@@ -1,43 +1,83 @@
 import Stack from "./Stack";
-import Portfoliov3 from "./Portfoliov3";
+
 import { useEffect, useRef } from "react";
 import NewTitle from "./NewTitle";
-import dynamic from "next/dynamic";
+
 import SmoothCounter from "./Counter";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-const CustomShaderMaterial = dynamic(() => import("./CustomShader"), {
-  ssr: false,
-});
 
+import AllProjects from "./AllProjects";
 import About from "./About";
 import Lenis from "@studio-freight/lenis";
 import { useTheme } from "../ThemeContext";
 import Subtitles from "./Subtitles";
 import { useMainRef } from "../MainRefContext";
+import Workflow from "./Workflow";
+import Footer from "./Footer";
 
 function Home({}) {
+  // useEffect(() => {
+  //   let scrollPosition = 0;
+
+  //   const disableScroll = () => {
+  //     scrollPosition = window.pageYOffset;
+  //     document.body.style.overflow = "hidden";
+  //     document.body.style.position = "fixed";
+  //     document.body.style.top = `-${scrollPosition}px`;
+  //     document.body.style.width = "100%";
+  //   };
+
+  //   const enableScroll = () => {
+  //     document.body.style.overflow = "";
+  //     document.body.style.position = "";
+  //     document.body.style.top = "";
+  //     document.body.style.width = "";
+  //     window.scrollTo(0, scrollPosition);
+  //   };
+
+  //   // Désactive le scroll
+  //   disableScroll();
+
+  //   // Initialise GSAP et ScrollTrigger
+  //   gsap.registerPlugin(ScrollTrigger);
+
+  //   // Configuration des animations GSAP...
+  //   const setupAnimations = () => {
+  //     // Vos animations GSAP ici
+  //   };
+
+  //   // Attendre 5 secondes, puis activer le scroll et les animations
+  //   const timer = setTimeout(() => {
+  //     enableScroll();
+  //     setupAnimations(); // Initialize GSAP animations after scroll is enabled
+  //   }, 5000);
+
+  //   return () => {
+  //     clearTimeout(timer);
+  //     enableScroll();
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
+
   const { isDarkMode } = useTheme();
-  const selected = useRef(null);
+
   const mainRef = useRef(null);
 
   const { setMainRefValue } = useMainRef();
-  const morphRef = useRef(null);
-  const backgroundTriggerRef = useRef(null);
+
   useEffect(() => {
     if (mainRef.current) {
       setMainRefValue(mainRef.current);
     }
   }, [setMainRefValue]);
   useEffect(() => {
-    // Initialisation de Lenis
     const lenis = new Lenis({
-      duration: 1.2, // Durée du défilement
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Fonction d'easing
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
     });
-
-    // Fonction pour mettre à jour Lenis à chaque frame
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -45,64 +85,36 @@ function Home({}) {
 
     requestAnimationFrame(raf);
 
-    // Cleanup lors du démontage du composant
     return () => {
       lenis.destroy();
     };
   }, []);
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
 
-    gsap.fromTo(
-      selected.current,
-      { x: "-100%", opacity: 0 },
-      {
-        x: "0%",
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          toggleActions: "play none none reverse",
-          trigger: mainRef.current,
-          start: "46%", // Déclenchement au centre de l'écran
-          // Fin de l'animation quand le bas atteint le haut
-        },
-      }
-    );
-  }, []);
-
-  console.log(isDarkMode);
   return (
     <main
       ref={mainRef}
       className={` flex flex-col transition-colors   items-center justify-center relative overflow-hidden h-auto w-full    ${
-        isDarkMode ? "bg-neutral-200 " : "bg-violet-100 "
+        isDarkMode ? "bg-stone-200 " : "bg-violet-100 "
       }`}
     >
       {" "}
-      <div className="flex w-full  flex-col lg:h-lvh justify-center items-center ">
+      <div className="flex w-full  flex-col lg:h-lvh justify-center items-center relative ">
         <NewTitle mainref={mainRef} />
-        {/* <ShaderTitleMobile /> */}
+
         <Subtitles />
       </div>
-      <div className="w-full mt-10 lg:mt-0 space-y-5">
-        <div className=" lg:py-5 lg:px-5 px-3 py-3">
+      <div className="w-full ">
+        <div className="flex items-center justify-center ">
           {" "}
           <About></About>
         </div>
-        <div className=" lg:py-3 py-1">
-          <Stack></Stack>
+        <div className=" flex items-center justify-center mt-32 pb-32">
+          <AllProjects mainRef={mainRef} />
         </div>
+        <Stack></Stack>
+        <Footer></Footer>
       </div>
-      <div className="w-full  px-0">
-        <Portfoliov3 mainRef={mainRef} />
-      </div>
-      <SmoothCounter />
-      <div
-        ref={selected}
-        className="dynamic-text font-projekt font-thin fixed bottom-10 left-10"
-      >
-        Selected<span className="font-playfair">Works</span>
-      </div>
+      {/* <SmoothCounter /> */}
     </main>
   );
 }

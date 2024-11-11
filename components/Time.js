@@ -38,7 +38,7 @@ const HorlogeUdine = () => {
   const { isDarkMode } = useTheme();
   return (
     <div
-      className={`font-projekt 2xl:text-base lg:text-sm font- ${
+      className={`font-Satoshi 2xl:text-base lg:text-sm font- ${
         isDarkMode ? "text-neutral-800 " : "text-zinc-800"
       }`}
     >

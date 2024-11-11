@@ -93,7 +93,7 @@ function Header() {
           <div
             onClick={handlerouter}
             onMouseEnter={playHoverSound}
-            className={`sm:mr-20 lg:mr-5 xl:mr-20  w-fit  font-projekt cursor-pointer relative group ${
+            className={`sm:mr-20 lg:mr-5 xl:mr-20  w-fit  font-Satoshi cursor-pointer relative group ${
               isDarkMode ? "text-neutral-800 " : "text-zinc-800"
             }`}
           >
@@ -122,7 +122,7 @@ function Header() {
         </div>
 
         <div
-          className={`flex font-projekt items-center justify-end w-fit lg:max-w-none max-w-36 text-zinc-100 ${
+          className={`flex  items-center justify-end w-fit lg:max-w-none max-w-36 text-zinc-100 ${
             isDarkMode ? "text-zinc-900 " : "text-zinc-800"
           }`}
         >

@@ -7,11 +7,13 @@ const Projet = ({ href, img }) => {
     router.push(href);
   };
   return (
-    <div className="flex items-center justify-center ">
+    <div className="flex items-center justify-center relative ">
       <img
-        className="w-96  transition-all duration-500 hover:-translate-y-1"
+        onClick={handleRoute}
+        className="w-full grayscale cursor-pointer hover:grayscale-0 transition-all duration-500 "
         src={img}
       ></img>
+      <div className="absolute bottom-5 left-5 backdropp">Hello</div>
     </div>
   );
 };

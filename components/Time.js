@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useTheme } from "../ThemeContext";
+
 const HorlogeUdine = () => {
   const [time, setTime] = useState("");
 
@@ -35,13 +35,9 @@ const HorlogeUdine = () => {
     // Nettoyage de l'intervalle quand le composant est démonté
     return () => clearInterval(intervalId);
   }, []);
-  const { isDarkMode } = useTheme();
+
   return (
-    <div
-      className={`font-Satoshi 2xl:text-base lg:text-sm font- ${
-        isDarkMode ? "text-neutral-800 " : "text-zinc-800"
-      }`}
-    >
+    <div className={`font-Satoshi 2xl:text-base lg:text-sm `}>
       <p>{time}</p>
     </div>
   );

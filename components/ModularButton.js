@@ -10,7 +10,7 @@ const AnimatedButton = ({ text }) => {
   };
 
   return (
-    <div className="flex px-6  cursor-pointer group items-start justify-start lg:space-y-0  overflow-hidden duration-500 transition-all  w-fit relative flex-col font-Satoshi font-bold text-neutral-800 ">
+    <div className="flex px-6  cursor-pointer group items-start justify-start lg:space-y-0  overflow-hidden duration-500 transition-all  w-fit relative flex-col font-Satoshi font-bold  ">
       <div className="relative  w-fit z-30">
         <span className="opacity-0 flex">{text}1</span>
         <span className="absolute perspective-[1000px] flex top-0 left-0 w-full">

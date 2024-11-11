@@ -1,16 +1,11 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+
 import Time from "./Time";
 import gsap from "gsap";
 import { useRouter } from "next/router";
-import { useMainRef } from "../MainRefContext";
-import ThemeSwitcher from "./ThemeSwitcher";
-import { useTheme } from "../ThemeContext";
+
 function Header() {
-  const { isDarkMode } = useTheme();
-  const { mainRefValue } = useMainRef();
   const hoverSoundRef = useRef(null);
   const clickSoundRef = useRef(null);
   const bassRef = useRef(null);
@@ -81,7 +76,7 @@ function Header() {
   return (
     <div
       ref={headerRef}
-      className="absolute md:top-7 lg:text-base text-sm top-4 left-0 w-full h-auto bg-transparent items-center z-50 "
+      className="absolute md:top-7 lg:text-base text-sm top-4 left-0 w-full h-auto bg-transparent items-center z-50 text-neutral-200 "
     >
       <div className="flex lg:px-7 px-2 w-full justify-between  items-center  ">
         <audio ref={bassRef} src="/reversebass.wav"></audio>
@@ -93,9 +88,7 @@ function Header() {
           <div
             onClick={handlerouter}
             onMouseEnter={playHoverSound}
-            className={`sm:mr-20 lg:mr-5 xl:mr-20  w-fit  font-Satoshi cursor-pointer relative group ${
-              isDarkMode ? "text-neutral-800 " : "text-zinc-800"
-            }`}
+            className={`sm:mr-20 lg:mr-5 xl:mr-20  w-fit  font-Satoshi cursor-pointer relative group `}
           >
             <span className="opacity-0">V</span>
             <span className="opacity-0">V</span>
@@ -108,9 +101,7 @@ function Header() {
                 V
               </span>
               <span
-                className={`absolute   group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm ${
-                  isDarkMode ? "text-zinc-900 " : "text-zinc-800"
-                }`}
+                className={`absolute   group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm `}
               >
                 /
               </span>
@@ -122,9 +113,7 @@ function Header() {
         </div>
 
         <div
-          className={`flex  items-center justify-end w-fit lg:max-w-none max-w-36 text-zinc-100 ${
-            isDarkMode ? "text-zinc-900 " : "text-zinc-800"
-          }`}
+          className={`flex  items-center justify-end w-fit lg:max-w-none max-w-36  `}
         >
           {" "}
           <div className=" md:relative absolute -translatey-full lg:-translate-y-0">

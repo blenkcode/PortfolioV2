@@ -2,10 +2,7 @@
 import React from "react";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Canvas } from "@react-three/fiber";
-import ShaderSceneCopy from "./ShaderSceneCopy";
-import Available from "./Available";
+
 import TextDistortion from "./shaders/textShader";
 import AnimatedButton from "./ModularButton";
 const NewTitle = ({ mainRef }) => {
@@ -47,12 +44,12 @@ const NewTitle = ({ mainRef }) => {
 
   return (
     <h1 className="  font-bold justify-center rounded-xl textcolor flex flex-col items-center px-5 py-5  h-lvh  lg:mb-0 relative  w-full">
-      <div className="left-32 bottom-1/3 font-Satoshi font-normal -translate-y-full space-x-2 absolute text-neutral-800 flex items-center">
+      <div className="left-32 bottom-1/3 font-Satoshi font-normal -translate-y-full space-x-2 absoluteflex items-center">
         {/* <div className="flex items-center overflow-hidden relative">
           <div ref={FreeRef}>Free-lance</div>
         </div>{" "} */}
       </div>
-      <div className="font-normal font-Satoshi  text-neutral-800 absolute w-fit  top-5 hover:text-neutral-800 transition-all text-[1vw] duration-200">
+      <div className="font-normal font-Satoshi   absolute w-fit  top-5 transition-all text-[1vw] duration-200">
         {" "}
         <AnimatedButton text="AVAILABLE FOR WORK" />
       </div>{" "}
@@ -66,8 +63,8 @@ WEB DEVELOPPER`}
           />
         </div>
 
-        <div className=" absolute font-Satoshi font-normal -bottom-10 text-neutral-800 mt-32 flex items-center space-x-2">
-          <div className="w-3 h-3 bg-neutral-800"></div>
+        <div className=" absolute font-Satoshi font-normal -bottom-10  mt-32 flex items-center space-x-2">
+          <div className="w-3 h-3 bg-neutral-200"></div>
           <div className="flex items-center overflow-hidden relative">
             <div ref={welcomeRef}>Welcome to my 2024 portfolio</div>
           </div>{" "}

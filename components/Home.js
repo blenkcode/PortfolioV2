@@ -3,18 +3,17 @@ import Stack from "./Stack";
 import { useEffect, useRef } from "react";
 import NewTitle from "./NewTitle";
 
-import SmoothCounter from "./Counter";
-
 import gsap from "gsap";
+import { Canvas } from "@react-three/fiber";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
+import ShaderSceneCopy from "./ShaderSceneCopy";
 import AllProjects from "./AllProjects";
 import About from "./About";
 import Lenis from "@studio-freight/lenis";
-import { useTheme } from "../ThemeContext";
+import Contact from "./Contact";
 import Subtitles from "./Subtitles";
 import { useMainRef } from "../MainRefContext";
-import Workflow from "./Workflow";
+
 import Footer from "./Footer";
 
 function Home({}) {
@@ -61,8 +60,6 @@ function Home({}) {
   //   };
   // }, []);
 
-  const { isDarkMode } = useTheme();
-
   const mainRef = useRef(null);
 
   const { setMainRefValue } = useMainRef();
@@ -89,21 +86,46 @@ function Home({}) {
       lenis.destroy();
     };
   }, []);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: mainRef.current,
+        start: "top",
+        end: "100%",
+        scrub: true,
+        id: "background-animation",
+      },
+    });
+
+    tl.to(backgroundRef.current, {
+      y: "-55%",
+      ease: "none",
+    });
+  }, []);
+  const backgroundRef = useRef(null);
   return (
     <main
       ref={mainRef}
-      className={` flex flex-col transition-colors   items-center justify-center relative overflow-hidden h-auto w-full    ${
-        isDarkMode ? "bg-stone-200 " : "bg-violet-100 "
-      }`}
+      className={` flex flex-col transition-colors   items-center justify-center relative overflow-hidden w-full  text-neutral-200 bg-neutral-800`}
     >
-      {" "}
+      <div
+        ref={backgroundRef}
+        className="fixed top-0 left-0 w-full h-[250vh] opacity-100"
+      >
+        <Canvas>
+          <ShaderSceneCopy />
+        </Canvas>
+        <div className="w-full h-full fixed top-0 backgroundd z-10"></div>
+        <div className="w-full h-full fixed top-0 backgroundd2 z-10"></div>
+      </div>{" "}
       <div className="flex w-full  flex-col lg:h-lvh justify-center items-center relative ">
         <NewTitle mainref={mainRef} />
 
         <Subtitles />
       </div>
-      <div className="w-full ">
+      <div className="w-full flex flex-col ">
         <div className="flex items-center justify-center ">
           {" "}
           <About></About>
@@ -111,8 +133,17 @@ function Home({}) {
         <div className=" flex items-center justify-center mt-32 pb-32">
           <AllProjects mainRef={mainRef} />
         </div>
-        <Stack></Stack>
-        <Footer></Footer>
+      </div>
+      <div className="flex flex-col w-full">
+        {" "}
+        <div className="mt-32">
+          {" "}
+          <Contact></Contact>
+        </div>
+        <div className="w-full mt-32">
+          {" "}
+          <Footer></Footer>
+        </div>
       </div>
       {/* <SmoothCounter /> */}
     </main>

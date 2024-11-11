@@ -182,24 +182,21 @@ function AllProjects({ mainRef }) {
   return (
     <div
       ref={containerRef}
-      className="flex items-start text-neutral-800 px-20 justify-start  relative min-h-[400vh] w-full"
+      className="flex items-start  px-20 justify-start  relative min-h-[400vh] w-full"
     >
       <div
         ref={titleRef}
-        className={` h-lvh w-full right-0 transition-all duration-500 font-Satoshi font-thin flex-col  z-60 flex ${
+        className={` h-lvh w-full right-0 transition-all duration-500 font-Satoshi font-thin flex-col  justify-center items-center  z-60 flex ${
           fixed ? " bottom-0 " : " top-0"
         }`}
         style={{ position: "absolute" }} // Position initiale
       >
-        <h3 className="text-[4vw] text-nowrap flex items-center  justify-center  font-bold w-3/5  mt-[4%] mb-[2%] ">
-          <div className="w-2/3">Selected PROJECTS</div>
-        </h3>
         <div className="flex items-center justify-center h-full">
-          <div className="w-2/5 h-full flex flex-col items-end justify-center relative ">
-            <div className="w-2/3 relative overflow-hidden">
+          <div className="w-1/2 h-fit flex flex-col items-center justify-center relative ">
+            <div className="w-2/3 relative overflow-hidden ">
               {" "}
               <Image
-                className="opacity-0"
+                className="opacity-0 border-neutral-800 border-2"
                 src="/lcd.png"
                 width={1920}
                 height={975}
@@ -215,8 +212,8 @@ function AllProjects({ mainRef }) {
                 }`}
               >
                 <Image
-                  className={`h-full w-full  ease-in-out  transition-all duration-500 ${
-                    lcdo ? "blur-none" : "blur-sm scale-75"
+                  className={`h-full w-full  ease-in-out  transition-all duration-500  border-neutral-800 border-4 border-solid ${
+                    lcdo ? "" : " scale-0  opacity-20 rotate-12"
                   }`}
                   src="/lcd.png"
                   width={1920}
@@ -225,7 +222,7 @@ function AllProjects({ mainRef }) {
                 />
                 <Image
                   className={`h-full w-full   ease-in-out  transition-all duration-500 ${
-                    sante ? "blur-none" : "blur-sm scale-75"
+                    sante ? "" : " scale-0  opacity-20 -rotate-12"
                   }`}
                   src="/sante1.webp"
                   width={1920}
@@ -234,7 +231,7 @@ function AllProjects({ mainRef }) {
                 />
                 <Image
                   className={`h-full w-full transition-all duration-500 ${
-                    marine ? "blur-none" : "blur-sm scale-75"
+                    marine ? "" : " scale-0  opacity-20 rotate-12"
                   }`}
                   src="/mb.png"
                   width={1920}
@@ -243,7 +240,7 @@ function AllProjects({ mainRef }) {
                 />
                 <Image
                   className={`h-full w-full ease-in-out transition-all duration-500 ${
-                    heaf ? "blur-none" : "blur-sm scale-75"
+                    heaf ? "" : " scale-0  opacity-20 -rotate-12 "
                   }`}
                   src="/fh1.png"
                   width={1920}
@@ -252,7 +249,7 @@ function AllProjects({ mainRef }) {
                 />
                 <Image
                   className={`h-full w-full  ease-in-out  transition-all duration-500 ${
-                    mutable ? "blur-none" : "blur-sm scale-75"
+                    mutable ? "" : " scale-0  opacity-20 rotate-12"
                   }`}
                   src="/mutable.webp"
                   width={1920}
@@ -261,286 +258,14 @@ function AllProjects({ mainRef }) {
                 />
               </div>
             </div>
-            <div className="w-2/3 text-xs  xl:text-base lg:text-sm  mt-10 relative h-2/5 overflow-hidden">
-              <div
-                className={`absolute flex-col flex  top-0 left-0 w-full h-full ${
-                  lcdo ? "translate-y-0" : "translate-y-full"
-                }`}
-              >
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    lcdo
-                      ? "translate-y-0 opacity-100 delay-100 "
-                      : "-translate-y-10 opacity-0 "
-                  }`}
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
-                </div>
-                <div
-                  className={`  transition-all duration-500 ease-in-out ${
-                    lcdo
-                      ? "translate-y-0 opacity-100 delay-200"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                </div>
-                <div
-                  className={` delay-100 transition-all duration-500 ease-in-out ${
-                    lcdo
-                      ? "translate-y-0 opacity-100 delay-300"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris
-                </div>
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    lcdo
-                      ? "translate-y-0 opacity-100 delay-500"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  nisi ut aliquip ex ea commodo consequat.{" "}
-                </div>
-                <div className="flex items-center justify-start mt-10">
-                  <div className=" mr-5  z-60">
-                    <Visitez />
-                  </div>
-                  <div className="  z-60">
-                    <View />
-                  </div>
-                </div>
-              </div>
-              <div
-                className={`absolute top-0 left-0 w-full h-full ${
-                  sante ? "translate-y-0" : "translate-y-full"
-                }`}
-              >
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    sante
-                      ? "translate-y-0 opacity-100 "
-                      : "-translate-y-10 opacity-0 "
-                  }`}
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
-                </div>
-                <div
-                  className={`  transition-all duration-500 ease-in-out ${
-                    sante
-                      ? "translate-y-0 opacity-100 delay-75"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                </div>
-                <div
-                  className={` delay-100 transition-all duration-500 ease-in-out ${
-                    sante
-                      ? "translate-y-0 opacity-100 delay-100"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris
-                </div>
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    sante
-                      ? "translate-y-0 opacity-100 delay-200"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  nisi ut aliquip ex ea commodo consequat.{" "}
-                </div>
-                <div className="flex items-center justify-start mt-10">
-                  <div className=" mr-5  z-60">
-                    <Visitez />
-                  </div>
-                  <div className="  z-60">
-                    <View />
-                  </div>
-                </div>
-              </div>
-              <div
-                className={`absolute top-0 left-0 w-full h-full ${
-                  marine ? "translate-y-0" : "translate-y-full"
-                }`}
-              >
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    marine
-                      ? "translate-y-0 opacity-100 "
-                      : "-translate-y-10 opacity-0 "
-                  }`}
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
-                </div>
-                <div
-                  className={`  transition-all duration-500 ease-in-out ${
-                    marine
-                      ? "translate-y-0 opacity-100 delay-75"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                </div>
-                <div
-                  className={` delay-100 transition-all duration-500 ease-in-out ${
-                    marine
-                      ? "translate-y-0 opacity-100 delay-100"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris
-                </div>
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    marine
-                      ? "translate-y-0 opacity-100 delay-200"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  nisi ut aliquip ex ea commodo consequat.{" "}
-                </div>
-                <div className="flex items-center justify-start mt-10">
-                  <div className=" mr-5  z-60">
-                    <Visitez />
-                  </div>
-                  <div className="  z-60">
-                    <View />
-                  </div>
-                </div>
-              </div>
-              <div
-                className={`absolute top-0 left-0 w-full h-full ${
-                  heaf ? "translate-y-0" : "translate-y-full"
-                }`}
-              >
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    heaf
-                      ? "translate-y-0 opacity-100 "
-                      : "-translate-y-10 opacity-0 "
-                  }`}
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
-                </div>
-                <div
-                  className={`  transition-all duration-500 ease-in-out ${
-                    heaf
-                      ? "translate-y-0 opacity-100 delay-75"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                </div>
-                <div
-                  className={` delay-100 transition-all duration-500 ease-in-out ${
-                    heaf
-                      ? "translate-y-0 opacity-100 delay-100"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris
-                </div>
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    heaf
-                      ? "translate-y-0 opacity-100 delay-200"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  nisi ut aliquip ex ea commodo consequat.{" "}
-                </div>
-                <div className="flex items-center justify-start mt-10">
-                  <div className=" mr-5  z-60">
-                    <Visitez />
-                  </div>
-                  <div className="  z-60">
-                    <View />
-                  </div>
-                </div>
-              </div>
-              <div
-                className={`absolute top-0 left-0 w-full h-full ${
-                  mutable ? "translate-y-0" : "translate-y-full"
-                }`}
-              >
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    mutable
-                      ? "translate-y-0 opacity-100 "
-                      : "-translate-y-10 opacity-0 "
-                  }`}
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
-                </div>
-                <div
-                  className={`  transition-all duration-500 ease-in-out ${
-                    mutable
-                      ? "translate-y-0 opacity-100 delay-75"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                </div>
-                <div
-                  className={` delay-100 transition-all duration-500 ease-in-out ${
-                    mutable
-                      ? "translate-y-0 opacity-100 delay-100"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  {" "}
-                  enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris
-                </div>
-                <div
-                  className={` transition-all duration-500 ease-in-out ${
-                    mutable
-                      ? "translate-y-0 opacity-100 delay-200"
-                      : "-translate-y-10 opacity-0"
-                  }`}
-                >
-                  nisi ut aliquip ex ea commodo consequat.{" "}
-                </div>
-                <div className="flex items-center justify-start mt-10">
-                  <div className=" mr-5  z-60">
-                    <Visitez />
-                  </div>
-                  <div className="  z-60">
-                    <View />
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-          <div className="w-3/5 flex flex-col items-center  justify-center  h-full text-[1.8vw] ">
+          <div className="w-2/5 flex flex-col items-center  justify-center  h-fit text-[1.8vw]  ">
             {" "}
-            <div className="flex relative items-end flex-col space-y-1 translate-y-[-60%] ">
+            <div className="flex relative items-center justify-center flex-col space-y-1  ">
               {" "}
               {/* <img
                 src="/svg/arrowf.svg"
-                className={`rotate-180 absolute top-[7%] -right-10 transition-all duration-500${
+                className={` absolute top-[7%] -left-10 transition-all duration-500${
                   lcdo ? "translate-y-0" : ""
                 } ${sante ? "translate-y-[270%]" : ""} ${
                   marine ? "translate-y-[270%]" : ""
@@ -550,7 +275,7 @@ function AllProjects({ mainRef }) {
               ></img> */}
               <span
                 onClick={() => handleChange("lcdo")}
-                className={`cursor-pointer flex relative items-center transition-all duration-500 text-nowrap ${
+                className={`cursor-pointer flex relative items-center transition-all duration-500  ${
                   lcdo ? "font-bold" : "font-thin"
                 }`}
               >
@@ -558,7 +283,7 @@ function AllProjects({ mainRef }) {
               </span>
               <span
                 onClick={() => handleChange("sante")}
-                className={`cursor-pointer relative flex items-center text-nowrap transition-all duration-500 ${
+                className={`cursor-pointer relative flex items-center transition-all duration-500 ${
                   sante ? "font-bold" : "font-thin"
                 }`}
               >

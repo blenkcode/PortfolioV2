@@ -9,6 +9,7 @@ class WarpMaterial extends THREE.ShaderMaterial {
         iTime: { value: 0 },
         iResolution: { value: new THREE.Vector3() },
         uHover: { value: 0.5 },
+        uMousePos: { value: new THREE.Vector2(0, 0) },
       },
       vertexShader: `
         varying vec2 vUv;
@@ -21,35 +22,76 @@ class WarpMaterial extends THREE.ShaderMaterial {
       uniform float iTime;
       uniform vec3 iResolution;
       uniform float uHover;
+      uniform vec2 uMousePos;
       varying vec2 vUv;
-  
+
+      // Fonction de permutation
+      vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+      vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+      vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+      // Simplex noise 2D
+      float snoise(vec2 v) {
+        const vec4 C = vec4(0.211324865405187,
+                          0.366025403784439,
+                         -0.577350269189626,
+                          0.024390243902439);
+        vec2 i  = floor(v + dot(v, C.yy));
+        vec2 x0 = v -   i + dot(i, C.xx);
+        vec2 i1;
+        i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+        vec4 x12 = x0.xyxy + C.xxzz;
+        x12.xy -= i1;
+        i = mod289(i);
+        vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0))
+                        + i.x + vec3(0.0, i1.x, 1.0));
+        vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy),
+                               dot(x12.zw,x12.zw)), 0.0);
+        m = m*m;
+        m = m*m;
+        vec3 x = 2.0 * fract(p * C.www) - 1.0;
+        vec3 h = abs(x) - 0.5;
+        vec3 ox = floor(x + 0.5);
+        vec3 a0 = x - ox;
+        m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
+        vec3 g;
+        g.x  = a0.x  * x0.x  + h.x  * x0.y;
+        g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+        return 500.0 * dot(m, g);
+      }
+
       void main() {
           vec2 uv = (2.0 * vUv - 1.0) * vec2(iResolution.x/iResolution.y, 1.0);
+          float slowTime = iTime * 0.1;
           
-          float slowTime = iTime * 0.3;
+          // Utilisation du bruit pour créer un effet liquide
+          float noise1 = snoise(uv * 1.5 + vec2(slowTime * 0.5));
+          float noise2 = snoise(uv * 2.0 - vec2(slowTime * 0.3));
+          float noise3 = snoise(uv * 3.0 + vec2(slowTime * 0.7));
           
-          float amplitude = mix(0.5, 1.9, uHover);
+          // Combinaison des différentes couches de bruit
+          float finalNoise = noise1 * 0.5 + noise2 * 0.3 + noise3 * 0.2;
           
-          for(float i = 1.0; i < 10.0; i++){
-              uv.x += amplitude / i * cos(i * 2.5 * uv.y + slowTime);
-              uv.y += amplitude / i * cos(i * 1.5 * uv.x + slowTime);
-          }
+          // Calcul de la distance entre le pointeur et chaque pixel
+          float distance = length(uv - uMousePos) * 10.0;
           
-          vec3 color1 = vec3(0.198, 0.198, 0.198);  // Votre première 
-          vec3 color2 = vec3(0.067, 0.204, 0.345);        // Noir
-          vec3 color3 = vec3(0.898, 0.898, 0.898);  // Par exemple indigo-700, à ajuster selon vos besoins
+          // Appliquer un effet de distorsion en fonction de la distance
+          float distortionAmount = mix(0.0, 0.5, clamp(1.0 - distance, 0.0, 1.0));
+          uv.x += distortionAmount * finalNoise;
+          uv.y += distortionAmount * finalNoise;
           
-          // Crée un facteur d'animation qui oscille entre 0 et 1
-          float t = abs(sin(slowTime-uv.y-uv.x));
+          vec3 color1 = vec3(0.398, 0.398, 0.398);
+          vec3 color2 = vec3(0.267, 0.267, 0.267);
+          vec3 color3 = vec3(0.898, 0.898, 0.898);
           
-          // Utilise le facteur t pour mélanger les trois couleurs
+          // Utilisation du bruit pour le mélange des couleurs
+          float colorMix = (finalNoise + 1.0) * 0.5;
+          
           vec3 color;
-          if(t < 0.5) {
-              // Mélange entre color1 et color2 pour la première moitié du cycle
-              color = mix(color1, color2, t * 2.0);
+          if(colorMix < 0.5) {
+              color = mix(color1, color2, colorMix * 2.0);
           } else {
-              // Mélange entre color2 et color3 pour la seconde moitié du cycle
-              color = mix(color2, color3, (t - 0.5) * 2.0);
+              color = mix(color2, color3, (colorMix - 0.5) * 2.0);
           }
           
           gl_FragColor = vec4(color, 1.0);
@@ -66,6 +108,7 @@ function ShaderSceneCopy() {
   const { viewport } = useThree();
   const timeScale = 0.5;
   const [isHovered, setIsHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const targetHover = useRef(0);
   const currentHover = useRef(0);
 
@@ -78,19 +121,32 @@ function ShaderSceneCopy() {
         viewport.height,
         1
       );
+      materialRef.current.uniforms.uMousePos.value.set(mousePos.x, mousePos.y);
 
-      // Animation plus fluide du hover avec un facteur d'interpolation plus doux
       targetHover.current = isHovered ? 1.0 : 0.0;
       currentHover.current +=
-        (targetHover.current - currentHover.current) * 0.005; // Réduit de 0.1 à 0.05
+        (targetHover.current - currentHover.current) * 0.005;
       materialRef.current.uniforms.uHover.value = currentHover.current;
     }
   });
 
+  const handleMouseMove = (e) => {
+    setMousePos({
+      x: (e.clientX / viewport.width) * 2 - 1,
+      y: -(e.clientY / viewport.height) * 2 + 1,
+    });
+  };
+
   return (
     <mesh
-      onPointerEnter={() => setIsHovered(true)}
-      onPointerLeave={() => setIsHovered(false)}
+      onPointerEnter={(e) => {
+        setIsHovered(true);
+        handleMouseMove(e);
+      }}
+      onPointerLeave={() => {
+        setIsHovered(false);
+      }}
+      onPointerMove={handleMouseMove}
     >
       <planeGeometry args={[2, 2]} />
       <warpMaterial ref={materialRef} />

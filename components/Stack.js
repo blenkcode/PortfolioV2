@@ -104,32 +104,32 @@ function Stack({ mainRef }) {
       <h2 className="flex flex-col tab pb-3 lg:pb-0  items-center 2xl:space-y-3 xl:space-y-2 lg:space-y-1 space-y-1 w- h-fit  ">
         <div className="flex mt-2">
           <span className="relative w-fit overflow-hidden">
-            <div ref={CONCE1Ref}>CONCE</div>
+            <div ref={CONCE1Ref}>You have </div>
             <div ref={CONCE2Ref} className="absolute top-0">
-              CONCE
+              You have
             </div>
           </span>
           <span className="relative w-fit overflow-hidden">
-            <div ref={PTION1ref}>PTION</div>
+            <div ref={PTION1ref}> some</div>
             <div ref={PTION2ref} className="absolute top-0">
-              PTION
+              some
             </div>
           </span>{" "}
           <span className="2xl:px-5 xl:px-3 lg:px-2  px-2">&</span>{" "}
           <span className="relative w-fit overflow-hidden">
-            <div ref={DEVEL1ref}>DEVEL</div>
+            <div ref={DEVEL1ref}>questions</div>
             <div ref={DEVEL2ref} className="absolute top-0">
-              DEVEL
+              questions
             </div>
           </span>
           <span className="relative w-fit overflow-hidden">
-            <div ref={OPMENT1ref}>OPMENT</div>
+            <div ref={OPMENT1ref}>?</div>
             <div
               ref={OPMENT2ref}
               className="absolute top-0
             "
             >
-              OPMENT
+              ?
             </div>
           </span>{" "}
         </div>

@@ -9,34 +9,31 @@ const fragmentShader = `
     uniform vec2 uResolution;
     
     void main() {
-        vec2 uv = vec2(gl_FragCoord.x / uResolution.x, gl_FragCoord.y / uResolution.y);
-        vec2 mouseDirection = uMouse - uPrevMouse;
-        vec2 toMouse = uv - uMouse;
-        
-        // Normaliser la distance en fonction de la résolution
-        float aspectRatio = uResolution.x / uResolution.y;
-        vec2 scaledDistance = vec2(toMouse.x * aspectRatio, toMouse.y);
-        float distanceToMouse = length(scaledDistance) * 3.9; // Rayon constant
-        
-        float waveFrequency = 5.0;
-        float waveAmplitude = 0.1;
-        float rippleSpeed = 6.0;
-        
-        float ripple = sin(distanceToMouse * waveFrequency - length(mouseDirection) * rippleSpeed) 
-                    * exp(-distanceToMouse * 1.5)
-                    * waveAmplitude 
-                    * uAberrationIntensity;
-        
-        vec2 uvOffset = normalize(toMouse) * ripple;
-        vec2 uv2 = uv + uvOffset;
-        
-        float aberrationStrength = ripple * 2.0;
-        vec4 colorR = texture2D(uTexture, uv2 + vec2(aberrationStrength, 0.0));
-        vec4 colorG = texture2D(uTexture, uv2);
-        vec4 colorB = texture2D(uTexture, uv2 - vec2(aberrationStrength, 0.0));
-        
-        gl_FragColor = vec4(colorR.r, colorG.g, colorB.b, colorG.a);
-    }
+      vec2 uv = vec2(gl_FragCoord.x / uResolution.x, gl_FragCoord.y / uResolution.y);
+      vec2 mouseDirection = uMouse - uPrevMouse;
+      vec2 toMouse = uv - uMouse;
+      
+      // Normaliser la distance en fonction de la résolution
+      float aspectRatio = uResolution.x / uResolution.y;
+      vec2 scaledDistance = vec2(toMouse.x * aspectRatio, toMouse.y);
+      float distanceToMouse = length(scaledDistance) * 3.9; // Rayon constant
+      
+      float waveFrequency = 5.0;
+      float waveAmplitude = 0.1;
+      float rippleSpeed = 6.0;
+      
+      float ripple = sin(distanceToMouse * waveFrequency - length(mouseDirection) * rippleSpeed) 
+                  * exp(-distanceToMouse * 1.5)
+                  * waveAmplitude 
+                  * uAberrationIntensity;
+      
+      vec2 uvOffset = normalize(toMouse) * ripple;
+      vec2 uv2 = uv + uvOffset;
+      
+      vec4 color = texture2D(uTexture, uv2);
+      
+      gl_FragColor = color;
+  }
 `;
 
 const vertexShader = `
@@ -112,7 +109,7 @@ const TextDistortion = ({
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
 
-    ctx.fillStyle = "#262626";
+    ctx.fillStyle = "#F8F8F8";
     ctx.font = `bold ${fontSizeInPx}px Projekt`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";

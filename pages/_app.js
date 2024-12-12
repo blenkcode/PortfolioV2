@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 import Header from "../components/Header";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import Backgroundtrue from "../components/Background";
+import Background from "../components/Background";
 import { MainRefProvider } from "../MainRefContext";
 import TransitionWrapper from "../utils/TransitionWrapper";
 
@@ -19,7 +19,7 @@ function App({ Component, pageProps, router }) {
 
       <Header mainRef={mainRef} />
       <TransitionWrapper>
-        <Backgroundtrue mainRef={mainRef}></Backgroundtrue>
+        <Background mainRef={mainRef}></Background>
 
         <Component key={router.route} {...pageProps} setMainRef={setMainRef} />
       </TransitionWrapper>

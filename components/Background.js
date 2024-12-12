@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import { useEffect, useRef } from "react";
-import ShaderSceneCopy from "./ShaderSceneCopy";
+import ShaderSceneCopy from "../components/ShaderSceneCopy";
 import { Canvas } from "@react-three/fiber";
 const Background = ({ mainRef }) => {
   useEffect(() => {

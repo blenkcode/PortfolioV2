@@ -1,7 +1,6 @@
-import SmoothCounter from "./Counter";
 import { useEffect, useRef } from "react";
 import NewTitle from "./NewTitle";
-import Backgroundtrue from "./Background";
+
 import gsap from "gsap";
 
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -10,8 +9,6 @@ import About from "./About";
 import Lenis from "@studio-freight/lenis";
 import Contact from "./Contact";
 
-import PortfolioBackground from "./ShaderSceneCopy";
-import { Canvas } from "@react-three/fiber";
 import { useMainRef } from "../MainRefContext";
 
 import Port from "./Port";

@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import { useEffect, useRef } from "react";
-import PortfolioBackground from "./ShaderSceneCopy";
+import ShaderSceneCopy from "./ShaderSceneCopy";
 import { Canvas } from "@react-three/fiber";
 const Backgroundtrue = ({ mainRef }) => {
   useEffect(() => {
@@ -33,7 +33,7 @@ const Backgroundtrue = ({ mainRef }) => {
       className="fixed top-0 left-0 w-full h-[200vh] opacity-100 pointer-events-auto"
     >
       <Canvas>
-        <PortfolioBackground />
+        <ShaderSceneCopy />
       </Canvas>
       <div className="w-full h-full fixed top-0 backgroundd z-10 pointer-events-none"></div>
       <div className="w-full h-full fixed top-0 backgroundd2 z-10 pointer-events-none"></div>

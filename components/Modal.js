@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
-import Image from "next/image";
+
 import gsap from "gsap";
-import { Canvas } from "@react-three/fiber";
+
 import GsapMagnetic from "../utils/GsapMagnetic2";
-import ShaderSceneCopy from "./ShaderSceneCopy";
+
 const Modal = ({ modal, projects }) => {
   const { active, index } = modal;
   const containerRef = useRef(null);

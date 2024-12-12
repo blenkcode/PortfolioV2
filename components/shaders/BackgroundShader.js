@@ -103,7 +103,7 @@ class WarpMaterial extends THREE.ShaderMaterial {
 
 extend({ WarpMaterial });
 
-function ShaderSceneCopy() {
+function BackgroundShader() {
   const materialRef = useRef();
   const { viewport } = useThree();
   const timeScale = 0.5;
@@ -154,4 +154,4 @@ function ShaderSceneCopy() {
   );
 }
 
-export default ShaderSceneCopy;
+export default BackgroundShader;

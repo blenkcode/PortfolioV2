@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
-import Link from "next/link";
+import GsapMagnetic from "../utils/GsapMagnetic2";
 const Subtitles = () => {
   const [whoIsHovered, setWhoIsHovered] = useState("");
   const leftRef = useRef(null);
@@ -21,25 +21,26 @@ const Subtitles = () => {
       }
     );
   }, []);
+
   return (
     <div
       ref={leftRef}
-      className="lg:w-4/5 text-xs  xl:text-base lg:text-sm w-full  flex lg:items-start lg:flex-row px-5 lg:px-0 flex-col justify-between  font-Satoshi space-y-14 lg:space-y-0   mt-14 lg:mt-0 relative  lg:h-1/4"
+      className="lg:w-4/5 text-xs  xl:text-base lg:text-sm w-full  flex lg:items-start lg:flex-row px-5 lg:px-0 flex-col justify-between  font-Satoshi space-y-14 lg:space-y-0   mt-10 lg:mt-0 relative  lg:h-1/3"
     >
       <div className="flex 2xl:space-x-32 xl:space-x-28 lg:space-x-20 justify-between space-x-5">
-        <div className="flex  lg:space-y-0 space-y-2 flex-col">
+        <div className="flex  lg:space-y-2 space-y-3 flex-col">
           <h4 className="font-bold mb-2  flex items-center space-x-3">
             <div className="w-3 h-3 bg-neutral-200"></div>
             <div>TECH-STACK</div>
           </h4>
-          <ul className="cursor-default">
+          <ul className="cursor-default flex flex-col space-y-1">
             <li className="relative group overflow-hidden">
               {" "}
               <span className="">TypeScript w/ Next.js, React </span>
             </li>
             <li className="relative group overflow-hidden">
               {" "}
-              <span className="">Tailwind CSS, GSAP</span>
+              <span className="">Three, WebGL, GSAP</span>
             </li>
             <li className="relative group overflow-hidden">
               {" "}
@@ -51,12 +52,12 @@ const Subtitles = () => {
             </li>
           </ul>
         </div>
-        <div className="flex  lg:space-y-0 space-y-2 flex-col">
+        <div className="flex  lg:space-y-2 space-y-2 flex-col">
           <h4 className="font-bold mb-2  flex items-center space-x-3">
             <div className="w-3 h-3 bg-neutral-200"></div>
             <div>ABOUT ME</div>
           </h4>
-          <ul className="cursor-default">
+          <ul className="cursor-default flex flex-col space-y-1">
             <li className="relative group overflow-hidden">
               {" "}
               <span className="">Valentin MOR</span>
@@ -76,20 +77,21 @@ const Subtitles = () => {
 
       <div className="flex flex-col items-center justify-center lg:h-1/3 space-y-2">
         <div>YOU KNOW THE DEAL</div>
-        <div className="font-bold relative">
+        <div className="font-bold text-xl relative">
           SCROLL
           <img
-            src="/svg/newarrow.svg"
+            src="/arrown.svg"
             className="absolute rotate-90 top-1/2 -translate-y-1 -left-10"
           ></img>
         </div>
       </div>
 
       <div className="items-start justify-center lg:justify-start flex flex-col mt-0 lg:mt-0">
-        <h4 className="font-bold mb-2 flex items-center space-x-2">
+        <h4 className="font-bold mb-4 flex items-center space-x-2">
           <div className="w-3 h-3 bg-neutral-200"></div>
           <div>SOCIALS</div>
         </h4>
+
         <div className="flex flex-col items-start text-neutral-200">
           <div className="flex">
             <div

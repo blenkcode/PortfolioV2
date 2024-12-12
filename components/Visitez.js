@@ -1,10 +1,11 @@
 import React from "react";
-import { useTheme } from "../ThemeContext";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef } from "react";
+import GsapMagnetic from "../utils/GsapMagnetic2";
+import Link from "next/link";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const Visitez = ({ link }) => {
-  const { isDarkMode } = useTheme();
   const clickSoundRef = useRef(null);
   const playClickSound = () => {
     if (clickSoundRef.current) {
@@ -16,31 +17,43 @@ const Visitez = ({ link }) => {
     }
   };
   return (
-    <a
+    <Link
       href={link}
-      target="_blank"
-      className=" mt-5 z-50  "
-      onMouseEnter={playClickSound}
+      scroll={false}
+      // target="_blank"
     >
-      {" "}
-      <audio ref={clickSoundRef} src="/click1.wav"></audio>
-      <div
-        className={`group border-1 py-2 px-4  flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative overflow-hidden p-2 text-neutral-800  border-neutral-800`}
-      >
-        <span className="hover-group:text-stone-200  opacity-0 translate-">
-          PROJECT
-          <FontAwesomeIcon className="ml-3 -rotate-45" icon={faArrowRight} />
-        </span>
-        <span className="transition-all  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
-          WEBSITE
-          <FontAwesomeIcon className="ml-3 -rotate-45" icon={faArrowRight} />
-        </span>
-        <span className="transition-all   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
-          WEBSITE
-          <FontAwesomeIcon className="ml-3 -rotate-45" icon={faArrowRight} />
-        </span>
-      </div>
-    </a>
+      <GsapMagnetic>
+        <div>
+          {" "}
+          <audio ref={clickSoundRef} src="/click1.wav"></audio>
+          <div
+            className={`group border-1 py-2 px-4  flex 2xl:text-lg xl:text-md lg:text-sm justify-center items-center cursor-pointer transition-all w-fit relative overflow-hidden p-2   border-neutral-200`}
+          >
+            <span className="hover-group:text-stone-200  opacity-0 translate-">
+              PROJECT
+              <FontAwesomeIcon
+                className="ml-3 -rotate-45"
+                icon={faArrowRight}
+              />
+            </span>
+            <span className="transition-all  duration-300 absolute group-hover:-translate-y-10 group-hover:translate-x-20">
+              WEBSITE
+              <FontAwesomeIcon
+                className="ml-3 -rotate-45"
+                icon={faArrowRight}
+              />
+            </span>
+            <span className="transition-all   duration-300 absolute translate-y-10  group-hover:-translate-y-0 group-hover:translate-x-0 -translate-x-20">
+              WEBSITE
+              <FontAwesomeIcon
+                className="ml-3 -rotate-45"
+                icon={faArrowRight}
+              />
+            </span>
+          </div>
+        </div>
+      </GsapMagnetic>
+    </Link>
   );
 };
 

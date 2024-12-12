@@ -1,11 +1,11 @@
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Image from "next/image";
-import Link from "next/link";
 
 import React from "react";
-import AnimatedButton from "../components/ModularButton";
+
+import GsapMagnetic from "../utils/GsapMagnetic2";
+
 const About = ({ mainRef }) => {
   const line1ref = useRef(null);
   const line2ref = useRef(null);
@@ -15,14 +15,14 @@ const About = ({ mainRef }) => {
   const line6ref = useRef(null);
   const line7ref = useRef(null);
   const line8ref = useRef(null);
-
+  const line9ref = useRef(null);
+  const line10ref = useRef(null);
+  const bgRef = useRef(null);
   const [isMounted, setIsMounted] = useState(false);
   const imgRef = useRef(null);
   const idoRef = useRef(null);
   const skillsRef = useRef(null);
-  const box1 = useRef(null);
-  const box2 = useRef(null);
-  const box3 = useRef(null);
+
   useEffect(() => {
     setIsMounted(true);
     return () => {
@@ -40,9 +40,12 @@ const About = ({ mainRef }) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: mainRef,
-          start: "5% top",
-          toggleActions: "play none none none",
-          markers: true,
+          start: "6% top",
+          toggleActions: "play reverse play reverse",
+          // "play" quand entre dans la vue
+          // "reverse" quand sort de la vue
+          // "play" quand re-entre
+          // "reverse" quand re-sort
           once: false,
         },
       });
@@ -50,6 +53,7 @@ const About = ({ mainRef }) => {
       // Animation sequence
       tl.from(line1ref.current, {
         y: 50,
+
         opacity: 0,
         duration: 0.8,
         ease: "power2.out",
@@ -125,14 +129,34 @@ const About = ({ mainRef }) => {
           "-=0.7"
         )
         .from(
-          imgRef.current,
+          line9ref.current,
           {
-            x: 50,
+            y: 50,
             opacity: 0,
             duration: 0.8,
             ease: "power2.out",
           },
           "-=0.7"
+        )
+        .from(
+          line10ref.current,
+          {
+            rotate: 0,
+            scale: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "+=0.7"
+        )
+        .from(
+          imgRef.current,
+          {
+            y: 50,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power2.out",
+          },
+          "-=1"
         );
     });
 
@@ -144,255 +168,207 @@ const About = ({ mainRef }) => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // Animation 1 : déplacement de l'élément idoRef
+    gsap.to(idoRef.current, {
+      scrollTrigger: {
+        trigger: mainRef,
+        start: "9%",
+        end: "30%",
+        scrub: true,
+      },
+      x: 500,
+    });
+
+    // Animation 2 : déplacement de l'élément skillsRef
+    gsap.to(skillsRef.current, {
+      scrollTrigger: {
+        trigger: mainRef,
+        start: "9%",
+        end: "30%",
+        scrub: true,
+      },
+      x: -500,
+    });
+  }, [mainRef]);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: mainRef,
-        start: "8%",
-        end: "17%",
-        scrub: 2,
+        start: "top",
+        end: "bottom",
+        scrub: true,
         id: "background-animation",
       },
     });
 
-    tl.to(idoRef.current, {
-      x: "50%",
-      ease: "none",
-    });
-    tl.to(
-      skillsRef.current,
+    tl.fromTo(
+      bgRef.current,
       {
-        x: "-50%",
+        y: "2vw",
         ease: "none",
       },
-      "<="
+      {
+        y: "34vw",
+      }
     );
   }, []);
-  useEffect(() => {
-    if (!isMounted || typeof window === "undefined") return;
-
-    // Configuration de la timeline
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: mainRef,
-          start: "19% top",
-          toggleActions: "play none none none",
-          markers: true,
-          once: false,
-        },
-      });
-      const tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: mainRef,
-          start: "23% top",
-          toggleActions: "play none none none",
-          markers: true,
-          once: false,
-        },
-      });
-      const tl3 = gsap.timeline({
-        scrollTrigger: {
-          trigger: mainRef,
-          start: "27% top",
-          toggleActions: "play none none none",
-          markers: true,
-          once: false,
-        },
-      });
-
-      // Animation sequence
-      tl.from(box1.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-
-      tl2.from(box2.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-      tl3.from(box3.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-    });
-
-    // Cleanup function
-    return () => {
-      ctx.revert();
-    };
-  }, [isMounted, mainRef]);
   return (
-    <div className=" py-28 items-start justify-center text-[1.8vw] flex w-4/5 font-Satoshi  px-10 relative flex-col font-thin">
-      <div
-        ref={line1ref}
-        className="mb-16 flex items-center text-[2.5vw]  w-full z-20 "
-      >
-        Hey! I'm <span className="opacity-0">.</span>
-        <span className=" font-Satoshi font-bold">Valentin</span>
-        <span className="opacity-0">.</span> a 28 years old developer.
-      </div>
-      <div className="w-full flex translate-x-[3%]">
-        <div className="">
-          <div ref={line2ref} className="flex">
-            <span className="flex">
-              I strive to <span className="opacity-0">.</span>{" "}
-              <p className="font-bold"> create</p>
-              <span className="opacity-0">.</span> intuitive and usefull{" "}
-              <span className="opacity-0">.</span>
-              {/* <img
-                className="w-[2.3vw] animate-atom grayscale "
-                src="/svg/atom.svg"
-              ></img> */}
-              {/* <span className="opacity-0">.</span> */}
-              interfaces<span></span>
-            </span>
+    <div className="   text-neutral-200 justify-start text-[1.8vw]  h-[60vh]  w-full font-Satoshi  relative flex font-thin items-center  overflow-hidden z-20">
+      <div className="w-full flex flex-col  items-start pl-[10vw]  justify-start  ">
+        <div className="w-fit flex flex-col  items-start">
+          <div ref={line2ref} className="flex  font-bold text-[2.5vw]">
+            <span className="font-thin mr-[0.5vw]">Hey ! I'm </span> Valentin
           </div>
-          <div ref={line3ref} className="flex">
-            for your web applications.
-            {/* <img
-              className="w-[2vw]  animate-web perspective-[1000px]"
-              src="/svg/web.svg"
-            ></img>{" "} */}
+          <div ref={line3ref} className="flex  mt-[2%] ">
+            I build websites with a high sense of interactivity and performance,
           </div>
-          <div ref={line4ref} className="flex">
-            <span className="flex">
-              {" "}
-              I'm <span className="opacity-0">.</span>
-              {/* <img
-                className="w-[2vw]  animate-heartpulse"
-                src="/svg/heart3.svg"
-              ></img>
-              <span className="opacity-0">.</span> */}
-              <p className="font-bold"> passionate</p>{" "}
-              <span className="opacity-0">.</span> about{" "}
-              <span className="opacity-0">.</span> <span>animations</span>{" "}
-              <span className="opacity-0">.</span>and transitions,
-            </span>{" "}
+
+          <div ref={line4ref} className="text-center">
+            my work focus on delivering web interfaces that perfectly
           </div>
-          <div ref={line5ref} className="flex">
-            <span className="flex">
-              {" "}
-              that gives a unique feeling
-              <span className="opacity-0">.</span>
-              {/* <img className="w-[2vw] " src="/svg/smile1.svg"></img>
-              <span className="opacity-0">.</span> */}
-              to a <span className="opacity-0">.</span>
-              <p className="font-bold"> website</p>.
-            </span>{" "}
+          <div ref={line5ref} className="text-center">
+            suits your needs and ahestetics
           </div>
-          {/* <div ref={line6ref} className="flex">
-            <span className="flex">
-              {" "}
-              I also produce <span className="opacity-0">.</span>
-              <img
-                className="w-[2vw] animate-speaker "
-                src="/svg/speaker.svg"
-              ></img>{" "}
-              <span className="opacity-0">.</span>
-              electronic music as <span className="opacity-0">.</span>
-              <Link
-                target="_blank"
-                href="https://open.spotify.com/intl-fr/artist/1dkEG4atVRsDIkhriguiSp"
+
+          <div ref={line6ref} className=" text-[1vw] mt-[2vw]  ">
+            {" "}
+            <GsapMagnetic>
+              <a
+                href="/about"
+                className="text-[1vw] w-fit font-thin   z-30 cursor-pointer    group relative overflow-hidden"
               >
-                "Blenk".
-              </Link>
-            </span>{" "}
-          </div> */}
-          <div ref={line7ref} className="mt-10 text-[1vw]">
-            Don't hesitate to get in touch !
+                <div
+                  className="border-2 rounded-full border-neutral-200 button py-3 px-5 group-hover:bg-neutral-100 group-hover:bg-opacity-20  transition duration-200 relative z-20 
+
+                [perspective:1000px]"
+                >
+                  <span className="text-neutral-100 transition-all    group-hover:translate-x-full duration-300 ">
+                    learn more
+                  </span>
+                </div>
+              </a>
+            </GsapMagnetic>
           </div>
-          <div
-            ref={line8ref}
-            className="mt-8 text-[1vw] w-fit py-3 border-1  border-neutral-200"
-          >
-            <AnimatedButton text="CONTACT ME" />
-          </div>
-          {/* <div
-            ref={imgRef}
-            className="w-[15vw]  z-10 absolute top-[15%] right-[10%] "
-          >
-            <div className="relative">
-              <Image
-                src="/valentin.webp"
-                width={2365}
-                height={3348}
-                className="opacity-90 z-50 "
-                alt="Valentin Mor"
-              ></Image>
+          {/* <div ref={line6ref}>
+            {" "}
+            <div className="text-[1vw] w-fit mt-[2vw] font-thin   z-30 cursor-pointer    group relative overflow-hidden ">
+              {" "}
+              <div
+                className="border-2 rounded-full shadow-lg border-neutral-800 py-3 px-5  group-hover:bg-opacity-20  transition duration-200 relative z-20 
+
+               [perspective:1000px]"
+              >
+                {" "}
+                <span className="text-neutral-800 transition-all    group-hover:translate-y-full opacity-0 duration-300 ">
+                  download resume
+                </span>
+                <span className="text-neutral-800 absolute top-1/2 translate-x-1/2 right-1/2 text-nowrap -translate-y-1/2 transition-all    group-hover:translate-y-[200%] duration-500 ">
+                  download resume
+                </span>
+                <span className="text-neutral-800 flex justify-evenly transition-all   absolute w-full group-hover:-translate-y-1/2 top-1/2 -translate-y-[220%] translate-x-1/2 right-1/2 duration-500 ">
+                  <img src="/d.svg" className="w-[1.5vw]"></img>{" "}
+                  <img src="/d.svg" className="w-[1.5vw]"></img>
+                </span>
+              </div>
             </div>
           </div> */}
-        </div>
-      </div>
-      <div className="mt-[15%] flex  items-end justify-between w-full">
-        <div ref={idoRef} className="text-[10vw] font-bold relative ">
-          I DO{" "}
-        </div>
-        <div
-          ref={skillsRef}
-          className="space-y-[2vw] flex flex-col items-start justify-end"
-        >
-          <div
-            ref={line1ref}
-            className="flex  items-center  transition-all duration-500  text-[2.5vw]   z-20 "
-          >
-            Web Developpement
-          </div>
-          <div
-            ref={line1ref}
-            className=" flex items-center text-[2.5vw]    z-20 "
-          >
-            Sound Design
-          </div>
-          <div
-            ref={line1ref}
-            className="flex items-center text-[2.5vw]    z-20 "
-          >
-            Creative coding
-          </div>
-        </div>
-      </div>
-      <div className=" translate-y-[20%] z-40 text-[1.5vw] flex flex-col items-center justify-center w-full relative h-full ">
-        <div
-          ref={box1}
-          className=" relative flex flex-col p-10 w-1/3 items-center justify-center over   "
-        >
-          <div className="flex  items-center       ">
-            When i'm developing your website,
-          </div>
-          <div className="flex  items-center       ">
-            I focus on understanding your goals and preferences.
-          </div>
-          <div className="absolute -top-12 -left-10 border-1 border-neutral-200 border-opacity-30 rounded-full w-[4vw] h-[4vw] text-[2vw] flex items-center bg-slate-700  justify-center">
-            01
-          </div>
-        </div>
 
-        <div
-          ref={box2}
-          className="flex border-opacity-30 items-center w-1/3 text-center  over relative   p-10 mt-32   "
-        >
-          Building a seamless user experience through thoughtful animations and
-          intuitive interactions.
-          <div className="absolute -top-12 -left-10  rounded-full w-[4vw] h-[4vw] text-[2vw] flex items-center bg-slate-700  justify-center">
-            02
-          </div>
+          {/* <div className="text-[2vw] mt-[10%] flex flex-col space-y-10">
+            {" "}
+            <div
+              ref={line7ref}
+              className="flex  lg:space-y-2 space-y-3 flex-col"
+            >
+              <h4 className="font-bold mb-2  flex items-center space-x-3 text-neutral-600 text-nowrap ">
+              
+                <span>i work w/</span>
+              </h4>
+              <ul className="cursor-default flex flex-col space-y-1 text-[1vw]">
+                <li ref={line8ref} className="relative group overflow-hidden">
+                  {" "}
+                  <span className="">
+                    Javascript, TypeScript w/ Next.js, React, GSAP, Tailwind{" "}
+                  </span>
+                </li>
+                <li className="relative group overflow-hidden"> </li>
+                <li ref={line9ref} className="relative group overflow-hidden">
+                  {" "}
+                  <span className="">WebGL, Node.js w/ Express, MongoDB</span>
+                </li>
+                <li className="relative group overflow-hidden"> </li>
+              </ul>
+            </div>
+          </div> */}
+          {/* <div
+            ref={line10ref}
+            className="flex justify-between w-[10vw] text-[1.5vw] mt-[7%]  "
+          >
+            {" "}
+            <FontAwesomeIcon
+              className="hover:scale-110 hover:textcolor2 transition-all ease-in-out duration-300 cursor-pointer"
+              icon={faLinkedin}
+            />
+            <FontAwesomeIcon
+              icon={faGithub}
+              className="hover:scale-110 hover:textcolor2 transition-all ease-in-out duration-300 cursor-pointer"
+            />
+            <FontAwesomeIcon
+              icon={faSpotify}
+              className="hover:scale-110 hover:textcolor2 transition-all ease-in-out duration-300 cursor-pointer"
+            />
+            <FontAwesomeIcon
+              icon={faInstagram}
+              className="hover:scale-110 hover:textcolor2 transition-all ease-in-out duration-300 cursor-pointer"
+            />
+          </div> */}
         </div>
+      </div>
+      {/* <div className="w-1/2 relative flex items-center justify-start flex-col">
         <div
-          ref={box3}
-          className="flex border-opacity-30 items-center w-1/3   mt-32   over p-10   relative   "
+          ref={bgRef}
+          className="w-[18vw] h-[22.9vw] relative overflow-hidden"
         >
-          Delivering a usefull interface that needs the less possible
-          maintenancy
-          <div className="absolute -top-12 -left-10  rounded-full w-[4vw] h-[4vw] text-[2vw] flex items-center bg-slate-700  justify-center">
-            03
-          </div>
+        
+
+          <img
+            ref={imgRef}
+            className="shadow-xl opacity-80  top-0"
+            src="/ValentinMor.webp"
+          ></img>
         </div>
+      </div> */}
+      <div
+        ref={imgRef}
+        className="overflow-hidden aspect-square absolute opacity-100 w-[15vw] right-[10%]  top-1/2 -translate-y-1/2 z-60"
+      >
+        {" "}
+        <img
+          className=" scale-[130%] relative opacity-70 -translate-y-[10%]"
+          src="/ValentinMor.webp"
+        ></img>
+      </div>
+      <div className="overflow-hidden aspect-square absolute  w-[15vw] right-[13%] scale-[110%] top-[58%] opacity-70 blur-[1px] -translate-y-1/2 z-10">
+        {" "}
+        <img
+          className=" scale-[130%] relative opacity-70 -translate-y-[10%]"
+          src="/ValentinMor.webp"
+        ></img>
+      </div>
+      <div className="overflow-hidden aspect-square absolute  w-[15vw] right-[12%] scale-[105%] top-[55%] opacity-70 blur-[1px] -translate-y-1/2 z-10">
+        {" "}
+        <img
+          className=" scale-[130%] relative opacity-70 -translate-y-[10%]"
+          src="/ValentinMor.webp"
+        ></img>
+      </div>
+      <div className="overflow-hidden aspect-square absolute  w-[15vw] right-[15%] scale-[120%] top-[70%] opacity-70 blur-[1px] -translate-y-1/2 z-10">
+        {" "}
+        <img
+          className=" scale-[130%] relative opacity-70 -translate-y-[10%]"
+          src="/ValentinMor.webp"
+        ></img>
       </div>
     </div>
   );

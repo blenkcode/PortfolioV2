@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 
 const fragmentShader = `
@@ -7,35 +8,74 @@ const fragmentShader = `
     uniform vec2 uPrevMouse;
     uniform float uAberrationIntensity;
     uniform vec2 uResolution;
-    
-    void main() {
-      vec2 uv = vec2(gl_FragCoord.x / uResolution.x, gl_FragCoord.y / uResolution.y);
-      vec2 mouseDirection = uMouse - uPrevMouse;
-      vec2 toMouse = uv - uMouse;
-      
-      // Normaliser la distance en fonction de la résolution
-      float aspectRatio = uResolution.x / uResolution.y;
-      vec2 scaledDistance = vec2(toMouse.x * aspectRatio, toMouse.y);
-      float distanceToMouse = length(scaledDistance) * 3.9; // Rayon constant
-      
-      float waveFrequency = 5.0;
-      float waveAmplitude = 0.1;
-      float rippleSpeed = 6.0;
-      
-      float ripple = sin(distanceToMouse * waveFrequency - length(mouseDirection) * rippleSpeed) 
-                  * exp(-distanceToMouse * 1.5)
-                  * waveAmplitude 
-                  * uAberrationIntensity;
-      
-      vec2 uvOffset = normalize(toMouse) * ripple;
-      vec2 uv2 = uv + uvOffset;
-      
-      vec4 color = texture2D(uTexture, uv2);
-      
-      gl_FragColor = color;
-  }
-`;
+    uniform float uTime;
 
+    // Fonction de hash pour générer du bruit pseudo-aléatoire
+    vec2 hash( vec2 p ) {
+        p = vec2(dot(p,vec2(127.1,311.7)), dot(p,vec2(269.5,183.3)));
+        return -1.0 + 2.0*fract(sin(p)*43758.5453123);
+    }
+
+    // Fonction de bruit de Perlin
+    float noise( in vec2 p ) {
+        const float K1 = 0.366025404;
+        const float K2 = 0.211324865;
+        
+        vec2 i = floor(p + (p.x+p.y)*K1);
+        vec2 a = p - i + (i.x+i.y)*K2;
+        vec2 o = (a.x>a.y) ? vec2(1.0,0.0) : vec2(0.0,1.0);
+        vec2 b = a - o + K2;
+        vec2 c = a - 1.0 + 2.0*K2;
+        
+        vec3 h = max(0.5-vec3(dot(a,a), dot(b,b), dot(c,c)), 0.0);
+        
+        vec3 n = h*h*h*h*vec3(dot(a,hash(i+0.0)), dot(b,hash(i+o)), dot(c,hash(i+1.0)));
+        
+        return dot(n, vec3(70.0));
+    }
+
+    // Fonction de bruit FBM (Fractional Brownian Motion)
+    float fbm(vec2 p) {
+        float value = 0.0;
+        float amplitude = 0.5;
+        float frequency = 1.0;
+        
+        for (int i = 0; i < 5; i++) {
+            value += amplitude * noise(p * frequency + uTime * 0.2);
+            amplitude *= 2.5;
+            frequency *= 2.0;
+        }
+        
+        return value;
+    }
+
+    void main() {
+        vec2 uv = vec2(gl_FragCoord.x / uResolution.x, gl_FragCoord.y / uResolution.y);
+        vec2 mouseDirection = uMouse - uPrevMouse;
+        vec2 toMouse = uv - uMouse;
+        
+        float aspectRatio = uResolution.x / uResolution.y;
+        vec2 scaledDistance = vec2(toMouse.x * aspectRatio, toMouse.y);
+        float distanceToMouse = length(scaledDistance) * 3.9;
+        
+        // Générer le noise
+        vec2 noiseCoord = uv * 10.0;
+        float noiseValue = fbm(noiseCoord + uTime * 0.3);
+        
+        // Combiner le noise avec l'effet de hover
+        float distortionAmount = exp(-distanceToMouse * 1.5) * uAberrationIntensity;
+        vec2 distortion = vec2(
+            noiseValue * cos(uTime + uv.x * 10.0),
+            noiseValue * sin(uTime + uv.y * 10.0)
+        ) * distortionAmount * 0.02;
+        
+        vec2 finalUV = uv + distortion;
+        
+        vec4 color = texture2D(uTexture, finalUV);
+        
+        gl_FragColor = color;
+    }
+`;
 const vertexShader = `
     attribute vec2 aPosition;
     void main() {
@@ -43,12 +83,7 @@ const vertexShader = `
     }
 `;
 
-const TextDistortion = ({
-  text,
-  fontSize = "48px",
-  className = "",
-  onLoad,
-}) => {
+const TextDistortion = ({ text, fontSize = "1vw", className = "", onLoad }) => {
   const canvasRef = useRef(null);
   const textCanvasRef = useRef(null);
   const requestRef = useRef(null);
@@ -63,6 +98,9 @@ const TextDistortion = ({
   const targetAberrationRef = useRef(0.0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const transitionTimeout = useRef(null);
+  const startTimeRef = useRef(Date.now());
+  const [time, setTime] = useState(0);
+
   const loadFont = async () => {
     const font = new FontFace("Projekt", "url(/fonts/Satoshi-Variable.woff2)", {
       weight: "bold",
@@ -78,24 +116,22 @@ const TextDistortion = ({
     const devicePixelRatio =
       typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
 
-    // Convertir vw en pixels
     const vw = window.innerWidth / 100;
     const fontSizeInPx = parseFloat(fontSize) * vw;
 
     const ctx = textCanvas.getContext("2d", { alpha: true });
     ctx.font = `bold ${fontSizeInPx}px Projekt`;
 
-    // Séparer et mesurer les lignes
     const lines = text.split("\n");
-    const lineHeight = fontSizeInPx * 1.2;
+    const lineHeight = fontSizeInPx * 1;
     const maxWidth = Math.max(
       ...lines.map((line) => ctx.measureText(line).width)
     );
     const totalHeight = lineHeight * lines.length;
 
     const padding = fontSizeInPx * 0.1;
-    const finalWidth = maxWidth + padding * 2;
-    const finalHeight = totalHeight + padding * 2;
+    const finalWidth = maxWidth + padding * 35;
+    const finalHeight = totalHeight + padding * 10;
 
     setDimensions({ width: finalWidth, height: finalHeight });
 
@@ -109,7 +145,7 @@ const TextDistortion = ({
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
 
-    ctx.fillStyle = "#F8F8F8";
+    ctx.fillStyle = "#E5E5E5";
     ctx.font = `bold ${fontSizeInPx}px Projekt`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -225,10 +261,13 @@ const TextDistortion = ({
 
       if (!gl || !program) return;
 
+      const currentTime = (Date.now() - startTimeRef.current) / 1000;
+      setTime(currentTime);
+
       gl.clearColor(0.0, 0.0, 0.0, 0.0);
       gl.clear(gl.COLOR_BUFFER_BIT);
 
-      const easeFactorPosition = isTransitioning ? 0.5 : 0.05;
+      const easeFactorPosition = isTransitioning ? 0.5 : 0.1;
       const newMousePos = {
         x: lerp(mousePos.x, targetMousePos.x, easeFactorPosition),
         y: lerp(mousePos.y, targetMousePos.y, easeFactorPosition),
@@ -238,7 +277,7 @@ const TextDistortion = ({
       const newAberrationIntensity = lerp(
         aberrationIntensity,
         targetAberrationRef.current,
-        0.03 // Modifié de 0.1 à 0.03 pour un fade out plus lent
+        0.03
       );
       setAberrationIntensity(newAberrationIntensity);
 
@@ -256,6 +295,7 @@ const TextDistortion = ({
         gl.getUniformLocation(program, "uAberrationIntensity"),
         newAberrationIntensity
       );
+      gl.uniform1f(gl.getUniformLocation(program, "uTime"), currentTime);
 
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       requestRef.current = requestAnimationFrame(animate);
@@ -273,11 +313,12 @@ const TextDistortion = ({
     prevMousePos,
     aberrationIntensity,
     isTransitioning,
-  ]); // Ajoutez isTransitioning aux dépendances
+    time,
+  ]);
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    const currentPos = mousePos; // Utilisez la position actuelle
+    const currentPos = mousePos;
     setTargetMousePos(currentPos);
     setPrevMousePos(currentPos);
   };
@@ -286,13 +327,11 @@ const TextDistortion = ({
     setIsHovered(true);
     setIsTransitioning(true);
 
-    // Réinitialiser la position au point d'entrée
     const newPos = calculateMousePosition(e);
     setMousePos(newPos);
     setTargetMousePos(newPos);
     setPrevMousePos(newPos);
 
-    // Désactiver la transition après un court délai
     if (transitionTimeout.current) {
       clearTimeout(transitionTimeout.current);
     }

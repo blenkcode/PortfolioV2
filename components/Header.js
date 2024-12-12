@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Time from "./Time";
 import gsap from "gsap";
 import { useRouter } from "next/router";
-
+import AnimatedButton from "./ModularButton";
 function Header() {
   const hoverSoundRef = useRef(null);
   const clickSoundRef = useRef(null);
@@ -68,59 +68,36 @@ function Header() {
         y: 0,
 
         duration: 1.2,
-        delay: 6.6,
+        // delay: 6.6,
         ease: "power1.out",
       }
     );
   }, []);
+
   return (
     <div
       ref={headerRef}
-      className="absolute md:top-7 lg:text-base text-sm top-4 left-0 w-full h-auto bg-transparent items-center z-50 text-neutral-200 "
+      className="absolute md:top-7 font-Satoshi font-thin invisible   lg:text-base text-sm top-4 left-0 w-full h-auto flex items-start justify-start  z-50 text-neutral-200 "
     >
-      <div className="flex lg:px-7 px-2 w-full justify-between  items-center  ">
-        <audio ref={bassRef} src="/reversebass.wav"></audio>
-        <audio ref={hoverSoundRef} src="/interface1.wav"></audio>
-        <audio ref={clickSoundRef} src="/click1.wav"></audio>
-
-        <audio ref={swooshRef} src="/swoosh.wav"></audio>
-        <div className="flex w-fit z-50">
-          <div
-            onClick={handlerouter}
-            onMouseEnter={playHoverSound}
-            className={`sm:mr-20 lg:mr-5 xl:mr-20  w-fit  font-Satoshi cursor-pointer relative group `}
-          >
-            <span className="opacity-0">V</span>
-            <span className="opacity-0">V</span>
-            <span className="opacity-0">V</span>
-            <span className="opacity-0">V</span>
-            <span className="opacity-0">/</span>
-            <span className="opacity-0">M</span>
-            <div className="-translate-y-6 translate-x-6">
-              <span className="absolute font-bold -translate-x-4 group-hover:-translate-x-1 transition-all duration-200 2xl:text-base lg:text-sm">
-                V
-              </span>
-              <span
-                className={`absolute   group-hover:opacity-0 transition-all duration-200 2xl:text-base lg:text-sm `}
-              >
-                /
-              </span>
-              <span className="absolute font-bold translate-x-3 2xl:text-base lg:text-sm">
-                M
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className={`flex  items-center justify-end w-fit lg:max-w-none max-w-36  `}
-        >
+      {/* <div className="flex lg:px-7 px-2 w-full justify-between  items-center  ">
+        <div className="font-thin font-Satoshi    w-fit  transition-all text-[1vw] duration-200">
           {" "}
-          <div className=" md:relative absolute -translatey-full lg:-translate-y-0">
-            {" "}
-            <Time></Time>
-          </div>
-        </div>
+         
+        </div>{" "}
+      </div> */}
+      <div className=" w-fit flex space-x-[3vw] ml-[5vw] text-[1.3vw]">
+        <span>
+          {" "}
+          <AnimatedButton text="home" />
+        </span>
+        <span>
+          {" "}
+          <AnimatedButton text="about" />
+        </span>
+        <span>
+          {" "}
+          <AnimatedButton text="contact" />
+        </span>
       </div>
     </div>
   );

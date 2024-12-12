@@ -1,7 +1,7 @@
 import Home from "../components/Home";
-
+import Maintenance from "../components/Maintenance";
 function Index() {
-  return <Home />;
+  return <Maintenance />;
 }
 
 export default Index;

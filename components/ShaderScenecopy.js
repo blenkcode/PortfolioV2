@@ -67,10 +67,10 @@ class WarpMaterial extends THREE.ShaderMaterial {
           // Utilisation du bruit pour créer un effet liquide
           float noise1 = snoise(uv * 1.5 + vec2(slowTime * 0.5));
           float noise2 = snoise(uv * 2.0 - vec2(slowTime * 0.3));
-          float noise3 = snoise(uv * 3.0 + vec2(slowTime * 0.7));
+          float noise3 = snoise(uv * 4.0 + vec2(slowTime * 0.7));
           
           // Combinaison des différentes couches de bruit
-          float finalNoise = noise1 * 0.5 + noise2 * 0.3 + noise3 * 0.2;
+          float finalNoise = noise1 * 8.9 + noise2 * 10.4 + noise3 * 2.3;
           
           // Calcul de la distance entre le pointeur et chaque pixel
           float distance = length(uv - uMousePos) * 10.0;
@@ -81,11 +81,11 @@ class WarpMaterial extends THREE.ShaderMaterial {
           uv.y += distortionAmount * finalNoise;
           
           vec3 color1 = vec3(0.398, 0.398, 0.398);
-          vec3 color2 = vec3(0.267, 0.267, 0.267);
-          vec3 color3 = vec3(0.898, 0.898, 0.898);
+          vec3 color2 = vec3(0.167, 0.167, 0.167);
+          vec3 color3 = vec3(0.798, 0.798, 0.798);
           
           // Utilisation du bruit pour le mélange des couleurs
-          float colorMix = (finalNoise + 1.0) * 0.5;
+          float colorMix = (finalNoise + 1.0) * 0.1;
           
           vec3 color;
           if(colorMix < 0.5) {
